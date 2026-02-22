@@ -1,0 +1,41 @@
+site:
+  name: "FMP Community Knowledge Base"
+  default_markets: ["building-power", "smart-buildings", "data-centers"]
+  default_language: "en"
+
+players:
+  - name: "VoltServer"
+    slug: "voltserver"
+    domains: ["voltserver.com"]
+    preferred_pages:
+      - "https://www.voltserver.com"
+    social_links:
+      - "https://www.linkedin.com/company/voltserver/"
+    notes: "Primary OEM / FMP supplier"
+
+  - name: "Panduit"
+    slug: "panduit"
+    domains: ["panduit.com"]
+    preferred_pages:
+      - "https://www.panduit.com"
+    social_links:
+      - "https://www.linkedin.com/company/panduit/"
+    notes: "OEM / infrastructure supplier"
+
+  - name: "Cisco"
+    slug: "cisco"
+    domains: ["cisco.com"]
+    preferred_pages:
+      - "https://www.cisco.com"
+    social_links:
+      - "https://www.linkedin.com/company/cisco/"
+    notes: "Focus on power/building/OT topics"
+
+  - name: "FMP Alliance"
+    slug: "fmp-alliance"
+    domains: ["faultmanagedpower.org"]
+    preferred_pages:
+      - "https://faultmanagedpower.org"
+    social_links:
+      - "https://www.linkedin.com/company/fault-managed-power-alliance/"
+    notes: "Industry group"

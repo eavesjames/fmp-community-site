@@ -1,0 +1,28 @@
+settings:
+  max_results_per_query: 10
+  recency_days: 21
+  require_canonical_domains: true
+
+queries:
+  - name: "VoltServer FMP updates"
+    player: "voltserver"
+    site_domain: "voltserver.com"
+    query: 'site:voltserver.com ("fault managed power" OR "Class 4" OR "UL 1400") (news OR press OR release)'
+
+  - name: "Panduit Class 4 updates"
+    player: "panduit"
+    site_domain: "panduit.com"
+    query: 'site:panduit.com ("Class 4" OR "fault managed power") (news OR release)'
+
+  - name: "Cisco power/building updates"
+    player: "cisco"
+    site_domain: "cisco.com"
+    query: 'site:cisco.com (power OR building OR industrial) (news OR announcement)'
+
+  - name: "FMP Alliance updates"
+    player: "fmp-alliance"
+    query: '"fault managed power" (alliance OR conference OR webinar OR standard)'
+
+  - name: "Global FMP events"
+    player: "other"
+    query: '"fault managed power" (conference OR webinar OR symposium)'

@@ -1,0 +1,86 @@
+baseURL = "https://faultmanagedpower.org/"
+languageCode = "en-us"
+title = "FMP Community Knowledge Base"
+theme = "congo"
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+[minify]
+  disableXML = true
+  minifyOutput = true
+
+[permalinks]
+  pulse = "/pulse/:slug/"
+  digests = "/digests/:slug/"
+  posts = "/posts/:slug/"
+  topics = "/topics/:slug/"
+  players = "/players/:slug/"
+  glossary = "/glossary/:slug/"
+  library = "/library/:slug/"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+
+[params]
+  description = "Continuously updated knowledge base for Fault Managed Power"
+
+  colorScheme = "auto"
+  defaultAppearance = "light"
+  enableSearch = true
+  enableCodeCopy = true
+
+  [params.homepage]
+    layout = "page"
+    showRecent = true
+    recentLimit = 10
+
+  [params.article]
+    showDate = true
+    showDateUpdated = true
+    showBreadcrumbs = true
+    showTableOfContents = true
+    showTaxonomies = true
+    showReadingTime = true
+
+  [params.list]
+    showBreadcrumbs = true
+    showSummary = true
+
+[taxonomies]
+  player = "players"
+  topic = "topics"
+  value_lever = "value_levers"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[menu]
+  [[menu.main]]
+    identifier = "pulse"
+    name = "Pulse"
+    url = "/pulse/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "topics"
+    name = "Topics"
+    url = "/topics/"
+    weight = 20
+
+  [[menu.main]]
+    identifier = "players"
+    name = "Players"
+    url = "/players/"
+    weight = 30
+
+  [[menu.main]]
+    identifier = "library"
+    name = "Library"
+    url = "/library/"
+    weight = 40
