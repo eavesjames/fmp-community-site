@@ -276,6 +276,30 @@
     "score": 20
   },
   {
+    "id": 13,
+    "slug": "2025-02-11-other-jason-shearer--poe-smartbuilding",
+    "title": "Jason Shearer - poe #smartbuilding #fmp",
+    "description": "LinkedIn post discussing momentum in the power distribution industry, specifically the transition from traditional PoE to higher power systems like Fault Managed Power.",
+    "canonical_source": "https://www.linkedin.com/posts/jasonshearer_poe-smartbuilding-fmp-activity-7428028774929330176-eObL",
+    "artifact_type": "other",
+    "publish_date": "2025-02-11",
+    "discovered_at": "2026-02-23T15:58:54.052876",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "smart-buildings",
+      "digital-connectivity"
+    ],
+    "value_levers": [
+      "digital-connectivity",
+      "feasibility"
+    ],
+    "confidence": "medium",
+    "summary": "A LinkedIn post by Jason Shearer addressing industry momentum toward higher power distribution systems, specifically highlighting Fault Managed Power as an evolution beyond traditional PoE. The post solicits perspectives on this transition in the context of smart building applications.",
+    "score": 17
+  },
+  {
     "id": 19,
     "slug": "2026-02-22-other-news--events",
     "title": "News & Events",
