@@ -4,8 +4,12 @@ import json
 from pathlib import Path
 from datetime import datetime
 import anthropic
+from dotenv import load_dotenv
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent
+
+# Load environment variables from .env file
+load_dotenv(PROJECT_ROOT / ".env")
 
 def extract_metadata_from_url(url, title, snippet, client):
     """Use Claude to extract metadata from a URL"""
@@ -28,7 +32,7 @@ Extract the following information:
 8. **summary**: 2-3 sentence summary of what this is and why it matters for FMP
 
 Respond ONLY with valid JSON:
-{
+{{
   "artifact_type": "...",
   "publish_date": "...",
   "description": "...",
@@ -37,7 +41,7 @@ Respond ONLY with valid JSON:
   "value_levers": [...],
   "confidence": "...",
   "summary": "..."
-}"""
+}}"""
 
     try:
         message = client.messages.create(

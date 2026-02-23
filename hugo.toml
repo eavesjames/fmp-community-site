@@ -1,7 +1,7 @@
 baseURL = "https://faultmanagedpower.org/"
 languageCode = "en-us"
 title = "FMP Community Knowledge Base"
-theme = "congo"
+theme = "PaperMod"
 
 enableRobotsTXT = true
 buildDrafts = false
@@ -26,6 +26,7 @@ buildExpired = false
   section = ["HTML", "RSS"]
 
 [params]
+  author = "FMP Community"
   description = "Continuously updated knowledge base for Fault Managed Power"
 
   colorScheme = "auto"

@@ -5,8 +5,12 @@ import yaml
 from pathlib import Path
 from datetime import datetime, timedelta
 import requests
+from dotenv import load_dotenv
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent
+
+# Load environment variables from .env file
+load_dotenv(PROJECT_ROOT / ".env")
 
 def load_queries():
     """Load search queries from config"""
