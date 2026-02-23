@@ -1,10 +1,28 @@
 """Normalize and dedupe items into master items.json"""
 import json
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 from urllib.parse import urlparse
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent
+
+# Maximum age for content to be included (days)
+MAX_CONTENT_AGE_DAYS = 30
+
+def is_too_old(item, max_age_days=MAX_CONTENT_AGE_DAYS):
+    """Check if content is older than the threshold"""
+    # Check publish_date first, then fall back to discovered_at
+    date_str = item.get("publish_date") or item.get("discovered_at", "")[:10]
+
+    if not date_str:
+        return False  # If no date, allow it through
+
+    try:
+        content_date = datetime.fromisoformat(date_str)
+        age_days = (datetime.now() - content_date).days
+        return age_days > max_age_days
+    except:
+        return False  # If date parsing fails, allow it through
 
 def generate_slug(item):
     """Generate URL slug for item"""
@@ -61,6 +79,7 @@ def calculate_score(item):
         "event": 6,
         "standard": 9,
         "doc": 6,
+        "linkedin-post": 5,
     }
     score += type_scores.get(item.get("artifact_type", "other"), 3)
     
@@ -124,7 +143,14 @@ def run_normalize():
             print(f"  Skipping low confidence: {item.get('title', '')[:50]}")
             skipped_count += 1
             continue
-        
+
+        # Skip old content
+        if is_too_old(item):
+            pub_date = item.get("publish_date") or item.get("discovered_at", "")[:10]
+            print(f"  Skipping old content ({pub_date}): {item.get('title', '')[:50]}")
+            skipped_count += 1
+            continue
+
         # Check for duplicates
         if is_duplicate(item, existing_items):
             print(f"  Duplicate: {item.get('title', '')[:50]}")
