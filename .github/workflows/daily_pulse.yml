@@ -1,0 +1,51 @@
+name: Daily Pulse Update
+
+on:
+  schedule:
+    - cron: '0 9 * * *'  # 9 AM UTC daily
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  daily-pulse:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      
+      - name: Run daily workflow
+        env:
+          SERP_API_KEY: ${{ secrets.SERP_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          cd scripts
+          python3 run.py daily
+      
+      - name: Create Pull Request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "FMP Bot"
+          git config user.email "bot@faultmanagedpower.org"
+          
+          BRANCH="daily-pulse-$(date +%Y%m%d)"
+          git checkout -b "$BRANCH"
+          git add content/pulse data/pulse
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          
+          git commit -m "Daily Pulse update - $(date +%Y-%m-%d)"
+          git push origin "$BRANCH"
+          
+          cd scripts
+          python3 run.py open_pr --title "Daily Pulse - $(date +%Y-%m-%d)" --body "Automated daily Pulse content update"

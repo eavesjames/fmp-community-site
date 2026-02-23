@@ -1,0 +1,50 @@
+name: Weekly Digest
+
+on:
+  schedule:
+    - cron: '0 10 * * 1'  # 10 AM UTC every Monday
+  workflow_dispatch:
+
+jobs:
+  weekly-digest:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      
+      - name: Run weekly workflow
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          cd scripts
+          python3 run.py weekly
+      
+      - name: Create Pull Request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "FMP Bot"
+          git config user.email "bot@faultmanagedpower.org"
+          
+          BRANCH="weekly-digest-$(date +%Y%m%d)"
+          git checkout -b "$BRANCH"
+          git add content data
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          
+          git commit -m "Weekly digest and updates - $(date +%Y-%m-%d)"
+          git push origin "$BRANCH"
+          
+          cd scripts
+          python3 run.py open_pr --title "Weekly Digest - $(date +%Y-%m-%d)" --body "Automated weekly digest, evergreen updates, and glossary additions"
