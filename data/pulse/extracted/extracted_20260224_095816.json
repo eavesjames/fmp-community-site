@@ -1,0 +1,728 @@
+[
+  {
+    "query_name": "Cisco power/building updates",
+    "player": "cisco",
+    "title": "Cisco Announces Silicon One G300 for AI Data Centers",
+    "link": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m02/cisco-announces-new-silicon-one-g300.html",
+    "snippet": "The Cisco Silicon One G300 102.4 Tbps switch silicon can power gigawatt-scale AI clusters for training, inference, and real-time agentic workloads, while ...",
+    "discovered_at": "2026-02-24T09:55:15.079914",
+    "artifact_type": "press",
+    "publish_date": "2026-02-10",
+    "description": "Cisco unveils Silicon One G300 with 102.4 Tbps switching for AI data centers, featuring liquid cooling and 70% energy efficiency improvements for enterprises.",
+    "players": [
+      "cisco"
+    ],
+    "topics": [
+      "data-centers",
+      "digital-connectivity"
+    ],
+    "value_levers": [
+      "operations",
+      "space"
+    ],
+    "confidence": "medium",
+    "summary": "Cisco announces the Silicon One G300 switching silicon and new N9000/8000 systems designed for AI data center buildouts. The announcement highlights 102.4 Tbps switching speeds, 100% liquid cooling options that enable nearly 70% energy efficiency improvements, and enhanced Nexus One management for simplified operations across hyperscalers to enterprises.",
+    "extracted_at": "2026-02-24T09:55:31.435696"
+  },
+  {
+    "query_name": "Cisco power/building updates",
+    "player": "cisco",
+    "title": "Cisco Launches Comprehensive Security Architecture for Industrial IoT",
+    "link": "https://investor.cisco.com/files/doc_news/Cisco-Launches-a-Comprehensive-Security-Architecture-for-Industrial-IoT-2020.pdf",
+    "snippet": "Today, Cisco introduced an IoT security architecture that provides enhanced visibility across both IT and OT environments, and protects industrial processes.",
+    "discovered_at": "2026-02-24T09:55:15.079924",
+    "artifact_type": "press",
+    "publish_date": "2020-01-15",
+    "description": "Cisco introduces IoT security architecture providing enhanced visibility across IT and OT environments to protect industrial processes and infrastructure.",
+    "players": [
+      "cisco"
+    ],
+    "topics": [
+      "smart-buildings",
+      "digital-connectivity"
+    ],
+    "value_levers": [
+      "risk",
+      "operations"
+    ],
+    "confidence": "low",
+    "summary": "Cisco announced a new IoT security architecture designed to provide enhanced visibility and protection across both IT and operational technology (OT) environments. The solution focuses on securing industrial processes and infrastructure in connected environments. While relevant to digital building infrastructure, this content does not directly address Fault Managed Power systems or their specific value propositions.",
+    "extracted_at": "2026-02-24T09:55:36.230669"
+  },
+  {
+    "query_name": "Cisco power/building updates",
+    "player": "cisco",
+    "title": "Cisco Unveils Innovations to Power an Inclusive Future at Cisco Live 2021",
+    "link": "https://investor.cisco.com/files/doc_news/Cisco-Unveils-Crucial-New-Innovations-to-Power-an-Inclusive-Future-for-All-at-Cisco-Live-2021.pdf",
+    "snippet": "The past year has shown us we're stronger together and that technology can empower us to nd new ways to connect, secure and automate a world that is ever- ...",
+    "discovered_at": "2026-02-24T09:55:15.079926",
+    "artifact_type": "press",
+    "publish_date": "2021-06-01",
+    "description": "Cisco announces new innovations for connectivity, security, and automation at Cisco Live 2021, emphasizing technology's role in building a connected future.",
+    "players": [
+      "cisco"
+    ],
+    "topics": [
+      "digital-connectivity",
+      "smart-buildings"
+    ],
+    "value_levers": [
+      "digital-connectivity"
+    ],
+    "confidence": "low",
+    "summary": "Cisco announced crucial innovations at Cisco Live 2021 focused on connecting, securing, and automating technology infrastructure. The presentation emphasizes how technology can empower organizations to find new ways to collaborate and build an inclusive future. While focused on general networking and connectivity, the content has limited direct relevance to Fault Managed Power systems.",
+    "extracted_at": "2026-02-24T09:55:42.454633"
+  },
+  {
+    "query_name": "Cisco power/building updates",
+    "player": "cisco",
+    "title": "Cisco Announces Intent to Acquire Socio Labs for Hybrid Events",
+    "link": "https://investor.cisco.com/files/doc_news/Cisco-Announces-Intent-to-Acquire-Socio-Labs-to-Power-the-Future-of-Hybrid-Events-2021.pdf",
+    "snippet": "Socio Labs' modern event technology platform will advance Cisco's vision to deliver inclusive experiences during in-person, virtual and hybrid events.",
+    "discovered_at": "2026-02-24T09:55:15.079928",
+    "artifact_type": "press",
+    "publish_date": null,
+    "description": "Cisco announces acquisition of Socio Labs to advance hybrid event technology platform, delivering inclusive experiences for in-person, virtual and hybrid events.",
+    "players": [
+      "cisco"
+    ],
+    "topics": [
+      "digital-connectivity",
+      "smart-buildings"
+    ],
+    "value_levers": [
+      "digital-connectivity"
+    ],
+    "confidence": "low",
+    "summary": "Cisco announces its intent to acquire Socio Labs, a modern event technology platform company. The acquisition aims to advance Cisco's vision for delivering inclusive experiences during in-person, virtual, and hybrid events, enhancing their digital connectivity and collaboration capabilities.",
+    "extracted_at": "2026-02-24T09:55:47.009993"
+  },
+  {
+    "query_name": "Cisco power/building updates",
+    "player": "cisco",
+    "title": "Cisco Press Releases - Newsroom",
+    "link": "https://newsroom.cisco.com/c/r/newsroom/en/us/press-releases.html",
+    "snippet": "Cisco reported second quarter revenue of $15.3 billion, net income on a generally accepted accounting principles (GAAP) basis of $3.2 billion or $0.80 per ...",
+    "discovered_at": "2026-02-24T09:55:15.079929",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "Cisco's newsroom press release archive covering earnings, products, acquisitions, and corporate announcements across networking, security, and collaboration.",
+    "players": [
+      "cisco"
+    ],
+    "topics": [],
+    "value_levers": [],
+    "confidence": "low",
+    "summary": "This is a landing page for Cisco's press release archive with filtering options by topic categories. The page shows a snippet about Q2 earnings ($15.3B revenue) but is primarily a navigation interface rather than substantive content. It has no direct relevance to Fault Managed Power technology or applications.",
+    "extracted_at": "2026-02-24T09:55:53.415741"
+  },
+  {
+    "query_name": "Cisco power/building updates",
+    "player": "cisco",
+    "title": "Cisco & Sharon AI Launch Australia's First Secure AI Factory with NVIDIA",
+    "link": "https://newsroom.cisco.com/content/r/newsroom/en/us/a/y2026/m02/sharon-ai-cisco-launch-australia-first-cisco-secure-ai-factory-with-nvidia.html",
+    "snippet": "Cisco and Sharon AI launch Australia's first Cisco Secure AI Factory with NVIDIA, providing secure, high-performance AI infrastructure with all data processing ...",
+    "discovered_at": "2026-02-24T09:55:15.079934",
+    "artifact_type": "press",
+    "publish_date": "2026-02-22",
+    "description": "Cisco and Sharon AI announce Australia's first Cisco Secure AI Factory with NVIDIA, featuring 1024 Blackwell Ultra GPUs and sovereign data processing capabilities.",
+    "players": [
+      "cisco",
+      "other"
+    ],
+    "topics": [
+      "data-centers",
+      "digital-connectivity"
+    ],
+    "value_levers": [
+      "digital-connectivity",
+      "feasibility"
+    ],
+    "confidence": "low",
+    "summary": "Cisco and Sharon AI launched Australia's first Cisco Secure AI Factory powered by 1024 NVIDIA Blackwell Ultra GPUs, Cisco UCS servers, and Nexus Hyperfabric technology. The initiative provides secure, sovereign AI infrastructure with all data processing remaining in Australia, supporting the country's National AI Plan and accelerating enterprise AI adoption across the Asia-Pacific region.",
+    "extracted_at": "2026-02-24T09:55:57.606222"
+  },
+  {
+    "query_name": "Cisco power/building updates",
+    "player": "cisco",
+    "title": "Cisco IC3000 Industrial Compute Gateway End-of-Life Notice",
+    "link": "https://www.cisco.com/c/en/us/products/collateral/switches/industrial-ethernet-4000-series-switches/ic3000-industrial-compute-gateway-eol.pdf",
+    "snippet": "Cisco announces the end-of-sale and end-of-life dates for the Cisco IC3000 Industrial Compute Gateway. The last day to order the affected product(s) is July ...",
+    "discovered_at": "2026-02-24T09:55:15.079936",
+    "artifact_type": "product",
+    "publish_date": null,
+    "description": "Cisco announces end-of-sale and end-of-life dates for the IC3000 Industrial Compute Gateway, with last order date in July for affected products.",
+    "players": [
+      "cisco"
+    ],
+    "topics": [],
+    "value_levers": [],
+    "confidence": "low",
+    "summary": "This is an end-of-life announcement from Cisco for their IC3000 Industrial Compute Gateway product. The document specifies the last day to order affected products is in July. This content has minimal relevance to Fault Managed Power as it concerns an industrial computing gateway product rather than power distribution technology.",
+    "extracted_at": "2026-02-24T09:56:02.626773"
+  },
+  {
+    "query_name": "Cisco power/building updates",
+    "player": "cisco",
+    "title": "Cisco Unveils New Cisco 360 Partner Program to Accelerate Value and Innovation",
+    "link": "https://investor.cisco.com/files/doc_news/Cisco-Unveils-New-Cisco-360-Partner-Program-to-Accelerate-Value-and-Innovation-Launching-in-2026-2024.pdf",
+    "snippet": "\"Today, it's about helping customers unlock the power of technology to achieve their business outcomes. That's the foundation of the Cisco 360 Partner Program.",
+    "discovered_at": "2026-02-24T09:55:15.079937",
+    "artifact_type": "press",
+    "publish_date": "2026-01-15",
+    "description": "Cisco announces the Cisco 360 Partner Program launching in 2026, focused on helping customers unlock technology power to achieve business outcomes.",
+    "players": [
+      "cisco"
+    ],
+    "topics": [
+      "digital-connectivity",
+      "smart-buildings"
+    ],
+    "value_levers": [
+      "digital-connectivity"
+    ],
+    "confidence": "low",
+    "summary": "Cisco announces its new Cisco 360 Partner Program set to launch in 2026. The program focuses on helping customers unlock the power of technology to achieve their business outcomes, representing a shift in Cisco's partner engagement strategy toward value-driven technology solutions.",
+    "extracted_at": "2026-02-24T09:56:07.401137"
+  },
+  {
+    "query_name": "Cisco power/building updates",
+    "player": "cisco",
+    "title": "Cisco Reimagines Security for Data Centers and Clouds in Era of AI",
+    "link": "https://investor.cisco.com/files/doc_news/Cisco-Reimagines-Security-for-Data-Centers-and-Clouds-in-Era-of-AI-2024.pdf",
+    "snippet": "Cisco is rearchitecting how we harness and protect AI and other modern workloads with industry- rst, Cisco Hypershield. With this unprecedented innovation, ...",
+    "discovered_at": "2026-02-24T09:55:15.079938",
+    "artifact_type": "press",
+    "publish_date": null,
+    "description": "Cisco announces Hypershield, an industry-first security innovation for protecting AI and modern workloads in data centers and cloud environments.",
+    "players": [
+      "cisco"
+    ],
+    "topics": [
+      "data-centers",
+      "smart-buildings"
+    ],
+    "value_levers": [
+      "risk",
+      "operations"
+    ],
+    "confidence": "low",
+    "summary": "Cisco introduces Hypershield, a security solution designed to protect AI workloads and modern applications in data centers and cloud environments. The announcement focuses on rearchitecting security approaches for the AI era, representing an unprecedented innovation in datacenter protection.",
+    "notes": "This PDF appears corrupted or contains primarily image data with minimal extractable text. Content is focused on cybersecurity for data centers rather than power distribution systems, making it tangentially relevant to FMP only through the data center infrastructure context.",
+    "extracted_at": "2026-02-24T09:56:13.000055"
+  },
+  {
+    "query_name": "Cisco power/building updates",
+    "player": "cisco",
+    "title": "Cisco to Acquire Isovalent for Multicloud Networking and Security",
+    "link": "https://investor.cisco.com/files/doc_news/Cisco-to-Acquire-Isovalent-to-Define-the-Future-of-Multicloud-Networking-and-Security-2023.pdf",
+    "snippet": "News Summary: Cisco intends to acquire privately held Isovalent, Inc., a leader in open source cloud native networking and security.",
+    "discovered_at": "2026-02-24T09:55:15.079940",
+    "artifact_type": "press",
+    "publish_date": null,
+    "description": "Cisco announces acquisition of Isovalent, a leader in open source cloud native networking and security, to advance multicloud networking capabilities.",
+    "players": [
+      "cisco"
+    ],
+    "topics": [
+      "digital-connectivity",
+      "smart-buildings"
+    ],
+    "value_levers": [
+      "digital-connectivity"
+    ],
+    "confidence": "low",
+    "summary": "Cisco announces its intention to acquire Isovalent, Inc., a privately held company specializing in open source cloud native networking and security solutions. This acquisition aims to position Cisco as a leader in defining the future of multicloud networking and security infrastructure.",
+    "extracted_at": "2026-02-24T09:56:18.518417"
+  },
+  {
+    "query_name": "FMP Alliance updates",
+    "player": "fmp-alliance",
+    "title": "ECA Ontario Free Hybrid Training on Fault Managed Power Systems",
+    "link": "https://www.facebook.com/ECAOntario/posts/powering-the-future-with-digital-electricity-join-us-for-a-free-hybrid-training-/1508580414604322/",
+    "snippet": "Powering the Future with Digital Electricity\u00ae \u26a1 Join us for a FREE hybrid training on Fault Managed Power Systems (FMPS) and explore how this emerging...",
+    "discovered_at": "2026-02-24T09:55:24.443966",
+    "artifact_type": "event",
+    "publish_date": null,
+    "description": "Free hybrid training event hosted by ECA Ontario covering Fault Managed Power Systems (FMPS) and Digital Electricity technology for electrical professionals.",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "safety-model",
+      "code-standards"
+    ],
+    "value_levers": [
+      "labor",
+      "safety"
+    ],
+    "confidence": "high",
+    "summary": "The Electrical Contractors Association of Ontario is hosting a free hybrid training session focused on Fault Managed Power Systems (FMPS) and Digital Electricity\u00ae. The event aims to educate electrical contractors and professionals about this emerging technology and its applications in powering future electrical systems.",
+    "extracted_at": "2026-02-24T09:56:23.092618"
+  },
+  {
+    "query_name": "FMP Alliance updates",
+    "player": "fmp-alliance",
+    "title": "ECAO Hybrid Event: Fault Managed Power Systems with VoltServer",
+    "link": "https://www.threads.com/@ecaontario/post/DUn6HCIDrH_/powering-the-future-with-digital-electricity-curious-about-fault-managed-power",
+    "snippet": "Powering the Future with Digital Electricity\u00ae \u26a1. Curious about Fault Managed Power Systems (FMPS)? Join our FREE hybrid session and see how this technology ...",
+    "discovered_at": "2026-02-24T09:55:24.443975",
+    "artifact_type": "event",
+    "publish_date": "2026-02-18",
+    "description": "Free hybrid educational session on Fault Managed Power Systems featuring VoltServer's Jeff Crounse, covering safety standards, design basics, and Canadian use cases.",
+    "players": [
+      "voltserver",
+      "other"
+    ],
+    "topics": [
+      "safety-model",
+      "code-standards",
+      "smart-buildings"
+    ],
+    "value_levers": [
+      "safety",
+      "risk"
+    ],
+    "confidence": "high",
+    "summary": "The Electrical Contractors Association of Ontario (ECAO) is hosting a free hybrid educational session on February 18, 2026, featuring Jeff Crounse from VoltServer. The session will cover Fault Managed Power Systems technology, including safety standards, design fundamentals, Canadian use cases, and include a live demonstration of Digital Electricity.",
+    "extracted_at": "2026-02-24T09:56:27.993072"
+  },
+  {
+    "query_name": "FMP Alliance updates",
+    "player": "fmp-alliance",
+    "title": "FMP Alliance announces free online training clinic for Fault Managed Power Systems",
+    "link": "https://www.linkedin.com/posts/fmp-alliance_fmpfriday-fmp-class4-activity-7425660775018635264-sVmy",
+    "snippet": "FMPFriday \u201cWhere can we get training on Fault Managed Power Systems?\u201d That's a great question and Ronna E. Davis with the FMP Alliance has some good news!",
+    "discovered_at": "2026-02-24T09:55:24.443977",
+    "artifact_type": "linkedin-post",
+    "publish_date": null,
+    "description": "FMP Alliance announces free online training clinic in March covering design, installation, and maintenance of Fault Managed Power Systems for industry professionals.",
+    "players": [
+      "fmp-alliance"
+    ],
+    "topics": [
+      "class-4",
+      "safety-model",
+      "code-standards"
+    ],
+    "value_levers": [
+      "labor",
+      "feasibility"
+    ],
+    "confidence": "high",
+    "summary": "Ronna E. Davis of FMP Alliance announces a free online training clinic in March for professionals interested in learning about Fault Managed Power Systems. The clinic will cover codification, safety standards, and design architectures, addressing demand expressed at the Bixie Winter event for comprehensive FMP training to build confidence in designing, deploying, and maintaining these systems.",
+    "extracted_at": "2026-02-24T09:56:33.710844"
+  },
+  {
+    "query_name": "FMP Alliance updates",
+    "player": "fmp-alliance",
+    "title": "Free Webinar on Fault Managed Power Systems (FMPS) Technology",
+    "link": "https://www.instagram.com/p/DUiq2MPCe8P/",
+    "snippet": "Join us for a FREE hybrid training on Fault Managed Power Systems (FMPS) and explore how this emerging technology is transforming power delivery in modern ...",
+    "discovered_at": "2026-02-24T09:55:24.443978",
+    "artifact_type": "event",
+    "publish_date": null,
+    "description": "Free hybrid training webinar on Fault Managed Power Systems (FMPS) exploring how this emerging technology is transforming modern power delivery at 2pm.",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "smart-buildings",
+      "digital-connectivity"
+    ],
+    "value_levers": [
+      "digital-connectivity"
+    ],
+    "confidence": "high",
+    "summary": "This is a promotional post for a free webinar focused on Fault Managed Power Systems (FMPS) technology. The hybrid training session aims to eliminate silos and educate participants on how FMPS is transforming power delivery in modern applications.",
+    "extracted_at": "2026-02-24T09:56:39.200236"
+  },
+  {
+    "query_name": "FMP Alliance updates",
+    "player": "fmp-alliance",
+    "title": "ECA Ontario Free Hybrid Training on Fault Managed Power Systems",
+    "link": "https://www.facebook.com/ECAOntario/photos/powering-the-future-with-digital-electricity-join-us-for-a-free-hybrid-training-/1508580397937657/",
+    "snippet": "Powering the Future with Digital Electricity\u00ae \u26a1 Join us for a FREE hybrid training on Fault Managed Power Systems (FMPS) and explore how this emerging...",
+    "discovered_at": "2026-02-24T09:55:24.443979",
+    "artifact_type": "event",
+    "publish_date": null,
+    "description": "Free hybrid training event by ECA Ontario on Fault Managed Power Systems (FMPS) and Digital Electricity, exploring emerging power distribution technologies.",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "digital-connectivity",
+      "smart-buildings"
+    ],
+    "value_levers": [
+      "digital-connectivity"
+    ],
+    "confidence": "medium",
+    "summary": "ECA Ontario is hosting a free hybrid training session on Fault Managed Power Systems (FMPS) and Digital Electricity. The event aims to educate participants on this emerging power distribution technology and its applications in powering the future.",
+    "extracted_at": "2026-02-24T09:56:43.180294"
+  },
+  {
+    "query_name": "FMP Alliance updates",
+    "player": "fmp-alliance",
+    "title": "The Top Habits of High-Performing Forepersons",
+    "link": "https://www.ecao.org/event-calendar/the-top-habits-of-high-performing-forepersons/",
+    "snippet": "Powering the Future with Digital Electricity\u00ae \u2013 Fault Managed Power Systems (Hybrid Course).",
+    "discovered_at": "2026-02-24T09:55:24.443980",
+    "artifact_type": "event",
+    "publish_date": "2026-03-26",
+    "description": "Full-day training course on leadership habits for electrical foremen, covering crew management, scheduling, waste reduction, and productivity optimization.",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "estimating",
+      "schedule-value"
+    ],
+    "value_levers": [
+      "labor",
+      "schedule"
+    ],
+    "confidence": "low",
+    "summary": "Training course presented by Dr. Awad Hanna for electrical foremen and supervisors focused on developing high-performance habits. Covers crew behavior, waste control, look-ahead scheduling, materials handling, goal-setting, and safety management to optimize project outcomes.",
+    "reasoning": "While this is an electrical contractor event that touches on topics relevant to construction efficiency (labor productivity, scheduling), it has no direct connection to Fault Managed Power systems or digital electricity technology. The snippet mentions FMP but appears unrelated to the actual course content.",
+    "extracted_at": "2026-02-24T09:56:53.753280"
+  },
+  {
+    "query_name": "FMP Alliance updates",
+    "player": "fmp-alliance",
+    "title": "X post by ECA Ontario promoting Fault Managed Power Systems hybrid session",
+    "link": "https://x.com/ECAOntario",
+    "snippet": "Curious about Fault Managed Power Systems? Join our FREE hybrid session and see how this technology is changing how power is delivered\u2014safely and ...",
+    "discovered_at": "2026-02-24T09:55:24.443981",
+    "artifact_type": "event",
+    "publish_date": null,
+    "description": "ECA Ontario announces a free hybrid educational session on Fault Managed Power Systems technology and its impact on safe power delivery.",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "safety-model"
+    ],
+    "value_levers": [
+      "safety"
+    ],
+    "confidence": "medium",
+    "summary": "ECA Ontario is promoting a free hybrid educational session focused on Fault Managed Power Systems technology. The post emphasizes how this technology is transforming power delivery with an emphasis on safety. Limited content is available due to JavaScript requirements on the platform.",
+    "extracted_at": "2026-02-24T09:56:57.888075"
+  },
+  {
+    "query_name": "FMP Alliance updates",
+    "player": "fmp-alliance",
+    "title": "Instagram post by NWS discussing Class 4 Fault-Managed Power Systems",
+    "link": "https://www.instagram.com/p/DU32GvalCrz/?hl=de",
+    "snippet": "\u26a1 Fault-Managed Power Systems (FMPS) are changing the game for power distribution. By delivering high-voltage DC (up to 450V) with the safety profile of low- ...",
+    "discovered_at": "2026-02-24T09:55:24.443983",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "NWS Instagram post highlighting how Fault-Managed Power Systems deliver high-voltage DC (up to 450V) with enhanced safety for modern power distribution applications.",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "class-4",
+      "safety-model"
+    ],
+    "value_levers": [
+      "safety",
+      "risk"
+    ],
+    "confidence": "medium",
+    "summary": "An Instagram post by NWS discussing Fault-Managed Power Systems (FMPS) and their role in power distribution. The post emphasizes FMPS capability to deliver high-voltage DC power up to 450V while maintaining a low-voltage safety profile, positioning Class 4 power as a transformative technology for future projects.",
+    "extracted_at": "2026-02-24T09:57:04.070940"
+  },
+  {
+    "query_name": "FMP Alliance updates",
+    "player": "fmp-alliance",
+    "title": "ELECTRI Monthly Recap for Council Members - January 2026",
+    "link": "https://www.electri.org/electri_news/electri-monthly-recap-for-council-members-january-2026/",
+    "snippet": "Comparative Study of Fault Managed Power vs. Traditional Electrical Systems for Temporary Construction Power; Contractual Strategies for Improving Electrical ...",
+    "discovered_at": "2026-02-24T09:55:24.443984",
+    "artifact_type": "other",
+    "publish_date": "2026-02-03",
+    "description": "ELECTRI International's monthly update highlighting new research projects including a comparative study of Fault Managed Power vs. traditional systems.",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "safety-model",
+      "code-standards"
+    ],
+    "value_levers": [
+      "labor",
+      "risk"
+    ],
+    "confidence": "low",
+    "summary": "This monthly newsletter from ELECTRI International mentions a comparative study of Fault Managed Power versus traditional electrical systems for temporary construction power among other research projects. The document primarily focuses on NFPA 70B/E standards, fleet management optimization, and new AI training classes for electrical contractors.",
+    "extracted_at": "2026-02-24T09:57:08.736034"
+  },
+  {
+    "query_name": "FMP Alliance updates",
+    "player": "fmp-alliance",
+    "title": "LinkedIn post by CAG.Works discussing fault-managed power infrastructure transformation",
+    "link": "https://www.linkedin.com/posts/cag-works_the-future-of-power-is-intelligent-activity-7429561689886478337-zS71",
+    "snippet": "The future of power isn't just about more capacity\u2014it's about smarter delivery. Fault-managed power is transforming electrical infrastructure.",
+    "discovered_at": "2026-02-24T09:55:24.443985",
+    "artifact_type": "linkedin-post",
+    "publish_date": null,
+    "description": "CAG.Works post explaining how fault-managed power is transforming electrical infrastructure by building safety and intelligence into design for smarter delivery.",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "class-4",
+      "smart-buildings",
+      "data-centers",
+      "safety-model"
+    ],
+    "value_levers": [
+      "risk",
+      "feasibility",
+      "operations"
+    ],
+    "confidence": "high",
+    "summary": "CAG.Works introduces fault-managed power (FMP) as the future of electrical infrastructure, emphasizing proactive safety and intelligence built into system design rather than reactive problem-solving. The post positions FMP as essential for data centers, smart buildings, and modern power distribution projects, describing it as the emerging standard for next-generation intelligent buildings.",
+    "extracted_at": "2026-02-24T09:57:19.571005"
+  },
+  {
+    "query_name": "Global FMP events",
+    "player": "other",
+    "title": "ECAO Hybrid Session on Fault Managed Power Systems with VoltServer",
+    "link": "https://www.threads.com/@ecaontario/post/DUn6HCIDrH_/powering-the-future-with-digital-electricity-curious-about-fault-managed-power",
+    "snippet": "Powering the Future with Digital Electricity\u00ae \u26a1. Curious about Fault Managed Power Systems (FMPS)? Join our FREE hybrid session and see how this technology ...",
+    "discovered_at": "2026-02-24T09:55:25.881423",
+    "artifact_type": "event",
+    "publish_date": "2026-02-18",
+    "description": "Free hybrid educational session on Fault Managed Power Systems (FMPS) featuring VoltServer, covering safety standards, design basics, and Canadian use cases.",
+    "players": [
+      "voltserver",
+      "other"
+    ],
+    "topics": [
+      "safety-model",
+      "code-standards",
+      "smart-buildings"
+    ],
+    "value_levers": [
+      "safety",
+      "digital-connectivity"
+    ],
+    "confidence": "high",
+    "summary": "The Electrical Contractors Association of Ontario (ECAO) is hosting a free hybrid educational session on February 18, 2026, featuring Jeff Crounse from VoltServer. The session will cover Fault Managed Power Systems technology, including safety standards, design fundamentals, Canadian use cases, and include a live demonstration of Digital Electricity.",
+    "extracted_at": "2026-02-24T09:57:27.762849"
+  },
+  {
+    "query_name": "Global FMP events",
+    "player": "other",
+    "title": "Free Webinar: Fault Managed Power Systems (FMPS) Hybrid Training",
+    "link": "https://www.instagram.com/p/DUiq2MPCe8P/",
+    "snippet": "Join us for a FREE hybrid training on Fault Managed Power Systems (FMPS) and explore how this emerging technology is transforming power delivery in modern ...",
+    "discovered_at": "2026-02-24T09:55:25.881431",
+    "artifact_type": "event",
+    "publish_date": null,
+    "description": "Free hybrid training webinar on Fault Managed Power Systems (FMPS) exploring how this emerging technology is transforming modern power delivery.",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "smart-buildings"
+    ],
+    "value_levers": [],
+    "confidence": "medium",
+    "summary": "A free webinar offering hybrid training on Fault Managed Power Systems (FMPS). The session explores how FMPS technology is transforming power delivery in modern applications, positioning it as an emerging technology solution.",
+    "extracted_at": "2026-02-24T09:57:34.997774"
+  },
+  {
+    "query_name": "Global FMP events",
+    "player": "other",
+    "title": "ECA Ontario Free Hybrid Training on Fault Managed Power Systems",
+    "link": "https://www.facebook.com/ECAOntario/photos/powering-the-future-with-digital-electricity-join-us-for-a-free-hybrid-training-/1508580397937657/",
+    "snippet": "Powering the Future with Digital Electricity\u00ae \u26a1 Join us for a FREE hybrid training on Fault Managed Power Systems (FMPS) and explore how this emerging...",
+    "discovered_at": "2026-02-24T09:55:25.881433",
+    "artifact_type": "event",
+    "publish_date": null,
+    "description": "Free hybrid training event hosted by ECA Ontario on Fault Managed Power Systems (FMPS) and Digital Electricity technology for electrical professionals.",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "smart-buildings",
+      "code-standards"
+    ],
+    "value_levers": [],
+    "confidence": "medium",
+    "summary": "ECA Ontario is hosting a free hybrid training session focused on Fault Managed Power Systems (FMPS) and Digital Electricity technology. The event aims to educate electrical professionals about this emerging power distribution technology and its future applications.",
+    "extracted_at": "2026-02-24T09:57:38.980857"
+  },
+  {
+    "query_name": "Global FMP events",
+    "player": "other",
+    "title": "ELECTRI Monthly Recap for Council Members - January 2026",
+    "link": "https://www.electri.org/electri_news/electri-monthly-recap-for-council-members-january-2026/",
+    "snippet": "Comparative Study of Fault Managed Power vs. Traditional Electrical Systems for Temporary Construction Power; Contractual Strategies for Improving Electrical ...",
+    "discovered_at": "2026-02-24T09:55:25.881434",
+    "artifact_type": "other",
+    "publish_date": "2026-02-03",
+    "description": "ELECTRI International monthly update featuring new research on NFPA 70B/E compliance, fleet management, AI training series, and Service & 70Brew webinars.",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "code-standards"
+    ],
+    "value_levers": [
+      "operations"
+    ],
+    "confidence": "low",
+    "summary": "This monthly newsletter from ELECTRI International announces new research projects and educational programs for electrical contractors. While the snippet mentions a comparative study of Fault Managed Power vs. traditional electrical systems for temporary construction power, the full page content does not elaborate on this research, focusing instead on NFPA compliance guides, fleet management optimization, and upcoming webinar series.",
+    "fmp_note": "The snippet references FMP comparative study but content is not accessible in the full page text",
+    "extracted_at": "2026-02-24T09:57:45.428956"
+  },
+  {
+    "query_name": "Global FMP events",
+    "player": "other",
+    "title": "Instagram post about Fault Managed Power Systems (FMPS) training event",
+    "link": "https://www.instagram.com/p/DUn6FCbDahE/",
+    "snippet": "Join us for a FREE hybrid training on Fault Managed Power Systems (FMPS) and ... New Updates Added to the ECAO-UNCE 2026 Conference Website We've ...",
+    "discovered_at": "2026-02-24T09:55:25.881435",
+    "artifact_type": "event",
+    "publish_date": null,
+    "description": "Free hybrid training event on Fault Managed Power Systems (FMPS) announced via Instagram. Includes updates about ECAO-UNCE 2026 Conference.",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "code-standards"
+    ],
+    "value_levers": [],
+    "confidence": "medium",
+    "summary": "An Instagram post announcing a free hybrid training session on Fault Managed Power Systems (FMPS). The post also mentions new updates to the ECAO-UNCE 2026 Conference website, suggesting connections to electrical standards and education initiatives.",
+    "extracted_at": "2026-02-24T09:57:50.044309"
+  },
+  {
+    "query_name": "Global FMP events",
+    "player": "other",
+    "title": "LinkedIn post by Jason Shearer discussing FMP and smart building convergence at Cisco Live",
+    "link": "https://www.linkedin.com/posts/jasonshearer_poe-smartbuilding-fmp-activity-7428028774929330176-eObL",
+    "snippet": "... and moving to higher power systems like Fault Managed Power. What is your perspective on this momentum? #PoE #SmartBuilding #FMP.",
+    "discovered_at": "2026-02-24T09:55:25.881436",
+    "artifact_type": "linkedin-post",
+    "publish_date": null,
+    "description": "Jason Shearer discusses customer interest in converging OT systems onto network platforms powered by PoE and Fault Managed Power, presented at Cisco Live Amsterdam.",
+    "players": [
+      "cisco",
+      "other"
+    ],
+    "topics": [
+      "smart-buildings",
+      "digital-connectivity"
+    ],
+    "value_levers": [
+      "digital-connectivity",
+      "operations"
+    ],
+    "confidence": "high",
+    "summary": "Jason Shearer reports on his presentation at Cisco Live Amsterdam about the growing momentum in converging operational technology systems onto common network platforms powered by PoE and higher power systems like Fault Managed Power. Comments from industry professionals highlight FMP as a game-changing technology, especially when paired with Power over Ethernet for revolutionizing building functions and achieving energy management goals.",
+    "extracted_at": "2026-02-24T09:57:56.550930"
+  },
+  {
+    "query_name": "Global FMP events",
+    "player": "other",
+    "title": "Marmon IEI News & Events",
+    "link": "https://marmoniei.com/resources/news-events/",
+    "snippet": "NFPA Conference & Expo 2026 \u00b7 Read more \u00b7 APTA Rail ... Fault Managed Power cables for commercial and enterprise applications that require power and data.",
+    "discovered_at": "2026-02-24T09:55:25.881438",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "Marmon Industrial Energy & Infrastructure news and events page featuring product launches, industry conferences, and company announcements across power and data.",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "digital-connectivity"
+    ],
+    "value_levers": [
+      "digital-connectivity"
+    ],
+    "confidence": "low",
+    "summary": "This is a general news and events hub for Marmon IEI, a cable and power solutions manufacturer. While the page mentions Fault Managed Power cables for commercial and enterprise applications requiring power and data, it primarily serves as a directory of upcoming industry events and corporate announcements without detailed FMP-specific content.",
+    "extracted_at": "2026-02-24T09:58:01.422061"
+  },
+  {
+    "query_name": "Global FMP events",
+    "player": "other",
+    "title": "ECA Ontario Free Hybrid Training on Fault Managed Power Systems",
+    "link": "https://www.facebook.com/ECAOntario/posts/powering-the-future-with-digital-electricity-join-us-for-a-free-hybrid-training-/1508580414604322/",
+    "snippet": "Powering the Future with Digital Electricity\u00ae \u26a1 Join us for a FREE hybrid training on Fault Managed Power Systems (FMPS) and explore how this emerging...",
+    "discovered_at": "2026-02-24T09:55:25.881439",
+    "artifact_type": "event",
+    "publish_date": null,
+    "description": "Free hybrid training event by Electrical Contractors Association of Ontario covering Fault Managed Power Systems (FMPS) and Digital Electricity technology.",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "digital-connectivity",
+      "smart-buildings"
+    ],
+    "value_levers": [
+      "digital-connectivity"
+    ],
+    "confidence": "high",
+    "summary": "The Electrical Contractors Association of Ontario is hosting a free hybrid training session on Fault Managed Power Systems (FMPS) and Digital Electricity technology. This educational event aims to introduce electrical contractors to emerging FMPS technology and its applications in powering future infrastructure.",
+    "extracted_at": "2026-02-24T09:58:05.230514"
+  },
+  {
+    "query_name": "Global FMP events",
+    "player": "other",
+    "title": "Fault Managed Power can deliver up to a kilowatt over single twisted pair",
+    "link": "https://www.tiktok.com/@digital.byte/video/7610057889071385870",
+    "snippet": "Fault managed power can deliver up to a KILOWATT of power over a single twisted pair Fault-managed power is defined by: - High voltage - Very low current ...",
+    "discovered_at": "2026-02-24T09:55:25.881440",
+    "artifact_type": "video",
+    "publish_date": null,
+    "description": "Video explaining how Fault Managed Power delivers up to 1 kilowatt of power over a single twisted pair using high voltage and very low current.",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "class-4",
+      "safety-model"
+    ],
+    "value_levers": [
+      "digital-connectivity",
+      "feasibility"
+    ],
+    "confidence": "high",
+    "summary": "This TikTok video explains the core technology behind Fault Managed Power, highlighting its ability to deliver up to a kilowatt of power over a single twisted pair cable. The key technical approach uses high voltage with very low current to achieve efficient power delivery while maintaining safety.",
+    "extracted_at": "2026-02-24T09:58:09.850471"
+  },
+  {
+    "query_name": "Global FMP events",
+    "player": "other",
+    "title": "ECA Ontario post promoting Fault Managed Power Systems hybrid session",
+    "link": "https://x.com/ECAOntario",
+    "snippet": "Curious about Fault Managed Power Systems? Join our FREE hybrid session and see how this technology is changing how power is delivered\u2014safely and ...",
+    "discovered_at": "2026-02-24T09:55:25.881441",
+    "artifact_type": "event",
+    "publish_date": null,
+    "description": "ECA Ontario announces a free hybrid session on Fault Managed Power Systems technology and how it's transforming safe power delivery in electrical systems.",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "safety-model"
+    ],
+    "value_levers": [
+      "safety",
+      "risk"
+    ],
+    "confidence": "medium",
+    "summary": "ECA Ontario is promoting a free hybrid educational session focused on Fault Managed Power Systems technology. The post highlights how FMP is changing the way power is delivered with an emphasis on safety improvements. This appears to be an industry association event aimed at educating electrical contractors about emerging FMP technology.",
+    "extracted_at": "2026-02-24T09:58:16.714214"
+  }
+]
