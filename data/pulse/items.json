@@ -83,6 +83,58 @@
     "score": 27
   },
   {
+    "id": 19,
+    "slug": "2026-02-24-cisco-linkedin-post-by-jason-shearer",
+    "title": "LinkedIn post by Jason Shearer discussing FMP and smart building convergence at Cisco Live",
+    "description": "Jason Shearer discusses customer interest in converging OT systems onto network platforms powered by PoE and Fault Managed Power, presented at Cisco Live Amsterdam.",
+    "canonical_source": "https://www.linkedin.com/posts/jasonshearer_poe-smartbuilding-fmp-activity-7428028774929330176-eObL",
+    "artifact_type": "linkedin-post",
+    "publish_date": null,
+    "discovered_at": "2026-02-24T09:55:25.881436",
+    "players": [
+      "cisco",
+      "other"
+    ],
+    "topics": [
+      "smart-buildings",
+      "digital-connectivity"
+    ],
+    "value_levers": [
+      "digital-connectivity",
+      "operations"
+    ],
+    "confidence": "high",
+    "summary": "Jason Shearer reports on his presentation at Cisco Live Amsterdam about the growing momentum in converging operational technology systems onto common network platforms powered by PoE and higher power systems like Fault Managed Power. Comments from industry professionals highlight FMP as a game-changing technology, especially when paired with Power over Ethernet for revolutionizing building functions and achieving energy management goals.",
+    "score": 26
+  },
+  {
+    "id": 17,
+    "slug": "2026-02-24-other-linkedin-post-by-cagworks-discussing",
+    "title": "LinkedIn post by CAG.Works discussing fault-managed power infrastructure transformation",
+    "description": "CAG.Works post explaining how fault-managed power is transforming electrical infrastructure by building safety and intelligence into design for smarter delivery.",
+    "canonical_source": "https://www.linkedin.com/posts/cag-works_the-future-of-power-is-intelligent-activity-7429561689886478337-zS71",
+    "artifact_type": "linkedin-post",
+    "publish_date": null,
+    "discovered_at": "2026-02-24T09:55:24.443985",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "class-4",
+      "smart-buildings",
+      "data-centers",
+      "safety-model"
+    ],
+    "value_levers": [
+      "risk",
+      "feasibility",
+      "operations"
+    ],
+    "confidence": "high",
+    "summary": "CAG.Works introduces fault-managed power (FMP) as the future of electrical infrastructure, emphasizing proactive safety and intelligence built into system design rather than reactive problem-solving. The post positions FMP as essential for data centers, smart buildings, and modern power distribution projects, describing it as the emerging standard for next-generation intelligent buildings.",
+    "score": 26
+  },
+  {
     "id": 9,
     "slug": "2026-02-22-other-electrical--powering-the-future",
     "title": "Electrical - Powering the Future with Digital ...",
@@ -207,6 +259,30 @@
     "score": 24
   },
   {
+    "id": 21,
+    "slug": "2026-02-24-other-fault-managed-power-can-deliver",
+    "title": "Fault Managed Power can deliver up to a kilowatt over single twisted pair",
+    "description": "Video explaining how Fault Managed Power delivers up to 1 kilowatt of power over a single twisted pair using high voltage and very low current.",
+    "canonical_source": "https://www.tiktok.com/@digital.byte/video/7610057889071385870",
+    "artifact_type": "video",
+    "publish_date": null,
+    "discovered_at": "2026-02-24T09:55:25.881440",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "class-4",
+      "safety-model"
+    ],
+    "value_levers": [
+      "digital-connectivity",
+      "feasibility"
+    ],
+    "confidence": "high",
+    "summary": "This TikTok video explains the core technology behind Fault Managed Power, highlighting its ability to deliver up to a kilowatt of power over a single twisted pair cable. The key technical approach uses high voltage with very low current to achieve efficient power delivery while maintaining safety.",
+    "score": 22
+  },
+  {
     "id": 11,
     "slug": "2026-02-22-voltserver-the-top-habits-of-highperforming",
     "title": "The Top Habits of High-Performing Forepersons",
@@ -274,6 +350,54 @@
     "confidence": "medium",
     "summary": "ECA Ontario is promoting a free hybrid educational session focused on Fault Managed Power Systems technology. The event aims to demonstrate how FMP is changing power delivery with an emphasis on safety, targeting electrical contractors and industry professionals interested in emerging power distribution methods.",
     "score": 20
+  },
+  {
+    "id": 13,
+    "slug": "2026-02-10-cisco-cisco-announces-silicon-one-g300",
+    "title": "Cisco Announces Silicon One G300 for AI Data Centers",
+    "description": "Cisco unveils Silicon One G300 with 102.4 Tbps switching for AI data centers, featuring liquid cooling and 70% energy efficiency improvements for enterprises.",
+    "canonical_source": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m02/cisco-announces-new-silicon-one-g300.html",
+    "artifact_type": "press",
+    "publish_date": "2026-02-10",
+    "discovered_at": "2026-02-24T09:55:15.079914",
+    "players": [
+      "cisco"
+    ],
+    "topics": [
+      "data-centers",
+      "digital-connectivity"
+    ],
+    "value_levers": [
+      "operations",
+      "space"
+    ],
+    "confidence": "medium",
+    "summary": "Cisco announces the Silicon One G300 switching silicon and new N9000/8000 systems designed for AI data center buildouts. The announcement highlights 102.4 Tbps switching speeds, 100% liquid cooling options that enable nearly 70% energy efficiency improvements, and enhanced Nexus One management for simplified operations across hyperscalers to enterprises.",
+    "score": 19
+  },
+  {
+    "id": 15,
+    "slug": "2026-02-24-other-instagram-post-by-nws-discussing",
+    "title": "Instagram post by NWS discussing Class 4 Fault-Managed Power Systems",
+    "description": "NWS Instagram post highlighting how Fault-Managed Power Systems deliver high-voltage DC (up to 450V) with enhanced safety for modern power distribution applications.",
+    "canonical_source": "https://www.instagram.com/p/DU32GvalCrz/?hl=de",
+    "artifact_type": "other",
+    "publish_date": null,
+    "discovered_at": "2026-02-24T09:55:24.443983",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "class-4",
+      "safety-model"
+    ],
+    "value_levers": [
+      "safety",
+      "risk"
+    ],
+    "confidence": "medium",
+    "summary": "An Instagram post by NWS discussing Fault-Managed Power Systems (FMPS) and their role in power distribution. The post emphasizes FMPS capability to deliver high-voltage DC power up to 450V while maintaining a low-voltage safety profile, positioning Class 4 power as a transformative technology for future projects.",
+    "score": 17
   },
   {
     "id": 19,
