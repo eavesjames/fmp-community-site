@@ -83,6 +83,31 @@
     "score": 27
   },
   {
+    "id": 19,
+    "slug": "2026-02-25-cisco-linkedin-post-by-jason-shearer",
+    "title": "LinkedIn post by Jason Shearer discussing FMP and Smart Building convergence at Cisco Live",
+    "description": "Jason Shearer discusses momentum around OT systems convergence and Fault Managed Power adoption, highlighting growing interest from customers and partners at Cisco Live.",
+    "canonical_source": "https://www.linkedin.com/posts/jasonshearer_poe-smartbuilding-fmp-activity-7428028774929330176-eObL",
+    "artifact_type": "linkedin-post",
+    "publish_date": null,
+    "discovered_at": "2026-02-25T09:57:48.882184",
+    "players": [
+      "cisco",
+      "other"
+    ],
+    "topics": [
+      "smart-buildings",
+      "digital-connectivity"
+    ],
+    "value_levers": [
+      "digital-connectivity",
+      "operations"
+    ],
+    "confidence": "high",
+    "summary": "Jason Shearer reports on presenting at Cisco Live Amsterdam about the convergence of operational technology systems onto common platforms powered by networks and transitioning to higher power systems like Fault Managed Power. The post highlights increasing customer and partner excitement around these technologies, with comments noting FMP as a game-changing technology especially when paired with Power over Ethernet.",
+    "score": 26
+  },
+  {
     "id": 9,
     "slug": "2026-02-22-other-electrical--powering-the-future",
     "title": "Electrical - Powering the Future with Digital ...",
@@ -183,6 +208,31 @@
     "score": 25
   },
   {
+    "id": 21,
+    "slug": "2026-02-25-cisco-instagram-post-by-alexis-bertholf",
+    "title": "Instagram post by Alexis Bertholf explaining Fault Managed Power at Cisco Live Amsterdam",
+    "description": "Instagram post defining Fault Managed Power characteristics: high voltage, low current, continuous fault detection, and instant shutoff for safety.",
+    "canonical_source": "https://www.instagram.com/reel/DUp5xJLEUHG/",
+    "artifact_type": "other",
+    "publish_date": null,
+    "discovered_at": "2026-02-25T09:57:48.882189",
+    "players": [
+      "cisco",
+      "other"
+    ],
+    "topics": [
+      "safety-model",
+      "class-4"
+    ],
+    "value_levers": [
+      "safety",
+      "risk"
+    ],
+    "confidence": "high",
+    "summary": "Social media post from Cisco Live Amsterdam event explaining the core safety features of Fault Managed Power. Defines FMP by its key characteristics: high voltage, very low current, continuous fault detection, and instant shutoff capability when faults are detected.",
+    "score": 24
+  },
+  {
     "id": 23,
     "slug": "2026-02-22-voltserver-voltserver-appoints-dave-johnson-as",
     "title": "VoltServer\u00ae Appoints Dave Johnson as Chief Executive Officer",
@@ -205,6 +255,30 @@
     "confidence": "high",
     "summary": "VoltServer appointed Dave Johnson as Chief Executive Officer to lead the company's growth as the recognized leader in fault-managed power technology. This leadership change signals VoltServer's commitment to expanding FMP infrastructure solutions across telecom, transportation, enterprise, and industrial markets.",
     "score": 24
+  },
+  {
+    "id": 13,
+    "slug": "2026-02-25-other-tiktok-video-explaining-fault-managed",
+    "title": "TikTok video explaining Fault Managed Power delivering up to 1 kilowatt over twisted pair",
+    "description": "Short video explaining how fault-managed power can deliver up to a kilowatt of power over a single twisted pair using high voltage and very low current.",
+    "canonical_source": "https://www.tiktok.com/@digital.byte/video/7610057889071385870",
+    "artifact_type": "video",
+    "publish_date": null,
+    "discovered_at": "2026-02-25T09:57:41.396620",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "class-4",
+      "safety-model"
+    ],
+    "value_levers": [
+      "digital-connectivity",
+      "feasibility"
+    ],
+    "confidence": "high",
+    "summary": "This TikTok video provides a brief technical explanation of fault-managed power technology. It highlights FMP's capability to deliver up to 1 kilowatt of power over a single twisted pair cable by utilizing high voltage with very low current, demonstrating the core technical principle behind the technology.",
+    "score": 22
   },
   {
     "id": 11,
@@ -230,6 +304,31 @@
     "confidence": "medium",
     "summary": "This is a professional development course for electrical forepersons that includes a hybrid training module on Fault Managed Power Systems. The inclusion of FMP/Digital Electricity\u00ae content suggests integration of this emerging technology into workforce training programs for electrical contractors and supervisors.",
     "score": 22
+  },
+  {
+    "id": 15,
+    "slug": "2026-02-12-other-re-northeast-2026-solar-mounts",
+    "title": "RE+ Northeast 2026: Solar Mounts LLC Recap",
+    "description": "Recap of RE+ Northeast 2026 workshop on grid capacity challenges, microgrids, and the future of power distribution including DC grids and Fault-Managed Power.",
+    "canonical_source": "https://solarmounts.com/blog/re-northeast-2026-solar-mounts-llc-recap/",
+    "artifact_type": "event",
+    "publish_date": "2026-02-12",
+    "discovered_at": "2026-02-25T09:57:41.396626",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "code-standards",
+      "data-centers",
+      "smart-buildings"
+    ],
+    "value_levers": [
+      "feasibility",
+      "digital-connectivity"
+    ],
+    "confidence": "medium",
+    "summary": "Solar Mounts LLC attended a workshop at RE+ Northeast 2026 discussing grid capacity challenges and the future need for a hybrid AC/DC 'grid of grids' infrastructure. The presentation highlighted that the NEC is adding sections on Fault-Managed Power with focus on power articulation, driven by massive new electrical demands from AI data centers, EVs, and heat pumps requiring 2-4x current grid capacity.",
+    "score": 21
   },
   {
     "id": 3,
@@ -274,6 +373,30 @@
     "confidence": "medium",
     "summary": "ECA Ontario is promoting a free hybrid educational session focused on Fault Managed Power Systems technology. The event aims to demonstrate how FMP is changing power delivery with an emphasis on safety, targeting electrical contractors and industry professionals interested in emerging power distribution methods.",
     "score": 20
+  },
+  {
+    "id": 17,
+    "slug": "2026-02-25-other-facebook-post-by-nwsnext-discussing",
+    "title": "Facebook post by NWSnext discussing Class 4 Power and Fault-Managed Power Systems",
+    "description": "NWSnext Facebook post highlighting how Fault-Managed Power Systems (FMPS) and Class 4 Power are transforming power distribution for future projects.",
+    "canonical_source": "https://www.facebook.com/nwsposts/posts/is-class-4-power-the-future-of-your-next-project-fault-managed-power-systems-fmp/1487415663393788/",
+    "artifact_type": "other",
+    "publish_date": null,
+    "discovered_at": "2026-02-25T09:57:48.882176",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "class-4",
+      "safety-model"
+    ],
+    "value_levers": [
+      "risk",
+      "feasibility"
+    ],
+    "confidence": "medium",
+    "summary": "A social media post by NWSnext discussing the potential of Class 4 Power and Fault-Managed Power Systems (FMPS) as transformative technologies for power distribution. The post positions these technologies as game-changing solutions for future electrical projects, though specific details are limited in the snippet.",
+    "score": 17
   },
   {
     "id": 19,
