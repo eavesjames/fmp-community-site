@@ -34,12 +34,15 @@ def build_front_matter(item):
     desc = item.get("description", "").replace('"', '\\"')
     source_url = item.get("canonical_source", "")
 
+    summary = item.get("summary", "").replace('"', '\\"')
+
     lines = [
         "---",
         f'title: "{title}"',
         f"date: {date}",
         f"lastmod: {lastmod}",
         f'description: "{desc}"',
+        f'summary: "{summary}"',
         "",
         'type: "pulse"',
         f'artifact_type: "{item.get("artifact_type", "other")}"',

@@ -177,7 +177,7 @@ def run_normalize():
             "query_vertical": item.get("query_vertical") or None,
             "vertical": item.get("vertical") or None,
             "source_name": item.get("source_name") or None,
-            "source_date": item.get("source_date") or item.get("publish_date") or None,
+            "source_date": item.get("source_date") or item.get("publish_date") or item.get("discovered_at", "")[:10] or None,
             "persona": item.get("persona") or None,
             "so_what": item.get("so_what") or None,
             # Grounded body fields
