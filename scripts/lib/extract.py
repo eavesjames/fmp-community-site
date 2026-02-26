@@ -104,7 +104,7 @@ OPEN_QUESTIONS
 1–2 short questions a practitioner could pursue after reading.
 
 PLAYERS
-Use ONLY if clearly mentioned in the excerpt. Keys: voltserver, panduit, cisco, fmp-alliance, other.
+Use ONLY if clearly mentioned in the excerpt. Keys: voltserver, panduit, cisco, fmp-alliance, cence-power, other.
 
 CALIBRATION EXAMPLES
 

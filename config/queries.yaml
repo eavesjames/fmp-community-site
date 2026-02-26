@@ -60,8 +60,18 @@ queries:
     query: '("edge computing" OR "edge infrastructure" OR "remote power") ("UPS" OR "power resilience" OR "power monitoring" OR "battery backup") (failure OR constraint OR monitoring OR runtime OR deployment)'
 
   # ── Trade publications ────────────────────────────────────────────────────────
-  # Electrical and power trade media covering installs, code, and upgrades.
-  - name: "Trade media: electrical and power distribution"
+  # Electrical trade press: EC&M and Electrical Contractor magazine.
+  # recency_days: null — site: + tbs are incompatible in SerpAPI/Google.
+  # The normalize.py 30-day age gate drops stale content instead.
+  - name: "Trade media: electrical press"
     vertical: "edge-power-ups"
     player: "other"
-    query: '(site:ecmweb.com OR site:electricalcontractor.net OR site:datacenterfrontier.com) ("power distribution" OR "Class 4" OR "electrical upgrade" OR "UPS" OR "fault managed" OR "panel upgrade")'
+    recency_days: null
+    query: '(site:ecmweb.com OR site:electricalcontractor.net) ("power distribution" OR "Class 4" OR "electrical upgrade" OR "fault managed" OR "panel upgrade" OR "wiring methods")'
+
+  # Data center trade press: Data Center Frontier.
+  - name: "Trade media: data center press"
+    vertical: "data-centers"
+    player: "other"
+    recency_days: null
+    query: 'site:datacenterfrontier.com ("power distribution" OR "UPS" OR "power density" OR "fault managed" OR "rack density" OR "kW per rack")'

@@ -48,8 +48,11 @@ def run_intake():
             "num": settings.get("max_results_per_query", 10),
         }
 
-        # Add date range if specified
-        recency_days = settings.get("recency_days")
+        # Add date range — per-query key takes priority; null disables recency for that query
+        if "recency_days" in query_config:
+            recency_days = query_config["recency_days"]   # None = explicitly disabled
+        else:
+            recency_days = settings.get("recency_days")
         if recency_days:
             params["tbs"] = f"qdr:d{recency_days}"
 

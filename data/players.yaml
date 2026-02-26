@@ -26,6 +26,12 @@
   linkedin: https://www.linkedin.com/company/fault-managed-power-alliance/
   description: Industry group advancing FMP adoption, training, and standards.
 
+- key: cence-power
+  name: Cence Power
+  website: https://www.cencepower.com
+  linkedin: ""
+  description: Markham, Ontario-based Class 4 fault-managed DC power distribution OEM targeting data centers and telecom. Founder Ibrahim served on the CSA working group updating Canadian electrical code for Class 4.
+
 - key: other
   name: Other
   website: ""
