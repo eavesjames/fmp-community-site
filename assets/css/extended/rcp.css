@@ -253,11 +253,28 @@
   grid-template-columns: 6rem 1fr auto;
 }
 
-/* ── Column rows — narrow context, hide source to prevent title squeeze ── */
-.rcp-columns .rcp-row {
-  grid-template-columns: 5rem 1fr;
+/* ── Stacked vertical sections ── */
+.rcp-vertical-section {
+  margin-bottom: 2rem;
 }
 
-.rcp-columns .rcp-source {
+.rcp-vertical-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.5rem;
+}
+
+/* Source column hidden in vertical sections — rows are full-width,
+   source attribution is on the single item page */
+.rcp-vertical-section .rcp-row {
+  grid-template-columns: 6rem 1fr;
+}
+
+.rcp-vertical-section .rcp-source {
   display: none;
 }

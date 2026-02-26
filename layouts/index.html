@@ -27,29 +27,25 @@
 
 <div class="rcp-home">
 
-  {{/* ── Latest by Topic Area: 3 columns ── */}}
-  <section class="rcp-columns-section">
+  {{/* ── Latest by Topic Area: stacked verticals ── */}}
+  <section class="rcp-verticals-section">
     <h2 class="rcp-section-title">Latest by Topic Area</h2>
-    <div class="rcp-columns">
-      {{- range $sections }}
-        {{- $key   := .key }}
-        {{- $label := .label }}
-        {{- $items := where $sorted "Params.vertical" $key }}
-        <div class="rcp-col">
-          <h3 class="rcp-col-title">{{ $label | safeHTML }}</h3>
-          {{- $count := 0 }}
+    {{- range $sections }}
+      {{- $key   := .key }}
+      {{- $label := .label }}
+      {{- $items := where $sorted "Params.vertical" $key }}
+      {{- $items  = first 6 $items }}
+      <div class="rcp-vertical-section">
+        <h3 class="rcp-vertical-title">{{ $label | safeHTML }}</h3>
+        {{- if $items }}
           {{- range $items }}
-            {{- if lt $count 5 }}
-              {{- partial "rcp_row.html" . }}
-              {{- $count = add $count 1 }}
-            {{- end }}
+            {{- partial "rcp_row.html" . }}
           {{- end }}
-          {{- if eq $count 0 }}
-            <p class="rcp-empty">Items coming soon.</p>
-          {{- end }}
-        </div>
-      {{- end }}
-    </div>
+        {{- else }}
+          <p class="rcp-empty">Items coming soon.</p>
+        {{- end }}
+      </div>
+    {{- end }}
   </section>
 
   {{/* ── Originals strip ── */}}
