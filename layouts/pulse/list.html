@@ -1,0 +1,49 @@
+{{- define "main" }}
+
+{{- $allPulse := .Pages }}
+
+{{- /* Sort: source_date desc, fallback to .Date desc */ -}}
+{{- $withDate := slice }}
+{{- $noDate   := slice }}
+{{- range $allPulse }}
+  {{- if isset .Params "source_date" }}
+    {{- $withDate = $withDate | append . }}
+  {{- else }}
+    {{- $noDate = $noDate | append . }}
+  {{- end }}
+{{- end }}
+{{- $sorted := sort $withDate "Params.source_date" "desc" }}
+{{- range $noDate.ByDate.Reverse }}
+  {{- $sorted = $sorted | append . }}
+{{- end }}
+
+{{- $paginator := .Paginate $sorted 50 }}
+
+<div class="rcp-home">
+  <section class="rcp-stream-section">
+    <h2 class="rcp-section-title">
+      All Pulse Updates
+      <span class="rcp-count">({{ len $allPulse }} total)</span>
+    </h2>
+    <div class="rcp-stream">
+      {{- range $paginator.Pages }}
+        {{- partial "rcp_row.html" . }}
+      {{- end }}
+    </div>
+
+    {{- if gt $paginator.TotalPages 1 }}
+    <nav class="rcp-pagination">
+      {{- if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}" class="rcp-page-link">← Newer</a>
+      {{- end }}
+      <span class="rcp-page-info">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
+      {{- if $paginator.HasNext }}
+        <a href="{{ $paginator.Next.URL }}" class="rcp-page-link">Older →</a>
+      {{- end }}
+    </nav>
+    {{- end }}
+
+  </section>
+</div>
+
+{{- end }}

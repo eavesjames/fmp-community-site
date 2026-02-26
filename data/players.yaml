@@ -1,0 +1,33 @@
+# Canonical player registry
+# Keys used in front matter: players: [voltserver, panduit, ...]
+# Validator warns on unknown keys.
+
+- key: voltserver
+  name: VoltServer
+  website: https://www.voltserver.com
+  linkedin: https://www.linkedin.com/company/voltserver/
+  description: Primary OEM — inventor of Fault Managed Power / NEC Class 4 technology.
+
+- key: panduit
+  name: Panduit
+  website: https://www.panduit.com
+  linkedin: https://www.linkedin.com/company/panduit/
+  description: Infrastructure supplier — cabling, connectors, and power distribution hardware.
+
+- key: cisco
+  name: Cisco
+  website: https://www.cisco.com
+  linkedin: https://www.linkedin.com/company/cisco/
+  description: Enterprise networking and power — relevant to PoE, building automation, and OT/controls.
+
+- key: fmp-alliance
+  name: FMP Alliance
+  website: https://faultmanagedpower.org
+  linkedin: https://www.linkedin.com/company/fault-managed-power-alliance/
+  description: Industry group advancing FMP adoption, training, and standards.
+
+- key: other
+  name: Other
+  website: ""
+  linkedin: ""
+  description: Third-party organizations not in the primary player list.

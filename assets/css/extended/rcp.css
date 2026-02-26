@@ -167,6 +167,35 @@
   gap: 1rem;
 }
 
+/* ── Pagination ── */
+.rcp-pagination {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  font-size: 0.85rem;
+}
+
+.rcp-page-link {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.rcp-page-link:hover {
+  text-decoration: underline;
+}
+
+.rcp-page-info {
+  color: var(--secondary);
+}
+
+.rcp-count {
+  font-weight: normal;
+  font-size: 0.8rem;
+  color: var(--secondary);
+  margin-left: 0.4rem;
+}
+
 /* ── Row (updated for title-wrap) ── */
 .rcp-row {
   grid-template-columns: 6rem 1fr auto;
