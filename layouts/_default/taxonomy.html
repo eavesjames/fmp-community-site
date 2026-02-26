@@ -15,7 +15,7 @@
   {{- end }}
 {{- end }}
 {{- $sorted := sort $withDate "Params.source_date" "desc" }}
-{{- range $noDate.ByDate.Reverse }}
+{{- range sort $noDate "Date" "desc" }}
   {{- $sorted = $sorted | append . }}
 {{- end }}
 
