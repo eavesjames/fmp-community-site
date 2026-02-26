@@ -37,42 +37,49 @@ def run_intake():
         return
     
     results = []
-    
+    seen_urls = set()
+
     for query_config in queries:
         print(f"  Searching: {query_config['name']}")
-        
+
         params = {
             "q": query_config["query"],
             "api_key": serp_api_key,
             "num": settings.get("max_results_per_query", 10),
         }
-        
+
         # Add date range if specified
         recency_days = settings.get("recency_days")
         if recency_days:
-            start_date = (datetime.now() - timedelta(days=recency_days)).strftime("%Y-%m-%d")
             params["tbs"] = f"qdr:d{recency_days}"
-        
+
         try:
             response = requests.get("https://serpapi.com/search", params=params, timeout=30)
             response.raise_for_status()
             data = response.json()
-            
+
             organic_results = data.get("organic_results", [])
+            added = 0
             for result in organic_results:
+                url = result.get("link", "")
+                if url in seen_urls:
+                    continue  # Skip duplicates across queries
+                seen_urls.add(url)
                 results.append({
                     "query_name": query_config["name"],
-                    "player": query_config["player"],
+                    "query_vertical": query_config.get("vertical", ""),
+                    "player": query_config.get("player", "other"),
                     "title": result.get("title"),
-                    "link": result.get("link"),
+                    "link": url,
                     "snippet": result.get("snippet"),
                     "discovered_at": datetime.now().isoformat(),
                 })
-            
-            print(f"    Found {len(organic_results)} results")
+                added += 1
+
+            print(f"    Found {len(organic_results)} results, {added} new after dedup")
         except Exception as e:
             print(f"    Error: {e}")
-    
+
     # Save raw results
     if results:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")

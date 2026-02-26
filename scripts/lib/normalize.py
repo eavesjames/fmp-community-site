@@ -173,7 +173,8 @@ def run_normalize():
             "confidence": item.get("confidence"),
             "summary": item.get("summary"),
             "score": calculate_score(item),
-            # Phase 2 fields
+            # Phase 2 fields (Claude's vertical takes priority; query_vertical is the intake hint)
+            "query_vertical": item.get("query_vertical") or None,
             "vertical": item.get("vertical") or None,
             "source_name": item.get("source_name") or None,
             "source_date": item.get("source_date") or item.get("publish_date") or None,

@@ -1,28 +1,67 @@
+# Search query configuration for the FMP daily intake pipeline.
+# Each query is passed to SerpAPI (Google Search).
+# Results go to Stage-2 Claude evaluation, which drops low-confidence items.
+#
+# Cost note: 8 queries × 10 results × 30 days ≈ 2,400 SerpAPI credits/month (paid plan).
+# To reduce cost: lower max_results_per_query or remove lower-priority queries.
+
 settings:
   max_results_per_query: 10
   recency_days: 21
   require_canonical_domains: true
 
 queries:
-  - name: "VoltServer FMP updates"
-    player: "voltserver"
-    site_domain: "voltserver.com"
-    query: 'site:voltserver.com ("fault managed power" OR "Class 4" OR "UL 1400") (news OR press OR release)'
 
-  - name: "Panduit Class 4 updates"
-    player: "panduit"
-    site_domain: "panduit.com"
-    query: 'site:panduit.com ("Class 4" OR "fault managed power") (news OR release)'
-
-  - name: "Cisco power/building updates"
-    player: "cisco"
-    site_domain: "cisco.com"
-    query: 'site:cisco.com (power OR building OR industrial) (news OR announcement)'
-
-  - name: "FMP Alliance updates"
-    player: "fmp-alliance"
-    query: '"fault managed power" (alliance OR conference OR webinar OR standard)'
-
-  - name: "Global FMP events"
+  # ── Direct FMP signals ────────────────────────────────────────────────────────
+  # Broad sweep for anything explicitly mentioning FMP technology.
+  - name: "FMP / Class 4 general news"
+    vertical: "edge-power-ups"
     player: "other"
-    query: '"fault managed power" (conference OR webinar OR symposium)'
+    query: '"fault managed power" OR "Class 4 power" OR "NEC Article 726"'
+
+  # OEM company updates — VoltServer and Panduit in one query.
+  - name: "VoltServer and Panduit updates"
+    vertical: "edge-power-ups"
+    player: "voltserver"
+    query: '(site:voltserver.com OR site:panduit.com) ("fault managed power" OR "Class 4" OR "digital electricity" OR "UL 1400")'
+
+  # ── Code and standards ────────────────────────────────────────────────────────
+  # NEC 2026 cycle, UL 1400, NFPA 70 updates relevant to Class 4 wiring.
+  - name: "NEC / NFPA / UL Class 4 code updates"
+    vertical: "edge-power-ups"
+    player: "other"
+    query: '("NEC" OR "NFPA 70" OR "UL 1400") ("Article 726" OR "Class 4" OR "fault managed power") (2025 OR 2026 OR update OR draft OR amendment OR proposed)'
+
+  # ── Building Electrification ──────────────────────────────────────────────────
+  # LL97 enforcement, decarbonization mandates, and the electrical upgrade barrier.
+  - name: "Building electrification policy and electrical barriers"
+    vertical: "building-electrification"
+    player: "other"
+    query: '("Local Law 97" OR "LL97" OR "building electrification" OR "building decarbonization") ("electrical upgrade" OR "panel upgrade" OR "service upgrade" OR "heat pump") (cost OR delay OR barrier OR retrofit OR multifamily OR MDU)'
+
+  # Heat pump installations blocked by panel/service capacity — FMP's core value prop.
+  - name: "Heat pump retrofit electrical constraints"
+    vertical: "building-electrification"
+    player: "other"
+    query: '("heat pump" OR "heat pumps") ("electrical panel" OR "electrical service" OR "panel upgrade" OR "service upgrade" OR "wiring") (cost OR constraint OR delay OR barrier OR retrofit OR apartment OR commercial)'
+
+  # ── Data Centers ──────────────────────────────────────────────────────────────
+  # AI workloads driving rack density beyond what traditional UPS/distribution handles.
+  - name: "Data center power density and AI infrastructure"
+    vertical: "data-centers"
+    player: "other"
+    query: '("data center" OR "colocation" OR "hyperscale") ("power density" OR "kW per rack" OR "power distribution" OR "UPS") (AI OR GPU OR constraint OR upgrade OR failure OR "liquid cooling")'
+
+  # ── Edge Infrastructure ───────────────────────────────────────────────────────
+  # Remote sites, edge nodes, distributed UPS — runtime, monitoring, failure modes.
+  - name: "Edge infrastructure power and UPS resilience"
+    vertical: "edge-power-ups"
+    player: "other"
+    query: '("edge computing" OR "edge infrastructure" OR "remote power") ("UPS" OR "power resilience" OR "power monitoring" OR "battery backup") (failure OR constraint OR monitoring OR runtime OR deployment)'
+
+  # ── Trade publications ────────────────────────────────────────────────────────
+  # Electrical and power trade media covering installs, code, and upgrades.
+  - name: "Trade media: electrical and power distribution"
+    vertical: "edge-power-ups"
+    player: "other"
+    query: '(site:ecmweb.com OR site:electricalcontractor.net OR site:datacenterfrontier.com) ("power distribution" OR "Class 4" OR "electrical upgrade" OR "UPS" OR "fault managed" OR "panel upgrade")'
