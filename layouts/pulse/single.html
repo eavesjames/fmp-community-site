@@ -1,0 +1,58 @@
+{{- define "main" }}
+
+<article class="post-single">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+
+    {{- /* ── Source button + metadata (Phase 2 posts only) ── */}}
+    {{- if .Params.source_url }}
+    <div class="rcp-source-meta">
+      <a href="{{ .Params.source_url }}"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="rcp-source-btn">Open Source ↗</a>
+      <span class="rcp-source-details">
+        {{- if .Params.source_name }}{{ .Params.source_name }}{{ end }}
+        {{- if and .Params.source_name .Params.source_date }} &middot; {{ end }}
+        {{- if .Params.source_date }}{{ .Params.source_date }}{{ end }}
+      </span>
+    </div>
+    {{- end }}
+
+    {{- /* ── so_what ── */}}
+    {{- if .Params.so_what }}
+    <p class="rcp-sowhat-single">{{ .Params.so_what }}</p>
+    {{- end }}
+
+  </header>
+
+  {{- /* ── Post body ── */}}
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  {{- /* ── Related items by shared topics or vertical ── */}}
+  {{- $current := . }}
+  {{- $related  := slice }}
+  {{- range where site.RegularPages "Section" "pulse" }}
+    {{- if ne .Permalink $current.Permalink }}
+      {{- $sharedTopics   := intersect (.Params.topics | default slice) ($current.Params.topics | default slice) }}
+      {{- $sharedVertical := and .Params.vertical $current.Params.vertical (eq .Params.vertical $current.Params.vertical) }}
+      {{- if or $sharedTopics $sharedVertical }}
+        {{- $related = $related | append . }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+  {{- if $related }}
+  <div class="rcp-related">
+    <h3 class="rcp-section-title">Related Updates</h3>
+    {{- range first 5 (sort $related "Date" "desc") }}
+      {{- partial "rcp_row.html" . }}
+    {{- end }}
+  </div>
+  {{- end }}
+
+</article>
+
+{{- end }}

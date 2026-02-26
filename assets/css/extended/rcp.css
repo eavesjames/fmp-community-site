@@ -167,6 +167,52 @@
   gap: 1rem;
 }
 
+/* ── Single pulse page ── */
+.rcp-source-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.75rem 0 1rem;
+  flex-wrap: wrap;
+}
+
+.rcp-source-btn {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  background: var(--primary);
+  color: var(--theme);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.rcp-source-btn:hover {
+  opacity: 0.85;
+}
+
+.rcp-source-details {
+  font-size: 0.8rem;
+  color: var(--secondary);
+}
+
+.rcp-sowhat-single {
+  font-size: 1rem;
+  color: var(--secondary);
+  font-style: italic;
+  border-left: 3px solid var(--border);
+  padding-left: 0.75rem;
+  margin: 0.5rem 0 1.25rem;
+  line-height: 1.5;
+}
+
+.rcp-related {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
 /* ── Pagination ── */
 .rcp-pagination {
   display: flex;
