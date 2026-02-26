@@ -93,6 +93,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
+  min-width: 0;
 }
 
 .rcp-sowhat {
@@ -247,7 +248,16 @@
   grid-template-columns: 6rem 1fr auto;
 }
 
-/* ── Main stream ── */
+/* ── Main stream — full width, source column visible ── */
 .rcp-stream .rcp-row {
   grid-template-columns: 6rem 1fr auto;
+}
+
+/* ── Column rows — narrow context, hide source to prevent title squeeze ── */
+.rcp-columns .rcp-row {
+  grid-template-columns: 5rem 1fr;
+}
+
+.rcp-columns .rcp-source {
+  display: none;
 }
