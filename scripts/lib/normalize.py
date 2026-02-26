@@ -179,6 +179,10 @@ def run_normalize():
             "source_date": item.get("source_date") or item.get("publish_date") or None,
             "persona": item.get("persona") or None,
             "so_what": item.get("so_what") or None,
+            # Grounded body fields
+            "why_it_matters": item.get("why_it_matters") or None,
+            "open_questions": item.get("open_questions") or [],
+            "evidence": item.get("evidence") or [],
         }
         
         existing_items.append(normalized_item)

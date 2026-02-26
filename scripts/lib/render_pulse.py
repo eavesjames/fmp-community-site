@@ -14,12 +14,11 @@ PULSE_BODY = """\
 ## Why it matters
 
 {why_it_matters}
-
+{evidence_section}
 ## Links
 
 - **Canonical source**: [{canonical_source}]({canonical_source})
-- **Player**: /players/{primary_player}/
-{topic_links}
+{player_link}{topic_links}
 
 ## Open questions
 
@@ -86,48 +85,28 @@ def build_front_matter(item):
 
     return "\n".join(lines)
 
-def generate_why_it_matters(item):
-    """Generate 'Why it matters' section"""
-    artifact_type = item.get("artifact_type", "other")
-    players = item.get("players", [])
-    topics = item.get("topics", [])
-    
-    # Simple heuristic based on type and topics
-    if artifact_type == "product":
-        return "New product releases signal market direction and technology evolution in the FMP ecosystem. Product specifications and capabilities help practitioners evaluate fit for specific use cases."
-    elif artifact_type == "case-study":
-        return "Real-world deployments provide validated evidence of FMP value propositions. Case studies reduce estimating friction by showing actual costs, schedules, and outcomes."
-    elif artifact_type == "standard":
-        return "Standards and code updates directly impact FMP deployment requirements. Understanding standard changes is critical for specification and compliance."
-    elif artifact_type == "event":
-        return "Industry events provide networking opportunities and access to latest technical updates. Conference presentations often preview upcoming developments before formal announcements."
-    else:
-        return "This update provides context on FMP ecosystem development and helps practitioners stay informed on industry direction."
+def get_why_it_matters(item):
+    """Return grounded why_it_matters from item, or a minimal fallback."""
+    return item.get("why_it_matters") or "See source for details."
 
-def generate_open_questions(item):
-    """Generate open questions"""
-    artifact_type = item.get("artifact_type", "other")
-    players = item.get("players", [])
-    
-    questions = []
-    
-    if artifact_type == "product":
-        questions.append("- What are the key specifications and performance characteristics?")
-        questions.append("- How does this compare to existing solutions?")
-        questions.append("- What use cases is this optimized for?")
-    elif artifact_type == "case-study":
-        questions.append("- What were the project economics (cost, schedule, labor)?")
-        questions.append("- What were the key decision factors for choosing FMP?")
-        questions.append("- What lessons learned apply to other projects?")
-    elif artifact_type == "event":
-        questions.append("- What topics will be covered?")
-        questions.append("- Who are the key speakers?")
-        questions.append("- Will presentations/recordings be available?")
-    else:
-        questions.append("- What are the practical implications for FMP practitioners?")
-        questions.append("- How does this affect project planning and execution?")
-    
-    return "\n".join(questions)
+
+def get_open_questions(item):
+    """Return open_questions as bullet list from item, or a minimal fallback."""
+    questions = item.get("open_questions") or []
+    if questions:
+        return "\n".join(f"- {q}" for q in questions)
+    return "- What are the practical implications for FMP practitioners?"
+
+
+def get_evidence_section(item):
+    """Return evidence bullets block, or empty string if none."""
+    bullets = item.get("evidence") or []
+    if not bullets:
+        return ""
+    lines = ["", "**Evidence from source:**", ""]
+    lines.extend(f"- {b}" for b in bullets)
+    lines.append("")
+    return "\n".join(lines)
 
 def render_pulse_pages():
     """Generate markdown files for new Pulse items"""
@@ -161,20 +140,24 @@ def render_pulse_pages():
             continue  # Already rendered
         
         # Prepare body variables
-        primary_player = item.get("players", ["other"])[0]
+        canonical_source = item.get("canonical_source", "")
         topics = item.get("topics", [])
         topic_links = "\n".join(f"- **Topic**: /topics/{topic}/" for topic in topics[:2])
-        canonical_source = item.get("canonical_source", "")
+
+        players = item.get("players", [])
+        primary_player = players[0] if players else None
+        player_link = f"- **Player**: /players/{primary_player}/\n" if primary_player else ""
 
         # Render page
         front_matter = build_front_matter(item)
         body = PULSE_BODY.format(
             summary=item.get("summary", ""),
-            why_it_matters=generate_why_it_matters(item),
+            why_it_matters=get_why_it_matters(item),
+            evidence_section=get_evidence_section(item),
             canonical_source=canonical_source,
-            primary_player=primary_player,
+            player_link=player_link,
             topic_links=topic_links,
-            open_questions=generate_open_questions(item)
+            open_questions=get_open_questions(item),
         )
         content = front_matter + body
         

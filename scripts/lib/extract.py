@@ -54,57 +54,83 @@ def extract_metadata_from_url(url, title, snippet, client):
     page_content = fetch_page_content(url)
     is_linkedin = is_linkedin_post(url)
 
-    # Build context for Claude
-    context = f"""URL: {url}
-Original Title: {title}
-Snippet: {snippet}"""
+    excerpt = page_content or "(not available — use SERP title and snippet only)"
 
-    if page_content:
-        context += f"\n\nPage Content:\n{page_content}"
+    prompt = f"""You are the Stage-2 Evaluation agent for faultmanagedpower.org.
 
-    prompt = f"""{context}
+Context: The pipeline fetches ONLY the first ~3,000 characters of a page. Stage 3 will DROP items with confidence="low". Your output must be conservative, grounded, and high-signal.
 
-Extract metadata for a Fault Managed Power (FMP) knowledge base.
+GOAL
+Identify items relevant to the FMP community OR meaningfully adjacent via power distribution constraints in one of three verticals:
+1) Edge Infrastructure Power & UPS
+2) Data Centers
+3) Building Electrification / Decarbonization
 
-IMPORTANT TITLE GUIDELINES:
-- For LinkedIn posts: Generate a descriptive title like "LinkedIn post by [Author] discussing [main topic]"
-- For other content: Use a clear, descriptive title (improve the original if needed)
-- Keep titles under 100 characters
-- Remove hashtags and social media artifacts
+INPUTS
 
-Extract the following information:
+SERP:
+title: {title}
+snippet: {snippet}
+url: {url}
 
-1. **title**: A clear, descriptive title (see guidelines above)
-2. **artifact_type**: Choose ONE from: press, product, event, case-study, standard, doc, video, linkedin-post, other
-3. **publish_date**: Publication date if available (YYYY-MM-DD format), or null
-4. **description**: 150-170 character meta description
-5. **players**: Array of organizations that directly authored, sponsored, or are the primary subject of this content. Use: voltserver, panduit, cisco, fmp-alliance, other. Do NOT tag an organization merely because their technology or product is mentioned in passing — only tag them if they published it, funded it, or the content is primarily about them.
-6. **topics**: Array from: safety-model, code-standards, pathways-install, estimating, schedule-value, monitoring-telemetry, ups-resilience, ot-controls-plc, physical-security, power-quality-surge, dc-distribution, commissioning, reliability-uptime, prefab-modular, labor-productivity, ai-infrastructure, incentives-policy, retrofits-mdus
-7. **value_levers**: Array from: labor, schedule, space, digital-connectivity, risk, feasibility, operations
-8. **confidence**: high, medium, or low (how relevant is this to FMP?)
-9. **summary**: 2-3 sentence summary explaining what this content is about and its key points
-10. **vertical**: The single best-fit FMP market segment — choose ONE from: edge-power-ups, data-centers, building-electrification
-11. **source_name**: Short publication or outlet name (e.g. "NFPA", "Data Center Frontier", "The City") — the publisher of the source, not the subject company
-12. **source_date**: Date the source article was published (YYYY-MM-DD), or null if unknown
-13. **persona**: Primary audience for this content — choose ONE from: owner-operator, facilities, it-network, security-integrator, ot-controls, gc-mep, electrical-contractor
-14. **so_what**: One sharp sentence (max 160 chars) stating the practical implication for an FMP practitioner
+PAGE_EXCERPT (first ~3,000 chars):
+{excerpt}
 
-Respond ONLY with valid JSON:
+TITLE RULES
+- LinkedIn posts: "LinkedIn post by [Author] discussing [main topic]"
+- All others: clear descriptive title, <=100 chars, no hashtags or social artifacts
+
+FMP RELEVANCE RUBRIC
+- HIGH: Clearly concerns power distribution constraints, safety/compliance, monitoring, commissioning, UPS/resilience, pathways/install bottlenecks, or a concrete deployment/case study in one vertical. Standards/code updates qualify as HIGH if clearly relevant.
+- MEDIUM: Adjacent but constraint-rich (e.g., data center power density affecting distribution choices; MDU retrofit bottlenecks like risers/panels; edge deployments constrained by UPS/runtime/monitoring). Must contain at least one concrete detail.
+- LOW: Generic trend piece, pure marketing, device-only announcement, or insufficient detail in excerpt to justify relevance.
+
+HARD REJECT CONDITIONS — set confidence="low" if ANY apply:
+- Excerpt is mostly marketing claims with no constraints, tradeoffs, or details.
+- You cannot extract at least ONE concrete detail (named standard, number, constraint, failure mode, timeline, specific project context).
+- Not meaningfully about power distribution / reliability / code / install constraints.
+
+EVIDENCE REQUIREMENT
+Provide 1–3 short bullets quoting or paraphrasing concrete details from the excerpt. If you have zero evidence bullets, confidence MUST be "low".
+
+SO_WHAT REQUIREMENT (<=160 chars)
+One sentence explaining why this matters for FMP via at least one lever:
+install/pathways, labor/schedule, safety model, monitoring/telemetry, commissioning/maintenance, UPS/resilience, code/AHJ friction, retrofit disruption, scaling/power density.
+
+WHY_IT_MATTERS (2–3 sentences max, grounded in the excerpt)
+State: the constraint or change, who it impacts (persona), and what decision it affects (design/install/ops/approval).
+
+OPEN_QUESTIONS
+1–2 short questions a practitioner could pursue after reading.
+
+PLAYERS
+Use ONLY if clearly mentioned in the excerpt. Keys: voltserver, panduit, cisco, fmp-alliance, other.
+
+CALIBRATION EXAMPLES
+
+HIGH (standards/code): Excerpt mentions NEC/NFPA/UL/CSA, specific article/standard, and what changed. Evidence includes the named standard and a concrete change.
+HIGH (case study): Excerpt includes project context (facility type, scope, numbers, constraints). Evidence includes at least one number or explicit constraint.
+MEDIUM (adjacent): "interconnect delays forcing phased builds," "power density increasing," "panel/service upgrades delaying retrofits," "UPS runtime burden." Evidence: at least one explicit constraint or named mechanism.
+LOW (reject): Mostly brand promises ("revolutionary," "best-in-class") with no details. Evidence would be empty or generic.
+
+OUTPUT — respond ONLY with valid JSON, no markdown, no extra text:
 {{
-  "title": "...",
-  "artifact_type": "...",
-  "publish_date": "...",
-  "description": "...",
-  "players": [...],
-  "topics": [...],
-  "value_levers": [...],
-  "confidence": "...",
-  "summary": "...",
-  "vertical": "...",
-  "source_name": "...",
-  "source_date": "...",
-  "persona": "...",
-  "so_what": "..."
+  "title": "clear descriptive title <=100 chars",
+  "artifact_type": "press|product|standard|case-study|event|doc|linkedin-post|other",
+  "publish_date": "YYYY-MM-DD or null",
+  "description": "150-170 char meta description",
+  "source_name": "short publication or outlet name",
+  "source_date": "YYYY-MM-DD or null",
+  "confidence": "high|medium|low",
+  "vertical": "edge-power-ups|data-centers|building-electrification",
+  "persona": "owner-operator|facilities|it-network|security-integrator|ot-controls|gc-mep|electrical-contractor",
+  "topics": ["1-6 from: safety-model, code-standards, pathways-install, estimating, schedule-value, monitoring-telemetry, ups-resilience, ot-controls-plc, physical-security, power-quality-surge, dc-distribution, commissioning, reliability-uptime, prefab-modular, labor-productivity, ai-infrastructure, incentives-policy, retrofits-mdus"],
+  "players": [],
+  "so_what": "<=160 chars",
+  "summary": "2-3 sentence overview of what the content is",
+  "why_it_matters": "2-3 sentences grounded in excerpt: constraint, persona impact, decision affected",
+  "open_questions": ["question 1", "question 2"],
+  "evidence": ["concrete detail from excerpt", "concrete detail from excerpt"]
 }}"""
 
     try:
