@@ -26,6 +26,30 @@
   linkedin: https://www.linkedin.com/company/fault-managed-power-alliance/
   description: Industry group advancing FMP adoption, training, and standards.
 
+- key: sinclair-digital
+  name: Sinclair Digital
+  website: https://sinclair-digital.com
+  linkedin: https://www.linkedin.com/company/sinclair-digital
+  description: FMP Alliance member — makes AGILE-CORE distributed edge architecture combining FMP, PoE, and LVDC for converged IT/OT building infrastructure.
+
+- key: southwire
+  name: Southwire
+  website: https://www.southwire.com
+  linkedin: https://www.linkedin.com/company/southwire-company
+  description: Major US wire and cable manufacturer — produces building wire and installation tools used in Class 4 FMP wiring pathways.
+
+- key: belden
+  name: Belden
+  website: https://www.belden.com
+  linkedin: https://www.linkedin.com/company/beldeninc
+  description: Signal transmission and cable infrastructure supplier — cabling and connectivity solutions relevant to structured cabling alongside FMP installations.
+
+- key: commscope
+  name: CommScope
+  website: https://www.commscope.com
+  linkedin: https://www.linkedin.com/company/commscope
+  description: Network infrastructure and cabling systems provider — structured cabling, connectors, and pathway products relevant to FMP co-installation environments.
+
 - key: cence-power
   name: Cence Power
   website: https://www.cencepower.com
