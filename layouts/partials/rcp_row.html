@@ -1,0 +1,24 @@
+{{- $page := . -}}
+{{- $displayDate := "" -}}
+{{- if $page.Params.source_date -}}
+  {{- $displayDate = $page.Params.source_date -}}
+{{- else -}}
+  {{- $displayDate = $page.Date.Format "2006-01-02" -}}
+{{- end -}}
+{{- $source := "" -}}
+{{- if $page.Params.source_name -}}
+  {{- $source = $page.Params.source_name -}}
+{{- else if $page.Params.canonical_source -}}
+  {{- $parsed := urls.Parse $page.Params.canonical_source -}}
+  {{- $source = $parsed.Host | strings.TrimPrefix "www." -}}
+{{- end -}}
+<div class="rcp-row">
+  <span class="rcp-date">{{ $displayDate }}</span>
+  <span class="rcp-title-wrap">
+    <a href="{{ $page.Permalink }}" class="rcp-title">{{ $page.Title }}</a>
+    {{- if $page.Params.so_what }}
+    <span class="rcp-sowhat">{{ $page.Params.so_what }}</span>
+    {{- end }}
+  </span>
+  {{- if $source }}<span class="rcp-source">{{ $source }}</span>{{ end -}}
+</div>

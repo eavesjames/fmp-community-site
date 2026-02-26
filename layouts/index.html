@@ -1,0 +1,87 @@
+{{- define "main" }}
+
+{{- $allPulse := where site.RegularPages "Section" "pulse" }}
+
+{{- /* Sort: source_date desc first, then undated by .Date desc */ -}}
+{{- $withDate := slice }}
+{{- $noDate   := slice }}
+{{- range $allPulse }}
+  {{- if isset .Params "source_date" }}
+    {{- $withDate = $withDate | append . }}
+  {{- else }}
+    {{- $noDate = $noDate | append . }}
+  {{- end }}
+{{- end }}
+{{- $withDateSorted := sort $withDate "Params.source_date" "desc" }}
+{{- $noDateSorted   := $noDate.ByDate.Reverse }}
+{{- $sorted := $withDateSorted }}
+{{- range $noDateSorted }}
+  {{- $sorted = $sorted | append . }}
+{{- end }}
+
+{{- $sections := slice
+  (dict "key" "edge-power-ups"           "label" "Edge Infrastructure Power &amp; UPS")
+  (dict "key" "data-centers"             "label" "Data Centers")
+  (dict "key" "building-electrification" "label" "Building Electrification / Decarbonization")
+}}
+
+<div class="rcp-home">
+
+  {{/* ── Latest by Topic Area: 3 columns ── */}}
+  <section class="rcp-columns-section">
+    <h2 class="rcp-section-title">Latest by Topic Area</h2>
+    <div class="rcp-columns">
+      {{- range $sections }}
+        {{- $key   := .key }}
+        {{- $label := .label }}
+        {{- $items := where $sorted "Params.vertical" $key }}
+        <div class="rcp-col">
+          <h3 class="rcp-col-title">{{ $label | safeHTML }}</h3>
+          {{- $count := 0 }}
+          {{- range $items }}
+            {{- if lt $count 5 }}
+              {{- partial "rcp_row.html" . }}
+              {{- $count = add $count 1 }}
+            {{- end }}
+          {{- end }}
+          {{- if eq $count 0 }}
+            <p class="rcp-empty">Items coming soon.</p>
+          {{- end }}
+        </div>
+      {{- end }}
+    </div>
+  </section>
+
+  {{/* ── Originals strip ── */}}
+  {{- $originals := where site.RegularPages "Section" "originals" }}
+  {{- $originals  = $originals.ByDate.Reverse }}
+  {{- if $originals }}
+  <section class="rcp-originals-section">
+    <h2 class="rcp-section-title">Originals</h2>
+    <div class="rcp-originals-strip">
+      {{- range first 3 $originals }}
+      <div class="rcp-original-card">
+        <span class="rcp-date">{{ .Date.Format "2006-01-02" }}</span>
+        <a href="{{ .Permalink }}" class="rcp-title">{{ .Title }}</a>
+        {{- if .Params.thesis }}
+        <p class="rcp-thesis">{{ .Params.thesis }}</p>
+        {{- end }}
+      </div>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+  {{/* ── Main stream: all pulse items ── */}}
+  <section class="rcp-stream-section">
+    <h2 class="rcp-section-title">All Updates</h2>
+    <div class="rcp-stream">
+      {{- range $sorted }}
+        {{- partial "rcp_row.html" . }}
+      {{- end }}
+    </div>
+  </section>
+
+</div>
+
+{{- end }}
