@@ -1,0 +1,17 @@
+{{- define "main" }}
+
+<div class="rcp-home">
+  <section class="rcp-stream-section">
+    <h2 class="rcp-section-title">{{ .Title }}</h2>
+    <div class="rcp-terms-list">
+      {{- range .Data.Terms.Alphabetical }}
+      <div class="rcp-term-item">
+        <a href="{{ .Page.Permalink }}" class="rcp-title">{{ .Page.Title }}</a>
+        <span class="rcp-source">{{ .Count }} {{ if eq .Count 1 }}item{{ else }}items{{ end }}</span>
+      </div>
+      {{- end }}
+    </div>
+  </section>
+</div>
+
+{{- end }}

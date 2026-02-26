@@ -1,0 +1,54 @@
+{{- define "main" }}
+
+{{- /* Pinned guides tagged with this term */ -}}
+{{- $pinned := where (where .Pages "Section" "guides") "Params.pinned" true }}
+
+{{- /* Pulse items tagged with this term, sorted by source_date desc */ -}}
+{{- $pulse := where .Pages "Section" "pulse" }}
+{{- $withDate := slice }}
+{{- $noDate   := slice }}
+{{- range $pulse }}
+  {{- if isset .Params "source_date" }}
+    {{- $withDate = $withDate | append . }}
+  {{- else }}
+    {{- $noDate = $noDate | append . }}
+  {{- end }}
+{{- end }}
+{{- $sorted := sort $withDate "Params.source_date" "desc" }}
+{{- range $noDate.ByDate.Reverse }}
+  {{- $sorted = $sorted | append . }}
+{{- end }}
+
+<div class="rcp-home">
+
+  {{- if $pinned }}
+  <section class="rcp-guides-section">
+    <h2 class="rcp-section-title">Start Here</h2>
+    <div class="rcp-guides">
+      {{- range $pinned }}
+      <div class="rcp-guide-card">
+        <a href="{{ .Permalink }}" class="rcp-title">{{ .Title }}</a>
+        {{- if .Params.summary }}
+        <p class="rcp-thesis">{{ .Params.summary }}</p>
+        {{- end }}
+      </div>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+  <section class="rcp-stream-section">
+    <h2 class="rcp-section-title">{{ .Title }} — Latest Updates</h2>
+    <div class="rcp-stream">
+      {{- range $sorted }}
+        {{- partial "rcp_row.html" . }}
+      {{- end }}
+      {{- if not $sorted }}
+        <p class="rcp-empty">No items yet.</p>
+      {{- end }}
+    </div>
+  </section>
+
+</div>
+
+{{- end }}

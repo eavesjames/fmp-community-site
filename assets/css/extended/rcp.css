@@ -135,6 +135,38 @@
   line-height: 1.4;
 }
 
+/* ── Guides (Start Here) ── */
+.rcp-guides {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.rcp-guide-card {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  padding: 0.6rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+/* ── Terms list (taxonomy index) ── */
+.rcp-terms-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.rcp-term-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+  gap: 1rem;
+}
+
 /* ── Row (updated for title-wrap) ── */
 .rcp-row {
   grid-template-columns: 6rem 1fr auto;
