@@ -16,6 +16,8 @@ buildExpired = false
   pulse = "/pulse/:slug/"
   digests = "/digests/:slug/"
   posts = "/posts/:slug/"
+  originals = "/originals/:slug/"
+  guides = "/guides/:slug/"
   topics = "/topics/:slug/"
   players = "/players/:slug/"
   glossary = "/glossary/:slug/"
@@ -55,6 +57,8 @@ buildExpired = false
   player = "players"
   topic = "topics"
   value_lever = "value_levers"
+  vertical = "verticals"
+  persona = "personas"
 
 [markup]
   [markup.goldmark]
@@ -65,23 +69,53 @@ buildExpired = false
   [[menu.main]]
     identifier = "pulse"
     name = "Pulse"
-    url = "/pulse/"
+    url = "/"
     weight = 10
 
   [[menu.main]]
-    identifier = "topics"
-    name = "Topics"
-    url = "/topics/"
+    identifier = "edge-power-ups"
+    name = "Edge & UPS"
+    url = "/verticals/edge-power-ups/"
     weight = 20
+
+  [[menu.main]]
+    identifier = "data-centers"
+    name = "Data Centers"
+    url = "/verticals/data-centers/"
+    weight = 30
+
+  [[menu.main]]
+    identifier = "building-electrification"
+    name = "Building Electrification"
+    url = "/verticals/building-electrification/"
+    weight = 40
+
+  [[menu.main]]
+    identifier = "codes-standards"
+    name = "Codes & Standards"
+    url = "/topics/code-standards/"
+    weight = 50
 
   [[menu.main]]
     identifier = "players"
     name = "Players"
     url = "/players/"
-    weight = 30
+    weight = 60
 
   [[menu.main]]
     identifier = "library"
     name = "Library"
     url = "/library/"
-    weight = 40
+    weight = 70
+
+  [[menu.main]]
+    identifier = "glossary"
+    name = "Glossary"
+    url = "/glossary/"
+    weight = 80
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 90
