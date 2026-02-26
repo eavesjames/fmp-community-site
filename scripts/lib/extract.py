@@ -78,11 +78,16 @@ Extract the following information:
 2. **artifact_type**: Choose ONE from: press, product, event, case-study, standard, doc, video, linkedin-post, other
 3. **publish_date**: Publication date if available (YYYY-MM-DD format), or null
 4. **description**: 150-170 character meta description
-5. **players**: Array of relevant organizations from: voltserver, panduit, cisco, fmp-alliance, other
-6. **topics**: Array from: class-4, safety-model, estimating, schedule-value, space-value, digital-connectivity, smart-buildings, data-centers, retrofits, code-standards, commissioning
+5. **players**: Array of organizations that directly authored, sponsored, or are the primary subject of this content. Use: voltserver, panduit, cisco, fmp-alliance, other. Do NOT tag an organization merely because their technology or product is mentioned in passing — only tag them if they published it, funded it, or the content is primarily about them.
+6. **topics**: Array from: safety-model, code-standards, pathways-install, estimating, schedule-value, monitoring-telemetry, ups-resilience, ot-controls-plc, physical-security, power-quality-surge, dc-distribution, commissioning, reliability-uptime, prefab-modular, labor-productivity, ai-infrastructure, incentives-policy, retrofits-mdus
 7. **value_levers**: Array from: labor, schedule, space, digital-connectivity, risk, feasibility, operations
 8. **confidence**: high, medium, or low (how relevant is this to FMP?)
 9. **summary**: 2-3 sentence summary explaining what this content is about and its key points
+10. **vertical**: The single best-fit FMP market segment — choose ONE from: edge-power-ups, data-centers, building-electrification
+11. **source_name**: Short publication or outlet name (e.g. "NFPA", "Data Center Frontier", "The City") — the publisher of the source, not the subject company
+12. **source_date**: Date the source article was published (YYYY-MM-DD), or null if unknown
+13. **persona**: Primary audience for this content — choose ONE from: owner-operator, facilities, it-network, security-integrator, ot-controls, gc-mep, electrical-contractor
+14. **so_what**: One sharp sentence (max 160 chars) stating the practical implication for an FMP practitioner
 
 Respond ONLY with valid JSON:
 {{
@@ -94,7 +99,12 @@ Respond ONLY with valid JSON:
   "topics": [...],
   "value_levers": [...],
   "confidence": "...",
-  "summary": "..."
+  "summary": "...",
+  "vertical": "...",
+  "source_name": "...",
+  "source_date": "...",
+  "persona": "...",
+  "so_what": "..."
 }}"""
 
     try:

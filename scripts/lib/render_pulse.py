@@ -5,25 +5,7 @@ from datetime import datetime
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 
-PULSE_TEMPLATE = """---
-title: "{title}"
-date: {date}
-lastmod: {lastmod}
-description: "{description}"
-
-type: "pulse"
-artifact_type: "{artifact_type}"
-
-players: {players}
-topics: {topics}
-value_levers: {value_levers}
-
-canonical_source: "{canonical_source}"
-sources:
-  - "{canonical_source}"
-
-confidence: "{confidence}"
----
+PULSE_BODY = """\
 
 ## What it is
 
@@ -43,6 +25,66 @@ confidence: "{confidence}"
 
 {open_questions}
 """
+
+
+def build_front_matter(item):
+    """Build YAML front matter, including Phase 2 fields when present."""
+    date = item.get("publish_date") or item.get("discovered_at", "")[:10]
+    lastmod = item.get("discovered_at", "")[:10]
+    title = item.get("title", "").replace('"', '\\"')
+    desc = item.get("description", "").replace('"', '\\"')
+    source_url = item.get("canonical_source", "")
+
+    lines = [
+        "---",
+        f'title: "{title}"',
+        f"date: {date}",
+        f"lastmod: {lastmod}",
+        f'description: "{desc}"',
+        "",
+        'type: "pulse"',
+        f'artifact_type: "{item.get("artifact_type", "other")}"',
+        "",
+    ]
+
+    # Phase 2 fields — only written when present
+    phase2 = []
+    if source_url:
+        phase2.append(f'source_url: "{source_url}"')
+    if item.get("source_name"):
+        phase2.append(f'source_name: "{item["source_name"]}"')
+    if item.get("source_date"):
+        phase2.append(f"source_date: {item['source_date']}")
+    if item.get("vertical"):
+        phase2.append(f'vertical: "{item["vertical"]}"')
+    if item.get("persona"):
+        phase2.append(f'persona: "{item["persona"]}"')
+    if item.get("so_what"):
+        so_what = item["so_what"].replace('"', '\\"')
+        phase2.append(f'so_what: "{so_what}"')
+
+    if phase2:
+        lines.extend(phase2)
+        lines.append("")
+
+    players_str = json.dumps(item.get("players", []))
+    topics_str = json.dumps(item.get("topics", []))
+    value_levers_str = json.dumps(item.get("value_levers", []))
+
+    lines.extend([
+        f"players: {players_str}",
+        f"topics: {topics_str}",
+        f"value_levers: {value_levers_str}",
+        "",
+        f'canonical_source: "{source_url}"',
+        "sources:",
+        f'  - "{source_url}"',
+        "",
+        f'confidence: "{item.get("confidence", "medium")}"',
+        "---",
+    ])
+
+    return "\n".join(lines)
 
 def generate_why_it_matters(item):
     """Generate 'Why it matters' section"""
@@ -118,41 +160,23 @@ def render_pulse_pages():
         if slug in existing_slugs:
             continue  # Already rendered
         
-        # Prepare template variables
-        date = item.get("publish_date") or item.get("discovered_at", "")[:10]
-        lastmod = item.get("discovered_at", "")[:10]
-        
-        players_str = json.dumps(item.get("players", []))
-        topics_str = json.dumps(item.get("topics", []))
-        value_levers_str = json.dumps(item.get("value_levers", []))
-        
+        # Prepare body variables
         primary_player = item.get("players", ["other"])[0]
-        
-        # Generate topic links
         topics = item.get("topics", [])
-        if topics:
-            topic_links = "\n".join(f"- **Topic**: /topics/{topic}/" for topic in topics[:2])
-        else:
-            topic_links = ""
-        
+        topic_links = "\n".join(f"- **Topic**: /topics/{topic}/" for topic in topics[:2])
+        canonical_source = item.get("canonical_source", "")
+
         # Render page
-        content = PULSE_TEMPLATE.format(
-            title=item.get("title", "").replace('"', '\\"'),
-            date=date,
-            lastmod=lastmod,
-            description=item.get("description", "").replace('"', '\\"'),
-            artifact_type=item.get("artifact_type", "other"),
-            players=players_str,
-            topics=topics_str,
-            value_levers=value_levers_str,
-            canonical_source=item.get("canonical_source", ""),
-            confidence=item.get("confidence", "medium"),
+        front_matter = build_front_matter(item)
+        body = PULSE_BODY.format(
             summary=item.get("summary", ""),
             why_it_matters=generate_why_it_matters(item),
+            canonical_source=canonical_source,
             primary_player=primary_player,
             topic_links=topic_links,
             open_questions=generate_open_questions(item)
         )
+        content = front_matter + body
         
         # Write file
         output_file = pulse_dir / f"{slug}.md"
