@@ -1,0 +1,1964 @@
+[
+  {
+    "id": "CHK_FMP_FIELD_QUALIFICATION",
+    "file": "CHK_FMP_FIELD_QUALIFICATION.yaml",
+    "type": "checklist",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "",
+    "text_summary": "",
+    "raw": {
+      "knowledge": {
+        "id": "CHK_FMP_FIELD_QUALIFICATION",
+        "type": "checklist",
+        "title": "Field qualification checklist",
+        "key_claim": "Fast project qualification: assess pathway pain, distribution pattern, and schedule value.",
+        "checklist_items": [
+          "Is this a retrofit with pathway/riser constraints?",
+          "Are run lengths long or routing complex (firestopping, asbestos, structural issues)?",
+          "Is speed-to-market valuable (downtime/tenant disruption costs)?",
+          "Are there many endpoints where repeatable drops help?",
+          "Would AC require panel upgrades, new risers, or heavy conduit work?",
+          "If short/simple + cheap labor: does AC likely win?"
+        ],
+        "scoring_or_next_step": {
+          "rule": "If 3+ answers are YES, qualify as FMP candidate and run ROM estimate."
+        },
+        "tags": [
+          "#fit",
+          "#sales",
+          "#estimating"
+        ],
+        "confidence": "high",
+        "maturity_status": "draft",
+        "references": [
+          {
+            "source_id": "SRC_TBD",
+            "page_or_slide": "TBD",
+            "pointer": "Fit logic checklist",
+            "note": "Replace with your final approved checklist language."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "CLAIM_CLASS4_VS_CLASS2_CLASS3",
+    "file": "CLAIM_CLASS4_VS_CLASS2_CLASS3.yaml",
+    "type": "knowledge.claim.comparison",
+    "tags": [
+      "compliance",
+      "code",
+      "safety",
+      "definition",
+      "installation"
+    ],
+    "confidence": "high",
+    "key_claim": "Class 4 (FMP) achieves safety through continuous fault monitoring, not by limiting output power. Class 2 and Class 3 achieve safety by limiting total output power below harmful thresholds. The distinction determines which code article applies, what installation methods are required, and how much power the system can deliver.\n",
+    "text_summary": "Class 4 (FMP) achieves safety through continuous fault monitoring, not by limiting output power. Class 2 and Class 3 achieve safety by limiting total output power below harmful thresholds. The distinction determines which code article applies, what installation methods are required, and how much power the system can deliver.\n",
+    "raw": {
+      "id": "CLAIM_CLASS4_VS_CLASS2_CLASS3",
+      "type": "knowledge.claim.comparison",
+      "title": "Class 4 FMP vs Class 2 / Class 3 Power-Limited Circuits",
+      "canonical": true,
+      "status": {
+        "confidence": "high",
+        "review_date": "2026-02-27"
+      },
+      "key_claim": "Class 4 (FMP) achieves safety through continuous fault monitoring, not by limiting output power. Class 2 and Class 3 achieve safety by limiting total output power below harmful thresholds. The distinction determines which code article applies, what installation methods are required, and how much power the system can deliver.\n",
+      "comparison_table": [
+        {
+          "attribute": "NEC Article",
+          "class_2": "Article 725",
+          "class_3": "Article 725",
+          "class_4": "Article 726 (2023 NEC) / Article 722 (2026 NEC)"
+        },
+        {
+          "attribute": "Safety mechanism",
+          "class_2": "Power-limited: output capped below harmful threshold",
+          "class_3": "Power-limited: output capped below harmful threshold",
+          "class_4": "Fault-managed: transmitter monitors and stops faults in <2ms"
+        },
+        {
+          "attribute": "Max power",
+          "class_2": "100VA (Class 2 limit)",
+          "class_3": "100VA",
+          "class_4": "Multiple kW per cable run; limited by transmitter model"
+        },
+        {
+          "attribute": "Conduit required",
+          "class_2": "No",
+          "class_3": "No",
+          "class_4": "No (follows Class 2 installation methods)"
+        },
+        {
+          "attribute": "Can share raceway with data cable",
+          "class_2": "Yes",
+          "class_3": "Yes",
+          "class_4": "Yes (Class 4 may share with Class 2 / low-voltage data)"
+        },
+        {
+          "attribute": "Licensed electrician at load end",
+          "class_2": "Generally not required",
+          "class_3": "Generally not required",
+          "class_4": "Verify local amendments; often not required at load end"
+        },
+        {
+          "attribute": "Termination at load",
+          "class_2": "Technician-installed",
+          "class_3": "Technician-installed",
+          "class_4": "Technician-installed in most jurisdictions"
+        }
+      ],
+      "key_distinctions": [
+        "Class 4 is NOT a variant of Class 2 \u2014 different article, different safety model, different power ceiling",
+        "Class 2/3 safety is passive (output limited); Class 4 safety is active (transmitter monitors)",
+        "Class 4 can deliver kilowatts; Class 2 is limited to ~100VA",
+        "Both Class 4 and Class 2 use flexible installation methods \u2014 no conduit required",
+        "Common mistake: citing Article 725 for an FMP installation. Correct article is 726 (2023) or 722 (2026)."
+      ],
+      "tags": [
+        "compliance",
+        "code",
+        "safety",
+        "definition",
+        "installation"
+      ],
+      "references": [
+        {
+          "source_id": "NEC_2023",
+          "location": "Article 725 (Class 2/3), Article 726 (Class 4)"
+        },
+        {
+          "source_id": "NEC_2026",
+          "location": "Article 722 (Class 4 renumbered)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CLAIM_DE_INSTALLATION_SCOPE_48_UNITS",
+    "file": "CLAIM_DE_INSTALLATION_SCOPE_48_UNITS.yaml",
+    "type": "knowledge.claim.core",
+    "tags": [
+      "installation",
+      "heatpumps",
+      "digital-electricity",
+      "contractors",
+      "how-to"
+    ],
+    "confidence": "unknown",
+    "key_claim": "Installing Digital Electricity for 48 heat pump units requires only four simple steps: rack 6 transmitters, terminate 96 wire pairs, run 12 structured cables through existing risers, and terminate receivers at each unit",
+    "text_summary": "Installing Digital Electricity for 48 heat pump units requires only four simple steps: rack 6 transmitters, terminate 96 wire pairs, run 12 structured cables through existing risers, and terminate receivers at each unit | Step 1: Build 19-inch rack and mount 6 transmitters (400A, 208 VAC, 3-phase power) | Step 2: Terminate 96 pairs of 16AWG wire to transmitter output terminals | Step 3: Run 12 eight-pair cables through building risers (can use abandoned trash, laundry, mail chutes, or steam lines)",
+    "raw": {
+      "knowledge": {
+        "id": "CLAIM_DE_INSTALLATION_SCOPE_48_UNITS",
+        "type": "knowledge.claim.core",
+        "provenance": {
+          "sources": [
+            {
+              "source_id": "SRC_HEATPUMP_CONTRACTORS_DECK",
+              "page_or_slide": "14-18",
+              "pointer": "DE Scope of Work for 48 Heat Pumps"
+            }
+          ]
+        },
+        "status": {
+          "confidence": "high",
+          "review_date": "2026-02-24"
+        }
+      },
+      "title": "Digital Electricity Installation Scope for 48 Heat Pump Units",
+      "key_claim": "Installing Digital Electricity for 48 heat pump units requires only four simple steps: rack 6 transmitters, terminate 96 wire pairs, run 12 structured cables through existing risers, and terminate receivers at each unit",
+      "bullets": [
+        "Step 1: Build 19-inch rack and mount 6 transmitters (400A, 208 VAC, 3-phase power)",
+        "Step 2: Terminate 96 pairs of 16AWG wire to transmitter output terminals",
+        "Step 3: Run 12 eight-pair cables through building risers (can use abandoned trash, laundry, mail chutes, or steam lines)",
+        "Step 4: Terminate 2 pairs per receiver into input terminals at 240V AC heat pump locations",
+        "System parameters: 48 units total, 6 transmitters, 96 wire pair terminations, 12 distribution cables",
+        "Cable specifications: 8-pair structured cable, 16AWG conductors, 1.5kW per pair capacity",
+        "Receiver output: 240V AC suitable for heat pump connection"
+      ],
+      "references": [
+        {
+          "source_id": "SRC_HEATPUMP_CONTRACTORS_DECK",
+          "page_or_slide": "14-18",
+          "pointer": "Installation scope and procedure"
+        }
+      ],
+      "tags": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "canonical": true
+    }
+  },
+  {
+    "id": "CLAIM_DIGITAL_ELECTRICITY_MECHANISM",
+    "file": "CLAIM_DIGITAL_ELECTRICITY_MECHANISM.yaml",
+    "type": "knowledge.claim.definition",
+    "tags": [
+      "definition",
+      "technology",
+      "digital-electricity",
+      "safety",
+      "heatpumps"
+    ],
+    "confidence": "unknown",
+    "key_claim": "Digital Electricity delivers power as safely as phone chargers using packetized DC over low-cost structured cable, making electrical distribution as easy as data networking",
+    "text_summary": "Digital Electricity delivers power as safely as phone chargers using packetized DC over low-cost structured cable, making electrical distribution as easy as data networking | Transmitter converts conventional AC to packetized DC power | Power packets sent over low-cost structured cable (same methods allowed for smartphone chargers) | Each packet includes energy pulse and safety check",
+    "raw": {
+      "knowledge": {
+        "id": "CLAIM_DIGITAL_ELECTRICITY_MECHANISM",
+        "type": "knowledge.claim.definition",
+        "provenance": {
+          "sources": [
+            {
+              "source_id": "SRC_HEATPUMP_CONTRACTORS_DECK",
+              "page_or_slide": "11-12",
+              "pointer": "Digital Electricity definition and mechanism explanation"
+            }
+          ]
+        },
+        "status": {
+          "confidence": "high",
+          "review_date": "2026-02-24"
+        }
+      },
+      "title": "How Digital Electricity Works",
+      "key_claim": "Digital Electricity delivers power as safely as phone chargers using packetized DC over low-cost structured cable, making electrical distribution as easy as data networking",
+      "bullets": [
+        "Transmitter converts conventional AC to packetized DC power",
+        "Power packets sent over low-cost structured cable (same methods allowed for smartphone chargers)",
+        "Each packet includes energy pulse and safety check",
+        "Receiver converts power to form required by appliance (e.g., 240V AC for heat pumps)",
+        "Eliminates need for costly electrical upgrades in retrofit scenarios",
+        "Proven in 1K+ installations including hospitals, stadiums, airports, and 24 NYC sites"
+      ],
+      "references": [
+        {
+          "source_id": "SRC_HEATPUMP_CONTRACTORS_DECK",
+          "page_or_slide": "11-12",
+          "pointer": "Mechanism diagram and explanation"
+        },
+        {
+          "source_id": "SRC_HEATPUMP_CONTRACTORS_DECK",
+          "page_or_slide": "13",
+          "pointer": "Installation statistics"
+        }
+      ],
+      "tags": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "canonical": true
+    }
+  },
+  {
+    "id": "CLAIM_ELECTRICAL_UPGRADE_BARRIER_HEAT_PUMPS",
+    "file": "CLAIM_ELECTRICAL_UPGRADE_BARRIER_HEAT_PUMPS.yaml",
+    "type": "knowledge.claim.core",
+    "tags": [
+      "heatpumps",
+      "barriers",
+      "cost-analysis",
+      "buildings-old",
+      "problem-statement"
+    ],
+    "confidence": "unknown",
+    "key_claim": "Traditional electrical upgrades required for heat pump retrofits cost $20,000 per unit, take up to 2 years, and cause 50% of projects to be canceled, creating the single largest barrier to building electrification",
+    "text_summary": "Traditional electrical upgrades required for heat pump retrofits cost $20,000 per unit, take up to 2 years, and cause 50% of projects to be canceled, creating the single largest barrier to building electrification | Old buildings lack electrical capacity needed for heat pump electrification | Panel, feeder, and service upgrades cost approximately $20,000 per unit | Contractor costs range from $15,000-$30,000 for bringing cables from street or basement",
+    "raw": {
+      "knowledge": {
+        "id": "CLAIM_ELECTRICAL_UPGRADE_BARRIER_HEAT_PUMPS",
+        "type": "knowledge.claim.core",
+        "provenance": {
+          "sources": [
+            {
+              "source_id": "SRC_HEATPUMP_CONTRACTORS_DECK",
+              "page_or_slide": "6-8",
+              "pointer": "Electrical capacity barriers and cost data"
+            }
+          ]
+        },
+        "status": {
+          "confidence": "high",
+          "review_date": "2026-02-24"
+        }
+      },
+      "title": "The Electrical Upgrade Barrier for Heat Pump Retrofits",
+      "key_claim": "Traditional electrical upgrades required for heat pump retrofits cost $20,000 per unit, take up to 2 years, and cause 50% of projects to be canceled, creating the single largest barrier to building electrification",
+      "bullets": [
+        "Old buildings lack electrical capacity needed for heat pump electrification",
+        "Panel, feeder, and service upgrades cost approximately $20,000 per unit",
+        "Contractor costs range from $15,000-$30,000 for bringing cables from street or basement",
+        "Upgrade timeline extends up to 2 years requiring utility coordination",
+        "About half of heat pump retrofit projects are canceled due to electrical upgrade costs (per CEO Integrated HVAC)",
+        "Residents must be displaced during major electrical work, adding disruption costs",
+        "Cost and disruption barriers are significantly slowing decarbonization progress"
+      ],
+      "references": [
+        {
+          "source_id": "SRC_HEATPUMP_CONTRACTORS_DECK",
+          "page_or_slide": "6-8",
+          "pointer": "Electrical upgrade costs and project cancellation data"
+        }
+      ],
+      "tags": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "canonical": true
+    }
+  },
+  {
+    "id": "CLAIM_FMP_COMPLIANCE_PATHWAY",
+    "file": "CLAIM_FMP_COMPLIANCE_PATHWAY.yaml",
+    "type": "compliance",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "",
+    "text_summary": "",
+    "raw": {
+      "knowledge": {
+        "id": "CLAIM_FMP_COMPLIANCE_PATHWAY",
+        "type": "compliance",
+        "title": "Compliance pathway: listings + code articles",
+        "key_claim": "FMP deployment relies on product listing(s) and the applicable code pathway to determine permissible installation practices.",
+        "bullets": [
+          "Contractors must anchor compliance claims to the exact listing and jurisdictional code references.",
+          "Engineers should document assumptions and AHJ expectations early."
+        ],
+        "limitations": [
+          "Do not claim a code pathway without a specific standard/article pointer."
+        ],
+        "applicability": [
+          "Use in contractor training and any owner-facing deck to reduce perceived risk."
+        ],
+        "tags": [
+          "#compliance",
+          "#code",
+          "#sales"
+        ],
+        "confidence": "medium",
+        "maturity_status": "draft",
+        "references": [
+          {
+            "source_id": "SRC_TBD",
+            "page_or_slide": "TBD",
+            "pointer": "UL/CSA + NEC/CEC references",
+            "note": "Replace with your authoritative compliance language."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "CLAIM_FMP_CONDUIT_SIZING_RISER_RACEWAY",
+    "file": "CLAIM_FMP_CONDUIT_SIZING_RISER_RACEWAY.yaml",
+    "type": "knowledge.claim.core",
+    "tags": [
+      "installation",
+      "technical-specs",
+      "contractors",
+      "digital-electricity",
+      "design"
+    ],
+    "confidence": "unknown",
+    "key_claim": "Digital Electricity systems can deliver 144kW through compact 4-inch conduit using 40% fill ratio with 8 pairs at 1.5kW per pair.",
+    "text_summary": "Digital Electricity systems can deliver 144kW through compact 4-inch conduit using 40% fill ratio with 8 pairs at 1.5kW per pair. | 4-inch conduit accommodates 144kW total power capacity | 2-inch conduit also available for smaller applications | 40% fill ratio maintained for code compliance and heat management",
+    "raw": {
+      "knowledge": {
+        "id": "CLAIM_FMP_CONDUIT_SIZING_RISER_RACEWAY",
+        "type": "knowledge.claim.core",
+        "provenance": {
+          "sources": [
+            {
+              "source_id": "SRC_HEATPUMP_CONTRACTORS_DECK",
+              "page_or_slide": "19",
+              "pointer": "Riser and raceway sizing specifications"
+            }
+          ]
+        },
+        "status": {
+          "confidence": "high",
+          "review_date": "2026-02-24"
+        }
+      },
+      "title": "FMP Conduit Sizing for Risers and Raceways",
+      "key_claim": "Digital Electricity systems can deliver 144kW through compact 4-inch conduit using 40% fill ratio with 8 pairs at 1.5kW per pair.",
+      "bullets": [
+        "4-inch conduit accommodates 144kW total power capacity",
+        "2-inch conduit also available for smaller applications",
+        "40% fill ratio maintained for code compliance and heat management",
+        "8 pair configuration at 1.5kW per pair provides flexible distribution",
+        "Simplified conduit sizing compared to traditional AC distribution"
+      ],
+      "references": [
+        {
+          "source_id": "SRC_HEATPUMP_CONTRACTORS_DECK",
+          "page_or_slide": "19"
+        }
+      ],
+      "tags": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "canonical": true
+    }
+  },
+  {
+    "id": "CLAIM_FMP_DEFINITION",
+    "file": "CLAIM_FMP_DEFINITION.yaml",
+    "type": "knowledge.claim",
+    "tags": [
+      "definition",
+      "architecture"
+    ],
+    "confidence": "medium",
+    "key_claim": "Fault Managed Power (FMP) is a power distribution method that limits the energy available in a fault so power can be delivered safely over smaller wiring with simpler pathways.",
+    "text_summary": "Fault Managed Power (FMP) is a power distribution method that limits the energy available in a fault so power can be delivered safely over smaller wiring with simpler pathways. | Designed so faults are energy-limited, reducing shock/fire risk compared to traditional distribution. | Enables longer runs with smaller conductors in many applications. | Shifts complexity toward centralized equipment and away from distributed branch-circuit infrastructure.",
+    "raw": {
+      "knowledge": {
+        "id": "CLAIM_FMP_DEFINITION",
+        "type": "knowledge.claim",
+        "title": "What is Fault Managed Power (FMP)?"
+      },
+      "tags": [
+        "#definition",
+        "#architecture"
+      ],
+      "confidence": "medium",
+      "maturity_status": "draft",
+      "canonical": true,
+      "title": "Fault Managed Power (FMP) \u2014 definition",
+      "key_claim": "Fault Managed Power (FMP) is a power distribution method that limits the energy available in a fault so power can be delivered safely over smaller wiring with simpler pathways.",
+      "bullets": [
+        "Designed so faults are energy-limited, reducing shock/fire risk compared to traditional distribution.",
+        "Enables longer runs with smaller conductors in many applications.",
+        "Shifts complexity toward centralized equipment and away from distributed branch-circuit infrastructure.",
+        "Often supports embedded monitoring/telemetry alongside power delivery."
+      ],
+      "references": [
+        {
+          "source_id": "SRC_TBD",
+          "page_or_slide": "TBD",
+          "pointer": "TBD",
+          "note": "Placeholder for MVP; replace with product listing / standard / whitepaper citations."
+        }
+      ]
+    }
+  },
+  {
+    "id": "CLAIM_FMP_LABOR_SHIFT",
+    "file": "CLAIM_FMP_LABOR_SHIFT.yaml",
+    "type": "claim",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "",
+    "text_summary": "",
+    "raw": {
+      "knowledge": {
+        "id": "CLAIM_FMP_LABOR_SHIFT",
+        "type": "claim",
+        "title": "Labor-to-equipment shift",
+        "key_claim": "FMP often shifts project cost from field labor (conduit, heavy pathway work) to equipment (transmitters and receivers), improving schedule and predictability when AC pathways are expensive.",
+        "bullets": [
+          "Where AC requires difficult routing, the labor delta is the story.",
+          "In short/simple runs, that delta can disappear."
+        ],
+        "limitations": [
+          "Not universal; depends on run length, pathway constraints, labor rates, and load profile."
+        ],
+        "applicability": [
+          "Core value proposition for contractors and owner translation."
+        ],
+        "tags": [
+          "#roi",
+          "#installation",
+          "#schedule_risk"
+        ],
+        "confidence": "medium",
+        "maturity_status": "draft",
+        "references": [
+          {
+            "source_id": "SRC_TBD",
+            "page_or_slide": "TBD",
+            "pointer": "Cost comparison scenario",
+            "note": "Tie to your scenario data block(s)."
+          }
+        ],
+        "related_blocks": [
+          "DATA_SCEN_AC_VS_FMP_2KW_1000FT",
+          "RULESET_FMP_FIT_CONDITIONS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "CLAIM_IDEAL_BUILDING_CHARACTERISTICS_HEAT_PUMP_RETROFIT",
+    "file": "CLAIM_IDEAL_BUILDING_CHARACTERISTICS_HEAT_PUMP_RETROFIT.yaml",
+    "type": "knowledge.claim.core",
+    "tags": [
+      "buildings-old",
+      "heatpumps",
+      "target-market",
+      "nyc",
+      "retrofits"
+    ],
+    "confidence": "unknown",
+    "key_claim": "Medium to large pre-1973 buildings with 40A panels, poor insulation, failing hydronic systems, and absorption chillers represent optimal retrofit opportunities due to high energy costs and available balcony space for heat pump outdoor units.",
+    "text_summary": "Medium to large pre-1973 buildings with 40A panels, poor insulation, failing hydronic systems, and absorption chillers represent optimal retrofit opportunities due to high energy costs and available balcony space for heat pump outdoor units. | Target buildings are medium to large structures built before 1973 with common 40A electrical panels | Pre-1973 construction typically includes asbestos presence which increases retrofit complexity and costs | Poor insulation combined with failing hydronic heating systems results in high energy consumption and maintenance expenses",
+    "raw": {
+      "knowledge": {
+        "id": "CLAIM_IDEAL_BUILDING_CHARACTERISTICS_HEAT_PUMP_RETROFIT",
+        "type": "knowledge.claim.core",
+        "provenance": {
+          "sources": [
+            {
+              "source_id": "SRC_HEATPUMP_CONTRACTORS_DECK",
+              "page_or_slide": "22",
+              "pointer": "Ideal Building Characteristics section"
+            }
+          ]
+        },
+        "status": {
+          "confidence": "high",
+          "review_date": "2026-02-24"
+        }
+      },
+      "title": "Ideal Building Profile for Heat Pump and Digital Electricity Retrofit",
+      "key_claim": "Medium to large pre-1973 buildings with 40A panels, poor insulation, failing hydronic systems, and absorption chillers represent optimal retrofit opportunities due to high energy costs and available balcony space for heat pump outdoor units.",
+      "bullets": [
+        "Target buildings are medium to large structures built before 1973 with common 40A electrical panels",
+        "Pre-1973 construction typically includes asbestos presence which increases retrofit complexity and costs",
+        "Poor insulation combined with failing hydronic heating systems results in high energy consumption and maintenance expenses",
+        "Absorption chiller systems further increase operational energy costs creating strong retrofit economics",
+        "Balcony availability provides installation locations for heat pump outdoor units without major structural modifications"
+      ],
+      "references": [
+        {
+          "source_id": "SRC_HEATPUMP_CONTRACTORS_DECK",
+          "page_or_slide": "22"
+        }
+      ],
+      "tags": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "canonical": true
+    }
+  },
+  {
+    "id": "CLAIM_NEC_ARTICLE_722_TRANSITION",
+    "file": "CLAIM_NEC_ARTICLE_722_TRANSITION.yaml",
+    "type": "knowledge.claim.compliance",
+    "tags": [
+      "compliance",
+      "code",
+      "ahj"
+    ],
+    "confidence": "high",
+    "key_claim": "The 2026 NEC renumbers Class 4 from Article 726 to Article 722. The safety model is unchanged. During the code edition transition period, permit packages should cite both articles with their edition years to avoid AHJ confusion from either direction.\n",
+    "text_summary": "The 2026 NEC renumbers Class 4 from Article 726 to Article 722. The safety model is unchanged. During the code edition transition period, permit packages should cite both articles with their edition years to avoid AHJ confusion from either direction.\n",
+    "raw": {
+      "id": "CLAIM_NEC_ARTICLE_722_TRANSITION",
+      "type": "knowledge.claim.compliance",
+      "title": "2026 NEC Renumbering: Article 726 \u2192 Article 722",
+      "canonical": true,
+      "status": {
+        "confidence": "high",
+        "review_date": "2026-02-27"
+      },
+      "key_claim": "The 2026 NEC renumbers Class 4 from Article 726 to Article 722. The safety model is unchanged. During the code edition transition period, permit packages should cite both articles with their edition years to avoid AHJ confusion from either direction.\n",
+      "transition_table": [
+        {
+          "nec_edition": "2020 NEC",
+          "article": "726",
+          "notes": "First edition to include Class 4"
+        },
+        {
+          "nec_edition": "2023 NEC",
+          "article": "726",
+          "notes": "Current edition in most U.S. jurisdictions as of 2026"
+        },
+        {
+          "nec_edition": "2026 NEC",
+          "article": "722",
+          "notes": "Renumbered; same safety model and installation requirements"
+        }
+      ],
+      "recommended_citation": "\"Article 726 (2023 NEC) / Article 722 (2026 NEC)\"\n",
+      "why_cite_both": "AHJs on older editions may not recognize Article 722 in newer product documentation. AHJs on 2026 NEC may not recognize Article 726 in older product documentation. Citing both with edition years prevents permit holds from either direction.\n",
+      "common_mistakes": [
+        "Citing only Article 726 to an AHJ on 2026 NEC",
+        "Citing only Article 722 to an AHJ on 2023 or 2020 NEC",
+        "Failing to confirm which NEC edition the jurisdiction has adopted before submitting"
+      ],
+      "tags": [
+        "compliance",
+        "code",
+        "ahj"
+      ],
+      "references": [
+        {
+          "source_id": "NEC_2020",
+          "location": "Article 726 \u2014 Class 4 introduced"
+        },
+        {
+          "source_id": "NEC_2023",
+          "location": "Article 726"
+        },
+        {
+          "source_id": "NEC_2026",
+          "location": "Article 722 \u2014 renumbered"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DATA_RES_DATA_CENTER_DISTRIBUTION_AC_VS_FMP_INSTALLED_COST_TABLE1_2024",
+    "file": "DATA_RES_DATA_CENTER_DISTRIBUTION_AC_VS_FMP_INSTALLED_COST_TABLE1_2024.yaml",
+    "type": "data",
+    "tags": [
+      "datacenters",
+      "distribution",
+      "ac_vs_fmp",
+      "cost_comparison",
+      "total_installed_cost"
+    ],
+    "confidence": "high",
+    "key_claim": "",
+    "text_summary": "",
+    "raw": {
+      "data": {
+        "id": "DATA_RES_DATA_CENTER_DISTRIBUTION_AC_VS_FMP_INSTALLED_COST_TABLE1_2024",
+        "type": "data.results",
+        "title": "Installed cost comparison (Table 1): AC vs FMP distribution for 6MW data center model"
+      },
+      "tags": [
+        "#datacenters",
+        "#distribution",
+        "#ac_vs_fmp",
+        "#cost_comparison",
+        "#total_installed_cost"
+      ],
+      "confidence": "high",
+      "maturity_status": "reviewed",
+      "application": "DATA_CENTER_DISTRIBUTION",
+      "year": 2024,
+      "canonical": true,
+      "source_doc_id": "SRC_WP_AC_VS_DE_DATACENTERS_2024",
+      "extracted_from": {
+        "page_or_slide": "p7",
+        "pointer": "Table 1: Installed Cost Comparison"
+      },
+      "units": {
+        "currency": "USD",
+        "labor_hours": "hours"
+      },
+      "results": {
+        "line_items": [
+          {
+            "item": "UPS",
+            "de_labor_hours": 384,
+            "de_labor_usd": 28800,
+            "de_material_usd": 7059072,
+            "ac_labor_hours": 1200,
+            "ac_labor_usd": 90000,
+            "ac_material_usd": 4744893
+          },
+          {
+            "item": "Cable/Busway/Tray",
+            "de_labor_hours": 20215,
+            "de_labor_usd": 1516144,
+            "de_material_usd": 2886011,
+            "ac_labor_hours": 29198,
+            "ac_labor_usd": 2189832,
+            "ac_material_usd": 5698181
+          },
+          {
+            "item": "Panels and Breakers",
+            "de_labor_hours": 256,
+            "de_labor_usd": 19200,
+            "de_material_usd": 193897,
+            "ac_labor_hours": 1755,
+            "ac_labor_usd": 131639,
+            "ac_material_usd": 2566556
+          },
+          {
+            "item": "Floor PDUs",
+            "de_labor_hours": 0,
+            "de_labor_usd": 0,
+            "de_material_usd": 0,
+            "ac_labor_hours": 2010,
+            "ac_labor_usd": 150743,
+            "ac_material_usd": 2902632
+          },
+          {
+            "item": "Rack PDUs",
+            "de_labor_hours": 480,
+            "de_labor_usd": 36000,
+            "de_material_usd": 1562160,
+            "ac_labor_hours": 1440,
+            "ac_labor_usd": 108000,
+            "ac_material_usd": 596872
+          },
+          {
+            "item": "Power/Battery Monitoring",
+            "de_labor_hours": 0,
+            "de_labor_usd": 0,
+            "de_material_usd": 100000,
+            "ac_labor_hours": 0,
+            "ac_labor_usd": 0,
+            "ac_material_usd": 800000
+          }
+        ]
+      },
+      "rollups": {
+        "totals_from_table": {
+          "de_total_labor_hours": 21335,
+          "de_total_labor_usd": 1600144,
+          "de_total_material_usd": 11801140,
+          "de_total_labor_plus_material_usd": 13401283,
+          "ac_total_labor_hours": 35603,
+          "ac_total_labor_usd": 2670214,
+          "ac_total_material_usd": 17309135,
+          "ac_total_labor_plus_material_usd": 19979349
+        },
+        "derived": {
+          "absolute_savings_usd": 6578066,
+          "percent_savings_vs_ac": 0.3292
+        }
+      },
+      "limitations": [
+        "Results depend on the paper's cost basis (markup, blended labor rate, included cost components).",
+        "This block stores published results; it does not assert applicability to other data center designs."
+      ],
+      "references": [
+        {
+          "source_id": "SRC_WP_AC_VS_DE_DATACENTERS_2024",
+          "page_or_slide": "p7",
+          "pointer": "Table 1: Installed Cost Comparison",
+          "note": "All line-item and total values copied from Table 1."
+        },
+        {
+          "source_id": "SRC_WP_AC_VS_DE_DATACENTERS_2024",
+          "page_or_slide": "p7",
+          "pointer": "Notes under Table 1",
+          "note": "Material cost components and 20% markup note."
+        }
+      ]
+    }
+  },
+  {
+    "id": "DATA_SCEN_DATA_CENTER_DISTRIBUTION_AC_VS_FMP_6MW_MODEL_2024",
+    "file": "DATA_SCEN_DATA_CENTER_DISTRIBUTION_AC_VS_FMP_6MW_MODEL_2024.yaml",
+    "type": "data",
+    "tags": [
+      "datacenters",
+      "distribution",
+      "architecture",
+      "ac_vs_fmp"
+    ],
+    "confidence": "high",
+    "key_claim": "",
+    "text_summary": "",
+    "raw": {
+      "data": {
+        "id": "DATA_SCEN_DATA_CENTER_DISTRIBUTION_AC_VS_FMP_6MW_MODEL_2024",
+        "type": "data.scenario",
+        "title": "Data center reference architecture for AC vs FMP cost comparison (6MW delivered, N+1 pods)"
+      },
+      "tags": [
+        "#datacenters",
+        "#distribution",
+        "#architecture",
+        "#ac_vs_fmp"
+      ],
+      "confidence": "high",
+      "maturity_status": "reviewed",
+      "application": "DATA_CENTER_DISTRIBUTION",
+      "year": 2024,
+      "canonical": true,
+      "scenario": {
+        "description": "Reference data center model used in the cited whitepaper for comparing total installed distribution cost between traditional AC distribution and Fault Managed Power (FMP).\n",
+        "critical_load_delivered_mw": 6,
+        "power_pods": {
+          "count": 4,
+          "rating_mw_each": 2,
+          "redundancy": "N+1",
+          "installed_capacity_mw": 8
+        },
+        "server_racks": {
+          "count": 240,
+          "rack_power_kw_each": 25
+        }
+      },
+      "references": [
+        {
+          "source_id": "SRC_WP_AC_VS_DE_DATACENTERS_2024",
+          "page_or_slide": "p5",
+          "pointer": "Power pods + delivered load + rack count",
+          "note": "Extracted from the architecture description and figure callouts."
+        }
+      ]
+    }
+  },
+  {
+    "id": "DC_800V_alternative",
+    "file": "DC_800V_alternative.yaml",
+    "type": "document",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "A comparison positioning Digital Electricity (DE)\u2014a field-proven form of fault-managed power (FMP)\u2014as a nearer-term, lower-risk alternative to proposed 800VDC architectures for high-performance / AI data centers. # :contentReference[oaicite:21]{index=21}",
+    "text_summary": "A comparison positioning Digital Electricity (DE)\u2014a field-proven form of fault-managed power (FMP)\u2014as a nearer-term, lower-risk alternative to proposed 800VDC architectures for high-performance / AI data centers. # :contentReference[oaicite:21]{index=21}",
+    "raw": {
+      "document": {
+        "title": "Digital Electricity\u00ae as an Alternative to 800VDC for AI Data Centers",
+        "type": "White Paper",
+        "publisher": "VoltServer",
+        "year": 2025,
+        "source_pdf": "VS White Paper_FMPvs800VDC_DataCenter.pdf",
+        "page_count": 5
+      },
+      "summary": {
+        "what_it_is": "A comparison positioning Digital Electricity (DE)\u2014a field-proven form of fault-managed power (FMP)\u2014as a nearer-term, lower-risk alternative to proposed 800VDC architectures for high-performance / AI data centers. # :contentReference[oaicite:21]{index=21}",
+        "core_message": "Increasing voltage doesn\u2019t solve \u201cnear-GPU\u201d density and safety constraints because protective structures, batteries, converters, and clearances dominate footprint; DE at ~350\u2013400VDC can deliver higher effective density where it matters while remaining touch-/arc-/fire-safe. # :contentReference[oaicite:22]{index=22}"
+      },
+      "problem": {
+        "statement": "AI data centers need higher power density in the most valuable space near GPU superclusters, but higher voltage distribution increases safety/clearance burdens and doesn\u2019t materially shrink dominant components (batteries/converters), limiting real density gains.",
+        "context": {
+          "why_it_hurts": [
+            "Superclusters (e.g., NVLINK-linked GPU racks) are sensitive to latency; GPUs must be physically close, driving very high value per square foot near compute. # :contentReference[oaicite:23]{index=23}",
+            "In data centers near people/buildings, conductor cross-section is a small part of busway volume; clearance/ insulation dominates and can grow with voltage. # :contentReference[oaicite:24]{index=24}"
+          ],
+          "what_the_paper_compares": [
+            "Traditional 415VAC/busway distribution vs proposed 800VDC vs FMP/DE at ~350\u2013400VDC."
+          ]
+        }
+      },
+      "how_de_works": {
+        "mechanism": "High-power energy \u2018packets\u2019 + control data sent from transmitter to receiver over structured cable",
+        "packets_per_second": 500,
+        "safety_claim": "Packets checked for fault modes (touch, short, ground, arc fault) and stopped on unsafe conditions.",
+        "nominal_voltage": "350VDC"
+      },
+      "solution_claims": [
+        "Collapses separate power + data layers by allowing DE cabling in trays alongside communication cables.",
+        "Reduces overhead distribution footprint (example: ~450 sq in cited vs busway cross-section reference) and removes need for floor PDUs, switchboards, large connectors and busway.",
+        "At 350\u2013400VDC can match/exceed usable density of proposed 800VDC while remaining touch-/arc-/fire-safe with embedded monitoring/control data."
+      ],
+      "standards_and_timeline": [
+        "FMP safety standard UL-1400-1 referenced as currently limiting to 450VDC; progression to 800VDC could take several years (per paper)."
+      ]
+    }
+  },
+  {
+    "id": "DC_power_demands",
+    "file": "DC_power_demands.yaml",
+    "type": "document",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "An explainer aimed at portable/prefabricated and micro-edge/container data centers, describing fault-managed power (Digital Electricity / Class 4) and three ways it can change power design and deployment. # :contentReference[oaicite:98]{index=98}",
+    "text_summary": "An explainer aimed at portable/prefabricated and micro-edge/container data centers, describing fault-managed power (Digital Electricity / Class 4) and three ways it can change power design and deployment. # :contentReference[oaicite:98]{index=98}",
+    "raw": {
+      "document": {
+        "title": "Support Rising Data Center Power Demands with Digital Electricity\u00ae",
+        "type": "White Paper / Partner Guide",
+        "publishers": [
+          "VoltServer",
+          "Belden"
+        ],
+        "source_pdf": "VS_White Paper_Support Rising Data Center Power Demands with DE.pdf",
+        "page_count": 6
+      },
+      "summary": {
+        "what_it_is": "An explainer aimed at portable/prefabricated and micro-edge/container data centers, describing fault-managed power (Digital Electricity / Class 4) and three ways it can change power design and deployment. # :contentReference[oaicite:98]{index=98}",
+        "core_message": "FMP provides packetized, continuously monitored power over small-gauge lightweight cabling, enabling sustainability/efficiency, safer HVDC adoption, and scalable MAC-friendly buildouts. # :contentReference[oaicite:99]{index=99} :contentReference[oaicite:100]{index=100}"
+      },
+      "problem": {
+        "statement": "Data center workloads (AI/5G/IoT) are driving power growth and costs, while operators need faster, modular expansion\u2014especially in containerized or micro-edge deployments\u2014without overbuilding.",
+        "context": {
+          "demand_and_cost_signals": [
+            "AI energy use growth example (1GW in 2023 to 7GW by 2026 cited) and median 16% electricity cost growth (C&W study cited)."
+          ],
+          "operational_reality": [
+            "Predicting future density is hard; underbuild risks overload/failure, overbuild wastes CAPEX."
+          ]
+        }
+      },
+      "how_fmp_works": {
+        "concept": "Electricity split into small, safe energy packets, analogous to data packets; sent transmitter\u2192receiver over a network.",
+        "safety": "Packets monitored; system stops sending on unsafe conditions.",
+        "code": "Class 4 adopted by NEC in 2023; supported by new UL and ATIS standards (as stated)."
+      },
+      "three_transformations": [
+        {
+          "name": "Sustainability and efficiency",
+          "claims": [
+            "Optimize space and reduce materials; increase density; example: 18:1 cable reduction vs traditional 48VDC delivery.",
+            "U.S. data center power consumption projection cited (35GW by 2030 vs 17GW in 2022)."
+          ]
+        },
+        {
+          "name": "Safer, more efficient high-voltage DC",
+          "claims": [
+            "All-DC reduces conversion losses (up to ~20% loss in conversions stated); FMP supports safe HVDC distribution and reduces protective steel/gear (busway/breakers/PDUs) by using trays and intelligence.",
+            "All-DC efficiency improvement >5% claim plus higher availability via centralized backup/UPS model."
+          ]
+        },
+        {
+          "name": "Scalability and maintainability (MACs)",
+          "claims": [
+            "Scale-on-demand modular buildout; easy to add capacity by running another cable in the tray; converged power+data means fewer trade dependencies."
+          ]
+        }
+      ],
+      "partner_positioning": [
+        "Belden designed FMPS cables to support Digital Electricity and is stated as first cables designed and UL listed for Class 4 cabling."
+      ]
+    }
+  },
+  {
+    "id": "Digital_Edge_Belden",
+    "file": "Digital_Edge_Belden.yaml",
+    "type": "document",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "Belden \u201cDigital Electricity\u201d (a Class 4 / fault-managed power approach) that delivers significant power over significant distances while also supporting data connectivity to enable \u201cpower and data to the edge.\u201d :contentReference[oaicite:2]{index=2} :contentReference[oaicite:3]{index=3}",
+    "text_summary": "Belden \u201cDigital Electricity\u201d (a Class 4 / fault-managed power approach) that delivers significant power over significant distances while also supporting data connectivity to enable \u201cpower and data to the edge.\u201d :contentReference[oaicite:2]{index=2} :contentReference[oaicite:3]{index=3}",
+    "raw": {
+      "document": {
+        "title": "Belden Digital Electricity",
+        "type": "Solution Overview",
+        "publisher": "Belden",
+        "year": null,
+        "source_pdf": "Belden Digital Electricity Solution Overview External.pdf",
+        "page_count": 5
+      },
+      "summary": {
+        "what_it_is": "Belden \u201cDigital Electricity\u201d (a Class 4 / fault-managed power approach) that delivers significant power over significant distances while also supporting data connectivity to enable \u201cpower and data to the edge.\u201d :contentReference[oaicite:2]{index=2} :contentReference[oaicite:3]{index=3}",
+        "core_message": "Increasing edge power and data requirements require agile, scalable network infrastructure; Digital Electricity is positioned as a future-ready foundation to reduce technical debt and unify connectivity. :contentReference[oaicite:4]{index=4}"
+      },
+      "problem": {
+        "statement": "Customers need to deploy more powered, network-connected \u201cedge\u201d endpoints, but conventional approaches (DC, PoE/SPoE) constrain either distance, delivered power, or both\u2014creating technical debt and forcing more complicated buildouts.",
+        "context": {
+          "drivers": [
+            "\u201cIncreasing power and data requirements\u201d are pushing customers toward more agile and scalable infrastructure. :contentReference[oaicite:5]{index=5}",
+            "The document frames the goal as \u201cPower and Data to the Edge\u201d and explicitly calls out reducing \u201ctechnical debt\u201d with a future-ready network foundation. :contentReference[oaicite:6]{index=6}"
+          ],
+          "constraints_of_status_quo": [
+            "The side-by-side comparison table shows different distance/delivery ceilings across systems (DC, PoE, SPoE) versus Digital Electricity (DE), implying practical limits in traditional options. :contentReference[oaicite:7]{index=7}"
+          ],
+          "what_success_looks_like": [
+            "Centralized extended reach.",
+            "Agility.",
+            "Universal compatibility.",
+            "Modular scalability.",
+            "Straightforward engagement."
+          ]
+        }
+      },
+      "positioning": {
+        "headline": "Power and Data to the Edge",
+        "stated_customer_outcome": "Reduce technical debt with a future-ready network foundation that unifies hardwired and wireless connectivity. :contentReference[oaicite:14]{index=14}"
+      },
+      "capabilities": {
+        "descriptors": [
+          "Safe Delivery",
+          "Significant Power",
+          "Significant Distance",
+          "Smaller Conductors",
+          "Speedy Deployment"
+        ]
+      },
+      "standards_and_safety": {
+        "category": {
+          "ul_prospector_product_category": "DLPY"
+        },
+        "class_and_listings": {
+          "nec_definition": {
+            "class": "Class 4",
+            "definition_excerpt_summary": "A Class 4 circuit is the portion of the wiring system between the load side of the Class 4 transmitter and the Class 4 receiver/utilization equipment; safety is achieved via active monitoring and control of voltage and current, considering fire initiation and providing protections from electric shock. :contentReference[oaicite:22]{index=22}"
+          },
+          "ul_standards": [
+            "UL 1400-1",
+            "UL 1400-2"
+          ]
+        }
+      },
+      "comparative_performance": {
+        "table_label": "System / Data / Distance / Delivery",
+        "note": "Rows marked with * indicate data delivered via fiber infrastructure.",
+        "rows": [
+          {
+            "system": "Digital Electricity (DE)",
+            "data": "100Gb*",
+            "distance_m": 2000,
+            "delivery_w": 170
+          },
+          {
+            "system": "Digital Electricity (DE)",
+            "data": "100Gb*",
+            "distance_m": 180,
+            "delivery_w": 1500
+          },
+          {
+            "system": "DC",
+            "data": "100Gb*",
+            "distance_m": 247,
+            "delivery_w": 80
+          },
+          {
+            "system": "DC",
+            "data": "100Gb*",
+            "distance_m": 123,
+            "delivery_w": 90
+          },
+          {
+            "system": "PoE",
+            "data": "10Gb",
+            "distance_m": 100,
+            "delivery_w": 71
+          },
+          {
+            "system": "PoE",
+            "data": "10Mb",
+            "distance_m": 215,
+            "delivery_w": 71
+          },
+          {
+            "system": "SPoE",
+            "data": "10Mb",
+            "distance_m": 500,
+            "delivery_w": 7
+          }
+        ]
+      },
+      "benefits": {
+        "framing_statement": "Digital Electricity delivers significant power over significant distances, uses simplified infrastructure, emphasizes safety, and enables flexibility to scale with future needs. :contentReference[oaicite:33]{index=33}",
+        "flexibility_and_scalability": [
+          "Scales significant power to support new technologies without significant infrastructure overhaul.",
+          "Expands capabilities of PoE infrastructure.",
+          "Supports higher-density PoE deployments across larger networks and remote areas."
+        ],
+        "performance": [
+          "Delivers up to 600W over 2km or 2kW over 804m on 16 AWG cable.",
+          "Integrated real-time fault detection detects spikes in demand and adjusts power distribution accordingly.",
+          "Centralization of power enables improved network performance, efficiency, and AI-supported management."
+        ],
+        "streamlined_deployment_and_management": [
+          "Class 4 cabling uses 94% less runway space and 100% less conduit than traditional DC copper.",
+          "Centralized design requires fewer and smaller IDFs.",
+          "Can be installed using the same wiring methods and permits as Category cabling and PoE systems."
+        ]
+      },
+      "economics_and_savings": {
+        "claimed_savings": {
+          "total_cost_of_ownership": "30%\u201360%",
+          "capex": ">30%",
+          "cable_and_conduit_costs": ">50%",
+          "labor_hours_reduction": "30%\u201340%",
+          "opex": "10%\u201320%"
+        },
+        "source_note": "Savings claims attributed to FMP Alliance research and case studies.",
+        "example_cost_table": {
+          "label": "DE vs AC Distribution: Large Data Center",
+          "totals": {
+            "ac_labor_m": 2.68,
+            "ac_material_m": 17.32,
+            "de_labor_m": 1.59,
+            "de_material_m": 11.86
+          },
+          "stated_savings_summary": "40% on labor, 32% on materials ($6.55M in total)."
+        }
+      },
+      "system_architecture": {
+        "concept": "Limited Energy Types Work Together",
+        "framing": "Data \u00b7 Distance \u00b7 Delivery",
+        "blocks": [
+          {
+            "layer": "Core",
+            "elements": [
+              "MDF",
+              "AC TX"
+            ]
+          },
+          {
+            "layer": "Distribution",
+            "elements": [
+              "IDF",
+              "RX DC"
+            ]
+          },
+          {
+            "layer": "Access/Edge",
+            "elements": [
+              "DC",
+              "PoE",
+              "REVConnect",
+              "SPoE",
+              "SPE Copper Cable"
+            ]
+          },
+          {
+            "layer": "Digital Electricity extension",
+            "elements": [
+              "DETM (shown as part of the system)"
+            ]
+          }
+        ],
+        "connectivity_media_called_out": [
+          "Distribution Fiber Cable",
+          "DC Copper Cable",
+          "REVConnect Copper Cable"
+        ]
+      },
+      "notes": [
+        "This YAML is extracted from the uploaded PDF and keeps claims/figures as stated in the document.",
+        "Original file reference for traceability."
+      ]
+    }
+  },
+  {
+    "id": "EXPL_FMP_ARCHITECTURE",
+    "file": "EXPL_FMP_ARCHITECTURE.yaml",
+    "type": "explanation",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "",
+    "text_summary": "",
+    "raw": {
+      "knowledge": {
+        "id": "EXPL_FMP_ARCHITECTURE",
+        "type": "explanation",
+        "title": "High-level FMP architecture",
+        "key_claim": "An FMP system is composed of a headend (transmitter), a managed power link (cable/pathway), and a load-end (receiver) that conditions power for the end device.",
+        "bullets": [
+          "Headend manages delivery and safety behavior.",
+          "Link carries managed delivery.",
+          "Receiver conditions output to what the load needs."
+        ],
+        "limitations": [
+          "Do not over-specify voltages/power here; keep to architecture."
+        ],
+        "applicability": [
+          "Architecture slide for contractors/engineers; supports later estimating logic."
+        ],
+        "tags": [
+          "#architecture",
+          "#installation",
+          "#safety"
+        ],
+        "confidence": "medium",
+        "maturity_status": "draft",
+        "references": [
+          {
+            "source_id": "SRC_TBD",
+            "page_or_slide": "TBD",
+            "pointer": "Architecture diagram",
+            "note": "Replace with specific diagram source."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "MAP_AC_VS_FMP_FEATURES_COMPARISON",
+    "file": "MAP_AC_VS_FMP_FEATURES_COMPARISON.yaml",
+    "type": "knowledge.mapping",
+    "tags": [
+      "architecture",
+      "installation",
+      "fit"
+    ],
+    "confidence": "medium",
+    "key_claim": "AC vs FMP: What changes for installers",
+    "text_summary": "AC vs FMP: What changes for installers",
+    "raw": {
+      "knowledge": {
+        "id": "MAP_AC_VS_FMP_FEATURES_COMPARISON",
+        "type": "knowledge.mapping",
+        "title": "AC vs FMP: feature comparison for contractors"
+      },
+      "tags": [
+        "#architecture",
+        "#installation",
+        "#fit"
+      ],
+      "confidence": "medium",
+      "maturity_status": "draft",
+      "canonical": true,
+      "title": "AC vs FMP: What changes for installers",
+      "left_label": "Traditional AC",
+      "right_label": "Fault Managed Power (FMP)",
+      "attributes_table": [
+        {
+          "attribute": "Cable + handling",
+          "left": "Larger gauge; bend radius + conduit/busway choices matter",
+          "right": "Smaller cable; typically easier routing/pulling"
+        },
+        {
+          "attribute": "Pathway constraints",
+          "left": "Conduit fill, core drilling, firestopping, crowded risers drive cost",
+          "right": "Still needs planning, but fewer hard pathway constraints per run"
+        },
+        {
+          "attribute": "Panels + protection",
+          "left": "Branch circuits + breakers; panel schedules shape layout",
+          "right": "Protection handled differently; fewer downstream branch-circuit constraints"
+        },
+        {
+          "attribute": "Commissioning + troubleshooting",
+          "left": "Power and controls often separate; troubleshooting can involve multiple trades",
+          "right": "Integrated monitoring potential; faults can be easier to localize"
+        },
+        {
+          "attribute": "Changes + add-ons",
+          "left": "Late changes can trigger disruptive rework",
+          "right": "Adding/moving endpoints can be simpler if paths/capacity exist"
+        },
+        {
+          "attribute": "Labor vs equipment",
+          "left": "More field labor in routing/pulling/terminations",
+          "right": "Less field labor; more centralized equipment dependency"
+        }
+      ],
+      "takeaway": "FMP often shifts effort from distributed branch-circuit buildout toward centralized equipment and planning, which can reduce install friction on tough retrofits.\n",
+      "limitations": [
+        "Directional generalizations; validate per application and jurisdiction.",
+        "Exact tradeoffs vary by pathway conditions and product configuration."
+      ],
+      "references": [
+        {
+          "source_id": "SRC_WP_AC_VS_DE_DATACENTERS_2024",
+          "page_or_slide": "p4-p7",
+          "pointer": "Architecture + comparative discussion",
+          "note": "Starting reference; strengthen with contractor-specific case studies as they are ingested."
+        }
+      ]
+    }
+  },
+  {
+    "id": "MAP_TECH_TO_OWNER_VALUE",
+    "file": "MAP_TECH_TO_OWNER_VALUE.yaml",
+    "type": "mapping",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "",
+    "text_summary": "",
+    "raw": {
+      "knowledge": {
+        "id": "MAP_TECH_TO_OWNER_VALUE",
+        "type": "mapping",
+        "title": "Translate technical benefits into owner value",
+        "key_claim": "Owners buy schedule, disruption reduction, and risk reduction\u2014not wiring theory.",
+        "mapping": [
+          {
+            "technical": "Reduced pathway/conduit work",
+            "owner_value": "Less disruption, fewer trades, faster schedule, less patch/restore"
+          },
+          {
+            "technical": "Repeatable drops to endpoints",
+            "owner_value": "Predictable unit cost per endpoint; scalable rollout"
+          },
+          {
+            "technical": "Avoids major electrical upgrades",
+            "owner_value": "Lower capex + fewer occupant impacts for retrofits"
+          }
+        ],
+        "tags": [
+          "#owner_value",
+          "#sales",
+          "#roi"
+        ],
+        "confidence": "high",
+        "maturity_status": "draft",
+        "references": [
+          {
+            "source_id": "SRC_TBD",
+            "page_or_slide": "TBD",
+            "pointer": "Owner value proposition section",
+            "note": "Attach to validated case study language where possible."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "MAP_TRADITIONAL_ELECTRICAL_VS_DE_HEAT_PUMP_RETROFIT",
+    "file": "MAP_TRADITIONAL_ELECTRICAL_VS_DE_HEAT_PUMP_RETROFIT.yaml",
+    "type": "knowledge.mapping.comparison",
+    "tags": [
+      "comparison",
+      "heatpumps",
+      "cost-analysis",
+      "installation",
+      "digital-electricity",
+      "buildings-old"
+    ],
+    "confidence": "unknown",
+    "key_claim": "Heat Pump Retrofit: Traditional Electrical Upgrade vs Digital Electricity",
+    "text_summary": "Heat Pump Retrofit: Traditional Electrical Upgrade vs Digital Electricity",
+    "raw": {
+      "knowledge": {
+        "id": "MAP_TRADITIONAL_ELECTRICAL_VS_DE_HEAT_PUMP_RETROFIT",
+        "type": "knowledge.mapping.comparison",
+        "provenance": {
+          "sources": [
+            {
+              "source_id": "SRC_HEATPUMP_CONTRACTORS_DECK",
+              "page_or_slide": "7-10",
+              "pointer": "Comparison of traditional electrical upgrade vs Digital Electricity approach"
+            }
+          ]
+        },
+        "status": {
+          "confidence": "high",
+          "review_date": "2026-02-24"
+        }
+      },
+      "title": "Heat Pump Retrofit: Traditional Electrical Upgrade vs Digital Electricity",
+      "left_label": "Traditional AC Electrical Upgrade",
+      "right_label": "Digital Electricity (DE) Approach",
+      "attributes_table": [
+        {
+          "attribute": "Cost per unit",
+          "left": "~$20,000/unit",
+          "right": "$500-600/drop (48 units @ ~$24K total = $500/unit)"
+        },
+        {
+          "attribute": "Timeline",
+          "left": "Up to 2 years",
+          "right": "Weeks to months (no utility coordination)"
+        },
+        {
+          "attribute": "Scope of work",
+          "left": "Panel upgrades \u2192 Feeder upgrades \u2192 Service upgrades \u2192 Utility coordination",
+          "right": "Rack transmitters \u2192 Run structured cable \u2192 Terminate receivers"
+        },
+        {
+          "attribute": "Resident disruption",
+          "left": "Major disruptions, often requires displacing residents",
+          "right": "Minimal disruption, uses existing risers/raceways"
+        },
+        {
+          "attribute": "Installation complexity",
+          "left": "Licensed electricians, heavy gauge wire, conduit fills, permits",
+          "right": "Low-voltage methods, 40% conduit fill ratio, structured cable"
+        },
+        {
+          "attribute": "Cable requirements",
+          "left": "10-12 AWG copper in conduit",
+          "right": "16 AWG pairs (8-pair structured cable), 1.5kW per pair"
+        },
+        {
+          "attribute": "Project cancellation rate",
+          "left": "~50% of projects canceled due to electrical upgrade costs (per industry CEO)",
+          "right": "Cost barrier removed, enabling more projects to proceed"
+        }
+      ],
+      "takeaway": "Digital Electricity eliminates the electrical capacity barrier that causes 50% of heat pump retrofit projects to be canceled, reducing costs by 95% and disruption dramatically while using low-voltage installation methods",
+      "references": [
+        {
+          "source_id": "SRC_HEATPUMP_CONTRACTORS_DECK",
+          "page_or_slide": "7-8",
+          "pointer": "Traditional upgrade costs and CEO quote"
+        },
+        {
+          "source_id": "SRC_HEATPUMP_CONTRACTORS_DECK",
+          "page_or_slide": "10",
+          "pointer": "Smartphone charger comparison"
+        },
+        {
+          "source_id": "SRC_HEATPUMP_CONTRACTORS_DECK",
+          "page_or_slide": "14-18",
+          "pointer": "DE scope of work details"
+        },
+        {
+          "source_id": "SRC_HEATPUMP_CONTRACTORS_DECK",
+          "page_or_slide": "21",
+          "pointer": "Cost breakdown table"
+        }
+      ],
+      "tags": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "canonical": true
+    }
+  },
+  {
+    "id": "OBJ_COMMON_CONTRACTOR",
+    "file": "OBJ_COMMON_CONTRACTOR.yaml",
+    "type": "objections",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "",
+    "text_summary": "",
+    "raw": {
+      "knowledge": {
+        "id": "OBJ_COMMON_CONTRACTOR",
+        "type": "objections",
+        "title": "Common contractor objections and responses",
+        "key_claim": "Objections are predictable; winning is answering them with evidence + boundaries.",
+        "objections": [
+          "Is it code compliant here?",
+          "Is it safe compared to AC?",
+          "How do we troubleshoot it?",
+          "How do we estimate it without guessing?",
+          "When does AC beat it?"
+        ],
+        "responses": [
+          "Anchor to listing + jurisdictional code pathway; document AHJ assumptions early.",
+          "Explain fault-management behavior and protective response; cite listing.",
+          "Provide commissioning + diagnostics workflow and support escalation path.",
+          "Use ROM method: endpoints, run length, pathway type, terminations, headend build, testing.",
+          "Be explicit: short/simple runs and low labor scenarios can favor AC."
+        ],
+        "tags": [
+          "#objections",
+          "#sales",
+          "#compliance"
+        ],
+        "confidence": "medium",
+        "maturity_status": "draft",
+        "references": [
+          {
+            "source_id": "SRC_TBD",
+            "page_or_slide": "TBD",
+            "pointer": "FAQ / training notes",
+            "note": "Replace with your approved FAQ language."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "PROC_AHJ_DOCUMENTATION_CHECKLIST",
+    "file": "PROC_AHJ_DOCUMENTATION_CHECKLIST.yaml",
+    "type": "process.checklist",
+    "tags": [
+      "compliance",
+      "code",
+      "installation",
+      "ahj"
+    ],
+    "confidence": "high",
+    "key_claim": "A complete AHJ package for a first-time Class 4 permit requires five elements: UL listing numbers, NEC article citation (both editions during transition), safety model summary with fault response time, a one-line diagram, and contact information for AHJ questions.\n",
+    "text_summary": "A complete AHJ package for a first-time Class 4 permit requires five elements: UL listing numbers, NEC article citation (both editions during transition), safety model summary with fault response time, a one-line diagram, and contact information for AHJ questions.\n",
+    "raw": {
+      "id": "PROC_AHJ_DOCUMENTATION_CHECKLIST",
+      "type": "process.checklist",
+      "title": "AHJ Documentation Package for First-Time Class 4 (FMP) Permit Submission",
+      "canonical": true,
+      "status": {
+        "confidence": "high",
+        "review_date": "2026-02-27"
+      },
+      "key_claim": "A complete AHJ package for a first-time Class 4 permit requires five elements: UL listing numbers, NEC article citation (both editions during transition), safety model summary with fault response time, a one-line diagram, and contact information for AHJ questions.\n",
+      "checklist": [
+        {
+          "item": "UL listing number(s) for the transmitter (e.g., UL 1400-1)",
+          "required": true,
+          "why": "Establishes product listing basis for the installation"
+        },
+        {
+          "item": "UL listing number(s) for the receiver(s) (e.g., UL 1400-2)",
+          "required": true,
+          "why": "Receiver listing is separate from transmitter"
+        },
+        {
+          "item": "Applicable NEC article \u2014 cite both: Article 726 (2023 NEC) and Article 722 (2026 NEC)",
+          "required": true,
+          "why": "AHJs on different code editions may know only one article number; citing both prevents holds"
+        },
+        {
+          "item": "Safety model summary: how fault detection works, max fault energy, response time (<2ms)",
+          "required": true,
+          "why": "Many AHJs are unfamiliar with Class 4; the safety model justifies the wiring method"
+        },
+        {
+          "item": "One-line diagram: panel \u2192 transmitter \u2192 cable \u2192 receiver \u2192 load",
+          "required": true,
+          "why": "Standard permit requirement; shows scope and connection points"
+        },
+        {
+          "item": "FMP Alliance or NFPA contact for inspector questions",
+          "recommended": true,
+          "why": "First-time inspectors often want a third-party technical resource"
+        }
+      ],
+      "first_time_jurisdiction_notes": [
+        "Budget 2\u20134 additional weeks for AHJ education on first Class 4 permit in a new jurisdiction",
+        "Inspectors will typically want to see transmitter fault response demonstrated (simulated fault)",
+        "Bring OEM datasheet showing max fault energy and response time to the inspection",
+        "Repeat installs in the same jurisdiction move significantly faster after first approval"
+      ],
+      "tags": [
+        "compliance",
+        "code",
+        "installation",
+        "ahj"
+      ],
+      "references": [
+        {
+          "source_id": "NEC_2023",
+          "location": "Article 726"
+        },
+        {
+          "source_id": "NEC_2026",
+          "location": "Article 722"
+        },
+        {
+          "source_id": "FMP_ALLIANCE",
+          "location": "fmpalliance.com \u2014 AHJ outreach and code documents"
+        }
+      ]
+    }
+  },
+  {
+    "id": "PROC_FMP_ESTIMATING_ROM",
+    "file": "PROC_FMP_ESTIMATING_ROM.yaml",
+    "type": "process",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "",
+    "text_summary": "",
+    "raw": {
+      "knowledge": {
+        "id": "PROC_FMP_ESTIMATING_ROM",
+        "type": "process",
+        "title": "ROM estimating workflow for FMP",
+        "key_claim": "A reliable ROM estimate comes from counting endpoints + terminations + pathway method + headend build + testing.",
+        "steps": [
+          "Define loads/endpoints: count receivers/loads and required power per endpoint.",
+          "Define topology: headend location(s), channels/ports needed, redundancy if required.",
+          "Run-length model: average and max run lengths; choose pathway method (J-hooks/tray/conduit).",
+          "Termination count: terminations per end \u00d7 ends \u00d7 drops; include labeling/testing.",
+          "Headend labor: rack, power feed, mounting, dressing, documentation.",
+          "Commissioning/testing: validation steps, punch list, support time.",
+          "Compile BOM + labor hours by task; output ROM total + assumptions."
+        ],
+        "cost_drivers": [
+          "Run length and pathway complexity",
+          "Termination count and labor rate",
+          "Headend build complexity",
+          "Testing/commissioning scope"
+        ],
+        "tags": [
+          "#estimating",
+          "#installation",
+          "#roi"
+        ],
+        "confidence": "high",
+        "maturity_status": "draft",
+        "references": [
+          {
+            "source_id": "SRC_TBD",
+            "page_or_slide": "TBD",
+            "pointer": "Estimating section / spreadsheet notes",
+            "note": "Link to your estimating spreadsheet and guide when ready."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "RULESET_FMP_FIT_CONDITIONS",
+    "file": "RULESET_FMP_FIT_CONDITIONS.yaml",
+    "type": "ruleset",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "",
+    "text_summary": "",
+    "raw": {
+      "knowledge": {
+        "id": "RULESET_FMP_FIT_CONDITIONS",
+        "type": "ruleset",
+        "title": "Fit rules: when FMP wins vs AC",
+        "key_claim": "FMP is a strong candidate when AC distribution would be pathway-labor intensive, schedule-disruptive, or constrained by retrofit conditions.",
+        "favorable_conditions": [
+          "Long runs where AC conduit/wire becomes expensive and slow",
+          "Retrofits with constrained risers/pathways or disruptive access",
+          "High value placed on speed-to-market / reduced downtime",
+          "Distributed endpoints (many loads) that benefit from repeatable drops",
+          "Projects where 'just enough power' avoids major upgrades"
+        ],
+        "unfavorable_conditions": [
+          "Short, simple runs with easy conduit and cheap labor",
+          "Greenfield with abundant pathway space and straightforward AC distribution",
+          "Single very large load where conventional AC is already optimal",
+          "Situations where headend/rack placement is infeasible"
+        ],
+        "decision_tree_steps": [
+          "If AC pathway work is difficult/expensive \u2192 FMP moves to the top of the list.",
+          "If run lengths are long or endpoints are many \u2192 FMP advantage increases.",
+          "If short/simple and labor is cheap \u2192 AC likely wins."
+        ],
+        "tags": [
+          "#fit",
+          "#estimating",
+          "#sales"
+        ],
+        "confidence": "high",
+        "maturity_status": "draft",
+        "references": [
+          {
+            "source_id": "SRC_TBD",
+            "page_or_slide": "TBD",
+            "pointer": "Fit logic slide(s)",
+            "note": "Replace with your canonical 'good fit' guidance."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "displacement_AC_hotels",
+    "file": "displacement_AC_hotels.yaml",
+    "type": "document",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "An analysis of replacing a large share of hotel guest-room and common-area AC electrical infrastructure with a zone-based Fault Managed Power (FMP) architecture using VoltServer Digital Electricity, including the concept of using inverters in a per-room \u201czone box\u201d to power 110VAC receptacles. # :contentReference[oaicite:35]{index=35} :contentReference[oaicite:36]{index=36}",
+    "text_summary": "An analysis of replacing a large share of hotel guest-room and common-area AC electrical infrastructure with a zone-based Fault Managed Power (FMP) architecture using VoltServer Digital Electricity, including the concept of using inverters in a per-room \u201czone box\u201d to power 110VAC receptacles. # :contentReference[oaicite:35]{index=35} :contentReference[oaicite:36]{index=36}",
+    "raw": {
+      "document": {
+        "title": "The displacement of traditional AC infrastructure in Hotel Guest Rooms with Zone-based, Digital Electricity\u00ae Technology",
+        "type": "White Paper",
+        "publisher": "VoltServer",
+        "year": 2023,
+        "source_pdf": "VS_White Paper_Displacement of Traditional AC Infrastructure in Hotel Rooms.pdf",
+        "page_count": 8
+      },
+      "summary": {
+        "what_it_is": "An analysis of replacing a large share of hotel guest-room and common-area AC electrical infrastructure with a zone-based Fault Managed Power (FMP) architecture using VoltServer Digital Electricity, including the concept of using inverters in a per-room \u201czone box\u201d to power 110VAC receptacles. # :contentReference[oaicite:35]{index=35} :contentReference[oaicite:36]{index=36}",
+        "core_message": "Conduit-free, modular zone-based FMP can reduce cost, accelerate schedule, reduce building kVA nameplate needs via digital allocation, and converge power+data (avoiding floor IDFs / separate pathways). # :contentReference[oaicite:37]{index=37} :contentReference[oaicite:38]{index=38}"
+      },
+      "problem": {
+        "statement": "Traditional hotel electrical distribution to guest-room receptacles is labor/material intensive (conduit, transformers, panels, switchboards) and is slow/rigid to modify; meanwhile hotels also need dense digital connectivity and face skilled-labor and equipment lead-time constraints.",
+        "context": {
+          "market_pressures": [
+            "Construction pipeline and modernization trends; supply chain pressure for transformers with long lead times; skilled trades shortage cited."
+          ],
+          "why_ac_is_heavy": [
+            "Traditional power requires multi-stage transformation (utility MV \u2192 480V \u2192 floor transformers \u2192 208/120V panels) plus a separate IT network (MDF\u2192IDF) because AC power is prohibited from sharing spaces with data lines. # :contentReference[oaicite:40]{index=40}"
+          ]
+        }
+      },
+      "solution": {
+        "architecture": "Zone-based FMP with hybrid power+fiber and per-room zone boxes",
+        "key_elements": [
+          "Switchboard output feeds FMP transmitter cabinets; AC converted to FMP.",
+          "Hybrid cable combines FMP conductor pairs + optical fiber; routed to per-room zone box.",
+          "Zone box contains inverter to produce 110VAC for receptacles; low-voltage compartment separated from 110VAC compartment to separate limited-energy vs wireman work.",
+          "Uses pre-manufactured MC \u2018whips\u2019 and quick-connect receptacles for fast final runs."
+        ],
+        "delivered_power_reference": [
+          "Approx. 2.5kW peak 110V per guest room (reference: 20A 110VAC ~1.8kW)."
+        ]
+      },
+      "economics": {
+        "baseline_ac_cost_reference": {
+          "total_floor_space_sqft": 110000,
+          "total_cost_usd": 1965000,
+          "cost_per_sqft_usd": 17.7
+        },
+        "fmp_cost_reference": {
+          "per_room_total_usd": 5014,
+          "per_room_cost_per_sqft_usd": 12.38,
+          "claimed_savings_pct_material_labor_only": 30,
+          "schedule_uplift_example": {
+            "assumed_delay_days": 10,
+            "implied_additional_savings_per_sqft_usd": 1.8
+          }
+        }
+      },
+      "capacity_and_kva": {
+        "claim": [
+          "Digitally managed allocation can reduce building kVA requirements 30\u201350% (nameplate); example: 1.8kVA/room AC vs 1.0kVA/room FMP (44% reduction)."
+        ]
+      },
+      "customer_value": {
+        "outcomes": [
+          "Lower material/labor costs; faster installation with conduit-free routing and modular pre-tested components.",
+          "Avoided cost/risk of delayed hotel opening (schedule risk framed as major value).",
+          "Converged power+data can avoid IDF rooms on guest floors (real estate + cost)."
+        ]
+      }
+    }
+  },
+  {
+    "id": "energy_management_system",
+    "file": "energy_management_system.yaml",
+    "type": "document",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "A case for using Energy Management Systems (EMS) to electrify existing multifamily buildings without upgrading the building\u2019s electrical service, and an argument that Fault-Managed Power (FMP) / Digital Electricity can make EMS practical by embedding monitoring/control into the power delivery layer. # :contentReference[oaicite:2]{index=2}",
+    "text_summary": "A case for using Energy Management Systems (EMS) to electrify existing multifamily buildings without upgrading the building\u2019s electrical service, and an argument that Fault-Managed Power (FMP) / Digital Electricity can make EMS practical by embedding monitoring/control into the power delivery layer. # :contentReference[oaicite:2]{index=2}",
+    "raw": {
+      "document": {
+        "title": "Powering the Future: Embedded Energy Management Systems With Fault-Managed Power",
+        "type": "White Paper",
+        "publisher": "VoltServer",
+        "year": 2025,
+        "source_pdf": "VS White Paper_Embedded Energy Management Systems with FMP.pdf",
+        "page_count": 5
+      },
+      "summary": {
+        "what_it_is": "A case for using Energy Management Systems (EMS) to electrify existing multifamily buildings without upgrading the building\u2019s electrical service, and an argument that Fault-Managed Power (FMP) / Digital Electricity can make EMS practical by embedding monitoring/control into the power delivery layer. # :contentReference[oaicite:2]{index=2}",
+        "core_message": "Buildings often have enough average capacity, but peak constraints drive expensive service upgrades; EMS reduces peaks, and FMP simplifies/validates EMS behavior in a code-recognized way. # :contentReference[oaicite:3]{index=3}"
+      },
+      "problem": {
+        "statement": "Electrification retrofits (heat pumps + electric cooking) in existing multifamily buildings are blocked by limited electrical service capacity, making conventional upgrades slow, disruptive, and expensive.",
+        "context": {
+          "why_it_hurts": [
+            "Upgrading service in older multifamily buildings can cost hundreds of thousands of dollars, require excavation and invasive work, and take years due to approvals, permitting, and equipment lead times. # :contentReference[oaicite:4]{index=4}",
+            "Many buildings could electrify without service upgrades if they managed existing capacity more intelligently (i.e., manage peaks vs averages). # :contentReference[oaicite:5]{index=5}"
+          ],
+          "why_existing_ems_is_hard": [
+            "Traditional EMS implementations are complex to list/approve and integrate (smart breakers/contractors, CTs, control wiring/networking, PLC/controller software, fail-safe requirements). # :contentReference[oaicite:6]{index=6}",
+            "Integration isn\u2019t plug-and-play; AHJ approval and ongoing maintenance are difficult when systems are field-assembled across vendors. # :contentReference[oaicite:7]{index=7}"
+          ]
+        }
+      },
+      "solution": {
+        "approach": "Embedded EMS using Fault-Managed Power / Digital Electricity",
+        "what_changes": [
+          "Centralized power delivery through listed transmitters means feeder/service sizing ties to transmitter input current, avoiding complex system-level EMS verification burdens. # :contentReference[oaicite:8]{index=8}",
+          "Energy management is embedded: powering appliances with FMP inherently networks them and enables real-time monitoring/control of energy delivered to each load. # :contentReference[oaicite:9]{index=9}",
+          "Continuous monitoring/verification for safety (UL 62368-1 and UL 1400-1 referenced) supports using EMS code pathways (NEC 220.70 and Article 750 referenced). # :contentReference[oaicite:10]{index=10}"
+        ]
+      },
+      "example": {
+        "name": "100-unit retrofit load example",
+        "baseline": "1961 building, 40A panels at 208V AC single phase; 700 kVA service; 500 kVA existing load.",
+        "added_loads_per_unit": [
+          "8.5 kW induction cooking range",
+          "3 kW (peak) heat pump"
+        ],
+        "nec_references_in_example": [
+          "NEC Table 220.55 demand factor example (16% mentioned)",
+          "NEC 220.70 and Article 750 EMS pathways discussed"
+        ]
+      },
+      "customer_value": {
+        "outcomes": [
+          "Stay within existing service capacity; avoid major service upgrades.",
+          "Reduce copper use and panel/feeder sizes; simplify riser design; shorten timelines; reduce tenant disruption."
+        ]
+      },
+      "references": {
+        "cited_sources_in_paper": [
+          "Phoenix Contact (UL 508A vs UL 916 white paper)",
+          "Silicon Valley Clean Energy & PG&E Electric Service Optimization Guide (2023)"
+        ]
+      }
+    }
+  },
+  {
+    "id": "industrial_free_from_LANconstraints",
+    "file": "industrial_free_from_LANconstraints.yaml",
+    "type": "document",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "A critique of centralized, traditional LAN-based industrial network architecture and a proposal for a \u201cdigital edge\u201d (edge star) approach, where clusters of panels use local switches and fiber uplinks\u2014enabled by a power distribution approach (Digital Electricity) that solves power-access constraints for edge devices. # :contentReference[oaicite:80]{index=80} :contentReference[oaicite:81]{index=81}",
+    "text_summary": "A critique of centralized, traditional LAN-based industrial network architecture and a proposal for a \u201cdigital edge\u201d (edge star) approach, where clusters of panels use local switches and fiber uplinks\u2014enabled by a power distribution approach (Digital Electricity) that solves power-access constraints for edge devices. # :contentReference[oaicite:80]{index=80} :contentReference[oaicite:81]{index=81}",
+    "raw": {
+      "document": {
+        "title": "How Industrial Environments Can Finally Break Free from Traditional LAN Constraints",
+        "type": "White Paper",
+        "publisher": "VoltServer",
+        "author": {
+          "name": "James Eaves"
+        },
+        "source_pdf": "VS_White Paper_How Industrial Environments Can Finally Break Free From Traditional_LANConstraints.pdf",
+        "page_count": 5
+      },
+      "summary": {
+        "what_it_is": "A critique of centralized, traditional LAN-based industrial network architecture and a proposal for a \u201cdigital edge\u201d (edge star) approach, where clusters of panels use local switches and fiber uplinks\u2014enabled by a power distribution approach (Digital Electricity) that solves power-access constraints for edge devices. # :contentReference[oaicite:80]{index=80} :contentReference[oaicite:81]{index=81}",
+        "core_message": "As edge device density grows, the bottleneck is often power availability/management (not data transfer); DE helps deliver kW over long distances and co-install power with data/PoE to accelerate MAC work. # :contentReference[oaicite:82]{index=82} :contentReference[oaicite:83]{index=83}"
+      },
+      "problem": {
+        "statement": "Traditional industrial LAN designs are hard to maintain and evolve (signal degradation on long runs, cable clutter, downtime risk, safety/reliability issues), and Industry 4.0 growth is constrained by power access and restrictions around modifying high-voltage infrastructure.",
+        "context": {
+          "lan_constraints": [
+            "Long Ethernet runs degrade signal strength/integrity/latency.",
+            "Cable clutter increases maintenance time, error risk, and safety hazards.",
+            "Relocations/adds require rerouting; downtime disrupts production and revenue."
+          ],
+          "power_is_the_bottleneck": [
+            "High-voltage restrictions: reluctance to modify 480/277V infrastructure due to operational risk/downtime.",
+            "Device placement vs power access mismatch (remote/outdoor/mobile areas lack suitable low-voltage power)."
+          ]
+        }
+      },
+      "solution": {
+        "architecture": "Digital edge (edge star) + VoltServer Digital Edge Solution using Digital Electricity",
+        "core_elements": [
+          "Clusters of panels with local Ethernet switches; each cluster uplinks to TR via fiber.",
+          "Digital Electricity distributes kilowatts over thousands of feet at ~336VDC using thin cable and low-voltage wiring methods (often without conduit/subpanels/relay panels).",
+          "Co-installation: DE with PoE and Ethernet/data circuits in same enclosures/raceways as Class 2 circuits.",
+          "Integrates fiber and power in the same line to reduce separate cabling."
+        ]
+      },
+      "customer_value": {
+        "outcomes": [
+          "Improved flexibility for moves/adds/changes; modular clusters.",
+          "Reduced complexity and maintenance; better cable organization and uptime.",
+          "Avoids modifying high-voltage power systems while still powering edge devices over long distances."
+        ]
+      }
+    }
+  },
+  {
+    "id": "low_disruption_AI_racks",
+    "file": "low_disruption_AI_racks.yaml",
+    "type": "document",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "A case for Digital Electricity (DE)\u2014fault-managed power (FMP)\u2014as a way to add high-power AI racks to an operating data center with minimal disruption, high power density, and improved safety/monitoring. # :contentReference[oaicite:60]{index=60}",
+    "text_summary": "A case for Digital Electricity (DE)\u2014fault-managed power (FMP)\u2014as a way to add high-power AI racks to an operating data center with minimal disruption, high power density, and improved safety/monitoring. # :contentReference[oaicite:60]{index=60}",
+    "raw": {
+      "document": {
+        "title": "How Digital Electricity\u00ae Enables Low-Disruption Installation of AI Server Racks in Operational Data Centers",
+        "type": "White Paper",
+        "publisher": "VoltServer",
+        "year": 2025,
+        "source_pdf": "VS_White Paper_How Digital Electricity\u00ae Enables Low-Disruption Installation of AI Server Racks in Operational Data Centers.pdf",
+        "page_count": 11
+      },
+      "summary": {
+        "what_it_is": "A case for Digital Electricity (DE)\u2014fault-managed power (FMP)\u2014as a way to add high-power AI racks to an operating data center with minimal disruption, high power density, and improved safety/monitoring. # :contentReference[oaicite:60]{index=60}",
+        "core_message": "DE eliminates many intermediate AC distribution components and allows power to be run like IT cabling in trays/J-hooks; this reduces footprint, reduces points of failure, speeds deployment, and adds built-in monitoring for maintenance savings. # :contentReference[oaicite:61]{index=61} :contentReference[oaicite:62]{index=62}"
+      },
+      "problem": {
+        "statement": "Data center operators want to add high-density AI compute to live facilities, but conventional electrical upgrades are bulky, hazardous (arc-flash), slow, and risky to implement without triggering outages.",
+        "context": {
+          "drivers": [
+            "AI adoption is surging; need scalable electrical infrastructure while speed and safety are paramount."
+          ],
+          "why_conventional_is_hard": [
+            "Traditional systems require many intermediate distribution devices (switchboards, floor PDUs, busway, panels, conduit) and extensive protective structure near people/buildings."
+          ]
+        }
+      },
+      "how_de_works": {
+        "packets_per_second": 500,
+        "medium": "Structured (communication) cable from transmitter to receiver",
+        "receiver_in_dc_context": "Receiver embedded with HVDC receptacles to form a rack PDU; transmitters packaged with batteries as TX-UPS."
+      },
+      "architecture_example": {
+        "use_case": "Powering four 100kW server racks",
+        "elements": [
+          "Four DE TX-UPS racks (N+1: only three needed for operation).",
+          "Eight DE cables per server rack (two from each TX-UPS rack A\u2013D).",
+          "AC case includes UPS + output switchboard + conduit + distribution panels + floor PDUs + overhead busway in 2N."
+        ],
+        "footprint_claim": [
+          "Eliminating intermediate distribution devices yields an 80% reduction in overhead space requirements (per comparison discussion)."
+        ]
+      },
+      "operations_and_maintenance": {
+        "monitoring_claim": [
+          "Monitoring/metering and fault checks are inherent in DE packet communications; reduces need for separate monitoring and labor-intensive maintenance (IR imaging, data logging)."
+        ],
+        "reliability_claim": [
+          "Fewer points of failure due to continuous cabling bypassing many connections/devices; detects loose connections and insulation degradation over time."
+        ]
+      },
+      "customer_value": {
+        "outcomes": [
+          "Low disruption in operational data centers; faster deployment; space savings; electrically safe operation (touch-safe / avoids arc-flash hazards stated).",
+          "Potential initial cost savings (Southland study reference notes >30% installed savings)."
+        ]
+      }
+    }
+  },
+  {
+    "id": "world_class_resort",
+    "file": "world_class_resort.yaml",
+    "type": "document",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "An explainer aimed at portable/prefabricated and micro-edge/container data centers, describing fault-managed power (Digital Electricity / Class 4) and three ways it can change power design and deployment. # :contentReference[oaicite:98]{index=98}",
+    "text_summary": "An explainer aimed at portable/prefabricated and micro-edge/container data centers, describing fault-managed power (Digital Electricity / Class 4) and three ways it can change power design and deployment. # :contentReference[oaicite:98]{index=98}",
+    "raw": {
+      "document": {
+        "title": "Support Rising Data Center Power Demands with Digital Electricity\u00ae",
+        "type": "White Paper / Partner Guide",
+        "publishers": [
+          "VoltServer",
+          "Belden"
+        ],
+        "source_pdf": "VS_White Paper_Support Rising Data Center Power Demands with DE.pdf",
+        "page_count": 6
+      },
+      "summary": {
+        "what_it_is": "An explainer aimed at portable/prefabricated and micro-edge/container data centers, describing fault-managed power (Digital Electricity / Class 4) and three ways it can change power design and deployment. # :contentReference[oaicite:98]{index=98}",
+        "core_message": "FMP provides packetized, continuously monitored power over small-gauge lightweight cabling, enabling sustainability/efficiency, safer HVDC adoption, and scalable MAC-friendly buildouts. # :contentReference[oaicite:99]{index=99} :contentReference[oaicite:100]{index=100}"
+      },
+      "problem": {
+        "statement": "Data center workloads (AI/5G/IoT) are driving power growth and costs, while operators need faster, modular expansion\u2014especially in containerized or micro-edge deployments\u2014without overbuilding.",
+        "context": {
+          "demand_and_cost_signals": [
+            "AI energy use growth example (1GW in 2023 to 7GW by 2026 cited) and median 16% electricity cost growth (C&W study cited)."
+          ],
+          "operational_reality": [
+            "Predicting future density is hard; underbuild risks overload/failure, overbuild wastes CAPEX."
+          ]
+        }
+      },
+      "how_fmp_works": {
+        "concept": "Electricity split into small, safe energy packets, analogous to data packets; sent transmitter\u2192receiver over a network.",
+        "safety": "Packets monitored; system stops sending on unsafe conditions.",
+        "code": "Class 4 adopted by NEC in 2023; supported by new UL and ATIS standards (as stated)."
+      },
+      "three_transformations": [
+        {
+          "name": "Sustainability and efficiency",
+          "claims": [
+            "Optimize space and reduce materials; increase density; example: 18:1 cable reduction vs traditional 48VDC delivery.",
+            "U.S. data center power consumption projection cited (35GW by 2030 vs 17GW in 2022)."
+          ]
+        },
+        {
+          "name": "Safer, more efficient high-voltage DC",
+          "claims": [
+            "All-DC reduces conversion losses (up to ~20% loss in conversions stated); FMP supports safe HVDC distribution and reduces protective steel/gear (busway/breakers/PDUs) by using trays and intelligence.",
+            "All-DC efficiency improvement >5% claim plus higher availability via centralized backup/UPS model."
+          ]
+        },
+        {
+          "name": "Scalability and maintainability (MACs)",
+          "claims": [
+            "Scale-on-demand modular buildout; easy to add capacity by running another cable in the tray; converged power+data means fewer trade dependencies."
+          ]
+        }
+      ],
+      "partner_positioning": [
+        "Belden designed FMPS cables to support Digital Electricity and is stated as first cables designed and UL listed for Class 4 cabling."
+      ]
+    }
+  }
+]
