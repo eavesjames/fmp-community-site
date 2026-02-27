@@ -3,7 +3,8 @@
 FMP Community Site Automation Orchestrator
 Handles: intake, extract, normalize, render_pulse_pages,
          insights, social_drafts, digest_weekly, evergreen_update,
-         glossary_suggest, open_pr, open_daily_pr
+         glossary_suggest, open_pr, open_daily_pr,
+         generate (Phase 1), publish (Phase 2)
 """
 
 import argparse
@@ -23,6 +24,9 @@ from lib.digest import generate_weekly_digest
 from lib.evergreen import update_evergreen
 from lib.glossary import suggest_glossary_terms
 from lib.pr import open_pr, open_daily_pr
+from lib.candidates import run_candidates
+from lib.publish_approved import run_publish_approved
+from lib.email_digest import send_review_email
 
 
 def main():
@@ -39,6 +43,15 @@ def main():
     subparsers.add_parser("render_pulse_pages", help="Generate Pulse markdown pages")
     subparsers.add_parser("insights",          help="Run Stage 3.5 multi-agent insights")
     subparsers.add_parser("social_drafts",     help="Run Stage 3.6 social draft generation")
+    subparsers.add_parser("candidates",        help="Phase 1: score items, write candidates + approval stub")
+
+    publish_parser = subparsers.add_parser("publish",
+        help="Phase 2: publish approved candidates, render pages, open PR")
+    publish_parser.add_argument("--date", help="Override date (YYYY-MM-DD)")
+
+    subparsers.add_parser("generate",
+        help="Phase 1 full workflow: intake → extract → candidates → insights → email")
+    subparsers.add_parser("send_review_email", help="(Re)send review email for today")
 
     # Weekly workflow
     subparsers.add_parser("digest_weekly",     help="Generate weekly digest pages")
@@ -56,7 +69,7 @@ def main():
     )
 
     # Full workflows
-    subparsers.add_parser("daily",  help="Run full daily pipeline")
+    subparsers.add_parser("daily",  help="Legacy: run full daily pipeline (no review gate)")
     subparsers.add_parser("weekly", help="Run full weekly workflow")
 
     args = parser.parse_args()
@@ -83,6 +96,41 @@ def main():
 
         elif args.command == "social_drafts":
             generate_social_drafts()
+
+        elif args.command == "candidates":
+            run_candidates()
+
+        elif args.command == "publish":
+            date = getattr(args, "date", None)
+            stats = run_publish_approved(date=date)
+            if stats.get("published", 0) > 0:
+                open_daily_pr(run_stats=stats)
+
+        elif args.command == "generate":
+            print("Running Phase 1 (generate) workflow...")
+            run_intake()
+            run_extract()
+            cand_result = run_candidates()
+            new_items = cand_result.get("candidates", [])
+            insights_result = None
+            if new_items:
+                print(f"\nRunning insights for {len(new_items)} candidate(s)...")
+                insights_result = run_insights(new_items)
+                generate_social_drafts()
+            else:
+                print("\nNo candidates — skipping insights and social drafts")
+            print("\nSending review email...")
+            send_review_email(
+                candidates_result=cand_result,
+                insights_result=insights_result,
+            )
+            print("\nPhase 1 complete.")
+            print("  Review files in data/review/")
+            print("  Insight drafts in content/insights/ (draft: true)")
+            print("  Approve items in data/review/YYYY-MM-DD_approval.json then run: python3 run.py publish")
+
+        elif args.command == "send_review_email":
+            send_review_email()
 
         elif args.command == "digest_weekly":
             generate_weekly_digest()

@@ -1,9 +1,9 @@
-name: Daily Pulse Update
+name: Daily Pulse (Legacy — no review gate)
 
+# DEPRECATED: Use daily_generate + daily_publish for the two-phase review workflow.
+# This workflow publishes directly without approval and is kept as a manual fallback.
 on:
-  schedule:
-    - cron: '0 9 * * *'  # 9 AM UTC daily
-  workflow_dispatch:       # Manual trigger for testing
+  workflow_dispatch:       # Manual trigger only
 
 jobs:
   daily-pulse:

@@ -1,0 +1,60 @@
+name: Daily Generate (Phase 1)
+
+on:
+  schedule:
+    - cron: '0 9 * * *'   # 9 AM UTC daily
+  workflow_dispatch:        # Manual trigger for testing
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history so gh CLI can push branches
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Phase 1: intake → extract → candidates → insights → email
+      - name: Run Phase 1 generate
+        env:
+          SERP_API_KEY:     ${{ secrets.SERP_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          RESEND_API_KEY:   ${{ secrets.RESEND_API_KEY }}
+          REVIEW_EMAIL_TO:  ${{ secrets.REVIEW_EMAIL_TO }}
+          GITHUB_REPO:      ${{ github.repository }}
+          GITHUB_BRANCH:    daily-generate-${{ github.run_id }}
+        run: |
+          cd scripts
+          python3 run.py generate
+
+      # Push review artifacts + insight drafts on a branch (no PR yet)
+      - name: Push review branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name  "FMP Bot"
+          git config user.email "bot@faultmanagedpower.org"
+
+          BRANCH="daily-generate-$(date +%Y%m%d)"
+          git checkout -b "$BRANCH"
+
+          # Stage review files, insight drafts, and data artifacts
+          git add data/review data/pulse/extracted data/insights data/social
+          git add content/insights || true   # insight draft markdowns
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit — skipping push"
+            exit 0
+          fi
+
+          git commit -m "Generate — $(date +%Y-%m-%d) [no publish]"
+          git push origin "$BRANCH"
+          echo "Branch pushed: $BRANCH"
+          echo "Review and approve items, then run the daily_publish workflow."

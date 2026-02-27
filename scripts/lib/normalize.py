@@ -222,5 +222,90 @@ def run_normalize():
         "by_vertical": by_vertical,
     }
 
+def write_approved_to_master(approved_candidates: list) -> dict:
+    """
+    Write a list of approved candidate dicts into items.json.
+
+    Candidates come from data/review/YYYY-MM-DD_candidates.json and have
+    already been scored + flagged by candidates.py.  This function normalises
+    them into the items.json schema, skips any that are now duplicates, assigns
+    sequential IDs, and saves the master list.
+
+    Returns dict: {written, skipped, new_items}.
+    """
+    print("Writing approved candidates to master items list...")
+
+    items_file = PROJECT_ROOT / "data" / "pulse" / "items.json"
+    if items_file.exists():
+        with open(items_file) as f:
+            existing_items = json.load(f)
+    else:
+        existing_items = []
+
+    written = 0
+    skipped = 0
+    new_items = []
+
+    for cand in approved_candidates:
+        # Re-check for duplicates against items that may have been added since
+        # the candidates.json was generated.
+        if is_duplicate(cand, existing_items):
+            print(f"  Skipping duplicate: {(cand.get('title') or '')[:60]}")
+            skipped += 1
+            continue
+
+        # Build a minimal "extracted" dict so generate_slug() works
+        slug_source = {
+            "publish_date": cand.get("publish_date"),
+            "discovered_at": cand.get("discovered_at", ""),
+            "players": cand.get("players", []),
+            "title": cand.get("title", ""),
+        }
+
+        normalized = {
+            "id":              len(existing_items) + written + 1,
+            "slug":            generate_slug(slug_source),
+            "title":           cand.get("title"),
+            "description":     cand.get("description"),
+            "canonical_source": cand.get("link"),
+            "artifact_type":   cand.get("artifact_type", "other"),
+            "publish_date":    cand.get("publish_date"),
+            "discovered_at":   cand.get("discovered_at"),
+            "players":         cand.get("players", []),
+            "topics":          cand.get("topics", []),
+            "value_levers":    cand.get("value_levers", []),
+            "confidence":      cand.get("confidence", "medium"),
+            "summary":         cand.get("summary"),
+            "score":           cand.get("score", 0),
+            "query_vertical":  cand.get("vertical"),
+            "vertical":        cand.get("vertical"),
+            "source_name":     cand.get("source_name"),
+            "source_date":     cand.get("source_date"),
+            "persona":         cand.get("persona"),
+            "so_what":         cand.get("so_what"),
+            "why_it_matters":  cand.get("why_it_matters"),
+            "open_questions":  cand.get("open_questions", []),
+            "evidence":        cand.get("evidence", []),
+        }
+
+        existing_items.append(normalized)
+        new_items.append(normalized)
+        written += 1
+        print(f"  ✓ Added: {normalized['title'][:60]} (score: {normalized['score']})")
+
+    # Sort by score desc, then discovered_at desc
+    existing_items.sort(
+        key=lambda x: (x.get("score", 0), x.get("discovered_at", "")),
+        reverse=True,
+    )
+
+    items_file.parent.mkdir(parents=True, exist_ok=True)
+    with open(items_file, "w") as f:
+        json.dump(existing_items, f, indent=2)
+
+    print(f"  Master list updated: {written} added, {skipped} skipped → {len(existing_items)} total")
+    return {"written": written, "skipped": skipped, "new_items": new_items}
+
+
 if __name__ == "__main__":
     run_normalize()

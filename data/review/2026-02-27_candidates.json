@@ -1,0 +1,753 @@
+[
+  {
+    "candidate_id": "d7ef710cf3ef",
+    "title": "Cence Power launches Class 4 fault-managed DC system for telecom and data centers",
+    "link": "https://markhambusiness.ca/news-events/news/how-cence-power-is-rewiring-the-future-from-markham",
+    "artifact_type": "press",
+    "confidence": "high",
+    "score": 27,
+    "flags": [
+      "press_release",
+      "duplicate_risk",
+      "high_impact"
+    ],
+    "players": [
+      "cence-power"
+    ],
+    "topics": [
+      "code-standards",
+      "safety-model",
+      "pathways-install",
+      "dc-distribution",
+      "labor-productivity"
+    ],
+    "value_levers": [],
+    "vertical": "data-centers",
+    "persona": "electrical-contractor",
+    "source_name": "Markham Business",
+    "source_date": "2026-02-18",
+    "publish_date": "2026-02-18",
+    "discovered_at": "2026-02-26T22:53:04.202260",
+    "summary": "Cence Power has launched Canada's first Class 4 fault-managed DC power distribution system, the first new electrical class introduced since 1978. The system delivers ~480V DC in cables one-tenth the thickness of traditional AC, reducing copper requirements and construction costs while automatically detecting and disabling faults before electrician injury.",
+    "description": "Markham-based Cence Power deploys Class 4 DC distribution\u2014first new electrical class since 1978\u2014offering 10x voltage in 1/10th copper for telecom and data centers.",
+    "why_it_matters": "Electrical contractors and data center operators face material cost pressure and worker safety liability with traditional AC distribution. Class 4 fault-managed power addresses both by cutting copper requirements 90% (480V in 1/10th cable thickness vs AC) while auto-disabling on shock/fire faults, enabling safer work by non-electrician telecom technicians. Ibrahim's participation in CSA code working groups signals active standards development affecting design and AHJ approval pathways.",
+    "so_what": "Class 4 fault-managed power reduces copper mass 90% vs AC while auto-disabling on fault detection, cutting material cost and shock/fire risk for telecom/DC work.",
+    "evidence": [
+      "Class 4 power systems are the first new class introduced since 1978; Ibrahim serves on CSA working group updating electrical code",
+      "System delivers roughly 10x voltage (vs 48V DC telecom standard) in cable 1/10th the thickness, reducing copper and construction costs",
+      "Fault-managed DC detects shock/fire hazards and auto-disables before technician injury; enables non-electrician telecom workers to handle higher voltages safely"
+    ],
+    "open_questions": [
+      "What CSA code revisions are required for Class 4 adoption, and which AHJs have approved installations?",
+      "How does fault detection latency and auto-disable affect uptime SLAs in mission-critical telecom/data center deployments?"
+    ]
+  },
+  {
+    "candidate_id": "d305007f8bff",
+    "title": "LinkedIn post by Alexis Bertholf discussing fault-managed power delivering kilowatt over twisted pair",
+    "link": "https://www.linkedin.com/posts/alexisbertholf_fault-managed-power-can-deliver-up-to-a-kilowatt-activity-7431694460851449856-Sygv",
+    "artifact_type": "linkedin-post",
+    "confidence": "high",
+    "score": 24,
+    "flags": [
+      "duplicate_risk",
+      "high_impact"
+    ],
+    "players": [],
+    "topics": [
+      "safety-model",
+      "monitoring-telemetry",
+      "pathways-install",
+      "dc-distribution"
+    ],
+    "value_levers": [],
+    "vertical": "building-electrification",
+    "persona": "facilities",
+    "source_name": "LinkedIn",
+    "source_date": null,
+    "publish_date": null,
+    "discovered_at": "2026-02-26T22:53:04.202241",
+    "summary": "LinkedIn post describing fault-managed power's ability to deliver up to 1 kilowatt over single twisted pair through high voltage, very low current, continuous fault detection, and instant shutoff. FMP systems are IP-connected, enabling network-style monitoring including per-port power draw, remote fault detection, and policy application.",
+    "description": "Discussion of fault-managed power characteristics: high voltage, low current, continuous fault detection, instant shutoff, enabling edge-distributed power with network-style monitoring.",
+    "why_it_matters": "The continuous fault detection safety model allows buildings to be designed with low-voltage assumptions everywhere, removing traditional high-voltage distribution constraints. Facilities managers gain network-style visibility (per-port draw, remote fault detection, policy enforcement) rather than traditional electrical monitoring, changing power infrastructure design and operations decisions.",
+    "so_what": "FMP's safety model (continuous fault detection + instant shutoff) enables low-voltage design assumptions and edge-distributed power with per-port monitoring and policy control.",
+    "evidence": [
+      "Delivers up to 1 kilowatt over single twisted pair using high voltage, very low current, continuous fault detection, and instant shutoff",
+      "FMP controllers and endpoints are IP-connected, enabling per-port power monitoring, remote fault detection, and policy application",
+      "Direction is toward tighter integration with traditional Ethernet networks for building power distribution"
+    ],
+    "open_questions": [
+      "What wire gauge and pathway requirements does kilowatt-level FMP impose compared to traditional branch circuits?",
+      "How does FMP integration with Ethernet networks affect commissioning and troubleshooting workflows for electrical contractors versus IT teams?"
+    ]
+  },
+  {
+    "candidate_id": "218f39c61f65",
+    "title": "NEC Code Questions on LED Lighting: Class 2, 3, and Class 4 Fault Managed Power",
+    "link": "https://www.aspectled.com/blog/post/nec-code-questions-led-lighting/?srsltid=AfmBOopJYW_yM4GK_LJPTs7erpxNYB_5LQyw7gmmiWGu4VZIHT683wFE",
+    "artifact_type": "doc",
+    "confidence": "high",
+    "score": 24,
+    "flags": [
+      "duplicate_risk",
+      "high_impact"
+    ],
+    "players": [],
+    "topics": [
+      "code-standards",
+      "safety-model",
+      "pathways-install"
+    ],
+    "value_levers": [],
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "source_name": "Aspect LED Blog",
+    "source_date": null,
+    "publish_date": null,
+    "discovered_at": "2026-02-26T22:53:06.792883",
+    "summary": "Educational resource addressing NEC code questions electricians have about LED lighting installations. Distinguishes Class 2 and Class 3 power-limited circuits under Article 725 from the newer Class 4 category introduced specifically for fault managed power systems.",
+    "description": "Overview of NEC Class 2/3 circuits in Article 725 and introduction of Class 4 for fault managed power systems, addressing common electrician questions about LED installations.",
+    "why_it_matters": "Electrical contractors need to understand the distinction between traditional power-limited circuits and the new Class 4 category to correctly spec, install, and obtain approval for fault managed power deployments. The NEC's formal recognition of Class 4 as a separate category establishes a clear code pathway but requires field education on the differences from familiar Class 2/3 rules.",
+    "so_what": "Class 4 introduction in NEC creates new code pathway for fault managed power, differentiating it from traditional Class 2/3 power-limited circuits.",
+    "evidence": [
+      "Class 2 and Class 3 circuits remain in Article 725 and are power limited",
+      "Class 4 is a newer category introduced for fault managed power systems"
+    ],
+    "open_questions": [
+      "What specific Article 725 requirements differ between Class 2/3 and Class 4 installations?",
+      "How are AHJs interpreting Class 4 requirements for LED lighting projects in practice?"
+    ]
+  },
+  {
+    "candidate_id": "b2328b04a1d5",
+    "title": "VoltServer Appoints Dave Johnson CEO to Scale Digital Electricity Deployments",
+    "link": "https://www.nsca.org/nsca-news/nsca-releases/voltserver-appoints-dave-johnson-as-chief-executive-officer/",
+    "artifact_type": "press",
+    "confidence": "medium",
+    "score": 20,
+    "flags": [
+      "press_release",
+      "duplicate_risk",
+      "high_impact"
+    ],
+    "players": [
+      "voltserver"
+    ],
+    "topics": [
+      "dc-distribution",
+      "safety-model",
+      "reliability-uptime"
+    ],
+    "value_levers": [],
+    "vertical": "data-centers",
+    "persona": "owner-operator",
+    "source_name": "NSCA",
+    "source_date": "2026-02-11",
+    "publish_date": "2026-02-11",
+    "discovered_at": "2026-02-26T22:53:04.202282",
+    "summary": "VoltServer announced Dave Johnson as CEO, succeeding founder Steve Eaves. Johnson previously led Schneider Electric's $7B global data center business and will focus on expanding adoption of Digital Electricity DC power systems across commercial, industrial, and data center environments with 1,000+ installations globally.",
+    "description": "VoltServer names former Schneider Electric data center president as CEO to expand fault-managed DC power adoption across 1,000+ global installations.",
+    "why_it_matters": "VoltServer's fault-managed DC distribution addresses energy loss and flexibility constraints in power distribution over long distances. The hire of a leader with data center scaling experience signals commercial traction for code-compliant DC systems that reduce conversion losses. Owner-operators evaluating DC infrastructure modernization gain a leadership benchmark for technology maturity.",
+    "so_what": "Leadership hire from $7B DC business signals scaling of code-compliant DC distribution reducing energy losses over long distances in data centers.",
+    "evidence": [
+      "1,000+ installations globally of Digital Electricity technology",
+      "Johnson led Schneider Electric's $7B global data center business",
+      "Platform enables safe, code-compliant DC power distribution over long distances, reducing energy losses"
+    ],
+    "open_questions": [
+      "What specific energy loss reductions and distance capabilities distinguish Digital Electricity from traditional DC distribution in deployed installations?",
+      "How does fault-managed DC power impact code compliance pathways versus AC distribution for data center and commercial retrofits?"
+    ]
+  },
+  {
+    "candidate_id": "c1628ed1c51f",
+    "title": "AI & Energy Storage: Why It Matters for Data Centres",
+    "link": "https://nyobolt.com/resources/blog/ai-energy-storage-why-it-matters-for-data-centres/",
+    "artifact_type": "other",
+    "confidence": "medium",
+    "score": 19,
+    "flags": [
+      "duplicate_risk",
+      "high_impact"
+    ],
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "ups-resilience",
+      "reliability-uptime",
+      "ai-infrastructure",
+      "power-quality-surge"
+    ],
+    "value_levers": [],
+    "vertical": "data-centers",
+    "persona": "facilities",
+    "source_name": "Nyobolt Blog",
+    "source_date": "2026-02-16",
+    "publish_date": "2026-02-16",
+    "discovered_at": "2026-02-26T22:53:04.202256",
+    "summary": "Nyobolt examines energy storage evolution in data centers, from telco -48Vdc roots (now FMP/Class 4) to modern tiered deployment strategies. Author outlines three ES applications\u2014bulk storage, peak shaving, OpEx optimization\u2014plus new GPU/AI use cases like utility curtailment support and simulated machine inertia for grid stability.",
+    "description": "Analysis of tiered energy storage deployment in data centers, from chip to grid, covering bulk storage, peak shaving, and OpEx optimization for AI workloads.",
+    "why_it_matters": "GPU-based AI data centers introduce new ES requirements beyond traditional holdup: utility curtailment compliance and grid stability support. Facilities teams must design tiered storage (response time + proximity to load) balancing short-duration/high-peak near-load solutions with longer-term bulk storage farther out, affecting UPS topology and distribution architecture decisions.",
+    "so_what": "Tiered ES model (proximity + response time) addresses GPU load spikes and utility curtailment, impacting UPS/resilience topology and grid stability design.",
+    "evidence": [
+      "Historical -48Vdc telco power 'might have called remote line power (RLP), most recently dubbed...fault-managed power (FMP or Class 4 power as defined in 2023 NFLA 70, a.k.a. National Electric Code)'",
+      "GPU data centers bring 'new applications to the forefront, such as supporting utility curtailment requirements and/or absorbing load (potentially also providing simulated machine inertia) to ensure stable grids'",
+      "Tiered ES deployment 'all about timing and proximity...response time and proximity to the load. Shorter-term needs...higher peak power for short durations...physically located closer to the target load'"
+    ],
+    "open_questions": [
+      "How do GPU load transients dictate ES sizing and placement at rack vs. facility vs. utility interface tiers?",
+      "What monitoring/telemetry is required to coordinate multi-tier ES for curtailment response and grid services?"
+    ]
+  },
+  {
+    "candidate_id": "9f758cdd5036",
+    "title": "7 Key 2026 NEC Changes Contractors Need To Have on Their Radar",
+    "link": "https://www.electricalassociation.com/Online/Online/News/Blog-Articles.aspx",
+    "artifact_type": "doc",
+    "confidence": "medium",
+    "score": 19,
+    "flags": [
+      "old_source",
+      "high_impact"
+    ],
+    "players": [],
+    "topics": [
+      "code-standards",
+      "pathways-install",
+      "safety-model"
+    ],
+    "value_levers": [],
+    "vertical": "building-electrification",
+    "persona": "electrical-contractor",
+    "source_name": "Electrical Association",
+    "source_date": "2025-11-25",
+    "publish_date": "2025-11-25",
+    "discovered_at": "2026-02-26T22:53:06.792887",
+    "summary": "The Electrical Association published a blog post identifying 7 key changes in the 2026 National Electrical Code, characterizing it as the beginning of a major NEC reorganization. The snippet also references Class 4 power delivery as potentially redefining high-power delivery in the electrical industry.",
+    "description": "Electrical Association blog highlighting 7 key changes in the 2026 National Electrical Code, described as the start of a major NEC reorganization.",
+    "why_it_matters": "Code updates directly constrain design choices, installation methods, and inspection/approval timelines for electrical contractors working in edge infrastructure, data centers, and building electrification. The mention of Class 4 redefining high-power delivery suggests fundamental changes to how distributed power systems may be installed and managed, affecting contractor training, tooling, and estimating.",
+    "so_what": "2026 NEC reorganization affects design and install practices across all three FMP verticals; code compliance drives AHJ approval and labor sequencing.",
+    "evidence": [
+      "2026 NEC described as 'the start of a major reorganization'",
+      "Class 4 may redefine how the electrical industry delivers high power",
+      "Blog post titled '7 Key 2026 NEC Changes Contractors Need To Have on Their Radar' published 11/25/2025"
+    ],
+    "open_questions": [
+      "What specific NEC articles changed that affect low-voltage power distribution and UPS installations?",
+      "How does the Class 4 reorganization affect existing edge infrastructure retrofits and panel upgrade sequences?"
+    ]
+  },
+  {
+    "candidate_id": "8cc18d92ba81",
+    "title": "California electricity rates impede heat pump adoption, electrification goals",
+    "link": "https://calmatters.org/environment/2026/02/heat-pumps-ca-electricity/",
+    "artifact_type": "press",
+    "confidence": "medium",
+    "score": 19,
+    "flags": [
+      "press_release",
+      "duplicate_risk",
+      "high_impact"
+    ],
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "incentives-policy",
+      "retrofits-mdus"
+    ],
+    "value_levers": [],
+    "vertical": "building-electrification",
+    "persona": "facilities",
+    "source_name": "CalMatters",
+    "source_date": "2026-02",
+    "publish_date": "2026-02",
+    "discovered_at": "2026-02-26T22:53:09.132784",
+    "summary": "California aims to install 6 million heat pumps by 2030 to meet aggressive greenhouse gas reduction goals. A Harvard study highlights that the state's highest-in-nation residential electricity rates create economic barriers to adoption, even as lawmakers propose streamlined permitting and electrification policies.",
+    "description": "High residential electricity prices create economic barrier to California's 6 million heat pump target by 2030, despite climate goals and proposed policy changes.",
+    "why_it_matters": "Facilities managers and building owners evaluating electrification retrofits face a fundamental economics problem: despite climate mandates and improving permitting pathways, operating cost increases from high electricity rates versus natural gas undermine the business case for heat pump deployment at scale.",
+    "so_what": "Rate structures that penalize electrification undermine heat pump economics, forcing operators to weigh utility cost versus decarbonization targets.",
+    "evidence": [
+      "California targets 6 million heat pumps installed by 2030 as part of building electrification strategy",
+      "California residential electricity prices are among highest in the country, more expensive than natural gas",
+      "Harvard study examines where electricity pricing creates barriers to heat pump adoption; lawmakers proposing streamlined permitting"
+    ],
+    "open_questions": [
+      "What rate structures or TOU tariffs would make heat pump economics viable in high-cost electricity markets?",
+      "How are MDU owners modeling payback periods for heat pump retrofits given current utility rate trajectories?"
+    ]
+  },
+  {
+    "candidate_id": "8f96bcab6de0",
+    "title": "California heat pump goals clash with high electricity rates, risking adoption",
+    "link": "https://laist.com/news/climate-environment/california-heat-pumps-high-power-bills",
+    "artifact_type": "press",
+    "confidence": "medium",
+    "score": 19,
+    "flags": [
+      "press_release",
+      "duplicate_risk",
+      "high_impact"
+    ],
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "incentives-policy",
+      "retrofits-mdus"
+    ],
+    "value_levers": [],
+    "vertical": "building-electrification",
+    "persona": "owner-operator",
+    "source_name": "LAist / CalMatters",
+    "source_date": "2026-02-23",
+    "publish_date": "2026-02-23",
+    "discovered_at": "2026-02-26T22:53:09.132792",
+    "summary": "California aims to install 6 million residential heat pumps by 2030 as part of building electrification goals, with lawmakers proposing streamlined permitting this year. However, the state's highest-in-nation residential electricity prices undermine the operating-cost value proposition compared to gas furnaces, creating tension between climate goals and economic adoption drivers.",
+    "description": "California targets 6M heat pumps by 2030, but high residential electricity prices undermine operating-cost case versus gas furnaces, threatening electrification goals.",
+    "why_it_matters": "Owner-operators and facilities managers evaluating building electrification retrofits face a cost-adoption barrier that could slow panel/service upgrades and electrical infrastructure investments. The disconnect between state policy goals (6M units by 2030, streamlined permitting) and economic reality affects retrofit planning timelines and business cases for electrical contractors sizing distribution capacity.",
+    "so_what": "Operating-cost barrier to heat pump adoption at scale affects panel/service upgrade demand and electrification retrofit velocity despite policy push.",
+    "evidence": [
+      "California targets 6 million heat pumps installed in homes by 2030",
+      "State lawmakers proposing to streamline permitting and make it easier to electrify homes this year",
+      "California's residential electricity prices among highest in country, undermining heat pump operating-cost case versus gas"
+    ],
+    "open_questions": [
+      "Will California introduce time-of-use rate structures or fixed-charge models to improve heat pump operating economics and accelerate panel upgrade demand?",
+      "How are electrical contractors adjusting electrification retrofit proposals given operating-cost pushback from building owners?"
+    ]
+  },
+  {
+    "candidate_id": "28e71e733e26",
+    "title": "California Energy Smart Homes whole-building electrification alteration incentives",
+    "link": "https://caenergysmarthomes.com/alterations/",
+    "artifact_type": "doc",
+    "confidence": "medium",
+    "score": 19,
+    "flags": [
+      "duplicate_risk",
+      "high_impact"
+    ],
+    "players": [],
+    "topics": [
+      "incentives-policy",
+      "retrofits-mdus",
+      "pathways-install"
+    ],
+    "value_levers": [],
+    "vertical": "building-electrification",
+    "persona": "owner-operator",
+    "source_name": "California Energy Smart Homes",
+    "source_date": "2026-02-09",
+    "publish_date": "2026-02-09",
+    "discovered_at": "2026-02-26T22:53:09.132794",
+    "summary": "California Energy Smart Homes program offers tiered incentives ($4,250 base + bonuses) for single-family and multifamily low-rise electrification alterations requiring heat pump space/water heating, induction cooking, and electric dryers. Electric infrastructure upgrade bonuses up to $1,000 per unit acknowledge service/panel capacity constraints.",
+    "description": "Program handbook for single-family and multifamily low-rise electrification retrofits with tiered incentives, equipment requirements, and electric infrastructure bonuses.",
+    "why_it_matters": "The explicit $1,000 electric infrastructure upgrade bonus (capped at actual costs) acknowledges that whole-building electrification alterations routinely trigger service entrance, panel, or feeder upgrades\u2014a key install bottleneck and cost driver for owner-operators and contractors. This constraint affects retrofit feasibility and project economics, especially in multifamily low-rise contexts where shared risers and limited panel capacity complicate scope.",
+    "so_what": "Electric infrastructure upgrade bonus (up to $1,000/unit) signals panel/service capacity constraints in whole-building electrification retrofits.",
+    "evidence": [
+      "Electric Infrastructure Upgrade Bonus up to $1,000 per unit, capped at total upgrade costs",
+      "Whole-building alterations require conversion of all gas appliances to electric: heat pump space/water heating, induction cooking, electric dryers",
+      "Program targets single family, duplex, townhome, ADU, and multifamily low-rise electrification alterations"
+    ],
+    "open_questions": [
+      "What specific electric infrastructure upgrades qualify for the $1,000 bonus\u2014service entrance size, panel replacement, feeder upgrades, or all three?",
+      "How often do whole-building electrification alterations trigger utility service upgrade requests vs. premise-side panel/feeder work?"
+    ]
+  },
+  {
+    "candidate_id": "1ea1bfa83d2d",
+    "title": "Panduit FMPS Class 4 Unshielded 3-Pair Copper Cable Product Page",
+    "link": "https://www.panduit.com/latam/en/products/copper-systems/bulk-copper-cable/enterprise-data-center-copper-cable/p204124.html",
+    "artifact_type": "product",
+    "confidence": "low",
+    "score": 18,
+    "flags": [
+      "low_confidence",
+      "weak_evidence",
+      "high_impact"
+    ],
+    "players": [
+      "panduit"
+    ],
+    "topics": [
+      "pathways-install"
+    ],
+    "value_levers": [],
+    "vertical": "data-centers",
+    "persona": "electrical-contractor",
+    "source_name": "Panduit",
+    "source_date": null,
+    "publish_date": null,
+    "discovered_at": "2026-02-26T22:53:04.202266",
+    "summary": "This is a product page for Panduit's FMPS Class 4 unshielded 3-pair copper cable marketed for enterprise data centers. The excerpt is dominated by web interface elements (share buttons, language selectors, form fields) with no visible technical specifications, installation requirements, or power distribution constraints.",
+    "description": "Product page for Panduit's Fault Managed Power System (FMPS) Class 4 copper cable, appears to be enterprise data center focused with minimal technical detail.",
+    "why_it_matters": "The FMPS (Fault Managed Power System) branding implies fault monitoring or power management capability, which would be relevant for electrical contractors and data center operators. However, the excerpt contains no specifications, Class 4 voltage/current limits, installation constraints, or integration details needed to evaluate applicability or deployment tradeoffs.",
+    "so_what": "FMPS branding suggests fault-managed power capability, but excerpt provides no technical specs, constraints, or installation guidance.",
+    "evidence": [],
+    "open_questions": [
+      "What are the actual Class 4 power limits and fault management features of this FMPS cable system?",
+      "How does this integrate with monitoring/telemetry systems for fault detection and power distribution visibility?"
+    ]
+  },
+  {
+    "candidate_id": "4349ef28aa7c",
+    "title": "NFPA 70 (NEC) PDF sales page highlighting Class 4 fault-managed circuits",
+    "link": "https://docnfpanormpdf.shop/product/nfpa-70-pdf/",
+    "artifact_type": "product",
+    "confidence": "low",
+    "score": 17,
+    "flags": [
+      "low_confidence",
+      "weak_evidence"
+    ],
+    "players": [],
+    "topics": [
+      "code-standards",
+      "safety-model"
+    ],
+    "value_levers": [],
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "source_name": "docnfpanormpdf.shop",
+    "source_date": null,
+    "publish_date": null,
+    "discovered_at": "2026-02-26T22:53:06.792890",
+    "summary": "E-commerce site selling PDF versions of NFPA 70 (National Electrical Code) across multiple editions from 1947\u20132023. The SERP snippet mentions Class 4 fault-managed circuits and hazardous locations, but the fetched page content is purely transactional product copy with no technical discussion of code changes or implementation details.",
+    "description": "Commercial PDF vendor selling NFPA 70 editions; snippet mentions Class 4 fault-managed circuits and hazardous locations, but excerpt provides no technical detail.",
+    "why_it_matters": "The SERP snippet suggests relevance to fault-managed power via Class 4 circuits in NEC, which would matter for electrical contractors and designers navigating code compliance. However, the actual page provides no technical content, code interpretation, or deployment guidance\u2014only a purchase interface.",
+    "so_what": "SERP snippet references Class 4 fault-managed circuits in NEC, but page excerpt contains only sales copy with no technical substance.",
+    "evidence": [],
+    "open_questions": [
+      "What specific NEC articles or sections cover Class 4 fault-managed circuit requirements?",
+      "Are the referenced 2023/2026 NEC reorganization efforts changing how fault-managed power is classified or installed?"
+    ]
+  },
+  {
+    "candidate_id": "ffb4c08b7b22",
+    "title": "Utah HB 65 Construction Code Amendments \u2013 NFPA 70 & Fire Alarm Provisions",
+    "link": "https://le.utah.gov/~2026/bills/static/HB0065.html",
+    "artifact_type": "standard",
+    "confidence": "low",
+    "score": 17,
+    "flags": [
+      "low_confidence"
+    ],
+    "players": [],
+    "topics": [
+      "code-standards"
+    ],
+    "value_levers": [],
+    "vertical": "building-electrification",
+    "persona": "electrical-contractor",
+    "source_name": "Utah Legislature",
+    "source_date": null,
+    "publish_date": null,
+    "discovered_at": "2026-02-26T22:53:06.792893",
+    "summary": "Utah HB 65 proposes construction code amendments for the 2026 legislative session. The excerpt shows references to NFPA 70 (National Electrical Code) and fire alarm notification requirements, but provides only fragmentary line numbers and reference formatting without substantive technical content.",
+    "description": "Utah legislative bill amending construction codes with references to NFPA 70 and fire alarm notification requirements for 2026 session.",
+    "why_it_matters": "Code amendments can impact electrical contractors and permitting processes, but the excerpt contains no concrete electrical provisions, constraint details, or power distribution changes. Without visibility into actual amendments beyond reference formatting, practitioners cannot assess impact on design or installation decisions.",
+    "so_what": "State code amendments referencing NFPA 70, but excerpt lacks specific electrical provisions or power distribution changes.",
+    "evidence": [
+      "References NFPA 70 with text '\"accessory\" and the following is added after \"NFPA 70\"'",
+      "Mentions fire alarm notification section 915.7.3 and local alarm requirements"
+    ],
+    "open_questions": [
+      "What specific NFPA 70 articles or sections are being amended in Utah's construction code?",
+      "Are there changes to electrical service sizing, panel requirements, or EV charging provisions?"
+    ]
+  },
+  {
+    "candidate_id": "8a43aacd85c2",
+    "title": "LinkedIn post by Circuit Lighting discussing lighting upgrade delays and FMP",
+    "link": "https://www.linkedin.com/posts/circuit-lighting_what-happens-when-lighting-upgrade-deadlines-activity-7425920248756744192-L6ws",
+    "artifact_type": "linkedin-post",
+    "confidence": "low",
+    "score": 14,
+    "flags": [
+      "low_confidence",
+      "weak_evidence"
+    ],
+    "players": [],
+    "topics": [
+      "schedule-value",
+      "code-standards"
+    ],
+    "value_levers": [],
+    "vertical": "building-electrification",
+    "persona": "facilities",
+    "source_name": "LinkedIn",
+    "source_date": null,
+    "publish_date": null,
+    "discovered_at": "2026-02-26T22:53:06.792896",
+    "summary": "Circuit Lighting LinkedIn post discusses a manufacturing plant that delayed LED retrofit by three months, resulting in 15% higher energy costs, maintenance calls, and safety complaints. SERP snippet references Class 4 Fault-Managed Power, NEC Article 726, and UL 1400 standards, but these details are absent from the accessible excerpt.",
+    "description": "Circuit Lighting post mentions FMP/NEC 726/UL 1400 in context of lighting upgrade delays impacting safety, cost, and operations at manufacturing facilities.",
+    "why_it_matters": "The SERP suggests FMP/NEC 726 relevance to lighting upgrades, which would be significant for understanding Class 4 pathways in retrofit contexts. However, the excerpt provides only schedule/cost impacts of delays without addressing power distribution constraints, wiring methods, or how FMP enables the lighting deployment model.",
+    "so_what": "SERP mentions FMP/NEC 726/UL 1400 but excerpt contains only generic project delay messaging without power distribution constraint detail.",
+    "evidence": [],
+    "open_questions": [
+      "How does FMP/Class 4 wiring enable faster lighting retrofits compared to traditional branch circuits?",
+      "What specific NEC 726/UL 1400 compliance considerations affect lighting upgrade project timelines?"
+    ]
+  },
+  {
+    "candidate_id": "94ed7decb1ee",
+    "title": "March 2026 E-6 Exam Bibliographies (Bibs)",
+    "link": "https://www.cool.osd.mil/usn/bibs/Mar2026%20E6Bibs.htm",
+    "artifact_type": "doc",
+    "confidence": "low",
+    "score": 14,
+    "flags": [
+      "low_confidence"
+    ],
+    "players": [],
+    "topics": [
+      "code-standards"
+    ],
+    "value_levers": [],
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "source_name": "COOL (Credentialing Opportunities On-Line)",
+    "source_date": null,
+    "publish_date": null,
+    "discovered_at": "2026-02-26T22:53:06.792903",
+    "summary": "U.S. Navy enlisted advancement exam study bibliography listing technical references including NFPA 70 National Electrical Code 2014 Edition (Articles 225, 250, 500) and various naval technical publications. The document appears to be a reading list for military personnel preparing for promotion exams.",
+    "description": "U.S. Navy enlisted advancement exam bibliography referencing NFPA 70 NEC 2014 Edition Articles 225, 250, 500 among other technical references.",
+    "why_it_matters": "While the document references NEC code articles relevant to electrical work (outside branch circuits, grounding, hazardous locations), it provides no context on code interpretation, constraints, or application to power distribution. The reference is purely bibliographic for exam preparation rather than technical guidance.",
+    "so_what": "Navy training materials reference NEC 2014 code articles, but no detail on constraints, changes, or distribution applications.",
+    "evidence": [
+      "References NFPA 70 NEC 2014 Edition Articles 225, 250, 500",
+      "Document is a bibliography for enlisted advancement exam preparation"
+    ],
+    "open_questions": [
+      "What specific electrical systems or constraints are Navy personnel being tested on?",
+      "How do military facility electrical requirements differ from commercial code interpretation?"
+    ]
+  },
+  {
+    "candidate_id": "dfaaf148b38b",
+    "title": "San Francisco Budget Debate Over Climate Equity Hub and Building Electrification Funding",
+    "link": "https://www.sfpublicpress.org/mayors-recommended-budget-sparks-debate-over-s-f-climate-priorities/",
+    "artifact_type": "press",
+    "confidence": "low",
+    "score": 14,
+    "flags": [
+      "low_confidence",
+      "press_release"
+    ],
+    "players": [],
+    "topics": [
+      "incentives-policy",
+      "retrofits-mdus"
+    ],
+    "value_levers": [],
+    "vertical": "building-electrification",
+    "persona": "facilities",
+    "source_name": "San Francisco Public Press",
+    "source_date": null,
+    "publish_date": null,
+    "discovered_at": "2026-02-26T22:53:09.132793",
+    "summary": "San Francisco Mayor's recommended budget would eliminate general fund support for the Climate Equity Hub, a program helping low-income households with building electrification retrofits including electric heat pump water heaters. Community groups and supervisors rallied against the proposed cuts to the Environment Department's flexible funding.",
+    "description": "Mayor's budget proposal would eliminate general fund support for SF's Climate Equity Hub, which subsidizes low-income building electrification retrofits like heat pumps.",
+    "why_it_matters": "The Climate Equity Hub subsidizes electrification retrofits for tenants unable to afford upgrades, addressing a financing constraint in the low-income MDU segment. Facilities managers and building owners relying on public subsidy programs to offset retrofit costs would face project feasibility challenges if funding is eliminated. The excerpt provides policy context but lacks technical detail on installation constraints, panel upgrades, or deployment bottlenecks.",
+    "so_what": "Funding cuts to electrification subsidy programs could slow retrofit pipelines for low-income multi-dwelling units in SF.",
+    "evidence": [
+      "Climate Equity Hub covers cost of retrofits such as installing electric heat pump water heaters",
+      "Program helps low-income households with energy efficiency and health-focused retrofits",
+      "Budget cuts would eliminate general fund dollars for the program starting summer"
+    ],
+    "open_questions": [
+      "What percentage of SF building electrification projects rely on Climate Equity Hub subsidies versus other financing mechanisms?",
+      "What are the typical electrical infrastructure upgrade requirements (service/panel) for heat pump water heater installations in older MDUs?"
+    ]
+  },
+  {
+    "candidate_id": "5cde2096e27b",
+    "title": "LinkedIn post by CAG.Works discussing fault-managed power for data centers and smart buildings",
+    "link": "https://www.linkedin.com/posts/cag-works_the-future-of-power-is-intelligent-activity-7429561689886478337-zS71",
+    "artifact_type": "linkedin-post",
+    "confidence": "low",
+    "score": 13,
+    "flags": [
+      "low_confidence",
+      "weak_evidence"
+    ],
+    "players": [],
+    "topics": [
+      "safety-model"
+    ],
+    "value_levers": [],
+    "vertical": "data-centers",
+    "persona": "owner-operator",
+    "source_name": "LinkedIn",
+    "source_date": null,
+    "publish_date": null,
+    "discovered_at": "2026-02-26T22:53:04.202263",
+    "summary": "CAG.Works LinkedIn post claims fault-managed power is transforming electrical infrastructure by building safety and intelligence into design rather than reacting to problems. Post targets data center expansions and smart building projects but provides no technical details or implementation specifics.",
+    "description": "CAG.Works promotes fault-managed power as transforming electrical infrastructure for data centers and smart buildings, emphasizing proactive safety and intelligent design.",
+    "why_it_matters": "Generic marketing content with no actionable details. No standards referenced, no constraints discussed, no numbers or project context provided. Cannot inform design, installation, or operational decisions without concrete information.",
+    "so_what": "Marketing post with no concrete technical details, constraints, or implementation specifics.",
+    "evidence": [],
+    "open_questions": [
+      "What specific fault-management capabilities or safety mechanisms are being described?",
+      "What technical or code constraints does this approach address compared to traditional systems?"
+    ]
+  },
+  {
+    "candidate_id": "0e56f3cc7e50",
+    "title": "2026 NEC changes discussed by Dean Austin, NFPA senior electrical specialist",
+    "link": "https://www.facebook.com/nationalelectricalcode/posts/-what-changed-in-the-2026-nec-dean-austin-senior-electrical-specialist-at-the-na/1360652089420600/",
+    "artifact_type": "linkedin-post",
+    "confidence": "low",
+    "score": 13,
+    "flags": [
+      "low_confidence",
+      "weak_evidence"
+    ],
+    "players": [],
+    "topics": [
+      "code-standards"
+    ],
+    "value_levers": [],
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "source_name": "Facebook",
+    "source_date": null,
+    "publish_date": null,
+    "discovered_at": "2026-02-26T22:53:06.792866",
+    "summary": "A Facebook post from the National Electrical Code account announces Dean Austin, NFPA senior electrical specialist, discussing changes in the 2026 NEC. The excerpt contains only a title and social media header with no content about what actually changed.",
+    "description": "NFPA senior electrical specialist Dean Austin discusses changes in the 2026 National Electrical Code affecting electrical installations across verticals.",
+    "why_it_matters": "NEC updates directly affect electrical contractors and facilities managers who must comply with new code requirements for inspections and AHJ approval. However, the excerpt provides no details on specific changes, affected articles, or installation constraints, making it impossible to assess actual impact.",
+    "so_what": "NEC 2026 updates may affect installation practices, but excerpt provides no specifics on what changed or how it impacts design/install decisions.",
+    "evidence": [],
+    "open_questions": [
+      "Which NEC articles or sections changed in 2026 that affect power distribution systems?",
+      "What new requirements might affect UPS installations, pathways, or data center electrical design?"
+    ]
+  },
+  {
+    "candidate_id": "ca3499de7fa4",
+    "title": "Instagram post on 2026 NEC changes impacting renewable sector and Class 4 standards",
+    "link": "https://www.instagram.com/p/DVEggztiTVr/",
+    "artifact_type": "linkedin-post",
+    "confidence": "low",
+    "score": 13,
+    "flags": [
+      "low_confidence",
+      "weak_evidence"
+    ],
+    "players": [],
+    "topics": [
+      "code-standards"
+    ],
+    "value_levers": [],
+    "vertical": "building-electrification",
+    "persona": "electrical-contractor",
+    "source_name": "Instagram",
+    "source_date": null,
+    "publish_date": null,
+    "discovered_at": "2026-02-26T22:53:06.792898",
+    "summary": "Instagram post previews major impacts from 2026 NEC changes on the renewable sector, mentioning new Class 4 standards. The excerpt is limited to Instagram's login wall with no substantive content accessible.",
+    "description": "Brief mention of upcoming 2026 NEC changes affecting renewables, including new Class 4 standards, but lacks detail in accessible excerpt.",
+    "why_it_matters": "NEC Class 4 standards govern low-voltage power distribution pathways and could streamline or complicate renewable/storage installations. Electrical contractors and integrators need clarity on what changed, but the excerpt provides no detail on the nature of the changes or specific articles affected.",
+    "so_what": "2026 NEC Class 4 provisions may affect renewable installation pathways, but specifics unavailable in excerpt.",
+    "evidence": [],
+    "open_questions": [
+      "What specific Class 4 provisions were added or revised in the 2026 NEC?",
+      "How do the 2026 NEC renewable-sector changes affect existing installation practices or equipment listings?"
+    ]
+  },
+  {
+    "candidate_id": "afff231060a5",
+    "title": "Instagram post by NWS discussing Class 4 Fault-Managed Power Systems",
+    "link": "https://www.instagram.com/p/DU32GvalCrz/?hl=de",
+    "artifact_type": "other",
+    "confidence": "low",
+    "score": 12,
+    "flags": [
+      "low_confidence",
+      "weak_evidence"
+    ],
+    "players": [],
+    "topics": [
+      "code-standards",
+      "pathways-install"
+    ],
+    "value_levers": [],
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "source_name": "Instagram",
+    "source_date": null,
+    "publish_date": null,
+    "discovered_at": "2026-02-26T22:53:04.202271",
+    "summary": "An Instagram post by NWS mentions Fault-Managed Power Systems (FMPS) and Class 4 Power for project delivery. The excerpt contains only login prompts and social media navigation elements with no substantive content.",
+    "description": "Social media post mentioning Fault-Managed Power Systems and high-voltage Class 4 Power distribution, but excerpt contains no technical details or context.",
+    "why_it_matters": "Cannot determine impact from excerpt. The page appears to be an Instagram login wall with no accessible technical content, constraints, or project details to evaluate relevance to power distribution decisions.",
+    "so_what": "Insufficient detail in excerpt to assess relevance to FMP power distribution constraints.",
+    "evidence": [],
+    "open_questions": [
+      "What specific Class 4 Power application or constraint was discussed in the original post?",
+      "What project type or vertical was NWS addressing?"
+    ]
+  },
+  {
+    "candidate_id": "08fd2deca579",
+    "title": "National Electrical Code Facebook post about NFPA YouTube channel",
+    "link": "https://www.facebook.com/nationalelectricalcode/posts/did-you-know-that-the-national-fire-protection-association-nfpa-has-a-youtube-ch/1362417289244080/",
+    "artifact_type": "other",
+    "confidence": "low",
+    "score": 11,
+    "flags": [
+      "low_confidence",
+      "weak_evidence"
+    ],
+    "players": [],
+    "topics": [
+      "code-standards"
+    ],
+    "value_levers": [],
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "source_name": "Facebook",
+    "source_date": null,
+    "publish_date": null,
+    "discovered_at": "2026-02-26T22:53:06.792901",
+    "summary": "Facebook post from the National Electrical Code page mentions Article 726 covering Class 4 Fault-Managed Power Systems in the NEC 2023 edition. The post primarily promotes NFPA's YouTube channel rather than providing substantive code information.",
+    "description": "Social media post from NEC Facebook page mentioning Article 726 for Class 4 Fault-Managed Power Systems in NEC 2023 edition and promoting NFPA YouTube content.",
+    "why_it_matters": "While Article 726 is directly relevant to FMP deployments, this social media post provides no concrete guidance on code requirements, compliance constraints, or implementation details that would inform design or installation decisions.",
+    "so_what": "Article 726 governs Class 4 FMP installations but excerpt contains no details on requirements or compliance constraints.",
+    "evidence": [],
+    "open_questions": [
+      "What are the specific requirements in Article 726 that affect FMP system design and installation?",
+      "How does Article 726 change approval processes or AHJ interactions for Class 4 power systems?"
+    ]
+  },
+  {
+    "candidate_id": "026870e46ffe",
+    "title": "Fault-Managed Power (FMP) for Senior Living (YouTube)",
+    "link": "https://www.youtube.com/watch?v=x3ytSReEAUM",
+    "artifact_type": "other",
+    "confidence": "low",
+    "score": 10,
+    "flags": [
+      "low_confidence",
+      "weak_evidence"
+    ],
+    "players": [],
+    "topics": [],
+    "value_levers": [],
+    "vertical": "building-electrification",
+    "persona": "facilities",
+    "source_name": "YouTube",
+    "source_date": null,
+    "publish_date": null,
+    "discovered_at": "2026-02-26T22:53:04.202269",
+    "summary": "A YouTube video discussing Fault Managed Power (FMP) and Active DAS (distributed antenna systems) for improving cellular connectivity in senior living communities where thick concrete walls block signals.",
+    "description": "YouTube video discussing FMP and Active DAS connectivity solutions for senior living facilities with concrete wall signal penetration challenges.",
+    "why_it_matters": "",
+    "so_what": "",
+    "evidence": [],
+    "open_questions": []
+  }
+]
