@@ -21,20 +21,20 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      # Phase 1: intake → extract → candidates → insights → email
+      # Phase 1a: intake → extract → candidates → insights (no email yet)
       - name: Run Phase 1 generate
         env:
-          SERP_API_KEY:     ${{ secrets.SERP_API_KEY }}
+          SERP_API_KEY:      ${{ secrets.SERP_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          RESEND_API_KEY:   ${{ secrets.RESEND_API_KEY }}
-          REVIEW_EMAIL_TO:  ${{ secrets.REVIEW_EMAIL_TO }}
-          GITHUB_REPO:      ${{ github.repository }}
-          GITHUB_BRANCH:    daily-generate-${{ github.run_id }}
         run: |
           cd scripts
-          python3 run.py generate
+          python3 run.py intake
+          python3 run.py extract
+          python3 run.py candidates
+          python3 run.py insights
+          python3 run.py social_drafts
 
-      # Push review artifacts + insight drafts on a branch (no PR yet)
+      # Phase 1b: push branch BEFORE sending email so links resolve
       - name: Push review branch
         env:
           GH_TOKEN: ${{ github.token }}
@@ -43,18 +43,32 @@ jobs:
           git config user.email "bot@faultmanagedpower.org"
 
           BRANCH="daily-generate-$(date +%Y%m%d)"
+          echo "REVIEW_BRANCH=$BRANCH" >> $GITHUB_ENV
+
           git checkout -b "$BRANCH"
 
           # Stage review files, insight drafts, and data artifacts
           git add data/review data/pulse/extracted data/insights data/social
-          git add content/insights || true   # insight draft markdowns
+          git add content/insights || true
 
           if git diff --staged --quiet; then
             echo "No changes to commit — skipping push"
+            echo "REVIEW_BRANCH=" >> $GITHUB_ENV
             exit 0
           fi
 
-          git commit -m "Generate — $(date +%Y-%m-%d) [no publish]"
+          git commit -m "Generate — $(date +%Y-%m-%d) [review pending]"
           git push origin "$BRANCH"
           echo "Branch pushed: $BRANCH"
-          echo "Review and approve items, then run the daily_publish workflow."
+
+      # Phase 1c: send email now that branch exists on GitHub
+      - name: Send review email
+        if: env.REVIEW_BRANCH != ''
+        env:
+          RESEND_API_KEY:  ${{ secrets.RESEND_API_KEY }}
+          REVIEW_EMAIL_TO: ${{ secrets.REVIEW_EMAIL_TO }}
+          GITHUB_REPO:     ${{ github.repository }}
+          GITHUB_BRANCH:   ${{ env.REVIEW_BRANCH }}
+        run: |
+          cd scripts
+          python3 run.py send_review_email
