@@ -73,19 +73,19 @@ def build_daily_pr_body(run_stats=None):
         if insights:
             lines.append("### Top insights")
             for insight in insights[:2]:
-                lever = insight.get("lever", "")
-                lever_str = f" `[{lever}]`" if lever else ""
+                levers = insight.get("levers", [])
+                lever_str = f" `[{', '.join(levers)}]`" if levers else ""
                 lines.append(f"- {insight.get('insight', '')[:220]}{lever_str}")
             lines.append("")
 
-        angles = moderator.get("ranked_angles", [])
+        angles = moderator.get("ranked_original_angles", [])
         if angles:
             top = angles[0]
             lines.append("### Top original angle")
-            lines.append(f"**{top.get('title', '')}**  ")
+            lines.append(f"**{top.get('working_title', '')}**  ")
             lines.append(top.get("thesis", ""))
-            if top.get("owner_questions"):
-                lines.append(f"*Owner question: {top['owner_questions'][0]}*")
+            if top.get("recommended_owner_questions"):
+                lines.append(f"*Owner question: {top['recommended_owner_questions'][0]}*")
             lines.append("")
 
     # ── Social drafts ─────────────────────────────────────────────────────────
@@ -93,8 +93,9 @@ def build_daily_pr_body(run_stats=None):
         PROJECT_ROOT / "data" / "social" / f"{today}_social_drafts.json"
     )
     if social:
-        li = len(social.get("linkedin_drafts", []))
-        x  = len(social.get("x_drafts", []))
+        all_drafts = social.get("drafts", [])
+        li = sum(1 for d in all_drafts if d.get("channel") == "linkedin")
+        x  = sum(1 for d in all_drafts if d.get("channel") == "x")
         lines.append("### Social drafts")
         lines.append(f"- {li} LinkedIn, {x} X drafts in `data/social/{today}_social_drafts.json`")
         lines.append("")
@@ -143,7 +144,8 @@ def open_daily_pr(run_stats=None):
     )
     n_social = 0
     if social:
-        n_social = len(social.get("linkedin_drafts", [])) + len(social.get("x_drafts", []))
+        all_drafts = social.get("drafts", [])
+        n_social = sum(1 for d in all_drafts if d.get("channel") in ("linkedin", "x"))
 
     title = f"Daily update: {today} ({new_pulse} pulse, {n_insights} insights, {n_social} social)"
     body = build_daily_pr_body(run_stats)

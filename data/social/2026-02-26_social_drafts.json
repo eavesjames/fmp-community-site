@@ -1,52 +1,103 @@
 {
-  "date": "2026-02-26",
-  "linkedin_drafts": [
+  "run_date": "2026-02-26",
+  "drafts": [
     {
-      "draft": "NYC building owners face a deadline most haven't done the math on.\n\nLocal Law 97 penalties begin in 2030. Electrical service upgrades to support heat pump retrofits take 18–24 months to permit and complete. That math closes the traditional compliance window around mid-2028 — not 2030.\n\nBuildings that haven't started planning by mid-2026 are already running short on time for the conventional path. The alternative — routing low-voltage power distribution through existing risers without a service upgrade — was not viable under traditional wiring codes. NEC Class 4 (Article 726) changed that.\n\nThe question isn't whether to upgrade. It's whether owners have the 30 months to do it the traditional way.\n\nFor facilities and property managers: has your building started LL97 compliance planning? What's your current timeline estimate for the electrical side?",
-      "source_insight": 3,
-      "link": "https://faultmanagedpower.org/verticals/building-electrification/",
-      "lever": "retrofits-mdus",
-      "notes": "Targets NYC building owners and facilities managers; uses the LL97 deadline math as the hook"
+      "draft_id": "SOC-001",
+      "channel": "linkedin",
+      "text": "NYC building owners face a deadline most haven't done the math on.\n\nLocal Law 97 penalties begin in 2030. Electrical service upgrades to support heat pump retrofits take 18–24 months to permit and complete. That math closes the traditional compliance window around mid-2028 — not 2030.\n\nBuildings that haven't started planning by mid-2026 are already running short on time for the conventional path. The alternative — routing low-voltage power distribution through existing risers without a service upgrade — was not viable under traditional wiring codes. NEC Class 4 (Article 726) changed that.\n\nThe question isn't whether to upgrade. It's whether owners have the 30 months to do it the traditional way.\n\nFor facilities and property managers: has your building started LL97 compliance planning? What's your current timeline estimate for the electrical side?",
+      "links": ["https://faultmanagedpower.org/verticals/building-electrification/"],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": ["33", "31"]
+      },
+      "notes": {
+        "levers": ["retrofits-mdus", "incentives-policy"],
+        "target_persona": "owner-operator"
+      }
     },
     {
-      "draft": "The NEC is changing article numbers for Class 4 power — and it matters for contractors bidding jobs right now.\n\nNEC Article 726 (Class 4 / Fault Managed Power) is being renumbered to Article 722 in the 2026 code cycle. The safety model doesn't change. The wiring requirements don't change. But the article number does — and with states on 2020, 2023, and 2026 NEC simultaneously, contractors, specifiers, and inspectors may be referencing different article numbers for identical installs.\n\nThis creates a near-term permit friction window. A bid written against Article 726 may be reviewed by an AHJ who hasn't adopted the 2026 NEC yet. Or the reverse — an inspector trained on 2026 NEC may flag a permit referencing the old number.\n\nPractical step for contractors: reference both article numbers in your permit applications and specifications until your state adopts 2026 NEC.\n\nHas your AHJ started seeing Class 4 installs? How are they handling the code transition?",
-      "source_insight": 0,
-      "link": "https://faultmanagedpower.org/pulse/",
-      "lever": "code-standards",
-      "notes": "Targets electrical contractors and MEP specifiers; focused on the code transition friction"
+      "draft_id": "SOC-002",
+      "channel": "linkedin",
+      "text": "The NEC is changing article numbers for Class 4 power — and it matters for contractors bidding jobs right now.\n\nNEC Article 726 (Class 4 / Fault Managed Power) is being renumbered to Article 722 in the 2026 code cycle. The safety model doesn't change. The wiring requirements don't change. But the article number does — and with states on 2020, 2023, and 2026 NEC simultaneously, contractors, specifiers, and inspectors may be referencing different article numbers for identical installs.\n\nThis creates a near-term permit friction window. A bid written against Article 726 may be reviewed by an AHJ who hasn't adopted the 2026 NEC yet. Or the reverse — an inspector trained on 2026 NEC may flag a permit referencing the old number.\n\nPractical step for contractors: reference both article numbers in your permit applications and specifications until your state adopts 2026 NEC.\n\nHas your AHJ started seeing Class 4 installs? How are they handling the code transition?",
+      "links": ["https://faultmanagedpower.org/topics/code-standards/"],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": ["32"]
+      },
+      "notes": {
+        "levers": ["code-standards", "pathways-install"],
+        "target_persona": "electrical-contractor"
+      }
     },
     {
-      "draft": "AI infrastructure is exposing a structural disconnect between IT purchasing and facilities planning.\n\nAFCOM's latest data puts average rack density at 27 kW — up from the 8–12 kW range that most facilities infrastructure was designed for. When IT buys a GPU cluster, they're also implicitly committing facilities to a UPS and power distribution upgrade that wasn't in the capital plan.\n\nThe budget collision is predictable: IT is purchasing on an opex/product cycle, facilities is planning capital improvements on a 5–10 year schedule. By the time the power constraint shows up, the hardware is already on order.\n\nThis isn't a new problem — but the pace of AI deployment is compressing the collision timeline. Facilities managers who want to get ahead of it need to be in the IT refresh conversation before the purchase order, not after.\n\nFor data center and facilities professionals: how are you bridging IT and facilities planning on power infrastructure for AI deployments?",
-      "source_insight": 1,
-      "link": "https://faultmanagedpower.org/verticals/data-centers/",
-      "lever": "ai-infrastructure",
-      "notes": "Targets facilities managers and data center ops; bridges IT/facilities budget conflict angle"
+      "draft_id": "SOC-003",
+      "channel": "linkedin",
+      "text": "AI infrastructure is exposing a structural disconnect between IT purchasing and facilities planning.\n\nAFCOM's latest data puts average rack density at 27 kW — up from the 8–12 kW range that most facilities infrastructure was designed for. When IT buys a GPU cluster, they're also implicitly committing facilities to a UPS and power distribution upgrade that wasn't in the capital plan.\n\nThe budget collision is predictable: IT is purchasing on an opex/product cycle, facilities is planning capital improvements on a 5–10 year schedule. By the time the power constraint shows up, the hardware is already on order.\n\nFor data center and facilities professionals: how are you bridging IT and facilities planning on power infrastructure for AI deployments?",
+      "links": ["https://faultmanagedpower.org/verticals/data-centers/"],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": ["28", "29"]
+      },
+      "notes": {
+        "levers": ["ai-infrastructure", "ups-resilience"],
+        "target_persona": "facilities"
+      }
+    },
+    {
+      "draft_id": "SOC-004",
+      "channel": "x",
+      "text": "LL97 deadline 2030. Electrical upgrades take 18-24 months. Window closes 2028. Class 4 avoids the service upgrade. Is your building doing the timeline math? https://faultmanagedpower.org/verticals/building-electrification/",
+      "links": ["https://faultmanagedpower.org/verticals/building-electrification/"],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": ["33"]
+      },
+      "notes": {
+        "levers": ["retrofits-mdus"],
+        "target_persona": "owner-operator"
+      }
+    },
+    {
+      "draft_id": "SOC-005",
+      "channel": "x",
+      "text": "NEC Article 726 → Article 722 in 2026 code cycle. Same safety model, new number. States on 2020/2023/2026 simultaneously: reference both article numbers in permits during transition. https://faultmanagedpower.org/topics/code-standards/",
+      "links": ["https://faultmanagedpower.org/topics/code-standards/"],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": ["32"]
+      },
+      "notes": {
+        "levers": ["code-standards"],
+        "target_persona": "electrical-contractor"
+      }
+    },
+    {
+      "draft_id": "SOC-006",
+      "channel": "x",
+      "text": "AFCOM: average AI rack density now 27 kW. Most facilities UPS and distribution was built for 8-12 kW. That's not a hardware problem — it's a power infrastructure problem arriving on the IT refresh cycle. https://faultmanagedpower.org/verticals/data-centers/",
+      "links": ["https://faultmanagedpower.org/verticals/data-centers/"],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": ["28"]
+      },
+      "notes": {
+        "levers": ["ai-infrastructure", "ups-resilience"],
+        "target_persona": "facilities"
+      }
+    },
+    {
+      "draft_id": "SOC-007",
+      "channel": "prompt",
+      "text": "For anyone who has done a Class 4 / FMP install in a jurisdiction that hasn't adopted the 2026 NEC yet: are you already seeing inspectors and permit clerks confused by the Article 726 → 722 renumbering? And what language are you using in permit applications to bridge the gap?",
+      "links": ["https://faultmanagedpower.org/topics/code-standards/"],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": ["32"]
+      },
+      "notes": {
+        "levers": ["code-standards"],
+        "target_persona": "electrical-contractor"
+      }
     }
-  ],
-  "x_drafts": [
-    {
-      "draft": "LL97 deadline is 2030. Electrical upgrades for heat pump retrofits take 18-24 months. The math says the window closes in 2028. Class 4 distribution avoids the service upgrade. Is your building doing the timeline math? https://faultmanagedpower.org/verticals/building-electrification/",
-      "source_insight": 3,
-      "link": "https://faultmanagedpower.org/verticals/building-electrification/",
-      "lever": "retrofits-mdus"
-    },
-    {
-      "draft": "NEC Article 726 → Article 722 in 2026 code cycle. Same safety model, new number. With states on 2020/2023/2026 NEC simultaneously, contractors: reference both article numbers in permits during transition. https://faultmanagedpower.org/topics/code-standards/",
-      "source_insight": 0,
-      "link": "https://faultmanagedpower.org/topics/code-standards/",
-      "lever": "code-standards"
-    },
-    {
-      "draft": "AFCOM: average AI rack density now 27 kW. Most facilities UPS and distribution was designed for 8-12 kW racks. That's not a hardware problem — it's a power infrastructure problem arriving on the IT refresh cycle. https://faultmanagedpower.org/verticals/data-centers/",
-      "source_insight": 1,
-      "link": "https://faultmanagedpower.org/verticals/data-centers/",
-      "lever": "ai-infrastructure"
-    }
-  ],
-  "discussion_prompt": {
-    "draft": "For anyone who has done a Class 4 / FMP install in a jurisdiction that hasn't adopted the 2026 NEC yet: are you already seeing inspectors and permit clerks confused by the Article 726 → 722 renumbering? And what language are you using in permit applications to bridge the gap?",
-    "source_insight": 0,
-    "link": "https://faultmanagedpower.org/topics/code-standards/",
-    "lever": "code-standards"
-  }
+  ]
 }
