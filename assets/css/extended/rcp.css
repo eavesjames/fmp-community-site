@@ -278,3 +278,28 @@
 .rcp-vertical-section .rcp-source {
   display: none;
 }
+
+/* ── Vertical header links ── */
+.rcp-vertical-link {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.rcp-vertical-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Archive link in section header ── */
+.rcp-archive-link {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--secondary);
+  text-decoration: none;
+  margin-left: 0.5rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.rcp-archive-link:hover {
+  text-decoration: underline;
+}

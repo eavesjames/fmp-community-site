@@ -73,49 +73,19 @@ buildExpired = false
     weight = 10
 
   [[menu.main]]
-    identifier = "edge-power-ups"
-    name = "Edge & UPS"
-    url = "/verticals/edge-power-ups/"
-    weight = 20
-
-  [[menu.main]]
-    identifier = "data-centers"
-    name = "Data Centers"
-    url = "/verticals/data-centers/"
-    weight = 30
-
-  [[menu.main]]
-    identifier = "building-electrification"
-    name = "Building Electrification"
-    url = "/verticals/building-electrification/"
-    weight = 40
-
-  [[menu.main]]
     identifier = "codes-standards"
     name = "Codes & Standards"
     url = "/topics/code-standards/"
-    weight = 50
+    weight = 20
 
   [[menu.main]]
     identifier = "players"
     name = "Players"
     url = "/players/"
-    weight = 60
-
-  [[menu.main]]
-    identifier = "library"
-    name = "Library"
-    url = "/library/"
-    weight = 70
-
-  [[menu.main]]
-    identifier = "glossary"
-    name = "Glossary"
-    url = "/glossary/"
-    weight = 80
+    weight = 30
 
   [[menu.main]]
     identifier = "about"
     name = "About"
     url = "/about/"
-    weight = 90
+    weight = 40

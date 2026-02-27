@@ -3,49 +3,64 @@ name: Daily Pulse Update
 on:
   schedule:
     - cron: '0 9 * * *'  # 9 AM UTC daily
-  workflow_dispatch:  # Manual trigger
+  workflow_dispatch:       # Manual trigger for testing
 
 jobs:
   daily-pulse:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v4
-      
+        with:
+          fetch-depth: 0  # full history so gh CLI can push branches
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      
+
       - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-      
-      - name: Run daily workflow
+        run: pip install -r requirements.txt
+
+      # ── Stage 1–4: intake → extract → normalize → render
+      # ── Stage 3.5: insights  (skipped automatically if no new items)
+      # ── Stage 3.6: social drafts
+      - name: Run daily pipeline
         env:
           SERP_API_KEY: ${{ secrets.SERP_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           cd scripts
           python3 run.py daily
-      
+
+      # Validate all pulse content (non-blocking: errors noted in PR body but don't halt CI)
+      - name: Validate content
+        id: validate
+        run: |
+          python3 scripts/validate.py content/pulse/ 2>&1 | tee /tmp/validate_output.txt
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+        continue-on-error: true
+
       - name: Create Pull Request
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "FMP Bot"
           git config user.email "bot@faultmanagedpower.org"
-          
+
           BRANCH="daily-pulse-$(date +%Y%m%d)"
           git checkout -b "$BRANCH"
-          git add content/pulse data/pulse
-          
+
+          # Stage all content and artifact directories
+          git add content/pulse data/pulse data/insights data/social
+
           if git diff --staged --quiet; then
-            echo "No changes to commit"
+            echo "No changes to commit — skipping PR"
             exit 0
           fi
-          
-          git commit -m "Daily Pulse update - $(date +%Y-%m-%d)"
+
+          git commit -m "Daily update — $(date +%Y-%m-%d)"
           git push origin "$BRANCH"
-          
+
+          # Open PR with rich auto-built body
           cd scripts
-          python3 run.py open_pr --title "Daily Pulse - $(date +%Y-%m-%d)" --body "Automated daily Pulse content update"
+          python3 run.py open_daily_pr

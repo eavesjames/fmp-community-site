@@ -136,11 +136,14 @@ def run_normalize():
     
     added_count = 0
     skipped_count = 0
-    
+    newly_added = []
+    skip_reasons = {"low_confidence": 0, "too_old": 0, "duplicate": 0}
+
     for item in new_items:
         # Skip low confidence items
         if item.get("confidence") == "low":
             print(f"  Skipping low confidence: {item.get('title', '')[:50]}")
+            skip_reasons["low_confidence"] += 1
             skipped_count += 1
             continue
 
@@ -148,12 +151,14 @@ def run_normalize():
         if is_too_old(item):
             pub_date = item.get("publish_date") or item.get("discovered_at", "")[:10]
             print(f"  Skipping old content ({pub_date}): {item.get('title', '')[:50]}")
+            skip_reasons["too_old"] += 1
             skipped_count += 1
             continue
 
         # Check for duplicates
         if is_duplicate(item, existing_items):
             print(f"  Duplicate: {item.get('title', '')[:50]}")
+            skip_reasons["duplicate"] += 1
             skipped_count += 1
             continue
         
@@ -187,6 +192,7 @@ def run_normalize():
         }
         
         existing_items.append(normalized_item)
+        newly_added.append(normalized_item)
         added_count += 1
         print(f"  ✓ Added: {normalized_item['title'][:50]} (score: {normalized_item['score']})")
     
@@ -198,8 +204,23 @@ def run_normalize():
     with open(items_file, "w") as f:
         json.dump(existing_items, f, indent=2)
     
+    # Tally by vertical for the PR body
+    by_vertical = {}
+    for item in newly_added:
+        v = item.get("vertical")
+        if v:
+            by_vertical[v] = by_vertical.get(v, 0) + 1
+
     print(f"\nNormalized: {added_count} added, {skipped_count} skipped")
     print(f"Total items in master list: {len(existing_items)}")
+
+    return {
+        "added": added_count,
+        "skipped": skipped_count,
+        "new_items": newly_added,
+        "skip_reasons": skip_reasons,
+        "by_vertical": by_vertical,
+    }
 
 if __name__ == "__main__":
     run_normalize()

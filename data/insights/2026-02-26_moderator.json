@@ -1,0 +1,98 @@
+{
+  "date": "2026-02-26",
+  "composite_insights": [
+    {
+      "insight": "The NEC Article 726→722 renumbering creates a 2–3 year window of simultaneous compliance environments — jurisdictions on 2020, 2023, and 2026 NEC will reference different article numbers for identical Class 4 technology. For contractors, this means bid documents and permit applications need to reference dual article numbers until the 2026 NEC is widely adopted. For AHJs, it means inspectors unfamiliar with the safety model may flag legitimate installs. A single AHJ-facing reference document mapping all three article numbers to the same safety model would reduce friction across all jurisdictions.",
+      "supporting_items": [32],
+      "analyst_sources": ["installer_electrical_contractor", "compliance_ahj", "mep_system_designer"],
+      "lever": "code-standards"
+    },
+    {
+      "insight": "The AFCOM finding of 27 kW average AI rack density is not primarily a hardware problem — it is a power distribution and UPS infrastructure problem that arrives on the IT refresh cycle's timeline, not the facilities capital planning cycle. Finance teams approving AI hardware deployments are inadvertently committing to UPS and distribution upgrades that have not been budgeted in the facilities plan. This creates a predictable budget conflict in 2026–2027 as the first wave of AI infrastructure deployments hits facilities limits.",
+      "supporting_items": [28, 29],
+      "analyst_sources": ["owner_operator_facilities", "finance_roi_skeptic", "mep_system_designer"],
+      "lever": "ai-infrastructure"
+    },
+    {
+      "insight": "Cence Power's Canadian market entry (Class 4 DC power distribution for data centers and telecom) demonstrates that the FMP ecosystem is moving beyond a single-OEM dynamic — but for buyers, the absence of published comparative pricing and TCO data means competition is not yet creating price transparency. The FMP Alliance should consider publishing an independent cost-per-kW benchmarking framework that allows buyers to evaluate OEM options without requiring direct vendor disclosure.",
+      "supporting_items": [30],
+      "analyst_sources": ["finance_roi_skeptic", "compliance_ahj"],
+      "lever": "labor-productivity"
+    },
+    {
+      "insight": "NYC's LL97 compliance deadline (2030) combined with 18–24 month electrical upgrade lead times means the viable window for traditional electrical upgrade pathways effectively closes in mid-2028 for projects that want to avoid penalties. Building owners who have not started planning by Q3 2026 are implicitly choosing to pay penalties, not from a deliberate decision but from timeline math. FMP's ability to route through existing risers and avoid service upgrades is not just a cost advantage — it is increasingly the only path to LL97 compliance for late-starting projects.",
+      "supporting_items": [33, 31],
+      "analyst_sources": ["owner_operator_facilities", "finance_roi_skeptic"],
+      "lever": "retrofits-mdus"
+    }
+  ],
+  "ranked_angles": [
+    {
+      "rank": 1,
+      "title": "The LL97 Compliance Window Is Closing: What NYC Building Owners Must Do Before 2028",
+      "thesis": "With 18–24 month electrical upgrade lead times and the LL97 compliance deadline effectively requiring upgrades complete by 2029 to avoid 2030 penalties, building owners who haven't started planning by mid-2026 are running out of traditional options. FMP-based distribution — which avoids service upgrades by routing through existing risers — may be the only viable path for late-starters.",
+      "target_persona": "owner-operator",
+      "must_cite": [33, 31],
+      "missing_evidence": [
+        "Published total installed cost for FMP retrofit in a NYC pre-war multifamily building",
+        "Confirmed LL97 penalty schedule by building class and carbon intensity",
+        "Timeline comparison: traditional upgrade vs. FMP retrofit in a real NYC project"
+      ],
+      "owner_questions": [
+        "Can VoltServer provide a case study or cost range for a NYC multifamily FMP installation that went through DOB permitting?",
+        "What is the current status of NYC-specific AHJ guidance for Class 4 (Article 726/722) installations?"
+      ]
+    },
+    {
+      "rank": 2,
+      "title": "Article 726, 722, or 725? A Contractor's Guide to Class 4 in the 2026 Code Transition",
+      "thesis": "The 2026 NEC renames the Class 4 article from 726 to 722, creating a period where contractors, specifiers, and AHJs will reference different article numbers for the same technology. This guide clarifies what changed, what stayed the same, and how to handle permit applications during the transition window.",
+      "target_persona": "electrical-contractor",
+      "must_cite": [32],
+      "missing_evidence": [
+        "Official NFPA confirmation of the Article 722 renumbering in 2026 NEC",
+        "State-by-state NEC adoption timeline for 2026 edition",
+        "Sample permit application language that references both article numbers"
+      ],
+      "owner_questions": [
+        "Has FMP Alliance or VoltServer published updated specification language referencing Article 722 for 2026 NEC jurisdictions?",
+        "Are there any states where 2026 NEC adoption is imminent (within 6 months)?"
+      ]
+    },
+    {
+      "rank": 3,
+      "title": "The 27 kW Rack Budget Conflict: When IT Buys AI and Facilities Pays the Bill",
+      "thesis": "AI rack densities averaging 27 kW mean facilities managers are inheriting infrastructure upgrade costs from IT purchasing decisions made without facilities input. The resulting budget conflict — IT opex vs. facilities capex — is a structural problem that will repeat across every AI deployment cycle.",
+      "target_persona": "facilities",
+      "must_cite": [28],
+      "missing_evidence": [
+        "Documented case of IT/facilities budget conflict on an AI infrastructure deployment",
+        "Cost range for UPS and distribution upgrade to support a 10-rack 27 kW AI cluster",
+        "Organizational models that have successfully bridged IT/facilities alignment on power infrastructure"
+      ],
+      "owner_questions": [
+        "Does VoltServer have colocation or enterprise data center case studies that quantify the distribution cost savings at 20+ kW rack density?",
+        "What is the typical facilities vs. IT budget ownership split for power infrastructure in a mid-size enterprise data center?"
+      ]
+    }
+  ],
+  "tomorrow_search_briefs": [
+    {
+      "query": "\"NEC 2026\" OR \"2026 national electrical code\" \"article 722\" OR \"class 4\" site:nfpa.org OR site:iaei.org",
+      "rationale": "Confirm the Article 726→722 renumbering in the 2026 NEC and find any AHJ guidance documents; fills the evidence gap in both Angles 1 and 2"
+    },
+    {
+      "query": "\"Local Law 97\" \"electrical upgrade\" OR \"panel upgrade\" cost timeline \"heat pump\" NYC 2025 OR 2026",
+      "rationale": "Find published cost and timeline data for NYC electrical upgrade in LL97 context; required to build the business case in Angle 1"
+    },
+    {
+      "query": "\"data center\" \"UPS\" OR \"power distribution\" \"AI\" OR \"GPU\" \"27 kW\" OR \"high density\" retrofit 2025 OR 2026",
+      "rationale": "Find case studies or cost data on UPS/distribution retrofits for high-density AI racks; fills the missing evidence in Angle 3"
+    }
+  ],
+  "new_perspective": "The compliance and finance analysts both identified the same underlying dynamic from opposite directions: the LL97 deadline functions as a 'forced ROI event' that makes the FMP cost comparison concrete. But the MEP analyst's point about specification language and the contractor's point about permit friction suggest the real bottleneck is not economics — it's that the specification and permitting infrastructure for FMP in NYC is not yet mature enough to absorb a surge in demand if owners do start moving before 2028. The economic case is becoming clear; the execution infrastructure to fulfill it is the constraint.",
+  "analyst_disagreements": [
+    "The finance analyst saw Cence Power's entry primarily as a competitive pricing event (more OEMs = lower costs). The compliance analyst saw it primarily as a standards coordination challenge (CSA working group timeline uncertainty). Both are right, but the near-term impact is the compliance uncertainty, not the pricing effect — pricing only matters if the install can get permitted.",
+    "The installer and MEP analysts disagreed implicitly on the Article 726→722 impact timeline. The installer emphasized near-term bid friction; the MEP emphasized longer-term specification language updates. Both are real, but on different timescales — the installer's friction is immediate in jurisdictions adopting 2026 NEC, while the MEP's specification update is a 2–3 year project management task."
+  ]
+}
