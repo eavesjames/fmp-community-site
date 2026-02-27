@@ -1,0 +1,29 @@
+{
+  "date": "2026-02-27",
+  "insights": [
+    {
+      "insight_id": "2026-02-27-A01",
+      "working_title": "The Forced-Concurrency Trap: Why AI Density Makes Sequential Data Center Retrofits Impossible",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-02-27-the-forced-concurrency-trap-why-ai-density-makes-s.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-02-27-A02",
+      "working_title": "The Float-Current Spiral: How Ambient Setpoint Decisions Are Silently Inflating Cooling Costs in AI Data Centers",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-02-27-the-float-current-spiral-how-ambient-setpoint-deci.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-02-27-A03",
+      "working_title": "One Gap, Two Technologies: Why PoE and Class 4 FMP Need a Unified Commissioning Standard Before AHJ Delays Kill Edge Power Consolidation",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-02-27-one-gap-two-technologies-why-poe-and-class-4-fmp-n.md",
+      "confidence": "",
+      "levers": []
+    }
+  ]
+}
