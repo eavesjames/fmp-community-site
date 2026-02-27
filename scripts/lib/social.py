@@ -74,7 +74,7 @@ def generate_social_drafts(insights_date=None):
     try:
         message = client.messages.create(
             model="claude-sonnet-4-6",
-            max_tokens=2048,
+            max_tokens=4096,
             messages=[{"role": "user", "content": prompt}],
         )
         text = message.content[0].text

@@ -1,182 +1,254 @@
 [
   {
-    "persona": "installer_electrical_contractor",
+    "agent": "installer_electrical_contractor",
+    "run_date": "2026-02-26",
     "top_constraints": [
-      "NEC Article 726 renumbering from 726 to 722 in the 2026 code cycle requires inspectors and contractors to reference a different article — creating near-term permit friction as AHJs adopt at different rates",
-      "Cence Power's Canadian market entry targets data center commissioning, but Canadian Electrical Code update timeline (IBM working group) is unclear, creating bid uncertainty for cross-border projects",
-      "AI workload UPS requirements (27 kW+ rack density per AFCOM) require higher ampacity feeds and new run calculations that add scope to existing facility upgrade bids"
+      {
+        "constraint": "Article 726→722 renumbering in the 2026 NEC creates dual-article permit friction: jurisdictions on 2020 or 2023 NEC will reject permit applications citing Article 722, while those adopting the 2026 edition may not recognize Article 726 references still in manufacturer documentation.",
+        "why_now": "The 2026 NEC is beginning to be adopted by some AHJs while the majority remain on 2023 or 2020, opening a transition window where the article number on bid documents can determine permit acceptance or rejection.",
+        "who_feels_it": "Electrical contractors submitting Class 4 permits in multi-jurisdiction projects; estimators who must reference different code editions in a single bid package.",
+        "implication_for_design": "Bid documents and permit applications should cite both Article 726 (2023 NEC) and Article 722 (2026 NEC) with edition years noted until the 2026 edition achieves majority adoption. Manufacturers should update product cut sheets accordingly.",
+        "levers": ["L5", "L1"],
+        "supporting_items": ["23", "36"],
+        "confidence": "High"
+      }
     ],
     "tensions": [
-      "Installers need code certainty to price jobs, but the Article 726→722 renumbering means early adopters are specifying work against an article that will shift mid-project in jurisdictions adopting the 2026 NEC on different timelines",
-      "High-density AI racks compress the install window (facilities need UPS immediately to protect hardware) but panel and service upgrades to support new load take months — creating a scheduling conflict between IT and electrical trades"
+      {
+        "tension": "Speed of deployment vs. inspection certainty — contractors want to deploy Class 4 in jurisdictions on older NEC editions, but AHJs unfamiliar with the Class 4 safety model may issue holds regardless of which article number is cited.",
+        "why_it_matters": "A single AHJ hold on a Class 4 installation delays all subsequent work and creates a local precedent that other inspectors in the same jurisdiction may follow for years.",
+        "levers": ["L5", "L7"],
+        "supporting_items": ["23", "36"]
+      }
     ],
     "hypotheses": [
-      "Jurisdictions that adopted the 2023 NEC but not yet 2026 will see the highest AHJ friction on Class 4 installs in 2026–2027 as inspectors reference the wrong article number",
-      "The 27 kW average rack density finding from AFCOM will push more data center operators to pre-qualify FMP-based distribution as a retrofit option before the next hardware refresh cycle"
-    ],
-    "article_angles": [
       {
-        "title": "Article 726 → Article 722: What Changes for Class 4 Installers in 2026",
-        "thesis": "The 2026 NEC cycle renames and renumbers the Class 4 article, creating a 2–3 year window of permit friction as jurisdictions adopt at different rates. Contractors need a practical guide to navigating dual references.",
+        "hypothesis": "In jurisdictions that have not adopted the 2026 NEC, AHJs are more likely to require supplemental documentation (e.g., an NFPA interpretation letter or local amendment) before approving Class 4 permit applications.",
+        "what_would_change_my_mind": "Evidence of Class 4 permits being approved routinely in 2020-NEC jurisdictions without supplemental documentation, within normal permit review timelines.",
+        "supporting_items": ["23"]
+      }
+    ],
+    "original_angles": [
+      {
+        "working_title": "Article 722 vs. 726: A Contractor's Checklist for the 2026 NEC Code Transition",
+        "thesis": "Contractors installing Class 4 systems must now verify which NEC edition governs their jurisdiction and adjust permit documents accordingly — a new pre-bid step that affects scope, schedule, and AHJ communication strategy.",
         "outline": [
-          "What changed: 726 to 722, and what stayed the same",
-          "State-by-state NEC adoption timeline and what it means for bids",
-          "How to handle AHJ conversations when codes are mismatched"
+          "H1: What changed — Article 726 to Article 722 renumbering, and what stayed the same",
+          "H2: How to identify which NEC edition your AHJ is enforcing",
+          "H3: Permit application language that covers both editions",
+          "H4: When to escalate and how to request an informal pre-permit meeting"
         ],
-        "must_cite": [32],
-        "missing_evidence": [
-          "Confirmed adoption schedule for 2026 NEC by top 10 construction states",
-          "Quote from an AHJ who has seen the transition in a prior code cycle"
+        "must_cite_items": ["23", "36"],
+        "missing_evidence_to_find": [
+          "State-by-state NEC 2026 adoption timeline and effective dates",
+          "Sample permit language approved by an AHJ in a 2026-NEC jurisdiction"
         ]
       }
     ],
     "questions_for_owner": [
-      "Which states have announced a 2026 NEC adoption schedule that would trigger the Article 726→722 transition before the end of 2026?",
-      "Has VoltServer or FMP Alliance issued guidance on how to reference both article numbers in permit applications during the transition window?"
+      "Has VoltServer or FMP Alliance published updated specification language that references both Article 726 and Article 722 for the transition period?",
+      "Are there documented cases of AHJ holds on Class 4 permits due to article number confusion, and how were they resolved?"
     ]
   },
   {
-    "persona": "owner_operator_facilities",
+    "agent": "owner_operator_facilities",
+    "run_date": "2026-02-26",
     "top_constraints": [
-      "AI rack densities averaging 27 kW per rack (AFCOM) mean existing UPS topologies and PDU configurations are insufficient — facilities are discovering this mid-deployment rather than during design",
-      "Building electrification retrofits face an 18–24 month lead time for electrical service upgrades, meaning owners who start heat pump projects today may not have power available until 2028",
-      "Cence Power's data center focus highlights that operators are actively shopping alternatives to traditional UPS architectures — but product maturity and support ecosystem are key selection risks"
+      {
+        "constraint": "AI rack densities averaging 27 kW (AFCOM) exceed the UPS and PDU ampacity assumptions baked into most enterprise data center infrastructure refreshes, meaning approved AI hardware budgets implicitly require unbudgeted facilities upgrades.",
+        "failure_mode": "Facilities managers approve AI hardware deployments on a capital plan that excludes corresponding UPS module and distribution upgrades — the upgrade cost surfaces as an emergency capex request post-deployment, creating schedule and operational disruption.",
+        "operational_burden": "Unplanned infrastructure upgrades during live operations require extended maintenance windows, coordination with UPS vendors and utilities, and potential rack density throttling that limits AI cluster performance until upgrades complete.",
+        "what_buyers_will_require_next": "Pre-purchase infrastructure audits for AI hardware that validate UPS, PDU, and cooling headroom before purchase orders are approved; organizational policies that route AI hardware procurement through facilities review.",
+        "levers": ["L3", "L4"],
+        "supporting_items": ["41", "49"],
+        "confidence": "High"
+      }
     ],
     "tensions": [
-      "Facilities managers face pressure to deploy AI infrastructure immediately but electrical systems cannot be upgraded on the same timeline — forcing phased deployments that increase total project cost",
-      "Building owners want to avoid LL97 penalties by 2030 but the cheapest path (gas equipment replacement) requires electrical upgrades that themselves cost $15K–30K per unit and take 1–2 years to permit"
+      {
+        "tension": "Centralize vs. distribute power — centralized UPS minimizes redundancy cost but creates single-point-of-failure exposure and distribution losses at 27+ kW per rack; distributed UPS modules reduce risk but add per-rack cost and maintenance overhead.",
+        "tradeoff": "A centralized N+1 UPS plant is lower capex and simpler to maintain at low densities but becomes a throughput bottleneck as average rack density climbs. Distributed lithium-ion modules at the row or rack level are more resilient but significantly higher per-kW capex.",
+        "who_wins_who_loses": "Large hyperscale operators can absorb distributed architecture costs through scale. Mid-market enterprise data centers face the worst trade-off — too small to benefit from modular redundancy economics, too large to ignore the density problem.",
+        "levers": ["L3", "L9"],
+        "supporting_items": ["41", "49"]
+      }
     ],
     "hypotheses": [
-      "Facilities that commit to FMP-based distribution in the next 12 months will be able to serve 2x the rack density of traditional distribution in the same floor space, making it a hedge against density growth",
-      "NYC building owners who have not started electrical upgrade planning by mid-2026 will face 2030 LL97 penalties regardless of equipment decisions, because upgrade lead times will exceed the compliance window"
-    ],
-    "article_angles": [
       {
-        "title": "The 27 kW Rack Problem: Why UPS and Distribution Must Be Rethought Together",
-        "thesis": "As AI workloads push average rack density past 27 kW, facilities managers are discovering that UPS and power distribution were designed for 8–12 kW racks — creating a forced upgrade cycle that most operators have not budgeted.",
+        "hypothesis": "Mid-market enterprise data centers with current average rack densities below 10 kW are approving AI workload expansions that will push average density above 20 kW within 24 months, triggering UPS and distribution upgrades that were not included in the 5-year capital plan.",
+        "measurement_or_metric": "Track average rack density quarterly against UPS and PDU ampacity headroom; flag when headroom falls below 20% of rated capacity.",
+        "supporting_items": ["41"]
+      }
+    ],
+    "original_angles": [
+      {
+        "working_title": "The 27 kW Budget Blind Spot: What Facilities Managers Must Check Before Approving AI Hardware",
+        "thesis": "When IT buys AI servers, facilities inherits the infrastructure upgrade bill. At 27 kW average rack density and rising, existing UPS and PDU assumptions break — but facilities managers are rarely in the AI hardware approval loop.",
         "outline": [
-          "What AFCOM's rack density data says about the pace of change",
-          "Why traditional UPS topologies fail above 20 kW per rack",
-          "Distribution redesign options: what facilities managers are actually doing"
+          "H1: How AFCOM's 27 kW average translates to specific UPS and PDU requirements",
+          "H2: The three infrastructure limits most commonly exceeded in AI deployments",
+          "H3: A facilities review checklist for AI hardware purchase approvals"
         ],
-        "must_cite": [28, 29],
-        "missing_evidence": [
-          "Case study of a colocation facility that retrofitted UPS for AI rack density",
-          "Cost comparison: traditional upgrade vs. FMP-based distribution for a 10-rack AI cluster"
+        "must_cite_items": ["41", "49"],
+        "missing_evidence_to_find": [
+          "Documented case study of a facilities budget conflict triggered by an AI hardware deployment",
+          "Cost range for UPS and distribution upgrades required to support a 10-rack AI cluster at 27 kW average"
         ]
       }
     ],
     "questions_for_owner": [
-      "What is the average timeline from 'power density problem identified' to 'distribution upgrade complete' in a colocation or enterprise data center?",
-      "Are there NYC building owners who have successfully used FMP to avoid a full electrical service upgrade for heat pump retrofit?"
+      "Does VoltServer have data center or colocation case studies that quantify distribution cost savings at 20+ kW average rack density?",
+      "What is the typical facilities vs. IT budget ownership split for power infrastructure in a mid-size enterprise data center?"
     ]
   },
   {
-    "persona": "compliance_ahj",
+    "agent": "compliance_ahj",
+    "run_date": "2026-02-26",
     "top_constraints": [
-      "NEC Article 726 → 722 renumbering means inspectors will be checking against article numbers that differ depending on which code edition their jurisdiction has adopted — increasing the chance of incorrect citations",
-      "Cence Power's Canadian market entry highlights that CSA (Canadian Electrical Code) Class 4 equivalents are still being worked through the standards body, creating a gap where the technology exists but the code framework lags",
-      "LinkedIn posts and informal industry announcements (like Alexis Bertholf's FMP post) are increasingly how the FMP community learns about code changes — which means inspectors may encounter installers referencing information that hasn't been formally codified"
+      {
+        "constraint": "AHJs enforcing 2020 or 2023 NEC have no codified article for Class 4 systems — Article 726 may be unknown to the plan reviewer, requiring contractors to educate inspectors at the permit window rather than in formal pre-construction meetings.",
+        "what_ahj_cares_about": "AHJs are primarily concerned with inspector safety and liability documentation: an unfamiliar wiring system that claims to be safe because it limits fault current requires filing documentation that the inspector can defend if questioned.",
+        "documentation_gap": "Most Class 4 permit applications lack a concise one-page AHJ-facing summary mapping the specific safety claim (current limiting) to a UL listing and an NEC article, forcing inspectors to reconstruct this from product cut sheets and NFPA documents.",
+        "how_to_de-risk": "Develop a standard AHJ documentation package: safety model summary, UL listing numbers, applicable NEC article (citing both 726 and 722 with edition years), and a contact at the FMP Alliance or NFPA available to answer inspector questions directly.",
+        "levers": ["L7", "L6", "L5"],
+        "supporting_items": ["23", "36"],
+        "confidence": "High"
+      }
     ],
     "tensions": [
-      "The 2026 NEC renames the Class 4 article but the safety model doesn't change — inspectors who know the safety model are fine, but those who rely on article number lookups will flag legitimate installs",
-      "AHJs that adopted 2020 NEC are not seeing any Class 4 articles at all, while AHJs on 2023 NEC see Article 726, and 2026 NEC will show Article 722 — creating three simultaneous compliance environments"
+      {
+        "tension": "Innovation speed vs. inspection certainty — new product listings and updated article numbers arrive faster than inspector training and code adoption cycles.",
+        "why_it_matters": "Each AHJ that issues an informal hold on a Class 4 installation creates a local precedent that slows subsequent installs in that jurisdiction. First-install friction shapes inspector behavior for years.",
+        "levers": ["L7", "L6"],
+        "supporting_items": ["23", "36"]
+      }
     ],
     "hypotheses": [
-      "The single highest-leverage intervention for FMP adoption speed is an AHJ-focused training document that maps the article number to the safety model concept, so inspectors can approve regardless of code year",
-      "LinkedIn posts by known FMP practitioners are functionally operating as informal standards guidance — the FMP Alliance should formalize a digest of practitioner posts for AHJ audiences"
-    ],
-    "article_angles": [
       {
-        "title": "Three Code Years, One Safety Model: A Field Guide for AHJs Inspecting Class 4",
-        "thesis": "With the 2020, 2023, and 2026 NEC all in active use across US jurisdictions, AHJs may encounter Class 4 installations referencing different article numbers — but the underlying safety model is identical. This guide helps inspectors evaluate any Class 4 install regardless of which code edition the permit references.",
+        "hypothesis": "AHJs in jurisdictions that have not participated in formal Class 4 familiarization sessions (with FMP Alliance or NFPA) are significantly more likely to issue RFIs or informal holds on Class 4 permit applications.",
+        "what_evidence_would_support_it": "Comparison of permit approval timelines across jurisdictions with and without documented Class 4 AHJ outreach; installer survey data on permit friction and hold frequency by jurisdiction.",
+        "supporting_items": ["23"]
+      }
+    ],
+    "original_angles": [
+      {
+        "working_title": "What AHJs Need to See: Class 4 Permit Documentation in the 2026 NEC Transition",
+        "thesis": "The compliance bottleneck for Class 4 is not the safety model — it is AHJ familiarity. A standardized documentation package that maps safety claims to UL listings and code references reduces holds and builds the inspector confidence needed for widespread adoption.",
         "outline": [
-          "The safety model: what makes Class 4 different from Class 2",
-          "Article 725 vs 726 vs 722: what changed, what stayed the same",
-          "Checklist: what to look for in a Class 4 inspection regardless of code year"
+          "H1: What information AHJs need and typically do not receive in Class 4 permit packages",
+          "H2: How the Article 726→722 renumbering creates documentation confusion for inspectors on older code editions",
+          "H3: A template AHJ documentation package for Class 4 installations"
         ],
-        "must_cite": [32],
-        "missing_evidence": [
-          "Confirmation from NFPA on which article number appears in the 2026 NEC",
-          "List of states currently on 2020 vs 2023 NEC (affects which article inspectors reference)"
+        "must_cite_items": ["23", "36"],
+        "missing_evidence_to_find": [
+          "Survey data on AHJ permit approval times for Class 4 vs. traditional wiring in the same jurisdiction",
+          "List of jurisdictions with completed FMP Alliance or NFPA AHJ outreach sessions"
         ]
       }
     ],
     "questions_for_owner": [
-      "Has NFPA published the 2026 NEC with the Article 722 renumbering, and is there a formal transition guide for AHJs?",
-      "Which states are the highest-priority targets for FMP-specific AHJ training given their NEC adoption status and construction volume?"
+      "Has VoltServer or FMP Alliance developed a standard AHJ documentation package that can be distributed to inspectors before a permit application is submitted?",
+      "Which jurisdictions have the most active Class 4 permit volume and which have the highest hold or RFI rates?"
     ]
   },
   {
-    "persona": "mep_system_designer",
+    "agent": "mep_system_designer",
+    "run_date": "2026-02-26",
     "top_constraints": [
-      "AI rack densities above 20 kW require liquid cooling integration on the same floor plate as FMP distribution — creating a co-routing challenge that MEP designers have not historically had to solve simultaneously",
-      "The NEC Article 726→722 renumbering affects specification language: drawing sets referencing 'Article 726' will need to be updated when jurisdictions adopt 2026 NEC, adding a coordination task to active projects",
-      "Data center UPS topologies are being rethought in parallel with AI infrastructure rollouts — MEPs are being asked to design for load profiles (GPU burst, idle, thermal management) that are fundamentally different from traditional server loads"
+      {
+        "constraint": "27 kW average rack density (AFCOM) pushes standard PDU ampacity and busway sizing past their useful range for AI cluster provisioning — a 10-rack AI cluster at 27 kW average requires ~130A per rack, not the 40–60A circuits in most current MEP specifications.",
+        "design_assumption_under_pressure": "MEP engineers have specified 20–30 kVA per rack as the high-density exception for AI rows; AFCOM's 27 kW average (not peak) means the median AI rack now exceeds the high-density spec, shifting the specification baseline upward industry-wide.",
+        "architecture_shift": "Power distribution to AI clusters must move from branch-circuit PDUs to overhead busway with tap-off boxes or rack-mounted 3-phase PDUs fed from 100A+ circuits — requiring wider containment aisles, different switchgear, and revised cable tray routing.",
+        "downstream_effects": "UPS module sizing changes (larger modules or higher per-row count), generator step-loading during UPS bypass, coolant distribution scaling (liquid cooling at 27 kW requires CDU placement within 15 feet of rack), and code-compliant fault protection at higher ampacity.",
+        "levers": ["L9", "L2", "L1"],
+        "supporting_items": ["41", "49"],
+        "confidence": "High"
+      }
     ],
     "tensions": [
-      "MEP designers want to specify proven, inspected systems — but FMP is adopted unevenly across AHJs, meaning a specification that works in one jurisdiction may require redesign in another",
-      "High-density AI racks require close coordination between the electrical, mechanical, and IT trades — but project timelines compress faster than coordination meetings can happen, leading to change orders late in the construction phase"
+      {
+        "tension": "Density vs. pathways — higher rack power density requires larger conductors and closer UPS/transformer placement, which conflicts with existing containment geometry and coolant distribution routing.",
+        "design_tradeoff": "Overhead busway allows higher ampacity without conduit congestion but requires structural ceiling loading assessment and limits future reconfiguration. Bottom-fed conduit maintains layout flexibility but creates pathway congestion at the ampacity levels required for 27 kW clusters.",
+        "levers": ["L1", "L2", "L9"],
+        "supporting_items": ["41", "49"]
+      }
     ],
     "hypotheses": [
-      "MEP firms that develop a standard FMP specification template now (pre-2026 NEC adoption) will have a competitive advantage in data center and edge deployment bids over the next 3 years",
-      "The shift to 27+ kW rack densities will force a rethinking of PDU placement and cable management that is actually more compatible with FMP's zone-based distribution than with traditional branch circuit approaches"
-    ],
-    "article_angles": [
       {
-        "title": "Designing for AI: How 27 kW Racks Are Changing MEP Coordination Assumptions",
-        "thesis": "Traditional MEP coordination was designed around 8–12 kW racks with predictable load profiles — AI GPU clusters shatter both assumptions. MEP designers need a new coordination framework that accounts for burst loads, liquid cooling integration, and faster design-to-install cycles.",
+        "hypothesis": "Standard 40A rack PDUs are undersized for 27 kW average rack density — 60A or 100A 3-phase circuits are increasingly required as the baseline specification for AI-dedicated rows, not as a high-density exception.",
+        "design_decision_it_affects": "PDU ampacity specification, busway sizing, UPS output breaker sizing, and cable routing strategy in AI-dedicated rows.",
+        "supporting_items": ["41"]
+      }
+    ],
+    "original_angles": [
+      {
+        "working_title": "Power Distribution Spec Assumptions That Break at 27 kW AI Rack Density",
+        "thesis": "MEP engineers who have not updated their AI-row specification assumptions since 2022 are under-specifying PDUs, busway, and UPS capacity. At 27 kW average (per AFCOM), the old high-density exception is now the median case.",
         "outline": [
-          "How AI rack load profiles differ from traditional server loads",
-          "Implications for electrical, mechanical, and plumbing coordination",
-          "Where FMP-based distribution fits in the new density paradigm"
+          "H1: What 27 kW average actually means for PDU, busway, and UPS sizing calculations",
+          "H2: Three specification assumptions that require immediate revision for AI workloads",
+          "H3: How Class 4 power distribution changes the wiring method options for high-density rows"
         ],
-        "must_cite": [28],
-        "missing_evidence": [
-          "Specific PDU configuration used in a 27+ kW AI rack deployment",
-          "MEP coordination checklist from a completed AI data center project"
+        "must_cite_items": ["41", "49"],
+        "missing_evidence_to_find": [
+          "Published MEP specification for a delivered AI cluster at 25+ kW average rack density",
+          "Cost comparison: overhead busway vs. bottom-fed conduit at 100A per rack"
         ]
       }
     ],
     "questions_for_owner": [
-      "Is there a standard MEP specification template for FMP Class 4 installations that VoltServer or FMP Alliance provides?",
-      "How do liquid cooling integration points affect FMP pathway routing in a high-density data center floor plan?"
+      "Does VoltServer have specifications or case studies for Class 4 power distribution in high-density (20+ kW) data center rows?",
+      "What is the maximum ampacity that has been deployed in a single Class 4 circuit in a data center environment?"
     ]
   },
   {
-    "persona": "finance_roi_skeptic",
+    "agent": "finance_roi_skeptic",
+    "run_date": "2026-02-26",
     "top_constraints": [
-      "Cence Power's entry into the Class 4 market means buyers now have a second OEM option — but without published pricing or TCO comparisons, it is impossible to evaluate whether competition is driving costs down",
-      "NYC LL97 penalty math is forcing building owners into a decision: pay penalties or invest in upgrades. The FMP value proposition (avoid $15K–30K electrical upgrade per unit) needs to be quantified against the penalty schedule to be actionable",
-      "AI UPS and distribution upgrades are being driven by IT refresh cycles, not by planned capital projects — meaning the budget is often coming from IT (opex/capex), not facilities (capex), creating organizational budget conflicts"
+      {
+        "constraint": "California's residential electricity rates — among the highest in the country — undermine the operating-cost ROI of heat pumps versus gas furnaces in the state that has mandated 6 million heat pump installations by 2030.",
+        "who_pays": "Building owners and tenants — the incremental operating cost of switching from gas to electric heat is borne by the occupant or passed through in rent; the state captures the decarbonization benefit while the owner bears the cost.",
+        "who_benefits": "Heat pump manufacturers, electrical contractors (panel upgrades), and the state's decarbonization goals — but not necessarily the building owner whose energy bill increases relative to gas.",
+        "what_metric_matters": "Simple payback period on heat pump installation including electrical upgrade costs, versus gas, at current California electricity rates: in markets above $0.35/kWh, payback typically exceeds 10 years without incentives.",
+        "levers": ["L2", "L8", "L4"],
+        "supporting_items": ["38", "25"],
+        "confidence": "High"
+      }
     ],
     "tensions": [
-      "Building owners who could avoid LL97 penalties by using FMP need a 3–5 year ROI model, but most do not have a baseline cost for the traditional electrical upgrade they are avoiding — making the comparison difficult to present to finance",
-      "The AFCOM data on 27 kW rack density suggests a near-term forced refresh of UPS and distribution infrastructure — but finance teams approve capital expenditures based on planned depreciation schedules, not on emerging rack density trends"
+      {
+        "tension": "CapEx commitment vs. uncertain OpEx return — upfront heat pump cost plus electrical panel upgrade is a capital event; high electricity rates shift the operating-cost comparison unfavorably, reducing building owner willingness to commit capex without guaranteed payback.",
+        "economic_tradeoff": "A building owner who spends $15,000–$30,000 on electrical upgrades faces operating costs that may be higher than the gas system replaced, unless incentive payments, time-of-use rate structures, or fixed-charge reforms change the electricity cost curve materially.",
+        "levers": ["L2", "L4"],
+        "supporting_items": ["38", "25"]
+      }
     ],
     "hypotheses": [
-      "The LL97 penalty schedule (2030 deadline) creates a hard deadline that makes FMP ROI calculations more favorable than traditional 10-year capital planning, because the 'do nothing' option has a defined cost",
-      "Data center operators who have already committed to AI infrastructure will have a stronger ROI case for FMP distribution (lower installation cost per kW served) than building owners, because their density problem is immediate rather than projected"
-    ],
-    "article_angles": [
       {
-        "title": "LL97 vs. Electrical Upgrade Costs: Making the FMP Business Case for NYC Building Owners",
-        "thesis": "NYC building owners facing LL97 penalties by 2030 need a quantified comparison between traditional electrical upgrade costs ($15K–30K/unit, 18–24 month timeline) and FMP-based distribution as an alternative path to heat pump deployment.",
+        "hypothesis": "In California markets with electricity rates above $0.35/kWh, the heat pump payback period versus gas exceeds 10 years for the average building owner without incentives, making the unaided economic case insufficient for adoption at the scale required by state policy.",
+        "data_needed": "Published utility rate schedules and heat pump operating cost models for major California utilities (PG&E, SCE, SDG&E) at 2025–2026 rates, compared side-by-side with gas operating costs by climate zone.",
+        "supporting_items": ["38", "25"]
+      }
+    ],
+    "original_angles": [
+      {
+        "working_title": "The California Heat Pump Math Problem: Why Policy Goals and Economics Are Pointing in Opposite Directions",
+        "thesis": "California's 6M heat pump target depends on an economic case that does not currently work at scale in the state's own electricity rate environment. Without incentive reform or rate restructuring, adoption will remain concentrated in incentive-eligible projects.",
         "outline": [
-          "LL97 penalty schedule and what it costs to do nothing",
-          "Traditional electrical upgrade cost and timeline in NYC pre-war buildings",
-          "FMP cost model: what it takes to route through existing risers"
+          "H1: The operating cost math — heat pump vs. gas at California's 2025–2026 electricity rates",
+          "H2: What the 6M target requires in terms of annual installation rate and electrical upgrade throughput",
+          "H3: Where the economics do work — incentive-stacked projects and low-rate utility territories"
         ],
-        "must_cite": [33, 31],
-        "missing_evidence": [
-          "Actual installed cost of FMP system in a NYC residential building retrofit",
-          "LL97 penalty calculation for a median NYC Class B building"
+        "must_cite_items": ["38", "25"],
+        "missing_evidence_to_find": [
+          "Published heat pump operating cost model at PG&E and SCE 2025–2026 rates by climate zone",
+          "Breakdown of California heat pump installations by incentive type and utility territory"
         ]
       }
     ],
     "questions_for_owner": [
-      "Is there a published total installed cost for a VoltServer FMP deployment in a NYC multifamily retrofit?",
-      "What is the LL97 penalty cost for a typical 50-unit pre-war NYC building that misses the 2030 deadline?"
+      "Does VoltServer have a quantified electrical upgrade cost model for California multifamily heat pump retrofits that could be compared against the operating cost break-even?",
+      "Are there California utility territories where heat pump operating economics are currently positive vs. gas, making them priority markets for DE-enabled retrofits?"
     ]
   }
 ]

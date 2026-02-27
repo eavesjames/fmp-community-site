@@ -268,6 +268,41 @@
     "source_date": "2026-02-22"
   },
   {
+    "id": 36,
+    "slug": "2026-02-26-other-nec-code-questions-on-led",
+    "title": "NEC Code Questions on LED Lighting: Class 2, 3, and Class 4 Fault Managed Power",
+    "description": "Overview of NEC Class 2/3 circuits in Article 725 and introduction of Class 4 for fault managed power systems, addressing common electrician questions about LED installations.",
+    "canonical_source": "https://www.aspectled.com/blog/post/nec-code-questions-led-lighting/?srsltid=AfmBOopJYW_yM4GK_LJPTs7erpxNYB_5LQyw7gmmiWGu4VZIHT683wFE",
+    "artifact_type": "doc",
+    "publish_date": null,
+    "discovered_at": "2026-02-26T22:53:06.792883",
+    "players": [],
+    "topics": [
+      "code-standards",
+      "safety-model",
+      "pathways-install"
+    ],
+    "value_levers": [],
+    "confidence": "high",
+    "summary": "Educational resource addressing NEC code questions electricians have about LED lighting installations. Distinguishes Class 2 and Class 3 power-limited circuits under Article 725 from the newer Class 4 category introduced specifically for fault managed power systems.",
+    "score": 24,
+    "query_vertical": "edge-power-ups",
+    "vertical": "edge-power-ups",
+    "source_name": "Aspect LED Blog",
+    "source_date": "2026-02-26",
+    "persona": "electrical-contractor",
+    "so_what": "Class 4 introduction in NEC creates new code pathway for fault managed power, differentiating it from traditional Class 2/3 power-limited circuits.",
+    "why_it_matters": "Electrical contractors need to understand the distinction between traditional power-limited circuits and the new Class 4 category to correctly spec, install, and obtain approval for fault managed power deployments. The NEC's formal recognition of Class 4 as a separate category establishes a clear code pathway but requires field education on the differences from familiar Class 2/3 rules.",
+    "open_questions": [
+      "What specific Article 725 requirements differ between Class 2/3 and Class 4 installations?",
+      "How are AHJs interpreting Class 4 requirements for LED lighting projects in practice?"
+    ],
+    "evidence": [
+      "Class 2 and Class 3 circuits remain in Article 725 and are power limited",
+      "Class 4 is a newer category introduced for fault managed power systems"
+    ]
+  },
+  {
     "id": 57,
     "slug": "2026-02-18-other-why-modern-data-centers-need",
     "title": "Why Modern Data Centers Need a New Approach to UPS Batteries",
@@ -893,6 +928,43 @@
     "summary": "ECA Ontario is promoting a free hybrid educational session focused on Fault Managed Power Systems technology. The event aims to demonstrate how FMP is changing power delivery with an emphasis on safety, targeting electrical contractors and industry professionals interested in emerging power distribution methods.",
     "score": 20,
     "source_date": "2026-02-22"
+  },
+  {
+    "id": 38,
+    "slug": "2026-02-23-other-california-heat-pump-goals-clash",
+    "title": "California heat pump goals clash with high electricity rates, risking adoption",
+    "description": "California targets 6M heat pumps by 2030, but high residential electricity prices undermine operating-cost case versus gas furnaces, threatening electrification goals.",
+    "canonical_source": "https://laist.com/news/climate-environment/california-heat-pumps-high-power-bills",
+    "artifact_type": "press",
+    "publish_date": "2026-02-23",
+    "discovered_at": "2026-02-26T22:53:09.132792",
+    "players": [
+      "other"
+    ],
+    "topics": [
+      "incentives-policy",
+      "retrofits-mdus"
+    ],
+    "value_levers": [],
+    "confidence": "medium",
+    "summary": "California aims to install 6 million residential heat pumps by 2030 as part of building electrification goals, with lawmakers proposing streamlined permitting this year. However, the state's highest-in-nation residential electricity prices undermine the operating-cost value proposition compared to gas furnaces, creating tension between climate goals and economic adoption drivers.",
+    "score": 19,
+    "query_vertical": "building-electrification",
+    "vertical": "building-electrification",
+    "source_name": "LAist / CalMatters",
+    "source_date": "2026-02-23",
+    "persona": "owner-operator",
+    "so_what": "Operating-cost barrier to heat pump adoption at scale affects panel/service upgrade demand and electrification retrofit velocity despite policy push.",
+    "why_it_matters": "Owner-operators and facilities managers evaluating building electrification retrofits face a cost-adoption barrier that could slow panel/service upgrades and electrical infrastructure investments. The disconnect between state policy goals (6M units by 2030, streamlined permitting) and economic reality affects retrofit planning timelines and business cases for electrical contractors sizing distribution capacity.",
+    "open_questions": [
+      "Will California introduce time-of-use rate structures or fixed-charge models to improve heat pump operating economics and accelerate panel upgrade demand?",
+      "How are electrical contractors adjusting electrification retrofit proposals given operating-cost pushback from building owners?"
+    ],
+    "evidence": [
+      "California targets 6 million heat pumps installed in homes by 2030",
+      "State lawmakers proposing to streamline permitting and make it easier to electrify homes this year",
+      "California's residential electricity prices among highest in country, undermining heat pump operating-cost case versus gas"
+    ]
   },
   {
     "id": 37,

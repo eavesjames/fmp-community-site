@@ -68,7 +68,7 @@ def _run_analyst(persona, items_json, coverage_stats, client):
     try:
         message = client.messages.create(
             model="claude-haiku-4-5-20251001",
-            max_tokens=1400,
+            max_tokens=8000,
             messages=[{"role": "user", "content": prompt}],
         )
         return _parse_json_response(message.content[0].text)
@@ -90,7 +90,7 @@ def _run_moderator(analyst_outputs, items_json, coverage_stats, client):
     try:
         message = client.messages.create(
             model="claude-sonnet-4-6",
-            max_tokens=2048,
+            max_tokens=8192,
             messages=[{"role": "user", "content": prompt}],
         )
         return _parse_json_response(message.content[0].text)

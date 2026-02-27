@@ -1,0 +1,170 @@
+{
+  "run_date": "2026-02-27",
+  "drafts": [
+    {
+      "draft_id": "SOC-001",
+      "channel": "linkedin",
+      "text": "When a data center operator budgets UPS replacement, liquid cooling installation, and power distribution redesign as three separate line items, they are assuming those projects can be staged sequentially. The physical evidence says otherwise. UPS re-selection for 30\u201380 kW AI load steps must account for cooling headroom that liquid cooling installation is simultaneously consuming. Liquid cooling manifolds physically conflict with cable tray and busway routing designed for air-cooled PDUs. Degraded VRLA batteries add float-current heat that competes with compute cooling budget before any runtime failure is visible. Each constraint is manageable alone. Together, they create a forced-concurrency trap where staging any one project ahead of the others produces mid-construction change orders or a forced shutdown for replanning. The real decision gate is not how to sequence the retrofit \u2014 it is whether a full-spine concurrent retrofit or a greenfield build is the economically rational path for your facility. What sequencing approach have you used for AI density upgrades, and where did the co-dependencies surface?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-02-26-other-data-center-industry-shifts-toward/",
+        "https://faultmanagedpower.org/pulse/2026-02-18-other-why-modern-data-centers-need/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "53",
+          "57"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "cooling-infrastructure-pre-routing-before-electrical-design",
+          "greenfield-vs-retrofit-capital-decision-framework",
+          "UPS-topology-selection-for-load-step-compliance"
+        ],
+        "target_persona": "data-center-facilities-manager"
+      }
+    },
+    {
+      "draft_id": "SOC-002",
+      "channel": "linkedin",
+      "text": "Raising ambient temperature setpoints is a widely accepted data center efficiency measure \u2014 but in AI-density facilities, it may be quietly inflating the cooling costs it was meant to reduce. Here is the mechanism: elevated ambient temperatures accelerate VRLA UPS battery degradation, which raises internal resistance, which increases float current, which generates additional heat inside UPS enclosures that facility cooling must then remove. In a facility already operating near cooling capacity limits due to higher rack density, that incremental load competes directly with compute cooling budget. The perverse part is that this loop does not show up in standard PUE metrics because UPS enclosure heat contribution is rarely sub-metered separately from compute row cooling. Calendar-based battery replacement schedules are blind to the progressive thermal cost accumulation. The practical lever is float-current threshold monitoring that triggers proactive replacement before cooling headroom is exhausted \u2014 not after a runtime risk event appears. Does your DCIM system attribute cooling load to UPS enclosures separately from compute rows?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-02-18-other-why-modern-data-centers-need/",
+        "https://faultmanagedpower.org/pulse/2026-02-26-other-data-center-industry-shifts-toward/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "57",
+          "53"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "float-current-threshold-triggers-for-proactive-replacement",
+          "ambient-setpoint-policy-that-accounts-for-battery-aging-rate",
+          "BMS-integration-into-DCIM-for-cooling-load-attribution",
+          "VRLA-to-lithium-migration-to-break-the-temp-sensitivity-loop"
+        ],
+        "target_persona": "data-center-facilities-manager"
+      }
+    },
+    {
+      "draft_id": "SOC-003",
+      "channel": "linkedin",
+      "text": "California streamlined heat pump permitting. The NEC added a Class 4 code pathway for fault-managed power. Both moves cleared supply-side barriers. Neither resolved the demand-side barriers that are actually constraining deployment. For heat pumps, the binding constraint is operating-cost economics: high California electricity rates undermine the ROI case that policy assumes homeowners will act on. For Class 4 FMP, the binding constraint is AHJ inspection uncertainty: contractors cannot price or schedule work confidently when downstream acceptance is unpredictable, so they overbuild contingency or defer bids entirely. The structural pattern is identical across both verticals: policy addressed what it could reach, and the remaining constraint is outside its direct control. Electrical contractors bear the cost of that remaining uncertainty through contingency pricing that makes both technologies appear more expensive than they are. This matters for adoption forecasts that assume supply-side fixes translate directly into deployment velocity. What would it take \u2014 beyond permitting streamlining \u2014 to give contractors enough confidence to price either technology at its true cost? Reference installations? AHJ pre-approval packages? Operating-cost incentives rather than capital rebates?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-02-26-other-nec-code-questions-on-led/",
+        "https://faultmanagedpower.org/pulse/2026-02-23-other-california-heat-pump-goals-clash/"
+      ],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": [
+          "36",
+          "38"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "AHJ-pre-approval-packages-for-Class-4-FMP",
+          "operating-cost-relief-incentives-not-just-capital-rebates",
+          "contractor-reference-installation-programs-for-Class-4",
+          "CA-unified-heat-pump-retrofit-load-calc-template"
+        ],
+        "target_persona": "electrical-contractor"
+      }
+    },
+    {
+      "draft_id": "SOC-004",
+      "channel": "x",
+      "text": "AI rack density is forcing UPS, cooling, and power distribution upgrades to happen simultaneously \u2014 not sequentially. The physical co-dependencies make staged retrofits produce mid-project change orders. The real decision is greenfield vs. full-spine, not sequencing. Are you pricing this correctly? faultmanagedpower.org/pulse/2026-02-26-other-data-center-industry-shifts-toward/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-02-26-other-data-center-industry-shifts-toward/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "53",
+          "57"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "greenfield-vs-retrofit-capital-decision-framework",
+          "cooling-infrastructure-pre-routing-before-electrical-design"
+        ],
+        "target_persona": "colocation-operator"
+      }
+    },
+    {
+      "draft_id": "SOC-005",
+      "channel": "x",
+      "text": "Raising ambient setpoints saves cooling energy \u2014 until VRLA battery float current rises from accelerated aging and adds the heat back. In AI-density facilities already near cooling limits, this loop is invisible without float-current monitoring. Are your UPS batteries costing you more cooling than you saved? faultmanagedpower.org/pulse/2026-02-18-other-why-modern-data-centers-need/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-02-18-other-why-modern-data-centers-need/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "57",
+          "53"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "float-current-threshold-triggers-for-proactive-replacement",
+          "ambient-setpoint-policy-that-accounts-for-battery-aging-rate"
+        ],
+        "target_persona": "maintenance-operations-team"
+      }
+    },
+    {
+      "draft_id": "SOC-006",
+      "channel": "x",
+      "text": "PoE (48V, centralized switch UPS) and NEC Class 4 FMP (fault-isolated DC distribution) are solving the same edge power problem \u2014 but neither has AHJ commissioning procedures or OT redundancy standards. Practitioners are choosing between them without comparative failure-mode data. Is that a gap you've run into? faultmanagedpower.org/pulse/2026-02-26-other-nec-code-questions-on-led/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-02-26-other-nec-code-questions-on-led/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "36",
+          "55"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "unified-centralized-low-voltage-DC-commissioning-standard",
+          "AHJ-guidance-covering-both-PoE-and-Class-4-FMP-topologies"
+        ],
+        "target_persona": "mep-designer"
+      }
+    },
+    {
+      "draft_id": "SOC-007",
+      "channel": "prompt",
+      "text": "For designers and contractors who have specified or installed either PoE-centralized-UPS systems or NEC Class 4 fault-managed power for edge OT applications: both architectures consolidate power to a centralized low-voltage DC infrastructure with infrastructure-level backup \u2014 and both appear to share the same gaps: no published redundancy standard for mission-critical OT, no standardized AHJ commissioning checklist, and no comparative failure-mode data between the two approaches. If you have had to choose between PoE and Class 4 FMP for an edge application, what drove that decision \u2014 load size, AHJ familiarity, contractor availability, or something else? And did AHJ review timelines or inspection outcomes differ between the two technologies in your jurisdiction? Context from the field would help identify whether these gaps are genuinely blocking deployments or whether practitioners have developed informal workarounds that could inform a unified commissioning framework. References: faultmanagedpower.org/pulse/2026-02-26-other-nec-code-questions-on-led/ and faultmanagedpower.org/pulse/2026-02-26-other-integrating-poe-into-androidbased-single/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-02-26-other-nec-code-questions-on-led/",
+        "https://faultmanagedpower.org/pulse/2026-02-26-other-integrating-poe-into-androidbased-single/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "36",
+          "55"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "unified-centralized-low-voltage-DC-commissioning-standard",
+          "AHJ-guidance-covering-both-PoE-and-Class-4-FMP-topologies",
+          "N+1-PSE-and-FMP-controller-redundancy-design-patterns",
+          "published-failure-mode-comparison-PoE-vs-FMP-for-OT-applications"
+        ],
+        "target_persona": "mep-designer"
+      }
+    }
+  ]
+}
