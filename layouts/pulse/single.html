@@ -5,7 +5,7 @@
   <header class="post-header">
     <h1 class="post-title">{{ .Title }}</h1>
 
-    {{- /* ── Source button + metadata (Phase 2 posts only) ── */}}
+    {{- /* ── Source button + metadata ── */}}
     {{- if .Params.source_url }}
     <div class="rcp-source-meta">
       <a href="{{ .Params.source_url }}"
@@ -27,19 +27,35 @@
 
   </header>
 
+  {{- /* ── New to FMP? callout ── */}}
+  <div class="rcp-onboarding">
+    <strong>New to FMP?</strong>
+    <a href="/start/">Start here →</a>
+    &ensp;&middot;&ensp;
+    <a href="/guides/what-is-fmp/">What is FMP</a>
+    &ensp;&middot;&ensp;
+    <a href="/guides/nec-class-4-article-726/">NEC Class 4</a>
+    &ensp;&middot;&ensp;
+    <a href="/guides/how-fmp-is-installed/">How it's installed</a>
+  </div>
+
   {{- /* ── Post body ── */}}
   <div class="post-content">
     {{ .Content }}
   </div>
 
-  {{- /* ── Related items by shared topics or vertical ── */}}
-  {{- $current := . }}
-  {{- $related  := slice }}
+  {{- /* ── Related items: same topics/vertical, last 120 days only ── */}}
+  {{- $current   := . }}
+  {{- $cutoff    := now.AddDate 0 0 -120 }}
+  {{- $cutoffStr := $cutoff.Format "2006-01-02" }}
+  {{- $related   := slice }}
   {{- range where site.RegularPages "Section" "pulse" }}
     {{- if ne .Permalink $current.Permalink }}
-      {{- $sharedTopics   := intersect (.Params.topics | default slice) ($current.Params.topics | default slice) }}
+      {{- $itemDate      := .Params.source_date | default (.Date.Format "2006-01-02") }}
+      {{- $inWindow      := ge $itemDate $cutoffStr }}
+      {{- $sharedTopics  := intersect (.Params.topics | default slice) ($current.Params.topics | default slice) }}
       {{- $sharedVertical := and .Params.vertical $current.Params.vertical (eq .Params.vertical $current.Params.vertical) }}
-      {{- if or $sharedTopics $sharedVertical }}
+      {{- if and $inWindow (or $sharedTopics $sharedVertical) }}
         {{- $related = $related | append . }}
       {{- end }}
     {{- end }}
@@ -47,7 +63,7 @@
   {{- if $related }}
   <div class="rcp-related">
     <h3 class="rcp-section-title">Related Updates</h3>
-    {{- range first 5 (sort $related "Date" "desc") }}
+    {{- range first 5 (sort $related "Params.source_date" "desc") }}
       {{- partial "rcp_row.html" . }}
     {{- end }}
   </div>

@@ -1,0 +1,64 @@
+{{- define "main" }}
+
+{{- $allPulse := where site.RegularPages "Section" "pulse" }}
+{{- $withDate := slice }}
+{{- $noDate   := slice }}
+{{- range $allPulse }}
+  {{- if isset .Params "source_date" }}
+    {{- $withDate = $withDate | append . }}
+  {{- else }}
+    {{- $noDate = $noDate | append . }}
+  {{- end }}
+{{- end }}
+{{- $sorted := sort $withDate "Params.source_date" "desc" }}
+
+<div class="rcp-home">
+
+  <h1 class="rcp-archive-heading">Pulse Archive</h1>
+  <p class="rcp-archive-intro">
+    {{ len $allPulse }} updates total &mdash;
+    <a href="/">← back to homepage</a>
+  </p>
+
+  {{- $grouped := $sorted.GroupByDate "January 2006" }}
+  {{- range $grouped }}
+  <section class="rcp-archive-month">
+    <h2 class="rcp-archive-month-title">{{ .Key }}</h2>
+    <ul class="rcp-archive-list">
+      {{- range .Pages }}
+      <li class="rcp-archive-item">
+        <span class="rcp-archive-date">{{ .Params.source_date }}</span>
+        <div class="rcp-archive-body">
+          <a href="{{ .Permalink }}" class="rcp-archive-title">{{ .Title }}</a>
+          {{- if .Params.source_name }}
+          <span class="rcp-archive-source">{{ .Params.source_name }}</span>
+          {{- end }}
+          {{- if .Params.so_what }}
+          <p class="rcp-archive-sowhat">{{ .Params.so_what }}</p>
+          {{- end }}
+        </div>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+
+  {{- if $noDate }}
+  <section class="rcp-archive-month">
+    <h2 class="rcp-archive-month-title">Undated</h2>
+    <ul class="rcp-archive-list">
+      {{- range $noDate }}
+      <li class="rcp-archive-item">
+        <span class="rcp-archive-date">&ndash;</span>
+        <div class="rcp-archive-body">
+          <a href="{{ .Permalink }}" class="rcp-archive-title">{{ .Title }}</a>
+        </div>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+
+</div>
+
+{{- end }}

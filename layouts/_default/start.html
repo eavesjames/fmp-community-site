@@ -1,0 +1,54 @@
+{{- define "main" }}
+
+<div class="rcp-home">
+
+  <div class="rcp-start-page">
+
+    {{- /* ── Page intro from markdown body ── */}}
+    <div class="rcp-start-intro">
+      {{ .Content }}
+    </div>
+
+    {{- /* ── Guide list ── */}}
+    {{- $guides := where site.RegularPages "Section" "guides" }}
+    {{- $guides  = sort $guides "Params.weight" "asc" }}
+    {{- if $guides }}
+    <div class="rcp-guides">
+      {{- range $guides }}
+      <div class="rcp-guide-card">
+        <a href="{{ .Permalink }}" class="rcp-title">{{ .Title }}</a>
+        {{- if .Params.summary }}
+        <p class="rcp-thesis">{{ .Params.summary }}</p>
+        {{- end }}
+      </div>
+      {{- end }}
+    </div>
+    {{- end }}
+
+    {{- /* ── Recent Pulse ── */}}
+    {{- $pulse := where site.RegularPages "Section" "pulse" }}
+    {{- $withDate := slice }}
+    {{- range $pulse }}
+      {{- if isset .Params "source_date" }}
+        {{- $withDate = $withDate | append . }}
+      {{- end }}
+    {{- end }}
+    {{- $recent := first 6 (sort $withDate "Params.source_date" "desc") }}
+    {{- if $recent }}
+    <section class="rcp-stream-section" style="margin-top: 2.5rem;">
+      <h2 class="rcp-section-title">
+        Recent Pulse <a href="/pulse/" class="rcp-archive-link">all updates →</a>
+      </h2>
+      <div class="rcp-stream">
+        {{- range $recent }}
+          {{- partial "rcp_row.html" . }}
+        {{- end }}
+      </div>
+    </section>
+    {{- end }}
+
+  </div>
+
+</div>
+
+{{- end }}

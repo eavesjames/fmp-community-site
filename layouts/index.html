@@ -25,10 +25,41 @@
   (dict "key" "building-electrification" "label" "Building Electrification / Decarbonization")
 }}
 
-{{- $cutoffDate := now.AddDate 0 0 -10 }}
+{{- $cutoffDate := now.AddDate 0 0 -7 }}
 {{- $cutoffStr  := $cutoffDate.Format "2006-01-02" }}
 
 <div class="rcp-home">
+
+  {{/* ── Start Here CTA ── */}}
+  <div class="rcp-start-cta">
+    <strong>New to FMP?</strong>
+    <a href="/start/">Start here →</a>
+    &ensp;·&ensp;
+    <a href="/guides/what-is-fmp/">What is FMP</a>
+    &ensp;·&ensp;
+    <a href="/guides/nec-class-4-article-726/">NEC Class 4</a>
+    &ensp;·&ensp;
+    <a href="/guides/how-fmp-is-installed/">How it's installed</a>
+  </div>
+
+  {{/* ── Learn FMP: guide tiles ── */}}
+  {{- $guides := where site.RegularPages "Section" "guides" }}
+  {{- $guides  = sort $guides "Params.weight" "asc" }}
+  {{- if $guides }}
+  <section class="rcp-learn-section">
+    <h2 class="rcp-section-title">Learn FMP</h2>
+    <div class="rcp-guides">
+      {{- range $guides }}
+      <div class="rcp-guide-card">
+        <a href="{{ .Permalink }}" class="rcp-title">{{ .Title }}</a>
+        {{- if .Params.summary }}
+        <p class="rcp-thesis">{{ .Params.summary }}</p>
+        {{- end }}
+      </div>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
 
   {{/* ── Latest by Topic Area: stacked verticals ── */}}
   <section class="rcp-verticals-section">
@@ -36,7 +67,7 @@
     {{- range $sections }}
       {{- $key   := .key }}
       {{- $label := .label }}
-      {{- $allItems  := where $sorted "Params.vertical" $key }}
+      {{- $allItems    := where $sorted "Params.vertical" $key }}
       {{- $recentItems := where $allItems "Params.source_date" "ge" $cutoffStr }}
       {{- $items := first 6 $recentItems }}
       <div class="rcp-vertical-section">
@@ -49,7 +80,7 @@
           {{- end }}
         {{- else }}
           {{- if $allItems }}
-            <p class="rcp-empty">No updates in the last 10 days — <a href="/verticals/{{ $key }}/">see all →</a></p>
+            <p class="rcp-empty">No updates in the last 7 days — <a href="/verticals/{{ $key }}/">see recent →</a></p>
           {{- else }}
             <p class="rcp-empty">Items coming soon.</p>
           {{- end }}
@@ -80,7 +111,10 @@
 
   {{/* ── Main stream: recent pulse items with archive link ── */}}
   <section class="rcp-stream-section">
-    <h2 class="rcp-section-title">All Updates <a href="/pulse/" class="rcp-archive-link">full archive →</a></h2>
+    <h2 class="rcp-section-title">
+      All Updates
+      <a href="/pulse/archive/" class="rcp-archive-link">browse the archive →</a>
+    </h2>
     <div class="rcp-stream">
       {{- range first 20 $sorted }}
         {{- partial "rcp_row.html" . }}

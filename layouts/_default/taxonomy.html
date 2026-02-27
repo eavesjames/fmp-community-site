@@ -3,7 +3,7 @@
 {{- /* Pinned guides tagged with this term */ -}}
 {{- $pinned := where (where .Pages "Section" "guides") "Params.pinned" true }}
 
-{{- /* Pulse items tagged with this term, sorted by source_date desc */ -}}
+{{- /* All pulse items tagged with this term, sorted by source_date desc */ -}}
 {{- $pulse := where .Pages "Section" "pulse" }}
 {{- $withDate := slice }}
 {{- $noDate   := slice }}
@@ -17,6 +17,16 @@
 {{- $sorted := sort $withDate "Params.source_date" "desc" }}
 {{- range sort $noDate "Date" "desc" }}
   {{- $sorted = $sorted | append . }}
+{{- end }}
+
+{{- /* 60-day recency filter with fallback */ -}}
+{{- $cutoffDate := now.AddDate 0 0 -60 }}
+{{- $cutoffStr  := $cutoffDate.Format "2006-01-02" }}
+{{- $recent     := where $sorted "Params.source_date" "ge" $cutoffStr }}
+{{- $isFallback := lt (len $recent) 3 }}
+{{- $display    := $recent }}
+{{- if $isFallback }}
+  {{- $display = first 6 $sorted }}
 {{- end }}
 
 <div class="rcp-home">
@@ -38,12 +48,18 @@
   {{- end }}
 
   <section class="rcp-stream-section">
-    <h2 class="rcp-section-title">{{ .Title }} — Latest Updates</h2>
+    <h2 class="rcp-section-title">
+      {{ .Title }} — Latest Updates
+      <a href="/pulse/archive/" class="rcp-archive-link">archive →</a>
+    </h2>
+    {{- if $isFallback }}
+    <p class="rcp-recency-note">Showing most recent updates — <a href="/pulse/archive/">browse the full archive</a>.</p>
+    {{- end }}
     <div class="rcp-stream">
-      {{- range $sorted }}
+      {{- range $display }}
         {{- partial "rcp_row.html" . }}
       {{- end }}
-      {{- if not $sorted }}
+      {{- if not $display }}
         <p class="rcp-empty">No items yet.</p>
       {{- end }}
     </div>
