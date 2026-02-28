@@ -122,6 +122,13 @@
     </div>
   </section>
 
+  {{/* ── About this site ── */}}
+  {{- with .Content }}
+  <section class="rcp-about-section">
+    {{ . }}
+  </section>
+  {{- end }}
+
 </div>
 
 {{- end }}
