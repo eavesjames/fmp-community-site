@@ -7,6 +7,8 @@ type: guides
 weight: 10
 
 knowledge_sources:
+  - CLAIM_FMP_DEFINITION
+  - PROC_FMP_ESTIMATING_ROM
   - CLAIM_DIGITAL_ELECTRICITY_MECHANISM
   - EXPL_FMP_ARCHITECTURE
   - MAP_AC_VS_FMP_FEATURES_COMPARISON
@@ -36,6 +38,8 @@ This article explains how it works, what makes it different, and where it actual
 ---
 
 ## What DE / FMP is
+
+At its core, FMP is a system-level method of electrical power distribution in which safety is achieved through active monitoring and control of the circuit — fault conditions are detected and interrupted before hazardous energy is sustained. In NEC framing, a fault-managed power circuit is associated with a Class 4 circuit. [CLAIM_FMP_DEFINITION]
 
 FMP delivers power as packetized DC: the transmitter sends rapid bursts of high-voltage DC over standard structured cable, and each burst is checked against fault conditions before the next one fires. [CLAIM_DIGITAL_ELECTRICITY_MECHANISM] The key safety claim — grounded in how Class 4 differs from Class 2 and Class 3 under the NEC — is this: FMP does not limit *how much power it can deliver*; it limits *how much energy a fault can accumulate before being stopped*. [CLAIM_CLASS4_VS_CLASS2_CLASS3, what_is_de.yaml] That distinction is everything.
 
@@ -175,7 +179,7 @@ That's the full scope of the FMP-specific work. The licensed electrician work is
 - 2-inch conduit available for smaller applications
 - The 40% fill ratio applies for code compliance and thermal management
 
-**The scoping inputs you need before pricing:**
+**The scoping inputs you need before pricing** [PROC_FMP_ESTIMATING_ROM]**:**
 - How many endpoints (each load = one receiver)
 - What abandoned pathways exist — risers, chases, ceiling cavities
 - Distance from the electrical room to the farthest endpoint (affects transmitter sizing and cable run)
@@ -219,6 +223,8 @@ Where it matters most is in the gap between "this project needs power" and "this
 
 | Block ID | What it grounded in this article |
 |---|---|
+| `CLAIM_FMP_DEFINITION` | Canonical top-level definition: system-level distribution method, safety through active monitoring, Class 4 association |
+| `PROC_FMP_ESTIMATING_ROM` | Scoping inputs: endpoint count, topology, run lengths, terminations, headend, commissioning |
 | `CLAIM_DIGITAL_ELECTRICITY_MECHANISM` | How the transmitter, cable, and receiver work; 1K+ installation count; mechanism description |
 | `EXPL_FMP_ARCHITECTURE` | Three-component system model (headend, link, receiver) |
 | `MAP_AC_VS_FMP_FEATURES_COMPARISON` | AC vs FMP feature comparison table |
@@ -245,4 +251,4 @@ Where it matters most is in the gap between "this project needs power" and "this
 
 - No YAML block covers jurisdiction-by-jurisdiction NEC code adoption status — critical for permit planning
 - No YAML block covers the distinction between VoltServer-specific DE products and the broader FMP/Class 4 ecosystem (Cence Power, Panduit, Southwire, etc.)
-- `CLAIM_FMP_DEFINITION` (`confidence: medium`, `source_id: SRC_TBD`) was removed from this article's grounding. The definitional substance it contained has been re-grounded in `CLAIM_DIGITAL_ELECTRICITY_MECHANISM`, `CLAIM_CLASS4_VS_CLASS2_CLASS3`, and `what_is_de.yaml`. The block should be fixed in the knowledge base — add a canonical source (NEC Article 726, FMP Alliance technical brief, or a UL standard reference) and promote confidence to high before re-introducing it as a citable block in any article.
+- Six blocks cited in this article carry `confidence: unknown` (`CLAIM_DIGITAL_ELECTRICITY_MECHANISM`, `CLAIM_ELECTRICAL_UPGRADE_BARRIER_HEAT_PUMPS`, `MAP_TRADITIONAL_ELECTRICAL_VS_DE_HEAT_PUMP_RETROFIT`, `CLAIM_DE_INSTALLATION_SCOPE_48_UNITS`, `CLAIM_FMP_CONDUIT_SIZING_RISER_RACEWAY`, `CLAIM_IDEAL_BUILDING_CHARACTERISTICS_HEAT_PUMP_RETROFIT`). These carry specific numeric claims ($20K/unit, 50% cancellation rate, conduit sizing, 48-unit scope). They are sourced from internal materials currently marked `SRC_TBD`. Promoting these to `confidence: medium` or `high` requires replacing `SRC_TBD` with a canonical reference (published case study, NFPA submission, OEM datasheet, or peer-reviewed source).

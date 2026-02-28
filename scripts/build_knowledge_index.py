@@ -49,8 +49,13 @@ def _extract_tags(data: dict, raw_text: str = "") -> list[str]:
     Extract tags list from YAML data.
     Falls back to raw text regex scan because bare #tag syntax is treated
     as a YAML comment by the parser, leaving tags: null.
+    Also handles tags nested under a top-level 'knowledge:' wrapper.
     """
+    # Check top-level tags first
     tags = data.get("tags")
+    # Fall back to knowledge.tags (nested wrapper format)
+    if tags is None and "knowledge" in data and isinstance(data["knowledge"], dict):
+        tags = data["knowledge"].get("tags")
 
     # Parsed value is usable
     if isinstance(tags, str) and tags.strip():
@@ -92,14 +97,20 @@ def _extract_tags(data: dict, raw_text: str = "") -> list[str]:
 
 def _extract_key_claim(data: dict) -> str:
     """Extract the primary claim text."""
-    for key in ("key_claim", "summary.what_it_is", "title"):
+    for key in ("claim", "key_claim", "summary.what_it_is", "title"):
         if key in data and data[key]:
             return str(data[key])
-    # Try nested
+    # Try nested summary
     if "summary" in data and isinstance(data["summary"], dict):
         for subkey in ("what_it_is", "core_message"):
             if subkey in data["summary"] and data["summary"][subkey]:
                 return str(data["summary"][subkey])
+    # Try knowledge wrapper
+    if "knowledge" in data and isinstance(data["knowledge"], dict):
+        kb = data["knowledge"]
+        for key in ("key_claim", "title"):
+            if key in kb and kb[key]:
+                return str(kb[key])
     return ""
 
 
@@ -127,6 +138,11 @@ def _extract_confidence(data: dict) -> str:
     if "status" in data and isinstance(data["status"], dict):
         if "confidence" in data["status"]:
             return str(data["status"]["confidence"])
+    # Try knowledge wrapper
+    if "knowledge" in data and isinstance(data["knowledge"], dict):
+        kb = data["knowledge"]
+        if "confidence" in kb:
+            return str(kb["confidence"])
     return "unknown"
 
 

@@ -3,10 +3,15 @@
     "id": "CHK_FMP_FIELD_QUALIFICATION",
     "file": "CHK_FMP_FIELD_QUALIFICATION.yaml",
     "type": "checklist",
-    "tags": [],
-    "confidence": "unknown",
-    "key_claim": "",
-    "text_summary": "",
+    "tags": [
+      "fit",
+      "estimating",
+      "contractors",
+      "retrofits"
+    ],
+    "confidence": "high",
+    "key_claim": "Fast project qualification: assess pathway pain, distribution pattern, and schedule value.",
+    "text_summary": "Fast project qualification: assess pathway pain, distribution pattern, and schedule value.",
     "raw": {
       "knowledge": {
         "id": "CHK_FMP_FIELD_QUALIFICATION",
@@ -25,9 +30,10 @@
           "rule": "If 3+ answers are YES, qualify as FMP candidate and run ROM estimate."
         },
         "tags": [
-          "#fit",
-          "#sales",
-          "#estimating"
+          "fit",
+          "estimating",
+          "contractors",
+          "retrofits"
         ],
         "confidence": "high",
         "maturity_status": "draft",
@@ -324,10 +330,15 @@
     "id": "CLAIM_FMP_COMPLIANCE_PATHWAY",
     "file": "CLAIM_FMP_COMPLIANCE_PATHWAY.yaml",
     "type": "compliance",
-    "tags": [],
-    "confidence": "unknown",
-    "key_claim": "",
-    "text_summary": "",
+    "tags": [
+      "compliance",
+      "code",
+      "ahj",
+      "contractors"
+    ],
+    "confidence": "medium",
+    "key_claim": "FMP deployment relies on product listing(s) and the applicable code pathway to determine permissible installation practices.",
+    "text_summary": "FMP deployment relies on product listing(s) and the applicable code pathway to determine permissible installation practices.",
     "raw": {
       "knowledge": {
         "id": "CLAIM_FMP_COMPLIANCE_PATHWAY",
@@ -345,9 +356,10 @@
           "Use in contractor training and any owner-facing deck to reduce perceived risk."
         ],
         "tags": [
-          "#compliance",
-          "#code",
-          "#sales"
+          "compliance",
+          "code",
+          "ahj",
+          "contractors"
         ],
         "confidence": "medium",
         "maturity_status": "draft",
@@ -422,42 +434,62 @@
   {
     "id": "CLAIM_FMP_DEFINITION",
     "file": "CLAIM_FMP_DEFINITION.yaml",
-    "type": "knowledge.claim",
+    "type": "claim",
     "tags": [
       "definition",
-      "architecture"
+      "safety",
+      "code",
+      "technology"
     ],
-    "confidence": "medium",
-    "key_claim": "Fault Managed Power (FMP) is a power distribution method that limits the energy available in a fault so power can be delivered safely over smaller wiring with simpler pathways.",
-    "text_summary": "Fault Managed Power (FMP) is a power distribution method that limits the energy available in a fault so power can be delivered safely over smaller wiring with simpler pathways. | Designed so faults are energy-limited, reducing shock/fire risk compared to traditional distribution. | Enables longer runs with smaller conductors in many applications. | Shifts complexity toward centralized equipment and away from distributed branch-circuit infrastructure.",
+    "confidence": "high",
+    "key_claim": "Fault Managed Power (FMP) is a system-level method of electrical power distribution in which safety is achieved through active monitoring and control of the circuit so that fault conditions are detected and interrupted before hazardous energy is sustained. In NEC framing, a fault-managed power circuit is associated with a Class 4 circuit.\n",
+    "text_summary": "Fault Managed Power (FMP) is a system-level method of electrical power distribution in which safety is achieved through active monitoring and control of the circuit so that fault conditions are detected and interrupted before hazardous energy is sustained. In NEC framing, a fault-managed power circuit is associated with a Class 4 circuit.\n",
     "raw": {
-      "knowledge": {
-        "id": "CLAIM_FMP_DEFINITION",
-        "type": "knowledge.claim",
-        "title": "What is Fault Managed Power (FMP)?"
-      },
-      "tags": [
-        "#definition",
-        "#architecture"
-      ],
-      "confidence": "medium",
-      "maturity_status": "draft",
+      "id": "CLAIM_FMP_DEFINITION",
+      "claim": "Fault Managed Power (FMP) is a system-level method of electrical power distribution in which safety is achieved through active monitoring and control of the circuit so that fault conditions are detected and interrupted before hazardous energy is sustained. In NEC framing, a fault-managed power circuit is associated with a Class 4 circuit.\n",
+      "claim_type": "definition",
+      "category": "DEFINITION",
+      "status": "active",
+      "confidence": "high",
       "canonical": true,
-      "title": "Fault Managed Power (FMP) \u2014 definition",
-      "key_claim": "Fault Managed Power (FMP) is a power distribution method that limits the energy available in a fault so power can be delivered safely over smaller wiring with simpler pathways.",
-      "bullets": [
-        "Designed so faults are energy-limited, reducing shock/fire risk compared to traditional distribution.",
-        "Enables longer runs with smaller conductors in many applications.",
-        "Shifts complexity toward centralized equipment and away from distributed branch-circuit infrastructure.",
-        "Often supports embedded monitoring/telemetry alongside power delivery."
+      "tags": [
+        "definition",
+        "safety",
+        "code",
+        "technology"
       ],
-      "references": [
-        {
-          "source_id": "SRC_TBD",
-          "page_or_slide": "TBD",
-          "pointer": "TBD",
-          "note": "Placeholder for MVP; replace with product listing / standard / whitepaper citations."
-        }
+      "grounding": {
+        "summary": "This definition is grounded in NEC committee materials explaining that a Class 4 circuit is commonly associated with a fault-managed power circuit, and that monitoring and control systems differentiate fault-managed power from ordinary electric light and power circuits. It is also reinforced by UL materials describing UL 1400-1 as the safety basis for Class 4 fault-managed power systems.\n",
+        "source_ids": [
+          "SRC_NFPA_2025_PUBLIC_INPUTS_CLASS4",
+          "SRC_NFPA_2022_CORRELATING_REVISION_CLASS4",
+          "SRC_UL_1400_1_FIRST_CERTIFICATION",
+          "SRC_UL_CLASS4_GUIDEINFO_2023"
+        ]
+      },
+      "notes": [
+        "Use this block for high-level definition and framing. Do not use it to assert specific numeric performance claims such as shutdown time; those should live in separate claim blocks with their own sources.\n",
+        "Prefer \u201csystem-level method of distribution\u201d over \u201ctechnology\u201d or \u201cproduct\u201d to avoid conflating one vendor implementation with the broader Class 4 / fault-managed power category.\n",
+        "The phrase \u201cassociated with a Class 4 circuit\u201d is safer than wording that overclaims perfect equivalence across all industry usage.\n"
+      ],
+      "usage_guidance": {
+        "allowed_for": [
+          "start_here_articles",
+          "glossary",
+          "code_framing",
+          "introductory_guides"
+        ],
+        "not_allowed_for": [
+          "exact shutdown-time claims",
+          "installation permission claims",
+          "jurisdiction-adoption claims",
+          "vendor-market-share claims"
+        ]
+      },
+      "related_blocks": [
+        "CLAIM_CLASS4_VS_CLASS2_CLASS3",
+        "CLAIM_DIGITAL_ELECTRICITY_MECHANISM",
+        "CLAIM_FAULT_RESPONSE_TIME"
       ]
     }
   },
@@ -465,10 +497,15 @@
     "id": "CLAIM_FMP_LABOR_SHIFT",
     "file": "CLAIM_FMP_LABOR_SHIFT.yaml",
     "type": "claim",
-    "tags": [],
-    "confidence": "unknown",
-    "key_claim": "",
-    "text_summary": "",
+    "tags": [
+      "installation",
+      "cost-analysis",
+      "contractors",
+      "retrofits"
+    ],
+    "confidence": "medium",
+    "key_claim": "FMP often shifts project cost from field labor (conduit, heavy pathway work) to equipment (transmitters and receivers), improving schedule and predictability when AC pathways are expensive.",
+    "text_summary": "FMP often shifts project cost from field labor (conduit, heavy pathway work) to equipment (transmitters and receivers), improving schedule and predictability when AC pathways are expensive.",
     "raw": {
       "knowledge": {
         "id": "CLAIM_FMP_LABOR_SHIFT",
@@ -486,9 +523,10 @@
           "Core value proposition for contractors and owner translation."
         ],
         "tags": [
-          "#roi",
-          "#installation",
-          "#schedule_risk"
+          "installation",
+          "cost-analysis",
+          "contractors",
+          "retrofits"
         ],
         "confidence": "medium",
         "maturity_status": "draft",
@@ -936,6 +974,171 @@
     }
   },
   {
+    "id": "DE_overcome_heatpump_upgrades",
+    "file": "DE_overcome_heatpump_upgrades.yaml",
+    "type": "document",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "",
+    "text_summary": "",
+    "raw": {
+      "document": {
+        "title": "Using Fault Managed Power to Overcome Infrastructure Barriers to Heat Pump Installation in Older Buildings",
+        "type": "Article",
+        "authors": [
+          {
+            "name": "James Eaves, PhD"
+          },
+          {
+            "name": "Stephen Eaves"
+          }
+        ],
+        "source_file": "Eaves_Article_revised.doc",
+        "sections_present": [
+          "Abstract",
+          "Introduction",
+          "Fault Managed Power",
+          "Case: Distributing Power and Control to a heat pump PTAC Unit in a High Rise",
+          "Installation Cost",
+          "Avoiding Service Upgrades",
+          "Tenant-in-place work",
+          "Conclusion",
+          "Acknowledgments",
+          "References"
+        ]
+      },
+      "summary": {
+        "abstract_level_summary": "The article argues that electrification retrofits in older NYC buildings often fail because electrical upgrades are too expensive and disruptive, and proposes Fault Managed Power (FMP) as a new NEC-recognized power class that can reduce retrofit cost/complexity and enable heat pump deployment, especially when paired with building controls/management. :contentReference[oaicite:14]{index=14}",
+        "headline_claims": [
+          "Industry experts estimate ~50% of NYC electrification projects are abandoned after owners see electrical upgrade estimates.",
+          "Estimated FMP can reduce electrical upgrade cost per dwelling unit by ~ $10,000 and reduce project times by months."
+        ]
+      },
+      "problem": {
+        "statement": "Heat pump installations in older NYC multifamily buildings are frequently blocked by electrical capacity limits and the high cost, disruption, and timeline risk of conventional electrical upgrades (panels, feeders/risers, and sometimes service/switchgear).",
+        "context": {
+          "drivers_in_nyc": [
+            "Gas pressure testing requirements push owners toward electrification when aging gas lines fail.",
+            "Local Law 97 imposes escalating financial penalties based on building emissions, making heat pumps financially attractive."
+          ],
+          "legacy_building_constraints": [
+            "Median NYC building age ~90 years; many apartments were designed with 30\u201350A panels, now near capacity.",
+            "Example unit load sheet: a 40A, 208V unit already exceeds capacity (42.3A calculated; negative VA margin) before adding a heat pump.",
+            "Feeders often match load-center ratings, so panel upgrades cascade into feeder/riser constraints; risers can be physically full."
+          ],
+          "cost_and_time_reality": [
+            "Tenant relocation adds meaningful cost: estimated ~$1,333\u2013$1,860 per unit depending on move delays.",
+            "With tenant relocation, electrical upgrade cost is stated as at least ~$15,000 per dwelling; equipment lead times (switchgear) can be up to 18 months."
+          ]
+        }
+      },
+      "solution": {
+        "name": "Fault Managed Power (FMP), illustrated via VoltServer Digital Electricity\u2122 (DE)",
+        "what_it_is": "A transmitter converts building AC into DC \u201cenergy packets\u201d (up to ~350V DC) and sends them over small-gauge conductors to a receiver near the load; the receiver reaggregates packets and converts them into the form needed by the end device (e.g., 208V AC, 480V AC 3-phase, or 24V DC). :contentReference[oaicite:24]{index=24}",
+        "how_it_works": {
+          "packetization_and_fault_detection": [
+            "Packets contain tracking/control data and a small amount of energy; faults (touch, short, ground, arc) produce distinct signatures.",
+            "System sends a packet, pauses power, checks whether it arrived or faulted, and repeats ~500 times per second."
+          ],
+          "safety_positioning": [
+            "DE described as qualifying as a Class 2 circuit under NEC 725 despite higher voltage/power capability (as argued in article).",
+            "UL 62368-1 framing: limit energy that can escape in a fault rather than limiting total in-circuit energy (as stated in article)."
+          ],
+          "code_context": [
+            "Article states: 2023 NEC introduced Class 4 / FMP under Article 726.",
+            "Article states: industry leaders formed the Fault-Managed Power Alliance in 2024."
+          ]
+        }
+      },
+      "case_study": {
+        "name": "Distributing power and control to cold-climate PTAC heat pumps in an older residential high-rise",
+        "building_scale": {
+          "dwelling_units": 48,
+          "ptac_peak_kw_per_unit": 3,
+          "ptac_average_kw_per_unit": 1
+        },
+        "electrical_architecture": {
+          "upstream_feeders": [
+            "Two 156A, 208V AC three-phase feeders from service panel to transmitter rack."
+          ],
+          "de_distribution": {
+            "dc_bus_voltage": "336V DC",
+            "cable_type": "48 multiconductor 8-pair, 16 AWG cables distributed through building",
+            "pathway_example": "Existing retired mail chute repurposed as pathway using Class 2 wiring practices.",
+            "power_per_pair_kw": 1.5,
+            "pairs_per_unit": 2
+          },
+          "point_of_use_conversion": {
+            "receiver_output": "336V DC converted to 240V AC up to 3kW for PTAC"
+          }
+        }
+      },
+      "cost_and_schedule_estimates": {
+        "assumptions": {
+          "cable_management_labor_usd_per_ft": 6,
+          "cable_material_usd_per_ft_range": {
+            "low": 2.5,
+            "high": 3.0
+          },
+          "all_in_cable_purchase_and_distribution_usd_per_ft": 9,
+          "average_run_length_ft": 200
+        },
+        "per_dwelling_cost_breakdown_usd": {
+          "cable_distribution": 1800,
+          "rack_install_and_assembly": 520,
+          "transmitters_and_receivers": 3000,
+          "total_estimated_per_dwelling": 5320
+        },
+        "comparison_to_traditional_ac": {
+          "table_3": {
+            "fmp_estimated_cost_usd": 5320.0,
+            "traditional_ac_estimated_cost_usd": 15043.5,
+            "fmp_estimated_project_time": "4 weeks",
+            "traditional_ac_estimated_project_time": "> 4 months"
+          }
+        }
+      },
+      "avoiding_service_upgrades": {
+        "core_idea": "The article argues many buildings have sufficient incoming power if peak demand is constrained, and points to NEC Article 750 as the framework enabling EMS-based peak limiting for service sizing. :contentReference[oaicite:54]{index=54}",
+        "mechanism_claimed": [
+          "Because FMP integrates power + data in the same cable, appliances become addressable/controlled, lowering the cost/complexity of EMS.",
+          "Illustrated logic: during peak events, system can prioritize/curtail heat pumps near setpoint to stay within service capacity."
+        ],
+        "load_calc_anchor": [
+          "Example note: transmitter rack nameplate rating of 312A used for load calculation in the illustrated EMS approach."
+        ]
+      },
+      "tenant_in_place_work": {
+        "claim": "FMP distribution can be surface-mounted and avoids a new feeder or building-wide shutdown; in-unit work is about three hours per dwelling, improving feasibility with tenants in place. :contentReference[oaicite:58]{index=58}"
+      },
+      "acknowledgments": {
+        "organizations_and_people": [
+          {
+            "name": "Carver Technologies",
+            "role": "Building automation expertise and insights on integrating FMP with BMS for load management."
+          },
+          {
+            "name": "Joe Fawcett (SouthWire Cable)",
+            "role": "Shared NYC heat pump power-distribution cost/practice insights; former Local 3 electrician."
+          }
+        ]
+      },
+      "references": {
+        "items": [
+          {
+            "citation": "Sloan, Gene. 2024. Facilities Dive (Jan 15, 2024)."
+          },
+          {
+            "citation": "Klosowski, Tom. 2021. Brick Underground (Oct 13, 2021)."
+          },
+          {
+            "citation": "Rosen Consulting Group. 2022. NYSERDA report."
+          }
+        ]
+      }
+    }
+  },
+  {
     "id": "Digital_Edge_Belden",
     "file": "Digital_Edge_Belden.yaml",
     "type": "document",
@@ -1140,10 +1343,15 @@
     "id": "EXPL_FMP_ARCHITECTURE",
     "file": "EXPL_FMP_ARCHITECTURE.yaml",
     "type": "explanation",
-    "tags": [],
-    "confidence": "unknown",
-    "key_claim": "",
-    "text_summary": "",
+    "tags": [
+      "architecture",
+      "installation",
+      "definition",
+      "technology"
+    ],
+    "confidence": "medium",
+    "key_claim": "An FMP system is composed of a headend (transmitter), a managed power link (cable/pathway), and a load-end (receiver) that conditions power for the end device.",
+    "text_summary": "An FMP system is composed of a headend (transmitter), a managed power link (cable/pathway), and a load-end (receiver) that conditions power for the end device.",
     "raw": {
       "knowledge": {
         "id": "EXPL_FMP_ARCHITECTURE",
@@ -1162,9 +1370,10 @@
           "Architecture slide for contractors/engineers; supports later estimating logic."
         ],
         "tags": [
-          "#architecture",
-          "#installation",
-          "#safety"
+          "architecture",
+          "installation",
+          "definition",
+          "technology"
         ],
         "confidence": "medium",
         "maturity_status": "draft",
@@ -1259,10 +1468,15 @@
     "id": "MAP_TECH_TO_OWNER_VALUE",
     "file": "MAP_TECH_TO_OWNER_VALUE.yaml",
     "type": "mapping",
-    "tags": [],
-    "confidence": "unknown",
-    "key_claim": "",
-    "text_summary": "",
+    "tags": [
+      "fit",
+      "cost-analysis",
+      "contractors",
+      "target-market"
+    ],
+    "confidence": "high",
+    "key_claim": "Owners buy schedule, disruption reduction, and risk reduction\u2014not wiring theory.",
+    "text_summary": "Owners buy schedule, disruption reduction, and risk reduction\u2014not wiring theory.",
     "raw": {
       "knowledge": {
         "id": "MAP_TECH_TO_OWNER_VALUE",
@@ -1284,9 +1498,10 @@
           }
         ],
         "tags": [
-          "#owner_value",
-          "#sales",
-          "#roi"
+          "fit",
+          "cost-analysis",
+          "contractors",
+          "target-market"
         ],
         "confidence": "high",
         "maturity_status": "draft",
@@ -1412,10 +1627,15 @@
     "id": "OBJ_COMMON_CONTRACTOR",
     "file": "OBJ_COMMON_CONTRACTOR.yaml",
     "type": "objections",
-    "tags": [],
-    "confidence": "unknown",
-    "key_claim": "",
-    "text_summary": "",
+    "tags": [
+      "compliance",
+      "installation",
+      "contractors",
+      "fit"
+    ],
+    "confidence": "medium",
+    "key_claim": "Objections are predictable; winning is answering them with evidence + boundaries.",
+    "text_summary": "Objections are predictable; winning is answering them with evidence + boundaries.",
     "raw": {
       "knowledge": {
         "id": "OBJ_COMMON_CONTRACTOR",
@@ -1437,9 +1657,10 @@
           "Be explicit: short/simple runs and low labor scenarios can favor AC."
         ],
         "tags": [
-          "#objections",
-          "#sales",
-          "#compliance"
+          "compliance",
+          "installation",
+          "contractors",
+          "fit"
         ],
         "confidence": "medium",
         "maturity_status": "draft",
@@ -1541,10 +1762,15 @@
     "id": "PROC_FMP_ESTIMATING_ROM",
     "file": "PROC_FMP_ESTIMATING_ROM.yaml",
     "type": "process",
-    "tags": [],
-    "confidence": "unknown",
-    "key_claim": "",
-    "text_summary": "",
+    "tags": [
+      "estimating",
+      "installation",
+      "cost-analysis",
+      "contractors"
+    ],
+    "confidence": "high",
+    "key_claim": "A reliable ROM estimate comes from counting endpoints + terminations + pathway method + headend build + testing.",
+    "text_summary": "A reliable ROM estimate comes from counting endpoints + terminations + pathway method + headend build + testing.",
     "raw": {
       "knowledge": {
         "id": "PROC_FMP_ESTIMATING_ROM",
@@ -1567,9 +1793,10 @@
           "Testing/commissioning scope"
         ],
         "tags": [
-          "#estimating",
-          "#installation",
-          "#roi"
+          "estimating",
+          "installation",
+          "cost-analysis",
+          "contractors"
         ],
         "confidence": "high",
         "maturity_status": "draft",
@@ -1588,10 +1815,15 @@
     "id": "RULESET_FMP_FIT_CONDITIONS",
     "file": "RULESET_FMP_FIT_CONDITIONS.yaml",
     "type": "ruleset",
-    "tags": [],
-    "confidence": "unknown",
-    "key_claim": "",
-    "text_summary": "",
+    "tags": [
+      "fit",
+      "target-market",
+      "retrofits",
+      "estimating"
+    ],
+    "confidence": "high",
+    "key_claim": "FMP is a strong candidate when AC distribution would be pathway-labor intensive, schedule-disruptive, or constrained by retrofit conditions.",
+    "text_summary": "FMP is a strong candidate when AC distribution would be pathway-labor intensive, schedule-disruptive, or constrained by retrofit conditions.",
     "raw": {
       "knowledge": {
         "id": "RULESET_FMP_FIT_CONDITIONS",
@@ -1617,9 +1849,10 @@
           "If short/simple and labor is cheap \u2192 AC likely wins."
         ],
         "tags": [
-          "#fit",
-          "#estimating",
-          "#sales"
+          "fit",
+          "target-market",
+          "retrofits",
+          "estimating"
         ],
         "confidence": "high",
         "maturity_status": "draft",
@@ -1631,6 +1864,84 @@
             "note": "Replace with your canonical 'good fit' guidance."
           }
         ]
+      }
+    }
+  },
+  {
+    "id": "2yo152",
+    "file": "cisco_fmp_flipbook_rev9.yaml",
+    "type": "document",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "A Cisco-produced overview of Class 4 Fault Managed Power (FMP): what it is, why it exists, how it works (TX + cable + RX), key benefits, and a set of deployment use cases across smart buildings, hospitality, industrial, warehouses, horticulture, and future-looking use cases like microgrids, data centers, and EV charging.",
+    "text_summary": "A Cisco-produced overview of Class 4 Fault Managed Power (FMP): what it is, why it exists, how it works (TX + cable + RX), key benefits, and a set of deployment use cases across smart buildings, hospitality, industrial, warehouses, horticulture, and future-looking use cases like microgrids, data centers, and EV charging.",
+    "raw": {
+      "id": "2yo152",
+      "document": {
+        "title": "Fault Managed Power: The Evolution of DC Power Distribution: Standards, Deployments, and Applications for Low and High Voltage Systems",
+        "type": "Flipbook / Educational Guide",
+        "publisher": "Cisco",
+        "year": 2024,
+        "source_pdf": "FMP Flipbook Rev 9.pdf",
+        "page_count": 32
+      },
+      "summary": {
+        "what_it_is": "A Cisco-produced overview of Class 4 Fault Managed Power (FMP): what it is, why it exists, how it works (TX + cable + RX), key benefits, and a set of deployment use cases across smart buildings, hospitality, industrial, warehouses, horticulture, and future-looking use cases like microgrids, data centers, and EV charging.",
+        "core_message": "FMP (Class 4, NEC Article 726; UL 1400) is presented as a touch-safe, higher-power DC backbone that complements PoE, extends reach, and reduces infrastructure complexity while adding monitoring and control."
+      },
+      "problem": {
+        "statement": "Digitalization + sustainability pressures (AI compute, edge deployments, renewable integration) are increasing power needs and changing distribution requirements, while existing power-limited approaches (e.g., PoE / other limited-power circuits) are constrained by voltage/power and distance, and traditional infrastructure is increasingly expensive/slow to expand.",
+        "context": {
+          "pressure_points": [
+            "Data centers: rack densities moving from ~7\u201312kW typical toward much higher densities for AI.",
+            "Conversion losses and inefficiency: AC-DC conversions cited as 5\u201320% losses.",
+            "Power-limited circuits (PoE-like): constrained around 60V DC / ~100W per circuit and distance limits."
+          ]
+        }
+      },
+      "solution": {
+        "name": "Class 4 Fault Managed Power (FMP)",
+        "definition_positioning": "Introduced in NEC 2023 Article 726 with UL 1400-1/1400-2 framing; designed to safely deliver higher-voltage DC up to 450V (NEC voltage limit cited) over long distances with active fault management.",
+        "how_it_works": {
+          "components": [
+            "Transmitter (TX): converts AC (or native DC source) to DC transmission voltage; includes fault-management circuitry.",
+            "Power transport cable: can be copper or hybrid copper-fiber; system-tested as part of complete system.",
+            "Receiver (RX): converts incoming fault-managed power into usable voltage for end devices (example: 48VDC for switches)."
+          ]
+        },
+        "key_benefits": [
+          "Higher power + longer distance: up to ~450VDC; distances up to ~2000m cited vs Class 2/3 ~100\u2013150m.",
+          "Simplified installation: reduced need for conduit/j-box; installed by limited-energy/low-voltage technicians; can co-exist with Class 2 cables.",
+          "Monitoring/control: built-in advanced monitoring, remote management, and automated load balancing."
+        ]
+      },
+      "use_cases": {
+        "smart_buildings": {
+          "positioning": "Cisco frames FMP as complementary to PoE: FMP backbone powers PoE switches; PoE is last-mile.",
+          "reach_claims": {
+            "poe": "90W up to 100m",
+            "fmp": "higher power delivery over several hundred meters"
+          }
+        },
+        "hospitality_examples": [
+          {
+            "name": "Sinclair Hotel (Fort Worth, TX)",
+            "claim": "Combination of PoE + FMP powers ~2,000 connected devices and achieves 30\u201340% total energy savings (as stated)."
+          },
+          {
+            "name": "Circa Casino & Resort (Las Vegas)",
+            "claim": "Construction cost savings $2\u20133M and finished 2 months ahead of schedule (as stated)."
+          }
+        ],
+        "industrial_example": [
+          {
+            "name": "Federal facility / industrial buildings",
+            "claim": "PoE distance/power constraints described; FMP used to reduce timeline (two weeks to two days) and claims >50% CAPEX savings, >42% labor reduction, 78% OPEX savings (as stated)."
+          }
+        ]
+      },
+      "rights_and_legal": {
+        "notice_summary": "Cisco copyright and trademark notice shown on last page."
       }
     }
   },
@@ -1777,6 +2088,84 @@
     }
   },
   {
+    "id": "ieee_lorusso_2025_05",
+    "file": "ieee_introduction_to_fmp_lorusso_2025_05.yaml",
+    "type": "document",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "A technical overview of Fault-Managed Power (FMP) covering definition (Class 4), origins (Packet Energy Transfer), benefits vs AC/PoE, infrastructure applications, hazard mitigation, and functional safety mechanisms and standards.",
+    "text_summary": "A technical overview of Fault-Managed Power (FMP) covering definition (Class 4), origins (Packet Energy Transfer), benefits vs AC/PoE, infrastructure applications, hazard mitigation, and functional safety mechanisms and standards.",
+    "raw": {
+      "id": "ieee_lorusso_2025_05",
+      "document": {
+        "title": "Introduction to Fault-Managed Power",
+        "type": "IEEE-style Technical Paper",
+        "authors": [
+          {
+            "name": "Dave Lorusso",
+            "affiliation": "VoltServer, Inc."
+          },
+          {
+            "name": "Stanley Mlyniec",
+            "affiliation": "VoltServer, Inc."
+          },
+          {
+            "name": "Jonathan Casey",
+            "affiliation": "VoltServer, Inc."
+          }
+        ],
+        "source_pdf": "IEEE Introduction to Fault Managed Power - D Lorusso 2025-05.pdf",
+        "page_count": 6
+      },
+      "summary": {
+        "what_it_is": "A technical overview of Fault-Managed Power (FMP) covering definition (Class 4), origins (Packet Energy Transfer), benefits vs AC/PoE, infrastructure applications, hazard mitigation, and functional safety mechanisms and standards.",
+        "core_message": "FMP enables higher-voltage distribution (up to 450V) while maintaining safety by combining real-time fault detection, fault-energy limitation, and rapid shutdown."
+      },
+      "problem": {
+        "statement": "Traditional power distribution relies on passive protection (breakers/fuses) and separation rules, while PoE is power/distance limited; modern infrastructure needs higher power delivery over longer distances with better safety and easier installation/monitoring.",
+        "context": {
+          "comparative_constraints": [
+            "PoE described as ~100W over 100 meters, whereas FMP can deliver much more power much farther (limits depend on cable dissipation and voltage drop).",
+            "NEC separation: traditional AC power must be separated from data circuits; FMP can share channels/cables with data (as stated)."
+          ]
+        }
+      },
+      "solution": {
+        "definition": {
+          "nec_article_100_definition": "A powering system that monitors for faults and controls current delivered to ensure fault energy is limited.",
+          "code_anchor": "NEC 2023 Article 726 (Class 4 circuits) + UL 1400-1 referenced."
+        },
+        "key_mechanisms": [
+          "Continuous/real-time fault detection and rapid shutdown within milliseconds.",
+          "Packet Energy Transfer (PET) described as sending discrete energy packets with monitoring between packets."
+        ],
+        "example_implementation_details": {
+          "packets_per_second": 500,
+          "pulse_on_ms": 1.5,
+          "gap_ms": 0.5,
+          "pulse_voltage_vdc": 350
+        },
+        "standards_discussed": [
+          "UL 1400-1 (systems), UL 1400-2 (cables), UL 62368-1 (HBSE), ATIS-0600040, IEC 61508 (functional safety) and others."
+        ],
+        "safety_notes": [
+          "UL 1400-1 Annex A vs Annex B options for in-line resistive fire-fault mitigation (connector requirements vs limiting to <100W)."
+        ]
+      },
+      "adoption_history": {
+        "timeline_claims": [
+          "FMP standards development described as beginning around 2020 via ATIS with UL and NEC support; Article 726 added in NEC 2023."
+        ],
+        "origins_claims": [
+          "Packet Energy Transfer and early commercialization attributed to Stephen S. Eaves and VoltServer (incorporated 2011; first commercial systems 2015, as stated)."
+        ]
+      },
+      "conclusion_claim": [
+        "Paper states FMP can detect/respond to line-to-earth, line-to-line, in-line arcing, parallel arcing, and resistive faults."
+      ]
+    }
+  },
+  {
     "id": "industrial_free_from_LANconstraints",
     "file": "industrial_free_from_LANconstraints.yaml",
     "type": "document",
@@ -1896,69 +2285,129 @@
     }
   },
   {
+    "id": "vs_case_study_nyc_330_unit",
+    "file": "voltserver_case_study_nyc_330_unit.yaml",
+    "type": "document",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "A 2-page case study describing how VoltServer Digital Electricity\u2122 (DE) can electrify PTAC heat pumps in a 19-story, 330-unit Manhattan condo without upgrading incoming service, feeder cables, or panels.",
+    "text_summary": "A 2-page case study describing how VoltServer Digital Electricity\u2122 (DE) can electrify PTAC heat pumps in a 19-story, 330-unit Manhattan condo without upgrading incoming service, feeder cables, or panels.",
+    "raw": {
+      "id": "vs_case_study_nyc_330_unit",
+      "document": {
+        "title": "How Digital Electricity Simplifies Power in a 330-Unit NYC Condominium",
+        "type": "Case Study",
+        "publisher": "VoltServer",
+        "source_pdf": "VS_330-Unit NYC Condominium CS.pdf",
+        "page_count": 2
+      },
+      "summary": {
+        "what_it_is": "A 2-page case study describing how VoltServer Digital Electricity\u2122 (DE) can electrify PTAC heat pumps in a 19-story, 330-unit Manhattan condo without upgrading incoming service, feeder cables, or panels.",
+        "core_message": "Traditional electrification in dense NYC multifamily buildings is blocked by cost, timeline, and disruption of conventional electrical upgrades; DE claims to avoid major upgrades by using Ethernet-style wiring methods (Class 2 wiring practices) while providing power monitoring and load management."
+      },
+      "problem": {
+        "statement": "The building wants to replace gas heating with cold-climate heat pumps, but existing electrical capacity is insufficient; conventional upgrades would require panel, feeder/riser, and service upgrades, creating major cost and disruption.",
+        "context": {
+          "regulatory_driver": [
+            "Local Law 97 is cited as a key driver for building electrification."
+          ],
+          "capacity_gap": [
+            "Apartments are currently limited to 40A; powering heat pumps for 330 units would typically require at least 60A panels."
+          ],
+          "cost_and_timeline_baseline_claims": [
+            "Per-unit costs cited: up to $30k (pre-2021) and approaching $50k today (electricians\u2019 estimate); total >$10M and >1 year for a 330-unit building (as stated)."
+          ]
+        }
+      },
+      "solution": {
+        "name": "Digital Electricity\u2122 (DE) as fault-managed power",
+        "positioning": [
+          "DE described as a fault-managed power system listed to NEC Article 725 as a Limited Power Source (as stated in case study).",
+          "Transforms incoming AC to 336VDC and can be installed using Class 2 wiring methods (Ethernet-style), avoiding conduit/subpanels."
+        ],
+        "why_it_changes_installation_cost": [
+          "Case study claims conventional electricity is dangerous and requires expensive/inflexible wiring methods; DE is described as safe enough for Ethernet-style practices, cutting equipment + labor by ~75% (as stated)."
+        ],
+        "implementation_in_this_building": {
+          "transmitter_cabinets": {
+            "count": 5,
+            "capacity_per_cabinet_ptac_units": 66,
+            "feeds_required_per_cabinet": "Two 208V 3-phase feeds"
+          },
+          "distribution": {
+            "riser_to_idf": "18 AWG, 8-pair cables to IDFs (upper floors), no conduit required",
+            "idf_to_apartment": "4-pair cables to heat pumps",
+            "pathway_examples": "Run in existing data pathways/raceways (cable baskets, stairways, trash chutes, above ceilings)"
+          },
+          "monitoring_and_controls": [
+            "Real-time metering/monitoring for energy consumption and system health (fault detection + energy management)."
+          ],
+          "power_example": [
+            "Two pairs of 18 AWG cables stated as sufficient to deliver 3.5kW to a dwelling."
+          ]
+        }
+      },
+      "customer_value": {
+        "claimed_benefits": [
+          "Cost savings: avoids major upgrades; reduces overall costs by ~30% (as stated).",
+          "Time savings: reduces project time from months/years to weeks (as stated).",
+          "Minimal disruption: uses existing pathways/communication ducts; less resident disruption (as stated).",
+          "Scalability + safety/flexibility in dense multi-tenant buildings (as stated)."
+        ]
+      }
+    }
+  },
+  {
     "id": "world_class_resort",
     "file": "world_class_resort.yaml",
     "type": "document",
     "tags": [],
     "confidence": "unknown",
-    "key_claim": "An explainer aimed at portable/prefabricated and micro-edge/container data centers, describing fault-managed power (Digital Electricity / Class 4) and three ways it can change power design and deployment. # :contentReference[oaicite:98]{index=98}",
-    "text_summary": "An explainer aimed at portable/prefabricated and micro-edge/container data centers, describing fault-managed power (Digital Electricity / Class 4) and three ways it can change power design and deployment. # :contentReference[oaicite:98]{index=98}",
+    "key_claim": "A case study of a $2B luxury resort community where Belden served as the technology infrastructure partner, including powering lighting/communications/IoT control systems using VoltServer Digital Electricity and Belden FMPS (Class 4), plus deploying an optical LAN fiber backbone. # :contentReference[oaicite:116]{index=116}",
+    "text_summary": "A case study of a $2B luxury resort community where Belden served as the technology infrastructure partner, including powering lighting/communications/IoT control systems using VoltServer Digital Electricity and Belden FMPS (Class 4), plus deploying an optical LAN fiber backbone. # :contentReference[oaicite:116]{index=116}",
     "raw": {
       "document": {
-        "title": "Support Rising Data Center Power Demands with Digital Electricity\u00ae",
-        "type": "White Paper / Partner Guide",
-        "publishers": [
-          "VoltServer",
-          "Belden"
-        ],
-        "source_pdf": "VS_White Paper_Support Rising Data Center Power Demands with DE.pdf",
-        "page_count": 6
+        "title": "World-class resort unites luxury and connectivity for one-of-a-kind experiences",
+        "type": "Case Study",
+        "publisher": "Belden",
+        "year": 2025,
+        "source_pdf": "Luxury Resort-CS86-2025-11-d3.pdf",
+        "page_count": 4,
+        "document_id": "LUXURY-RESORT-2025-12-CS86-EN"
       },
       "summary": {
-        "what_it_is": "An explainer aimed at portable/prefabricated and micro-edge/container data centers, describing fault-managed power (Digital Electricity / Class 4) and three ways it can change power design and deployment. # :contentReference[oaicite:98]{index=98}",
-        "core_message": "FMP provides packetized, continuously monitored power over small-gauge lightweight cabling, enabling sustainability/efficiency, safer HVDC adoption, and scalable MAC-friendly buildouts. # :contentReference[oaicite:99]{index=99} :contentReference[oaicite:100]{index=100}"
+        "what_it_is": "A case study of a $2B luxury resort community where Belden served as the technology infrastructure partner, including powering lighting/communications/IoT control systems using VoltServer Digital Electricity and Belden FMPS (Class 4), plus deploying an optical LAN fiber backbone. # :contentReference[oaicite:116]{index=116}",
+        "core_message": "Class 4 power + optical LAN helped the project hit tight Phase 1 deadlines while enabling long-distance power delivery to guestrooms, reducing network complexity/cost, and supporting dense connectivity/bandwidth needs. # :contentReference[oaicite:117]{index=117} :contentReference[oaicite:118]{index=118}"
       },
       "problem": {
-        "statement": "Data center workloads (AI/5G/IoT) are driving power growth and costs, while operators need faster, modular expansion\u2014especially in containerized or micro-edge deployments\u2014without overbuilding.",
+        "statement": "A large, complex resort with aggressive deadlines needed a technology infrastructure partner capable of delivering unprecedented connectivity experiences with customization and unpredictability, without slipping the schedule.",
         "context": {
-          "demand_and_cost_signals": [
-            "AI energy use growth example (1GW in 2023 to 7GW by 2026 cited) and median 16% electricity cost growth (C&W study cited)."
+          "project_scope": [
+            "Phase 1 opened in 2024 with a 147-room hotel and golf course; broader district includes major amenities over multiple phases."
           ],
-          "operational_reality": [
-            "Predicting future density is hard; underbuild risks overload/failure, overbuild wastes CAPEX."
+          "challenge_details": [
+            "Owner wanted technology as differentiator; needed advisor to do things not done before and build solutions not yet created.",
+            "Tight timeline due to hosted major golf tournaments; golf course and hotel readiness dates were fixed."
           ]
         }
       },
-      "how_fmp_works": {
-        "concept": "Electricity split into small, safe energy packets, analogous to data packets; sent transmitter\u2192receiver over a network.",
-        "safety": "Packets monitored; system stops sending on unsafe conditions.",
-        "code": "Class 4 adopted by NEC in 2023; supported by new UL and ATIS standards (as stated)."
+      "solution": {
+        "components": [
+          "Belden project management/solutions/technical team with weekly owner meetings; expedited fiber delivery (weeks vs months).",
+          "Back- and front-of-house lighting, communications, and IoT control powered by VoltServer Digital Electricity + Belden FMPS cables (Class 4) to deliver power quickly over long distances to guestrooms.",
+          "Singlemode fiber backbone + fiber-based optical LAN to reduce network complexity/cost and eliminate distance restrictions; supports higher connectivity density/bandwidth/speeds.",
+          "Extensive copper cabling and REVConnect system for direct-connect/MPTL topology (600,000 ft cited) plus racks/cabinets for onsite data center."
+        ]
       },
-      "three_transformations": [
-        {
-          "name": "Sustainability and efficiency",
-          "claims": [
-            "Optimize space and reduce materials; increase density; example: 18:1 cable reduction vs traditional 48VDC delivery.",
-            "U.S. data center power consumption projection cited (35GW by 2030 vs 17GW in 2022)."
-          ]
-        },
-        {
-          "name": "Safer, more efficient high-voltage DC",
-          "claims": [
-            "All-DC reduces conversion losses (up to ~20% loss in conversions stated); FMP supports safe HVDC distribution and reduces protective steel/gear (busway/breakers/PDUs) by using trays and intelligence.",
-            "All-DC efficiency improvement >5% claim plus higher availability via centralized backup/UPS model."
-          ]
-        },
-        {
-          "name": "Scalability and maintainability (MACs)",
-          "claims": [
-            "Scale-on-demand modular buildout; easy to add capacity by running another cable in the tray; converged power+data means fewer trade dependencies."
-          ]
-        }
-      ],
-      "partner_positioning": [
-        "Belden designed FMPS cables to support Digital Electricity and is stated as first cables designed and UL listed for Class 4 cabling."
-      ]
+      "results": {
+        "highlights": [
+          "Phase 1 opened as planned in 2024; broader project completion targeted by 2029.",
+          "Technology positioned as differentiator; roadmap includes potential RFID tracking, expanded surveillance use, property-wide 5G."
+        ]
+      },
+      "rights_and_legal": {
+        "notice_summary": "Belden and affiliates reserve rights to graphics/text/trademarks and restrict reprinting/display without permission. # :contentReference[oaicite:128]{index=128}"
+      }
     }
   }
 ]
