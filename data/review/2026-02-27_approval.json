@@ -1,0 +1,30 @@
+{
+  "date": "2026-02-27",
+  "generated_at": "2026-02-27T12:39:21",
+  "instructions": "Move candidate IDs from pending_candidate_ids to approved_candidate_ids to publish them. Move unwanted IDs to rejected_candidate_ids (or leave in pending \u2014 they will not be published either way).",
+  "pending_candidate_ids": [
+    
+  ],
+  "approved_candidate_ids": ["d7ef710cf3ef",
+    "d305007f8bff",
+    "218f39c61f65",
+    "b2328b04a1d5",
+    "c1628ed1c51f",
+    "8cc18d92ba81",
+    "8f96bcab6de0",
+    "28e71e733e26",
+    "4349ef28aa7c",
+    "ffb4c08b7b22",
+    "8a43aacd85c2",
+    "94ed7decb1ee",
+    "dfaaf148b38b",
+    "5cde2096e27b",
+    "0e56f3cc7e50",
+    "ca3499de7fa4",
+    "afff231060a5",
+    "08fd2deca579",
+    "026870e46ffe",
+    "9f758cdd5036",
+    "1ea1bfa83d2d"],
+  "rejected_candidate_ids": []
+}

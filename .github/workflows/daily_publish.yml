@@ -1,0 +1,77 @@
+name: Daily Publish (Phase 2)
+
+# Phase 2 is ALWAYS manual — James triggers this after approving candidates.
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Override date (YYYY-MM-DD). Leave blank for today.'
+        required: false
+        default: ''
+      branch:
+        description: 'Source branch containing approval.json (e.g. daily-generate-20260227)'
+        required: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Phase 2: read approval.json → publish approved → render pages
+      - name: Run Phase 2 publish
+        env:
+          DATE_OVERRIDE: ${{ github.event.inputs.date }}
+        run: |
+          cd scripts
+          if [ -n "$DATE_OVERRIDE" ]; then
+            python3 run.py publish --date "$DATE_OVERRIDE"
+          else
+            python3 run.py publish
+          fi
+
+      # Commit rendered pages and open PR
+      - name: Commit and open PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name  "FMP Bot"
+          git config user.email "bot@faultmanagedpower.org"
+
+          # Stage rendered content and updated items list
+          git add content/pulse data/pulse/items.json
+
+          # Also update insight registry if it changed
+          git add data/review || true
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit — nothing was approved"
+            exit 0
+          fi
+
+          DATE="${{ github.event.inputs.date }}"
+          if [ -z "$DATE" ]; then
+            DATE=$(date +%Y-%m-%d)
+          fi
+
+          git commit -m "Publish approved — $DATE"
+          git push origin HEAD
+
+          # Open PR from this branch → main
+          gh pr create \
+            --title "Publish approved — $DATE" \
+            --body "$(cd scripts && python3 run.py open_daily_pr 2>&1 || echo 'See branch for changes.')" \
+            --base main \
+            --head "${{ github.event.inputs.branch }}" \
+            || echo "PR may already exist or branch is main"

@@ -1,0 +1,74 @@
+name: Daily Generate (Phase 1)
+
+on:
+  schedule:
+    - cron: '0 9 * * *'   # 9 AM UTC daily
+  workflow_dispatch:        # Manual trigger for testing
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history so gh CLI can push branches
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Phase 1a: intake → extract → candidates → insights (no email yet)
+      - name: Run Phase 1 generate
+        env:
+          SERP_API_KEY:      ${{ secrets.SERP_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          cd scripts
+          python3 run.py intake
+          python3 run.py extract
+          python3 run.py candidates
+          python3 run.py insights
+          python3 run.py social_drafts
+
+      # Phase 1b: push branch BEFORE sending email so links resolve
+      - name: Push review branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name  "FMP Bot"
+          git config user.email "bot@faultmanagedpower.org"
+
+          BRANCH="daily-generate-$(date +%Y%m%d)"
+          echo "REVIEW_BRANCH=$BRANCH" >> $GITHUB_ENV
+
+          git checkout -b "$BRANCH"
+
+          # Stage review files, insight drafts, and data artifacts
+          git add data/review data/pulse/extracted data/insights data/social
+          git add content/insights || true
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit — skipping push"
+            echo "REVIEW_BRANCH=" >> $GITHUB_ENV
+            exit 0
+          fi
+
+          git commit -m "Generate — $(date +%Y-%m-%d) [review pending]"
+          git push origin "$BRANCH"
+          echo "Branch pushed: $BRANCH"
+
+      # Phase 1c: send email now that branch exists on GitHub
+      - name: Send review email
+        if: env.REVIEW_BRANCH != ''
+        env:
+          RESEND_API_KEY:  ${{ secrets.RESEND_API_KEY }}
+          REVIEW_EMAIL_TO: ${{ secrets.REVIEW_EMAIL_TO }}
+          GITHUB_REPO:     ${{ github.repository }}
+          GITHUB_BRANCH:   ${{ env.REVIEW_BRANCH }}
+        run: |
+          cd scripts
+          python3 run.py send_review_email

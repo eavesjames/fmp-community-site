@@ -1,0 +1,122 @@
+# Article type requirements for grounded writing.
+# These rules are enforced by scripts/lib/knowledge.py at retrieval time.
+# Violation of any rule produces a named error code that blocks generation.
+
+article_types:
+
+  overview:
+    description: "Top-of-funnel explainer (e.g. What Is FMP?, Start Here)"
+    min_blocks: 8
+    required_tag_categories:
+      - definition     # What the technology is
+      - architecture   # How the system is structured
+      - safety         # How faults are handled
+      - fit            # Where it is and isn't useful
+    failure_codes:
+      below_min_blocks: CITATION_FLOOR_NOT_MET
+      missing_category: MISSING_REQUIRED_CATEGORY
+      insufficient_retrieval: INSUFFICIENT_KNOWLEDGE_CONTEXT
+
+  installation-guide:
+    description: "Contractor-facing how-to (e.g. How FMP Is Installed)"
+    min_blocks: 5
+    required_tag_categories:
+      - installation
+      - technical-specs
+      - compliance
+    failure_codes:
+      below_min_blocks: CITATION_FLOOR_NOT_MET
+      missing_category: MISSING_REQUIRED_CATEGORY
+      insufficient_retrieval: INSUFFICIENT_KNOWLEDGE_CONTEXT
+
+  compliance-guide:
+    description: "AHJ and permit guidance (e.g. NEC Class 4 / Article 726)"
+    min_blocks: 4
+    required_tag_categories:
+      - compliance
+      - code
+      - installation
+    failure_codes:
+      below_min_blocks: CITATION_FLOOR_NOT_MET
+      missing_category: MISSING_REQUIRED_CATEGORY
+      insufficient_retrieval: INSUFFICIENT_KNOWLEDGE_CONTEXT
+
+  case-study:
+    description: "Project or deployment example with economics"
+    min_blocks: 3
+    required_tag_categories: []     # At least one of: heatpumps, data-centers, edge, industrial
+    required_one_of_tags:
+      - heatpumps
+      - data-centers
+      - edge
+      - industrial
+      - buildings-old
+    required_economic_block: true   # Must cite at least one cost/roi block
+    failure_codes:
+      below_min_blocks: CITATION_FLOOR_NOT_MET
+      missing_vertical: MISSING_VERTICAL_TAG
+      missing_economics: MISSING_ECONOMIC_BLOCK
+      insufficient_retrieval: INSUFFICIENT_KNOWLEDGE_CONTEXT
+
+  market-analysis:
+    description: "Vertical or use-case market framing"
+    min_blocks: 4
+    required_tag_categories:
+      - fit
+      - roi
+    failure_codes:
+      below_min_blocks: CITATION_FLOOR_NOT_MET
+      missing_category: MISSING_REQUIRED_CATEGORY
+      insufficient_retrieval: INSUFFICIENT_KNOWLEDGE_CONTEXT
+
+  estimating-guide:
+    description: "Pre-bid and scoping guidance (e.g. Scoping and Estimating)"
+    min_blocks: 4
+    required_tag_categories:
+      - estimating
+      - installation
+    failure_codes:
+      below_min_blocks: CITATION_FLOOR_NOT_MET
+      missing_category: MISSING_REQUIRED_CATEGORY
+      insufficient_retrieval: INSUFFICIENT_KNOWLEDGE_CONTEXT
+
+# Claim taxonomy: defines what counts as a FACTUAL claim (must be cited)
+# versus SYNTHESIS (may be uncited). The validator uses this to decide
+# whether to flag a line.
+
+claim_taxonomy:
+
+  factual_claim_indicators:
+    description: "Lines containing these patterns MUST have a [BLOCK_ID] citation or [ESTIMATE] label"
+    patterns:
+      - "dollar amounts (e.g. $20,000, $500–600)"
+      - "percentages (e.g. 95% reduction, 32.9% savings)"
+      - "technical specs (kW, MW, AWG, ft, m, V, ms)"
+      - "timeline claims (e.g. 18–24 months, 2 years)"
+      - "code article references (Article 726, Class 4, NEC)"
+      - "product capability claims (e.g. 1,000+ installations)"
+      - "named standards (UL 1400-1, AFCOM 2025)"
+      - "cancellation/failure rates"
+
+  synthesis_indicators:
+    description: "Lines with these patterns do NOT require citation"
+    patterns:
+      - "blockquotes starting with > **Synthesis:**"
+      - "lines starting with 'The implication is'"
+      - "lines starting with 'Here's why'"
+      - "analogies introduced with 'Think of it as'"
+      - "strategic framing: 'The question to ask is not...'"
+      - "hypotheses labeled [HYPOTHESIS]"
+      - "editorial section headers"
+
+# Knowledge gap handling
+# When required blocks are missing, agents must declare this explicitly.
+
+gap_handling:
+  required_declaration: |
+    If a required category has no retrieved blocks, the agent MUST write:
+    [KNOWLEDGE_GAP: category_name — no YAML block covers this topic.
+    Do not invent facts. State that documentation is incomplete.]
+  examples:
+    - "[KNOWLEDGE_GAP: compliance — no YAML block covers AHJ documentation checklist]"
+    - "[KNOWLEDGE_GAP: cost-analysis — no YAML block covers this vertical's economics]"
