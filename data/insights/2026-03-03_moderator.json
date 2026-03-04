@@ -1,0 +1,275 @@
+{
+  "agent": "moderator_synthesis",
+  "run_date": "2026-03-03",
+  "coverage_notes": {
+    "observed_skews": [
+      "7 of 10 Pulse items are data-center vertical; composite insights risk over-indexing on AI density themes at expense of edge-power-ups and building-electrification depth",
+      "Building-electrification coverage is single-item (item 38); all five analysts converge on the same California heat pump operating-cost barrier without surfacing utility-side or demand-response second-order effects",
+      "Edge-power-ups has two items (36, 55) covering Class 4 code education and PoE consolidation; no items on actual fault-managed power deployments in production, leaving Class 4 adoption hypotheses untestable from current corpus",
+      "UPS themes appear in four separate items (49, 57, 55, 53) but are fragmented across battery aging, step-load dynamics, and PoE switch UPS\u2014analysts treated these as separate constraints rather than a unified UPS failure-mode landscape",
+      "DC power distribution (item 47) is cited by all analysts but no item provides connector standards, voltage-level comparisons, or safety incident data; DC analysis rests on a single vendor-perspective article with thin evidence"
+    ],
+    "suggested_query_adjustments": [
+      "Add at least 2 building-electrification items covering utility feeder upgrade planning, demand-response program design, or TOU rate reform to enable operating-cost analysis beyond item 38",
+      "Add 1-2 edge-power-ups items documenting Class 4 permit approvals, AHJ acceptance rates, or fault-managed power field deployments to ground adoption-rate hypotheses",
+      "Add 1 item on DC power distribution voltage standards, connector ecosystems, or safety incident data to reduce reliance on single vendor-perspective article (item 47)",
+      "Add items on liquid cooling supply chain lead times and field deployment case studies to substantiate retrofit feasibility hypotheses across multiple analysts",
+      "Seek items covering UPS step-load commissioning test results or bypass-transfer frequency data from production AI facilities to validate item 49 failure-mode claims"
+    ]
+  },
+  "composite_insights": [
+    {
+      "insight_id": "INS-001",
+      "insight": "AI data centers face a compounding infrastructure failure cascade that cannot be resolved by upgrading individual components: megawatt-scale rack density (items 53, 45) forces liquid cooling, which requires power pathway redesign, which exposes legacy UPS control loops to step-load failure (item 49), which in turn accelerates VRLA battery aging through higher ambient temps and cycling frequency (item 57). Each failure mode is individually documented but the interdependence means partial retrofits\u2014replacing only UPS batteries, or only PDUs, or only cooling\u2014leave the next bottleneck intact. Facilities that attempt incremental upgrades will experience a sequence of distinct-looking outages that are actually one systemic problem. The retrofit break-even point against greenfield new-build likely lies between 18\u201324 months of deferred AI customer revenue, but no published cost model exists.",
+      "why_it_is_new": "Individual analysts correctly identified each failure mode (mep_system_designer on UPS/cooling interdependence; installer_electrical_contractor on retrofit bid risk; owner_operator_facilities on operational debt accumulation), but none explicitly modeled the cascade sequence or identified that partial upgrades systematically fail because they address leaf nodes rather than root architectural mismatch. This insight reframes the retrofit decision from 'which component to upgrade first' to 'is the retrofit strategy itself viable'.",
+      "new_perspective_from_disagreement": "finance_roi_skeptic framed the retrofit question as a sunk-cost write-off decision, while mep_system_designer framed it as a phased engineering problem. The disagreement reveals that the financial model and the engineering model produce opposite recommendations: engineering says phase the upgrade, finance says the phasing creates compounding CapEx with no intermediate revenue benefit. The synthesis is that retrofit is only viable if a facility can isolate a discrete zone for full re-core (cooling + power + UPS simultaneously) while maintaining live operations in adjacent zones\u2014a capability that depends on physical plant layout, not just budget.",
+      "who_cares": [
+        "facilities-manager",
+        "colocation-operator",
+        "data-center-owner"
+      ],
+      "which_verticals": [
+        "data-centers"
+      ],
+      "levers": [
+        "cooling_architecture_decision",
+        "modular_power_architecture",
+        "ups_sizing_methodology",
+        "staged_capacity_planning"
+      ],
+      "supporting_items": [
+        "53",
+        "45",
+        "49",
+        "57",
+        "43",
+        "51"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposes: engineering phased-upgrade logic vs. financial sunk-cost write-off logic produce opposite retrofit decisions; no published break-even model exists to adjudicate",
+        "Exposes: item 43 documents legacy facilities deferring intelligent PDU upgrades, but the deferred PDU is downstream of the cooling constraint\u2014buying the PDU without resolving cooling first produces a stranded monitoring asset",
+        "Resolves: why multiple analysts independently found 'cooling is the bottleneck'\u2014it is the first constraint in the cascade, so every other upgrade attempt terminates there"
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-002",
+      "insight": "UPS systems in AI data centers face two simultaneous and interacting failure modes that current commissioning practice treats as separate problems: (1) step-load dynamic failure\u2014GPU cluster ramps exceed UPS control-loop bandwidth, causing voltage excursions and nuisance bypass transfers (item 49); and (2) accelerated VRLA aging\u2014higher ambient temps and short autonomy windows increase cycling frequency, driving float current creep and runtime drift (item 57). These interact because a UPS operating in degraded battery condition has reduced ability to absorb step-load transients, making voltage excursions more likely precisely when the battery is weakest. Current commissioning protocols address neither interaction: nameplate kVA ratings do not capture dynamic response, and calendar replacement schedules do not detect degraded step-load capacity. Facilities need a unified commissioning test that applies a representative AI step-load profile to a battery at known state-of-health, not two independent tests.",
+      "why_it_is_new": "All five analysts noted items 49 and 57 as separate constraints. No analyst explicitly modeled the interaction: that battery degradation (item 57) worsens the step-load failure mode (item 49), creating a compounding risk that grows invisibly between commissioning and the next calendar replacement. The unified commissioning test concept\u2014combining dynamic load profiling with battery state-of-health measurement\u2014does not appear in any analyst output.",
+      "new_perspective_from_disagreement": "compliance_ahj analyst focused on inspection documentation gaps (load-step test procedures, voltage envelope criteria) while mep_system_designer focused on monitoring instrumentation (float current trending, impedance measurement). The disagreement between 'prove it to the AHJ' and 'detect it before it fails' reveals that neither approach alone is sufficient: facilities need both a pre-commissioning witness test and ongoing telemetry, and these must be designed as a system, not added independently. The AHJ-facing test provides baseline; the telemetry detects when the system has drifted below the baseline threshold.",
+      "who_cares": [
+        "facilities-manager",
+        "data-center-owner",
+        "commissioning-engineer",
+        "ahj-inspector"
+      ],
+      "which_verticals": [
+        "data-centers"
+      ],
+      "levers": [
+        "battery_chemistry_selection",
+        "monitoring_instrumentation_scope",
+        "commissioning_test_protocol",
+        "ups_sizing_methodology"
+      ],
+      "supporting_items": [
+        "49",
+        "57",
+        "51"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Resolves: why condition-based monitoring alone (item 57 recommendation) is insufficient\u2014it detects aging but not the interaction with step-load response degradation",
+        "Exposes: current UPS procurement specs (kVA, autonomy time) do not capture either failure mode; vendors have no standard format for reporting step-load recovery time at varying battery state-of-health",
+        "Exposes: AHJ acceptance of UPS systems based on UL listing does not verify performance under AI workload profiles, creating an inspection gap that will produce post-occupancy failures"
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-003",
+      "insight": "The NEC Class 4 code pathway (item 36) and California heat pump permitting streamlining (item 38) are structurally similar policy instruments\u2014both establish formal approval pathways\u2014and both will fail to drive adoption for the same underlying reason: the bottleneck is not code clarity or permitting speed but field-execution readiness. For Class 4, the gap is AHJ inspection protocol and contractor certification. For heat pump retrofits, the gap is operating-cost economics that permitting streamlining cannot address. In both cases, policy moves the supply-side (permitting authority, code recognition) while leaving the demand-side barrier (economic viability, inspector confidence) unresolved. Practitioners who treat these as 'code is clear, adoption will follow' will systematically over-forecast deployment velocity in both verticals.",
+      "why_it_is_new": "No single analyst drew the structural parallel between item 36 and item 38 as instances of the same policy failure mode. mep_system_designer identified both barriers independently; compliance_ahj focused on inspection documentation for Class 4 and permit rework for heat pumps but did not synthesize them. The parallel reveals a pattern applicable to other emerging code pathways (DC distribution, liquid cooling electrical integration) where code adoption and market adoption are decoupled by field-execution barriers that policy cannot directly address.",
+      "new_perspective_from_disagreement": "finance_roi_skeptic argued that Class 4 adoption is gated by installer certification cost and AHJ training timelines, while compliance_ahj argued it is gated by commissioning documentation gaps. The disagreement exposes that both barriers exist at different stages of the same project lifecycle: documentation gaps cause permit delays at submission stage; certification gaps cause installation errors and post-inspection failures. The synthesis is that adoption velocity requires solving both simultaneously, not sequentially, because a documented but incorrectly installed Class 4 system will generate field failures that set back AHJ confidence industry-wide.",
+      "who_cares": [
+        "electrical-contractor",
+        "ahj-inspector",
+        "building-owner",
+        "policy-maker"
+      ],
+      "which_verticals": [
+        "edge-power-ups",
+        "building-electrification"
+      ],
+      "levers": [
+        "inspector_education_programs",
+        "nec_adoption_timeline",
+        "early_adopter_documentation_burden",
+        "incentive_structure_design",
+        "rate_reform_dependency"
+      ],
+      "supporting_items": [
+        "36",
+        "38"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Resolves: why permitting streamlining (item 38) and NEC Class 4 recognition (item 36) will not independently accelerate deployment\u2014both are necessary but not sufficient conditions",
+        "Exposes: the policy instruments available to state legislatures (permitting speed, code adoption) operate on a different timescale and mechanism than the field-execution barriers (inspector training, operating-cost economics) that actually gate adoption",
+        "Exposes: early field failures in Class 4 installations\u2014caused by installer unfamiliarity\u2014could generate AHJ backlash that delays adoption beyond the natural learning curve, creating a non-linear adoption risk not captured by any analyst's linear adoption hypothesis"
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-004",
+      "insight": "PoE centralization for edge OT devices (item 55) and DC power distribution for high-density data center racks (item 47) represent the same architectural bet at different scales: both shift power delivery from device-local or rack-local AC to centralized higher-voltage DC distribution, capturing installation simplicity and efficiency gains while creating new single-point failure topologies and operational skill gaps. The risks are structurally identical\u2014centralized UPS dependency, non-standard connector ecosystems, technician unfamiliarity with DC safety\u2014but the failure consequence and redundancy cost differ by three orders of magnitude. This structural similarity means that PoE edge deployments can serve as an observable leading indicator for DC data center adoption: the failure modes, redundancy design patterns, and AHJ acceptance timelines that emerge in PoE-at-scale edge deployments (item 55: 200+ devices) will preview the problems DC data center deployments will encounter at megawatt scale (items 47, 53). Practitioners who monitor PoE operational data today will have a 12\u201318 month head start on DC data center design decisions.",
+      "why_it_is_new": "No analyst connected item 55 to items 47 and 53 as instances of the same architectural pattern. installer_electrical_contractor and owner_operator_facilities identified PoE centralization risks independently; mep_system_designer and finance_roi_skeptic identified DC distribution risks independently. The cross-scale structural parallel\u2014and its use as a leading indicator\u2014is a genuinely novel synthesis not present in any individual output.",
+      "new_perspective_from_disagreement": "owner_operator_facilities emphasized that PoE at 200+ devices generates alert noise and OT safety risks from remote power cycling, while mep_system_designer emphasized that PoE's redundancy cost becomes favorable at 8\u201312 devices. The disagreement reveals a scale-dependency in the centralization argument that maps directly onto the DC data center debate: DC distribution is economically favorable at hyperscale (thousands of racks) but operationally fragile and expensive to make resilient at mid-market colocation scale (100\u2013500 racks). The PoE scale-dependency data, if collected systematically, would allow quantitative prediction of the DC distribution break-even point in data centers.",
+      "who_cares": [
+        "facilities-manager",
+        "data-center-owner",
+        "ot-integrator",
+        "electrical-contractor"
+      ],
+      "which_verticals": [
+        "edge-power-ups",
+        "data-centers"
+      ],
+      "levers": [
+        "redundancy_topology",
+        "dc_infrastructure_vendor_selection",
+        "monitoring_platform_compatibility",
+        "training_and_certification_scope"
+      ],
+      "supporting_items": [
+        "55",
+        "47",
+        "53",
+        "51"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposes: the DC distribution debate (item 47) lacks operational data because hyperscale DC deployments are too new; PoE edge deployments (item 55) are more mature and structurally analogous, providing a near-term data source",
+        "Resolves: why both PoE and DC distribution face AHJ resistance\u2014both are novel centralized DC topologies for which inspection protocols, fault-tree documentation, and runtime verification procedures do not yet exist in standard AHJ practice",
+        "Exposes: the failure to connect PoE and DC distribution as the same architectural pattern means practitioners are solving the same problems twice, in different verticals, without transferring lessons"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "ranked_original_angles": [
+    {
+      "rank": 1,
+      "working_title": "The AI Infrastructure Cascade: Why Partial Data Center Retrofits Fail and What a Viable Upgrade Strategy Requires",
+      "thesis": "Facilities attempting to upgrade legacy data centers for AI workloads by replacing individual infrastructure components\u2014cooling, PDUs, UPS, or monitoring\u2014will systematically encounter the next bottleneck in the cascade because the failure modes are interdependent: megawatt-scale rack density requires liquid cooling, which requires power pathway redesign, which exposes UPS control loops to step-load failure, which is compounded by accelerated battery aging. No single upgrade resolves the systemic mismatch. The only viable retrofit strategy is a zone-by-zone full re-core (cooling + power distribution + UPS simultaneously in an isolated physical zone), and the only alternative is accepting density limits that will cost 40\u201360% of new AI customer pipeline within 18 months. This article provides the first published framework for evaluating retrofit viability versus greenfield exit.",
+      "outline": [
+        "H1: Map the cascade \u2014 document the interdependency sequence: rack density (items 45, 51) \u2192 cooling constraint (item 53) \u2192 power pathway saturation (item 43) \u2192 UPS step-load failure (item 49) \u2192 battery aging acceleration (item 57); show why each component upgrade fails without the others",
+        "H2: The partial upgrade trap \u2014 case analysis of three failure scenarios: (a) new PDU without cooling upgrade produces stranded monitoring asset; (b) new UPS without battery telemetry produces runtime drift within 18 months; (c) liquid cooling without power pathway redesign leaves distribution bottleneck intact",
+        "H3: Zone re-core as viable retrofit \u2014 define the physical and operational conditions under which isolated zone full re-core is executable: floor load capacity, power feed isolation, tenant migration windows, commissioning sequencing; identify facility types where this is structurally impossible",
+        "H4: Greenfield break-even model \u2014 framework for calculating when deferred AI customer revenue loss exceeds retrofit CapEx; identify the 18\u201324 month threshold suggested by market data (item 51: 60% of large deals AI-driven) and cost assumptions from items 43 and 53"
+      ],
+      "must_cite_items": [
+        "45",
+        "51",
+        "49",
+        "57",
+        "43",
+        "53",
+        "47"
+      ],
+      "missing_evidence_to_find": [
+        "Published or operator-disclosed retrofit cost per kW for legacy-to-30kW-density upgrades, broken down by component (cooling, power, UPS) to validate cascade cost model",
+        "Timeline data for zone re-core projects in live colocation environments: how long, what customer impact, what cost overrun rate",
+        "Revenue loss data from colocation operators that declined AI density customers due to infrastructure limits; deal-size distribution and customer migration destination",
+        "UPS bypass transfer frequency data from production AI facilities with legacy UPS systems to validate item 49 failure-mode prevalence claims"
+      ],
+      "recommended_owner_questions": [
+        "Do you have internal data on the sequence in which infrastructure failures present when a legacy facility attempts AI densification\u2014does cooling always fail first, or does it depend on starting density?",
+        "Have you observed colocation operators successfully executing zone re-core (full cooling + power + UPS upgrade in isolated zone) while maintaining adjacent zone operations? What were the enabling physical conditions?",
+        "What revenue loss metrics are colocation operators using internally to justify retrofit CapEx versus customer density refusal? Is there a published or disclosed IRR threshold?"
+      ]
+    },
+    {
+      "rank": 2,
+      "working_title": "The Unified UPS Commissioning Standard AI Data Centers Do Not Have: Combining Step-Load Dynamic Testing with Battery State-of-Health Verification",
+      "thesis": "Current UPS commissioning practice in data centers uses two independent and inadequate tests: static kVA load testing (which does not reproduce AI GPU cluster step-load dynamics) and calendar-based battery replacement (which does not detect state-of-health degradation between replacements). Because battery degradation reduces step-load response capacity, the two failure modes interact: a facility with aging VRLA batteries operating under AI workloads is at compounding risk of voltage excursions and bypass transfer at precisely the moment battery capacity is most degraded. No published commissioning standard addresses this interaction. This article proposes a unified commissioning test protocol\u2014AI workload step-load profiling applied at known battery state-of-health\u2014and defines the acceptance criteria that would satisfy both facility operators and AHJ inspection requirements.",
+      "outline": [
+        "H1: Document the two failure modes and their interaction \u2014 step-load voltage excursions (item 49: GPU clusters, 30\u201380kW ramps) and VRLA aging acceleration (item 57: higher temps, 5\u201315 min autonomy windows, float current creep); show the interaction: degraded battery reduces DC bus stiffness, amplifying voltage sag during step loads",
+        "H2: Why current commissioning fails \u2014 nameplate kVA testing does not capture dV/dt; calendar replacement does not capture state-of-health; AHJ inspection based on UL listing does not verify either dynamic mode; item 49 evidence on nuisance bypass transfers suggests the failure is already occurring in production",
+        "H3: Proposed unified test protocol \u2014 define test sequence: (1) baseline impedance measurement at commissioning; (2) step-load profile derived from expected GPU cluster ramp rate (50%\u2192100% in <500ms); (3) voltage envelope acceptance criteria (\u00b13% per NEC 110.3); (4) re-test trigger: float current drift >X% from baseline triggers repeat step-load test before next calendar interval",
+        "H4: AHJ and operator adoption path \u2014 how to incorporate unified test into commissioning documentation package; model language for RFQ specifications; how AHJ can verify results without real-time witness testing of AI workloads"
+      ],
+      "must_cite_items": [
+        "49",
+        "57",
+        "51",
+        "45",
+        "43"
+      ],
+      "missing_evidence_to_find": [
+        "Measured dV/dt and voltage deviation magnitude data from GPU cluster ramp events in production AI facilities\u2014needed to define realistic step-load test profile parameters",
+        "Float current trend data from monitored VRLA batteries in high-ambient data centers, correlated with battery age and ambient temp, to define the drift threshold that should trigger re-testing",
+        "Any existing commissioning standards (IEEE 1184, BICSI, Uptime Institute) that address step-load testing or battery state-of-health interaction\u2014to identify what the proposed protocol would extend or replace",
+        "AHJ survey data: what UPS documentation do inspectors currently accept in data center jurisdictions, and would they accept commissioning test results in lieu of manufacturer specification review?"
+      ],
+      "recommended_owner_questions": [
+        "Do any of your data center operator contacts currently perform step-load commissioning tests with GPU-representative ramp profiles, and if so, what test equipment and acceptance criteria are they using?",
+        "Have you seen UPS vendors publish dynamic response specifications (step-load recovery time, dV/dt tolerance) that could serve as the basis for a procurement standard? Which vendors and what format?",
+        "Are there documented cases where a facility identified UPS bypass transfer frequency as an ongoing operational metric, and used it as a trigger for battery replacement or UPS re-selection?"
+      ]
+    },
+    {
+      "rank": 3,
+      "working_title": "Code Pathways and Field Execution: Why Class 4 Fault-Managed Power and Heat Pump Permitting Will Both Underdeliver\u2014and What the Pattern Predicts for DC Distribution",
+      "thesis": "NEC Class 4 recognition (item 36) and California heat pump permitting streamlining (item 38) are both supply-side policy instruments that establish formal approval pathways without resolving the demand-side barriers that actually gate deployment: operating-cost economics for heat pumps and inspector/contractor readiness for Class 4. Both will underdeliver adoption relative to policy targets for structurally identical reasons. This pattern\u2014code or policy clarity without field-execution readiness\u2014is now emerging in DC power distribution for data centers (item 47), where no NEC prescriptive pathway exists and AHJ approval is undefined. Practitioners can use the Class 4 and heat pump cases as a predictive model for DC distribution adoption velocity, and begin addressing field-execution barriers for DC now rather than after code adoption.",
+      "outline": [
+        "H1: Establish the pattern \u2014 Class 4 (item 36): code exists, field readiness does not; heat pumps (item 38): permitting streamlined, economics do not support adoption; both cases show supply-side policy action without demand-side barrier resolution",
+        "H2: Measure the adoption lag \u2014 estimate adoption velocity for Class 4 given AHJ training timelines and contractor certification absence; estimate heat pump adoption velocity given operating-cost payback gap at current CA rates; show both will miss stated targets by 2\u20134 years",
+        "H3: Apply the pattern to DC distribution \u2014 item 47 describes efficiency case for DC but no NEC prescriptive pathway, no UL system listing standard, no AHJ inspection protocol; predict adoption lag using Class 4 and heat pump as calibration cases; identify which field-execution barriers to address first",
+        "H4: Intervention recommendations \u2014 for Class 4: commissioning documentation package and AHJ pre-submission protocol; for heat pumps: operating-cost calculator tools and TOU rate advocacy; for DC distribution: proactive UL system listing engagement, model NEC compliance narrative, AHJ pre-submission before code adoption"
+      ],
+      "must_cite_items": [
+        "36",
+        "38",
+        "47",
+        "53",
+        "45"
+      ],
+      "missing_evidence_to_find": [
+        "Permit approval timeline data for Class 4 projects filed after NEC adoption\u2014needed to establish empirical adoption lag baseline for the pattern",
+        "California heat pump retrofit permit data for 2025\u20132026: approval rates, rework cycles, and time-to-completion stratified by AHJ jurisdiction to measure actual permitting-streamlining impact",
+        "AHJ survey on DC power distribution approval experience: have any colocation or hyperscale DC retrofit projects been submitted? What documentation was requested? Were permits approved or deferred?",
+        "NEC technical committee roadmap for DC distribution in premises wiring\u2014is a prescriptive Article being developed, and what is the adoption timeline?"
+      ],
+      "recommended_owner_questions": [
+        "Do you have access to permit filing and approval data for Class 4 projects in California, Texas, or Virginia\u2014high-volume markets where early adoption data would be most meaningful for calibrating the adoption lag model?",
+        "Are any of your data center operator contacts engaging with UL or NFPA on system-level listing for DC distribution equipment? What is the timeline and what documentation gaps are blocking listing applications?",
+        "Has any California AHJ published a heat pump retrofit load-calculation template or pre-approved scenario library? If so, does it correlate with faster permit approval rates in that jurisdiction versus AHJs without templates?"
+      ]
+    }
+  ],
+  "tomorrow_search_briefs": [
+    {
+      "goal": "Quantify the actual retrofit cost and timeline for upgrading legacy data centers to 30+ kW per rack AI density, broken down by infrastructure component, to test the cascade failure model and greenfield break-even hypothesis",
+      "queries": [
+        "data center retrofit cost per kW AI density upgrade colocation 2024 2025 case study",
+        "legacy data center liquid cooling retrofit timeline capital expenditure per rack hyperscale colocation",
+        "data center zone re-core upgrade cost breakdown cooling power distribution UPS simultaneous greenfield comparison"
+      ],
+      "why_this_will_improve_insights": "INS-001 and ranked article #1 both rest on the claim that partial retrofits fail and full zone re-core is the only viable strategy, but no published cost or timeline data exists in the current Pulse corpus. Finding even one operator-disclosed or analyst-estimated retrofit cost breakdown (by cooling, power, UPS components) would allow quantification of the cascade cost model and the greenfield break-even threshold, converting a high-confidence qualitative insight into a practitioner-usable financial framework."
+    },
+    {
+      "goal": "Establish empirical baseline for UPS step-load performance under AI GPU cluster ramp profiles and VRLA battery state-of-health interaction, to validate INS-002 and provide the test parameter inputs needed for the proposed unified commissioning protocol",
+      "queries": [
+        "UPS voltage excursion bypass transfer frequency GPU cluster AI workload production data center measured",
+        "VRLA battery state of health degradation float current drift high temperature AI data center monitoring telemetry",
+        "UPS step load commissioning test protocol dV/dt acceptance criteria AI data center 2024 2025"
+      ],
+      "why_this_will_improve_insights": "Items 49 and 57 assert failure modes but provide no measured waveform data, bypass transfer frequencies, or float current trend curves from production deployments. Without these parameters, the unified commissioning test protocol proposed in ranked article #2 cannot define realistic test profiles or acceptance thresholds. Finding any published or disclosed measurement dataset\u2014even from a single facility\u2014would allow the protocol to move from conceptual to prescriptive."
+    },
+    {
+      "goal": "Measure actual Class 4 permit approval timelines and AHJ acceptance patterns post-NEC adoption, and compare with California heat pump retrofit permit rework rates, to calibrate the policy-to-field-adoption lag model used in INS-003 and ranked article #3",
+      "queries": [
+        "NEC Class 4 fault managed power permit approval timeline AHJ inspection 2025 2026 case study",
+        "California heat pump retrofit permit rework rate second submission load calculation AHJ 2025",
+        "DC power distribution data center NEC compliance pathway AHJ approval permit 48V 380V 2025"
+      ],
+      "why_this_will_improve_insights": "INS-003 and ranked article #3 propose a predictive model using Class 4 and heat pump as calibration cases for DC distribution adoption lag, but the current corpus contains no empirical permit approval data for any of the three pathways. Finding permit timeline data for Class 4 or heat pump retrofits in at least one high-volume jurisdiction (California, Texas, or Virginia) would allow quantification of the adoption lag estimate and make the DC distribution prediction falsifiable rather than speculative."
+    }
+  ]
+}

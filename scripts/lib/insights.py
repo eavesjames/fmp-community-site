@@ -26,7 +26,7 @@ def _slim_items(items):
     """Minimal item representation for prompts — keeps token count down."""
     return [
         {
-            "id": item["id"],
+            "id": item.get("id") or item.get("candidate_id"),
             "title": item["title"],
             "vertical": item.get("vertical"),
             "so_what": item.get("so_what"),
@@ -301,7 +301,7 @@ def run_insights(new_items=None):
         angles = moderator_output.get("ranked_original_angles", [])
         if angles:
             # Build id → item lookup for must-cite resolution
-            items_by_id = {item["id"]: item for item in new_items if "id" in item}
+            items_by_id = {(item.get("id") or item.get("candidate_id")): item for item in new_items if item.get("id") or item.get("candidate_id")}
             items_by_id.update({str(k): v for k, v in items_by_id.items()})
 
             print(f"  Writing {len(angles)} insight draft(s) → content/insights/")

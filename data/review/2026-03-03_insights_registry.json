@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-03",
+  "insights": [
+    {
+      "insight_id": "2026-03-03-A01",
+      "working_title": "The AI Infrastructure Cascade: Why Partial Data Center Retrofits Fail and What a Viable Upgrade Strategy Requires",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-03-the-ai-infrastructure-cascade-why-partial-data-cen.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-03-A02",
+      "working_title": "The Unified UPS Commissioning Standard AI Data Centers Do Not Have: Combining Step-Load Dynamic Testing with Battery State-of-Health Verification",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-03-the-unified-ups-commissioning-standard-ai-data-cen.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-03-A03",
+      "working_title": "Code Pathways and Field Execution: Why Class 4 Fault-Managed Power and Heat Pump Permitting Will Both Underdeliver\u2014and What the Pattern Predicts for DC Distribution",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-03-code-pathways-and-field-execution-why-class-4-faul.md",
+      "confidence": "",
+      "levers": []
+    }
+  ]
+}

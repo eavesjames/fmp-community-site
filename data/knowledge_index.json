@@ -5,9 +5,8 @@
     "type": "checklist",
     "tags": [
       "fit",
-      "estimating",
-      "contractors",
-      "retrofits"
+      "installation",
+      "estimating"
     ],
     "confidence": "high",
     "key_claim": "Fast project qualification: assess pathway pain, distribution pattern, and schedule value.",
@@ -45,7 +44,22 @@
             "note": "Replace with your final approved checklist language."
           }
         ]
-      }
+      },
+      "title": "Field qualification checklist",
+      "tags": [
+        "#fit",
+        "#installation",
+        "#estimating"
+      ],
+      "key_claim": "Fast project qualification: assess pathway pain, distribution pattern, and schedule value.",
+      "references": [
+        {
+          "note": "Replace with your final approved checklist language.",
+          "page_or_slide": "TBD",
+          "pointer": "Fit logic checklist",
+          "source_id": "SRC_TBD"
+        }
+      ]
     }
   },
   {
@@ -124,11 +138,11 @@
         "Common mistake: citing Article 725 for an FMP installation. Correct article is 726 (2023) or 722 (2026)."
       ],
       "tags": [
-        "compliance",
-        "code",
-        "safety",
-        "definition",
-        "installation"
+        "#compliance",
+        "#code",
+        "#safety",
+        "#definition",
+        "#installation"
       ],
       "references": [
         {
@@ -143,15 +157,252 @@
     }
   },
   {
+    "id": "CLAIM_DC_BUILDINGS_RATIONALE",
+    "file": "CLAIM_DC_BUILDINGS_RATIONALE.yaml",
+    "type": "knowledge.claim.rationale",
+    "tags": [
+      "dc-power",
+      "buildings",
+      "efficiency",
+      "rationale",
+      "roi"
+    ],
+    "confidence": "unknown",
+    "key_claim": "A growing share of building loads are natively DC \u2014 LEDs, electronics, variable-speed motors, EV charging, battery storage, and on-site solar all operate on DC internally. Routing AC power to these loads requires one or more AC\u2194DC conversion stages, each wasting 3\u201310% of the power converted. Direct DC distribution eliminates intermediate conversion stages and can reduce building-level energy consumption by 5\u201315% depending on load profile and generation mix.",
+    "text_summary": "A growing share of building loads are natively DC \u2014 LEDs, electronics, variable-speed motors, EV charging, battery storage, and on-site solar all operate on DC internally. Routing AC power to these loads requires one or more AC\u2194DC conversion stages, each wasting 3\u201310% of the power converted. Direct DC distribution eliminates intermediate conversion stages and can reduce building-level energy consumption by 5\u201315% depending on load profile and generation mix. | Approximately one-third of loads in modern commercial buildings are natively DC (LEDs, electronics, variable-speed motors, EV chargers, servers) | Each AC-to-DC or DC-to-AC conversion stage wastes 3\u201310% of power; multi-stage conversion chains in buildings waste 10\u201320% total | NREL research shows direct-DC distribution from on-site solar can reduce building distribution losses by 5\u201315%",
+    "raw": {
+      "knowledge": {
+        "id": "CLAIM_DC_BUILDINGS_RATIONALE",
+        "type": "knowledge.claim.rationale",
+        "provenance": {
+          "sources": [
+            {
+              "source_id": "SRC_NREL_DIRECTDC_BUILDINGS"
+            },
+            {
+              "source_id": "SRC_LBNL_DC_POWER_REVIEW"
+            },
+            {
+              "source_id": "SRC_EPRI_DUKE_DC_MICROGRID"
+            }
+          ]
+        },
+        "status": {
+          "confidence": "medium",
+          "review_date": "2026-03-03"
+        }
+      },
+      "title": "Why Buildings Are Shifting Toward DC Power Distribution",
+      "key_claim": "A growing share of building loads are natively DC \u2014 LEDs, electronics, variable-speed motors, EV charging, battery storage, and on-site solar all operate on DC internally. Routing AC power to these loads requires one or more AC\u2194DC conversion stages, each wasting 3\u201310% of the power converted. Direct DC distribution eliminates intermediate conversion stages and can reduce building-level energy consumption by 5\u201315% depending on load profile and generation mix.",
+      "bullets": [
+        "Approximately one-third of loads in modern commercial buildings are natively DC (LEDs, electronics, variable-speed motors, EV chargers, servers)",
+        "Each AC-to-DC or DC-to-AC conversion stage wastes 3\u201310% of power; multi-stage conversion chains in buildings waste 10\u201320% total",
+        "NREL research shows direct-DC distribution from on-site solar can reduce building distribution losses by 5\u201315%",
+        "LBNL and EPRI 2008 pilot found DC data center systems 6\u20138% more efficient than AC equivalents; EPRI/Duke Energy found up to 15% savings vs. AC with double-conversion UPS",
+        "Solar PV, battery storage, and EV charging are all native DC \u2014 a DC distribution backbone eliminates the inverter and rectifier otherwise needed at each endpoint",
+        "Buildings with high solar + storage penetration benefit most; buildings with predominantly AC resistive loads benefit least",
+        "Note on vintage: efficiency estimates are largely from 2006\u20132015 studies; modern high-efficiency switch-mode power supplies narrow the gap \u2014 real-world savings today may be at the lower end of the range"
+      ],
+      "references": [
+        {
+          "source_id": "SRC_NREL_DIRECTDC_BUILDINGS",
+          "url": "https://research-hub.nrel.gov/en/publications/making-better-use-of-on-site-pv-generation-direct-distribution-of",
+          "note": "NREL: Making Better Use of On-Site PV Generation: Direct Distribution of DC Power in Buildings"
+        },
+        {
+          "source_id": "SRC_LBNL_DC_POWER_REVIEW",
+          "url": "https://energyanalysis.lbl.gov/publications/review-dc-power-distribution",
+          "note": "LBNL: Review of DC Power Distribution in Buildings: A Technology and Market Assessment"
+        },
+        {
+          "source_id": "SRC_EPRI_DUKE_DC_MICROGRID",
+          "url": "https://www.directpowertech.com/docs/EPRI_DCpower_WhitePaper_June2006FINAL.pdf",
+          "note": "EPRI: DC Power Production, Delivery and Utilization; EPRI/Duke Energy DC microgrid cut energy consumption up to 15% vs. AC system with double-conversion UPS"
+        }
+      ],
+      "tags": [
+        "#dc-power",
+        "#buildings",
+        "#efficiency",
+        "#rationale",
+        "#roi"
+      ],
+      "canonical": true,
+      "related_blocks": [
+        "MAP_DC_BUILDING_DISTRIBUTION_ARCHITECTURES",
+        "CLAIM_DC_MICROGRID_DEFINITION",
+        "CLAIM_DC_CONVERSION_LOSS_REDUCTION"
+      ]
+    }
+  },
+  {
+    "id": "CLAIM_DC_CONVERSION_LOSS_REDUCTION",
+    "file": "CLAIM_DC_CONVERSION_LOSS_REDUCTION.yaml",
+    "type": "knowledge.claim.data",
+    "tags": [
+      "dc-power",
+      "efficiency",
+      "buildings",
+      "data",
+      "roi"
+    ],
+    "confidence": "unknown",
+    "key_claim": "Multiple independent research programs have measured 5\u201315% energy savings from DC power distribution in buildings and data centers versus conventional AC distribution, primarily by eliminating redundant AC-to-DC and DC-to-AC conversion stages. The range is wide because savings depend heavily on load composition: buildings with high proportions of native DC loads (servers, LEDs, motors, EVs, storage) save more; buildings with predominantly AC resistive loads save less.",
+    "text_summary": "Multiple independent research programs have measured 5\u201315% energy savings from DC power distribution in buildings and data centers versus conventional AC distribution, primarily by eliminating redundant AC-to-DC and DC-to-AC conversion stages. The range is wide because savings depend heavily on load composition: buildings with high proportions of native DC loads (servers, LEDs, motors, EVs, storage) save more; buildings with predominantly AC resistive loads save less. | EPRI/Duke Energy: DC microgrid system cut energy consumption up to 15% compared to a typical AC system with double-conversion UPS | LBNL/EPRI 2008 pilot (data centers): DC distribution systems were 6\u20138% more efficient in energy consumption versus AC equivalents | NREL: direct-DC distribution from on-site solar PV can reduce building distribution losses by 5\u201315%",
+    "raw": {
+      "knowledge": {
+        "id": "CLAIM_DC_CONVERSION_LOSS_REDUCTION",
+        "type": "knowledge.claim.data",
+        "provenance": {
+          "sources": [
+            {
+              "source_id": "SRC_EPRI_DUKE_DC_MICROGRID"
+            },
+            {
+              "source_id": "SRC_LBNL_DC_POWER_REVIEW"
+            },
+            {
+              "source_id": "SRC_NREL_DIRECTDC_BUILDINGS"
+            }
+          ]
+        },
+        "status": {
+          "confidence": "medium",
+          "review_date": "2026-03-03"
+        }
+      },
+      "title": "Energy Savings from DC Power Distribution: Research Findings",
+      "key_claim": "Multiple independent research programs have measured 5\u201315% energy savings from DC power distribution in buildings and data centers versus conventional AC distribution, primarily by eliminating redundant AC-to-DC and DC-to-AC conversion stages. The range is wide because savings depend heavily on load composition: buildings with high proportions of native DC loads (servers, LEDs, motors, EVs, storage) save more; buildings with predominantly AC resistive loads save less.",
+      "bullets": [
+        "EPRI/Duke Energy: DC microgrid system cut energy consumption up to 15% compared to a typical AC system with double-conversion UPS",
+        "LBNL/EPRI 2008 pilot (data centers): DC distribution systems were 6\u20138% more efficient in energy consumption versus AC equivalents",
+        "NREL: direct-DC distribution from on-site solar PV can reduce building distribution losses by 5\u201315%",
+        "Root cause: each AC\u2194DC conversion stage is 90\u201397% efficient; a chain of two conversion stages loses 6\u201319% of input energy; DC distribution collapses multi-stage chains to one or zero conversions at load",
+        "Up to 20% improvement cited in all-DC scenarios where double-conversion UPS, rectifiers, and inverters are eliminated across the full distribution chain",
+        "Savings are additive to FMP's separate primary value proposition (eliminating service upgrades, reducing installation labor) \u2014 DC efficiency gains apply to any DC distribution architecture, not only FMP",
+        "Caveat: most studies predate 2015; modern high-efficiency switch-mode power supplies are more efficient than equipment in original studies \u2014 current real-world savings likely at the lower end of published ranges",
+        "Do not use these efficiency numbers as FMP-specific claims \u2014 they apply to DC distribution generally; FMP's own efficiency advantage is a separate, sourced topic"
+      ],
+      "references": [
+        {
+          "source_id": "SRC_EPRI_DUKE_DC_MICROGRID",
+          "url": "https://www.directpowertech.com/docs/EPRI_DCpower_WhitePaper_June2006FINAL.pdf",
+          "note": "EPRI: DC Power Production, Delivery and Utilization (2006); EPRI/Duke Energy DC microgrid pilot finding up to 15% energy savings"
+        },
+        {
+          "source_id": "SRC_LBNL_DC_POWER_REVIEW",
+          "url": "https://energyanalysis.lbl.gov/publications/review-dc-power-distribution",
+          "note": "Lawrence Berkeley National Laboratory: Review of DC Power Distribution in Buildings; 6\u20138% efficiency gain in DC data center pilot (with EPRI)"
+        },
+        {
+          "source_id": "SRC_NREL_DIRECTDC_BUILDINGS",
+          "url": "https://research-hub.nrel.gov/en/publications/making-better-use-of-on-site-pv-generation-direct-distribution-of",
+          "note": "NREL: Direct-DC from on-site PV reduces building distribution losses by 5\u201315%"
+        }
+      ],
+      "tags": [
+        "#dc-power",
+        "#efficiency",
+        "#buildings",
+        "#data",
+        "#roi"
+      ],
+      "canonical": true,
+      "related_blocks": [
+        "CLAIM_DC_BUILDINGS_RATIONALE",
+        "MAP_DC_BUILDING_DISTRIBUTION_ARCHITECTURES",
+        "CLAIM_DC_MICROGRID_DEFINITION"
+      ]
+    }
+  },
+  {
+    "id": "CLAIM_DC_MICROGRID_DEFINITION",
+    "file": "CLAIM_DC_MICROGRID_DEFINITION.yaml",
+    "type": "knowledge.claim.definition",
+    "tags": [
+      "dc-power",
+      "microgrid",
+      "definition",
+      "buildings",
+      "standards"
+    ],
+    "confidence": "unknown",
+    "key_claim": "A building DC microgrid is an electrical subsystem in which generation (typically PV or fuel cell), storage (batteries), and loads share a common DC bus at a defined voltage, managed by a local controller. Unlike a conventional AC grid connection, a DC microgrid can operate in island mode during grid outages and integrates natively with solar, storage, EV charging, and DC-native building loads without intermediate AC-DC conversion stages at each source or load.",
+    "text_summary": "A building DC microgrid is an electrical subsystem in which generation (typically PV or fuel cell), storage (batteries), and loads share a common DC bus at a defined voltage, managed by a local controller. Unlike a conventional AC grid connection, a DC microgrid can operate in island mode during grid outages and integrates natively with solar, storage, EV charging, and DC-native building loads without intermediate AC-DC conversion stages at each source or load. | Core components: DC bus (typically 350\u2013400V), on-site generation (PV or fuel cell), battery storage, energy management controller, and DC-native or rectified AC loads at point of use | IEEE 2030.10 governs low-voltage DC microgrid design, operation, and maintenance \u2014 technology-neutral standard covering rural/remote off-grid and grid-tied applications | Current/OS consortium (75 partners including ABB, Eaton, Schneider Electric, Siemens) standardizing around 350VDC for commercial and public building DC microgrids",
+    "raw": {
+      "knowledge": {
+        "id": "CLAIM_DC_MICROGRID_DEFINITION",
+        "type": "knowledge.claim.definition",
+        "provenance": {
+          "sources": [
+            {
+              "source_id": "SRC_CURRENTOS_DC_STANDARDS"
+            },
+            {
+              "source_id": "SRC_DC_SYSTEMS_CIRCL"
+            },
+            {
+              "source_id": "SRC_IEEE_2030_10"
+            }
+          ]
+        },
+        "status": {
+          "confidence": "medium",
+          "review_date": "2026-03-03"
+        }
+      },
+      "title": "What Is a Building DC Microgrid?",
+      "key_claim": "A building DC microgrid is an electrical subsystem in which generation (typically PV or fuel cell), storage (batteries), and loads share a common DC bus at a defined voltage, managed by a local controller. Unlike a conventional AC grid connection, a DC microgrid can operate in island mode during grid outages and integrates natively with solar, storage, EV charging, and DC-native building loads without intermediate AC-DC conversion stages at each source or load.",
+      "bullets": [
+        "Core components: DC bus (typically 350\u2013400V), on-site generation (PV or fuel cell), battery storage, energy management controller, and DC-native or rectified AC loads at point of use",
+        "IEEE 2030.10 governs low-voltage DC microgrid design, operation, and maintenance \u2014 technology-neutral standard covering rural/remote off-grid and grid-tied applications",
+        "Current/OS consortium (75 partners including ABB, Eaton, Schneider Electric, Siemens) standardizing around 350VDC for commercial and public building DC microgrids",
+        "Reference deployment: Circl building (Amsterdam), designed by DC Systems B.V. (acquired by Schneider Electric, 2021) \u2014 first 100% DC-electrified commercial building using 350V DC distribution and Current/OS; used as the industry standard demonstration reference",
+        "Current/OS claims DC microgrids cut peak demand and grid injection by 2\u20135x versus AC-based systems by enabling self-regulating power flows that optimize renewable output",
+        "Resilience advantage: islanding capability allows building to continue operating on local PV and storage during grid outages \u2014 value increasingly recognized in extreme weather resilience planning",
+        "Hybrid AC/DC is the dominant real-world architecture: AC utility connection provides backup and export capability; DC bus handles local generation, storage, and loads; energy management system manages the AC/DC boundary",
+        "Not to be confused with neighborhood-scale microgrids: a building DC microgrid is behind-the-meter, typically 350\u20131000VDC, serving one building or campus"
+      ],
+      "references": [
+        {
+          "source_id": "SRC_CURRENTOS_DC_STANDARDS",
+          "url": "https://currentos.org/",
+          "note": "Current/OS: standards and consortium for DC microgrids; 350VDC reference; N470 highway (Delft) and Circl building are reference deployments"
+        },
+        {
+          "source_id": "SRC_DC_SYSTEMS_CIRCL",
+          "url": "https://www.dc.systems/",
+          "note": "DC Systems B.V.: designed Circl building (Amsterdam), first 100% DC commercial building; acquired by Schneider Electric 2021"
+        },
+        {
+          "source_id": "SRC_IEEE_2030_10",
+          "note": "IEEE 2030.10: DC Microgrid Standard \u2014 covers design, operations, maintenance of low-voltage DC microgrids"
+        }
+      ],
+      "tags": [
+        "#dc-power",
+        "#microgrid",
+        "#definition",
+        "#buildings",
+        "#standards"
+      ],
+      "canonical": true,
+      "related_blocks": [
+        "CLAIM_DC_BUILDINGS_RATIONALE",
+        "MAP_DC_BUILDING_DISTRIBUTION_ARCHITECTURES",
+        "CLAIM_FMP_IN_DC_MICROGRID"
+      ]
+    }
+  },
+  {
     "id": "CLAIM_DE_INSTALLATION_SCOPE_48_UNITS",
     "file": "CLAIM_DE_INSTALLATION_SCOPE_48_UNITS.yaml",
     "type": "knowledge.claim.core",
     "tags": [
       "installation",
       "heatpumps",
-      "digital-electricity",
-      "contractors",
-      "how-to"
+      "estimating",
+      "mdus"
     ],
     "confidence": "unknown",
     "key_claim": "Installing Digital Electricity for 48 heat pump units requires only four simple steps: rack 6 transmitters, terminate 96 wire pairs, run 12 structured cables through existing risers, and terminate receivers at each unit",
@@ -193,11 +444,10 @@
         }
       ],
       "tags": [
-        null,
-        null,
-        null,
-        null,
-        null
+        "#installation",
+        "#heatpumps",
+        "#estimating",
+        "#mdus"
       ],
       "canonical": true
     }
@@ -208,8 +458,7 @@
     "type": "knowledge.claim.definition",
     "tags": [
       "definition",
-      "technology",
-      "digital-electricity",
+      "architecture",
       "safety",
       "heatpumps"
     ],
@@ -257,11 +506,10 @@
         }
       ],
       "tags": [
-        null,
-        null,
-        null,
-        null,
-        null
+        "#definition",
+        "#architecture",
+        "#safety",
+        "#heatpumps"
       ],
       "canonical": true
     }
@@ -272,10 +520,10 @@
     "type": "knowledge.claim.core",
     "tags": [
       "heatpumps",
-      "barriers",
-      "cost-analysis",
-      "buildings-old",
-      "problem-statement"
+      "fit",
+      "cost_comparison",
+      "mdus",
+      "schedule_risk"
     ],
     "confidence": "unknown",
     "key_claim": "Traditional electrical upgrades required for heat pump retrofits cost $20,000 per unit, take up to 2 years, and cause 50% of projects to be canceled, creating the single largest barrier to building electrification",
@@ -317,11 +565,11 @@
         }
       ],
       "tags": [
-        null,
-        null,
-        null,
-        null,
-        null
+        "#heatpumps",
+        "#fit",
+        "#cost_comparison",
+        "#mdus",
+        "#schedule_risk"
       ],
       "canonical": true
     }
@@ -333,12 +581,11 @@
     "tags": [
       "compliance",
       "code",
-      "ahj",
-      "contractors"
+      "installation"
     ],
     "confidence": "medium",
     "key_claim": "FMP deployment relies on product listing(s) and the applicable code pathway to determine permissible installation practices.",
-    "text_summary": "FMP deployment relies on product listing(s) and the applicable code pathway to determine permissible installation practices.",
+    "text_summary": "FMP deployment relies on product listing(s) and the applicable code pathway to determine permissible installation practices. | Contractors must anchor compliance claims to the exact listing and jurisdictional code references. | Engineers should document assumptions and AHJ expectations early.",
     "raw": {
       "knowledge": {
         "id": "CLAIM_FMP_COMPLIANCE_PATHWAY",
@@ -371,7 +618,26 @@
             "note": "Replace with your authoritative compliance language."
           }
         ]
-      }
+      },
+      "title": "Compliance pathway: listings + code articles",
+      "tags": [
+        "#compliance",
+        "#code",
+        "#installation"
+      ],
+      "key_claim": "FMP deployment relies on product listing(s) and the applicable code pathway to determine permissible installation practices.",
+      "bullets": [
+        "Contractors must anchor compliance claims to the exact listing and jurisdictional code references.",
+        "Engineers should document assumptions and AHJ expectations early."
+      ],
+      "references": [
+        {
+          "note": "Replace with your authoritative compliance language.",
+          "page_or_slide": "TBD",
+          "pointer": "UL/CSA + NEC/CEC references",
+          "source_id": "SRC_TBD"
+        }
+      ]
     }
   },
   {
@@ -380,10 +646,9 @@
     "type": "knowledge.claim.core",
     "tags": [
       "installation",
-      "technical-specs",
-      "contractors",
-      "digital-electricity",
-      "design"
+      "architecture",
+      "heatpumps",
+      "estimating"
     ],
     "confidence": "unknown",
     "key_claim": "Digital Electricity systems can deliver 144kW through compact 4-inch conduit using 40% fill ratio with 8 pairs at 1.5kW per pair.",
@@ -422,11 +687,10 @@
         }
       ],
       "tags": [
-        null,
-        null,
-        null,
-        null,
-        null
+        "#installation",
+        "#architecture",
+        "#heatpumps",
+        "#estimating"
       ],
       "canonical": true
     }
@@ -434,62 +698,150 @@
   {
     "id": "CLAIM_FMP_DEFINITION",
     "file": "CLAIM_FMP_DEFINITION.yaml",
-    "type": "claim",
+    "type": "knowledge.claim.definition",
     "tags": [
       "definition",
       "safety",
-      "code",
-      "technology"
+      "compliance",
+      "code"
     ],
-    "confidence": "high",
-    "key_claim": "Fault Managed Power (FMP) is a system-level method of electrical power distribution in which safety is achieved through active monitoring and control of the circuit so that fault conditions are detected and interrupted before hazardous energy is sustained. In NEC framing, a fault-managed power circuit is associated with a Class 4 circuit.\n",
-    "text_summary": "Fault Managed Power (FMP) is a system-level method of electrical power distribution in which safety is achieved through active monitoring and control of the circuit so that fault conditions are detected and interrupted before hazardous energy is sustained. In NEC framing, a fault-managed power circuit is associated with a Class 4 circuit.\n",
+    "confidence": "unknown",
+    "key_claim": "Fault Managed Power (FMP) is a system-level method of electrical power distribution in which safety is achieved through active monitoring and control \u2014 fault conditions are detected and interrupted before hazardous energy is sustained. In NEC framing, a fault-managed power circuit is associated with a Class 4 circuit (NEC Article 726).",
+    "text_summary": "Fault Managed Power (FMP) is a system-level method of electrical power distribution in which safety is achieved through active monitoring and control \u2014 fault conditions are detected and interrupted before hazardous energy is sustained. In NEC framing, a fault-managed power circuit is associated with a Class 4 circuit (NEC Article 726). | \u201cFMP uses active monitoring and control to detect and interrupt faults before hazardous energy is sustained\u201d | \u201cStandardized in the 2023 National Electrical Code as Class 4 Power (Article 726) with UL 1400-1 as the safety basis\u201d | \u201cTransmitter converts AC to high-voltage DC; receiver converts at the destination \u2014 a safe, monitored power path\u201d",
     "raw": {
-      "id": "CLAIM_FMP_DEFINITION",
-      "claim": "Fault Managed Power (FMP) is a system-level method of electrical power distribution in which safety is achieved through active monitoring and control of the circuit so that fault conditions are detected and interrupted before hazardous energy is sustained. In NEC framing, a fault-managed power circuit is associated with a Class 4 circuit.\n",
-      "claim_type": "definition",
-      "category": "DEFINITION",
-      "status": "active",
-      "confidence": "high",
-      "canonical": true,
+      "knowledge": {
+        "id": "CLAIM_FMP_DEFINITION",
+        "type": "knowledge.claim.definition",
+        "provenance": {
+          "sources": [
+            {
+              "source_id": "SRC_NFPA_2025_PUBLIC_INPUTS_CLASS4"
+            },
+            {
+              "source_id": "SRC_NFPA_2022_CORRELATING_REVISION_CLASS4"
+            },
+            {
+              "source_id": "SRC_UL_1400_1_FIRST_CERTIFICATION"
+            },
+            {
+              "source_id": "SRC_UL_CLASS4_GUIDEINFO_2023"
+            }
+          ]
+        },
+        "status": {
+          "confidence": "high",
+          "review_date": "\u201c2026-03-01\u201d"
+        }
+      },
+      "title": "\u201cWhat Is Fault Managed Power (FMP)?\u201d",
+      "key_claim": "Fault Managed Power (FMP) is a system-level method of electrical power distribution in which safety is achieved through active monitoring and control \u2014 fault conditions are detected and interrupted before hazardous energy is sustained. In NEC framing, a fault-managed power circuit is associated with a Class 4 circuit (NEC Article 726).",
+      "bullets": [
+        "\u201cFMP uses active monitoring and control to detect and interrupt faults before hazardous energy is sustained\u201d",
+        "\u201cStandardized in the 2023 National Electrical Code as Class 4 Power (Article 726) with UL 1400-1 as the safety basis\u201d",
+        "\u201cTransmitter converts AC to high-voltage DC; receiver converts at the destination \u2014 a safe, monitored power path\u201d",
+        "\u201cDelivers higher power over longer distances than PoE without the wiring requirements of traditional AC circuits\u201d",
+        "\u201cUse for high-level definition and framing only \u2014 numeric performance claims (e.g. shutdown time) require separate sourced blocks\u201d"
+      ],
+      "references": [
+        {
+          "source_id": "SRC_NFPA_2025_PUBLIC_INPUTS_CLASS4"
+        },
+        {
+          "source_id": "SRC_NFPA_2022_CORRELATING_REVISION_CLASS4"
+        },
+        {
+          "source_id": "SRC_UL_1400_1_FIRST_CERTIFICATION"
+        }
+      ],
       "tags": [
-        "definition",
-        "safety",
-        "code",
-        "technology"
+        "#definition",
+        "#safety",
+        "#compliance",
+        "#code"
       ],
-      "grounding": {
-        "summary": "This definition is grounded in NEC committee materials explaining that a Class 4 circuit is commonly associated with a fault-managed power circuit, and that monitoring and control systems differentiate fault-managed power from ordinary electric light and power circuits. It is also reinforced by UL materials describing UL 1400-1 as the safety basis for Class 4 fault-managed power systems.\n",
-        "source_ids": [
-          "SRC_NFPA_2025_PUBLIC_INPUTS_CLASS4",
-          "SRC_NFPA_2022_CORRELATING_REVISION_CLASS4",
-          "SRC_UL_1400_1_FIRST_CERTIFICATION",
-          "SRC_UL_CLASS4_GUIDEINFO_2023"
-        ]
-      },
-      "notes": [
-        "Use this block for high-level definition and framing. Do not use it to assert specific numeric performance claims such as shutdown time; those should live in separate claim blocks with their own sources.\n",
-        "Prefer \u201csystem-level method of distribution\u201d over \u201ctechnology\u201d or \u201cproduct\u201d to avoid conflating one vendor implementation with the broader Class 4 / fault-managed power category.\n",
-        "The phrase \u201cassociated with a Class 4 circuit\u201d is safer than wording that overclaims perfect equivalence across all industry usage.\n"
-      ],
-      "usage_guidance": {
-        "allowed_for": [
-          "start_here_articles",
-          "glossary",
-          "code_framing",
-          "introductory_guides"
-        ],
-        "not_allowed_for": [
-          "exact shutdown-time claims",
-          "installation permission claims",
-          "jurisdiction-adoption claims",
-          "vendor-market-share claims"
-        ]
-      },
+      "canonical": true,
       "related_blocks": [
         "CLAIM_CLASS4_VS_CLASS2_CLASS3",
+        "CLAIM_DIGITAL_ELECTRICITY_MECHANISM"
+      ]
+    }
+  },
+  {
+    "id": "CLAIM_FMP_IN_DC_MICROGRID",
+    "file": "CLAIM_FMP_IN_DC_MICROGRID.yaml",
+    "type": "knowledge.claim.positioning",
+    "tags": [
+      "dc-power",
+      "microgrid",
+      "fmp",
+      "architecture",
+      "buildings"
+    ],
+    "confidence": "unknown",
+    "key_claim": "Within a building DC microgrid, FMP/Class 4 solves the last-mile problem: safely delivering kilowatts of DC power from a central DC bus to occupied spaces and distributed loads without conduit, without requiring service upgrades at the destination, and without creating touch or arc hazards along the cable run. FMP operates at ~350VDC \u2014 the same voltage range as the Current/OS building microgrid standard \u2014 making it architecturally compatible with emerging DC microgrid infrastructure.",
+    "text_summary": "Within a building DC microgrid, FMP/Class 4 solves the last-mile problem: safely delivering kilowatts of DC power from a central DC bus to occupied spaces and distributed loads without conduit, without requiring service upgrades at the destination, and without creating touch or arc hazards along the cable run. FMP operates at ~350VDC \u2014 the same voltage range as the Current/OS building microgrid standard \u2014 making it architecturally compatible with emerging DC microgrid infrastructure. | The last-mile problem in DC microgrids: a 350\u2013400V DC bus at the electrical room is not safe to route bare through occupied building spaces \u2014 FMP's continuous packet monitoring and <2ms fault shutdown enables safe routing of high-voltage DC through standard structured cable in occupied spaces | FMP transmitters can connect to a DC bus (as well as AC panels), accepting bus DC as input and converting it to packetized DC for fault-monitored distribution throughout the building | Operating voltage ~350VDC aligns with the Current/OS consortium standard (75 partners including Eaton, ABB, Siemens, Schneider) \u2014 the same voltage ecosystem as reference DC building microgrid deployments (Circl building, TU Delft Pulse building)",
+    "raw": {
+      "knowledge": {
+        "id": "CLAIM_FMP_IN_DC_MICROGRID",
+        "type": "knowledge.claim.positioning",
+        "provenance": {
+          "sources": [
+            {
+              "source_id": "SRC_UL_1400_1_FIRST_CERTIFICATION"
+            },
+            {
+              "source_id": "SRC_CURRENTOS_DC_STANDARDS"
+            },
+            {
+              "source_id": "SRC_NFPA_2025_PUBLIC_INPUTS_CLASS4"
+            }
+          ]
+        },
+        "status": {
+          "confidence": "medium",
+          "review_date": "2026-03-03"
+        }
+      },
+      "title": "FMP/Class 4 as Safe Last-Mile Distribution in a Building DC Microgrid",
+      "key_claim": "Within a building DC microgrid, FMP/Class 4 solves the last-mile problem: safely delivering kilowatts of DC power from a central DC bus to occupied spaces and distributed loads without conduit, without requiring service upgrades at the destination, and without creating touch or arc hazards along the cable run. FMP operates at ~350VDC \u2014 the same voltage range as the Current/OS building microgrid standard \u2014 making it architecturally compatible with emerging DC microgrid infrastructure.",
+      "bullets": [
+        "The last-mile problem in DC microgrids: a 350\u2013400V DC bus at the electrical room is not safe to route bare through occupied building spaces \u2014 FMP's continuous packet monitoring and <2ms fault shutdown enables safe routing of high-voltage DC through standard structured cable in occupied spaces",
+        "FMP transmitters can connect to a DC bus (as well as AC panels), accepting bus DC as input and converting it to packetized DC for fault-monitored distribution throughout the building",
+        "Operating voltage ~350VDC aligns with the Current/OS consortium standard (75 partners including Eaton, ABB, Siemens, Schneider) \u2014 the same voltage ecosystem as reference DC building microgrid deployments (Circl building, TU Delft Pulse building)",
+        "FMP's safety mechanism (active packet monitoring, <2ms fault shutdown) allows routing through existing raceways in occupied buildings \u2014 abandoned steam risers, mail chutes, laundry chutes \u2014 where bare HVDC cannot be installed",
+        "In a PV + storage + FMP building: solar charges DC battery bus, FMP transmitters draw from bus and distribute to heat pumps, EV chargers, or edge compute at each floor or unit \u2014 no AC conversion required between bus and load endpoint",
+        "FMP enables incremental DC microgrid adoption: buildings can add distributed DC loads zone-by-zone by installing FMP transmitters on a shared DC bus, without a full-building rewire",
+        "Voltage ceiling note: UL 1400-1 currently limits FMP to 450VDC; progression to 800VDC could take several years per VoltServer white paper \u2014 FMP is well-positioned at 350\u2013400VDC range"
+      ],
+      "references": [
+        {
+          "source_id": "SRC_UL_1400_1_FIRST_CERTIFICATION",
+          "note": "UL 1400-1: Safety standard for FMP/Class 4 systems; current ceiling 450VDC"
+        },
+        {
+          "source_id": "SRC_CURRENTOS_DC_STANDARDS",
+          "url": "https://currentos.org/",
+          "note": "Current/OS 350VDC standard; recently announced collaboration with Open Compute Project Foundation"
+        },
+        {
+          "source_id": "SRC_NFPA_2025_PUBLIC_INPUTS_CLASS4",
+          "note": "NEC Class 4 / Article 726 provides code pathway for FMP in occupied buildings"
+        }
+      ],
+      "tags": [
+        "#dc-power",
+        "#microgrid",
+        "#fmp",
+        "#architecture",
+        "#buildings"
+      ],
+      "canonical": true,
+      "related_blocks": [
+        "CLAIM_DC_MICROGRID_DEFINITION",
+        "CLAIM_FMP_DEFINITION",
         "CLAIM_DIGITAL_ELECTRICITY_MECHANISM",
-        "CLAIM_FAULT_RESPONSE_TIME"
+        "EXPL_FMP_ARCHITECTURE",
+        "MAP_DC_BUILDING_DISTRIBUTION_ARCHITECTURES"
       ]
     }
   },
@@ -499,13 +851,12 @@
     "type": "claim",
     "tags": [
       "installation",
-      "cost-analysis",
-      "contractors",
-      "retrofits"
+      "estimating",
+      "cost_comparison"
     ],
     "confidence": "medium",
     "key_claim": "FMP often shifts project cost from field labor (conduit, heavy pathway work) to equipment (transmitters and receivers), improving schedule and predictability when AC pathways are expensive.",
-    "text_summary": "FMP often shifts project cost from field labor (conduit, heavy pathway work) to equipment (transmitters and receivers), improving schedule and predictability when AC pathways are expensive.",
+    "text_summary": "FMP often shifts project cost from field labor (conduit, heavy pathway work) to equipment (transmitters and receivers), improving schedule and predictability when AC pathways are expensive. | Where AC requires difficult routing, the labor delta is the story. | In short/simple runs, that delta can disappear.",
     "raw": {
       "knowledge": {
         "id": "CLAIM_FMP_LABOR_SHIFT",
@@ -542,7 +893,26 @@
           "DATA_SCEN_AC_VS_FMP_2KW_1000FT",
           "RULESET_FMP_FIT_CONDITIONS"
         ]
-      }
+      },
+      "title": "Labor-to-equipment shift",
+      "tags": [
+        "#installation",
+        "#estimating",
+        "#cost_comparison"
+      ],
+      "key_claim": "FMP often shifts project cost from field labor (conduit, heavy pathway work) to equipment (transmitters and receivers), improving schedule and predictability when AC pathways are expensive.",
+      "bullets": [
+        "Where AC requires difficult routing, the labor delta is the story.",
+        "In short/simple runs, that delta can disappear."
+      ],
+      "references": [
+        {
+          "note": "Tie to your scenario data block(s).",
+          "page_or_slide": "TBD",
+          "pointer": "Cost comparison scenario",
+          "source_id": "SRC_TBD"
+        }
+      ]
     }
   },
   {
@@ -550,11 +920,10 @@
     "file": "CLAIM_IDEAL_BUILDING_CHARACTERISTICS_HEAT_PUMP_RETROFIT.yaml",
     "type": "knowledge.claim.core",
     "tags": [
-      "buildings-old",
+      "fit",
       "heatpumps",
-      "target-market",
-      "nyc",
-      "retrofits"
+      "mdus",
+      "intelligent_buildings"
     ],
     "confidence": "unknown",
     "key_claim": "Medium to large pre-1973 buildings with 40A panels, poor insulation, failing hydronic systems, and absorption chillers represent optimal retrofit opportunities due to high energy costs and available balcony space for heat pump outdoor units.",
@@ -593,11 +962,69 @@
         }
       ],
       "tags": [
-        null,
-        null,
-        null,
-        null,
-        null
+        "#fit",
+        "#heatpumps",
+        "#mdus",
+        "#intelligent_buildings"
+      ],
+      "canonical": true
+    }
+  },
+  {
+    "id": "CLAIM_IDF_ANYWHERE_USE_CASE",
+    "file": "CLAIM_IDF_ANYWHERE_USE_CASE.yaml",
+    "type": "knowledge.claim.core",
+    "tags": [
+      "intelligent_buildings",
+      "distribution",
+      "installation",
+      "architecture",
+      "fit"
+    ],
+    "confidence": "unknown",
+    "key_claim": "FMP enables an \"IDF Anywhere\" architecture that extends centralized power and network connectivity to remote edge locations far beyond PoE's 100m / 100W constraints \u2014 placing IDFs and edge devices wherever the application demands, indoors or outdoors, without new closets or AC infrastructure.",
+    "text_summary": "FMP enables an \"IDF Anywhere\" architecture that extends centralized power and network connectivity to remote edge locations far beyond PoE's 100m / 100W constraints \u2014 placing IDFs and edge devices wherever the application demands, indoors or outdoors, without new closets or AC infrastructure. | PoE and conventional DC are constrained by distance (~100m) and power per cable (~100W) \u2014 FMP removes both limits | FMP delivers significant power over 500m\u20132km on small conductors with no conduit required | Centralized transmitter (MDF/IDF) + DE cable + zone box = edge-ready power anywhere on the campus",
+    "raw": {
+      "knowledge": {
+        "id": "CLAIM_IDF_ANYWHERE_USE_CASE",
+        "type": "knowledge.claim.core",
+        "provenance": {
+          "sources": [
+            {
+              "source_id": "SRC_BELDEN_IDF_ANYWHERE_APP_GUIDE",
+              "page_or_slide": "1-2",
+              "pointer": "IDF Anywhere architecture and edge device use cases"
+            }
+          ]
+        },
+        "status": {
+          "confidence": "high",
+          "review_date": "2026-03-01"
+        }
+      },
+      "title": "IDF Anywhere: Powering the Edge Beyond PoE Limits",
+      "key_claim": "FMP enables an \"IDF Anywhere\" architecture that extends centralized power and network connectivity to remote edge locations far beyond PoE's 100m / 100W constraints \u2014 placing IDFs and edge devices wherever the application demands, indoors or outdoors, without new closets or AC infrastructure.",
+      "bullets": [
+        "PoE and conventional DC are constrained by distance (~100m) and power per cable (~100W) \u2014 FMP removes both limits",
+        "FMP delivers significant power over 500m\u20132km on small conductors with no conduit required",
+        "Centralized transmitter (MDF/IDF) + DE cable + zone box = edge-ready power anywhere on the campus",
+        "Supported edge devices: Wi-Fi APs, surveillance cameras, digital signage, sensors, 5G small cells, lighting, USB charging",
+        "Uses Belden DE hybrid copper-fiber cable \u2014 power and data in one run, same installation method as Cat6",
+        "Ideal fit: large campuses, multi-building sites, outdoor/remote locations where running AC or new closets is expensive or disruptive"
+      ],
+      "references": [
+        {
+          "source_id": "SRC_BELDEN_IDF_ANYWHERE_APP_GUIDE",
+          "page_or_slide": "1-2",
+          "pointer": "Architecture diagram and edge device examples"
+        }
+      ],
+      "tags": [
+        "#intelligent_buildings",
+        "#distribution",
+        "#installation",
+        "#architecture",
+        "#fit"
       ],
       "canonical": true
     }
@@ -609,7 +1036,7 @@
     "tags": [
       "compliance",
       "code",
-      "ahj"
+      "installation"
     ],
     "confidence": "high",
     "key_claim": "The 2026 NEC renumbers Class 4 from Article 726 to Article 722. The safety model is unchanged. During the code edition transition period, permit packages should cite both articles with their edition years to avoid AHJ confusion from either direction.\n",
@@ -649,9 +1076,9 @@
         "Failing to confirm which NEC edition the jurisdiction has adopted before submitting"
       ],
       "tags": [
-        "compliance",
-        "code",
-        "ahj"
+        "#compliance",
+        "#code",
+        "#installation"
       ],
       "references": [
         {
@@ -681,14 +1108,15 @@
       "total_installed_cost"
     ],
     "confidence": "high",
-    "key_claim": "",
-    "text_summary": "",
+    "key_claim": "Installed cost comparison (Table 1): AC vs FMP distribution for 6MW data center model",
+    "text_summary": "Installed cost comparison (Table 1): AC vs FMP distribution for 6MW data center model",
     "raw": {
       "data": {
         "id": "DATA_RES_DATA_CENTER_DISTRIBUTION_AC_VS_FMP_INSTALLED_COST_TABLE1_2024",
         "type": "data.results",
         "title": "Installed cost comparison (Table 1): AC vs FMP distribution for 6MW data center model"
       },
+      "title": "Installed cost comparison (Table 1): AC vs FMP distribution for 6MW data center model",
       "tags": [
         "#datacenters",
         "#distribution",
@@ -815,14 +1243,15 @@
       "ac_vs_fmp"
     ],
     "confidence": "high",
-    "key_claim": "",
-    "text_summary": "",
+    "key_claim": "Data center reference architecture for AC vs FMP cost comparison (6MW delivered, N+1 pods)",
+    "text_summary": "Data center reference architecture for AC vs FMP cost comparison (6MW delivered, N+1 pods)",
     "raw": {
       "data": {
         "id": "DATA_SCEN_DATA_CENTER_DISTRIBUTION_AC_VS_FMP_6MW_MODEL_2024",
         "type": "data.scenario",
         "title": "Data center reference architecture for AC vs FMP cost comparison (6MW delivered, N+1 pods)"
       },
+      "title": "Data center reference architecture for AC vs FMP cost comparison (6MW delivered, N+1 pods)",
       "tags": [
         "#datacenters",
         "#distribution",
@@ -1344,14 +1773,12 @@
     "file": "EXPL_FMP_ARCHITECTURE.yaml",
     "type": "explanation",
     "tags": [
-      "architecture",
-      "installation",
       "definition",
-      "technology"
+      "architecture"
     ],
     "confidence": "medium",
     "key_claim": "An FMP system is composed of a headend (transmitter), a managed power link (cable/pathway), and a load-end (receiver) that conditions power for the end device.",
-    "text_summary": "An FMP system is composed of a headend (transmitter), a managed power link (cable/pathway), and a load-end (receiver) that conditions power for the end device.",
+    "text_summary": "An FMP system is composed of a headend (transmitter), a managed power link (cable/pathway), and a load-end (receiver) that conditions power for the end device. | Headend manages delivery and safety behavior. | Link carries managed delivery. | Receiver conditions output to what the load needs.",
     "raw": {
       "knowledge": {
         "id": "EXPL_FMP_ARCHITECTURE",
@@ -1385,7 +1812,26 @@
             "note": "Replace with specific diagram source."
           }
         ]
-      }
+      },
+      "title": "High-level FMP architecture",
+      "tags": [
+        "#definition",
+        "#architecture"
+      ],
+      "key_claim": "An FMP system is composed of a headend (transmitter), a managed power link (cable/pathway), and a load-end (receiver) that conditions power for the end device.",
+      "bullets": [
+        "Headend manages delivery and safety behavior.",
+        "Link carries managed delivery.",
+        "Receiver conditions output to what the load needs."
+      ],
+      "references": [
+        {
+          "note": "Replace with specific diagram source.",
+          "page_or_slide": "TBD",
+          "pointer": "Architecture diagram",
+          "source_id": "SRC_TBD"
+        }
+      ]
     }
   },
   {
@@ -1465,14 +1911,204 @@
     }
   },
   {
+    "id": "MAP_DC_BUILDING_DISTRIBUTION_ARCHITECTURES",
+    "file": "MAP_DC_BUILDING_DISTRIBUTION_ARCHITECTURES.yaml",
+    "type": "knowledge.map.comparison",
+    "tags": [
+      "dc-power",
+      "architecture",
+      "standards",
+      "buildings",
+      "comparison"
+    ],
+    "confidence": "unknown",
+    "key_claim": "Three distinct DC distribution architectures are deployed in commercial buildings today: PoE (48V, up to 90W per port), EMerge Alliance 380VDC (data centers and telecom), and FMP/Class 4 at ~350VDC (general-purpose building distribution including occupied spaces). Each targets a different power range and application context; they are not substitutes for each other.",
+    "text_summary": "Three distinct DC distribution architectures are deployed in commercial buildings today: PoE (48V, up to 90W per port), EMerge Alliance 380VDC (data centers and telecom), and FMP/Class 4 at ~350VDC (general-purpose building distribution including occupied spaces). Each targets a different power range and application context; they are not substitutes for each other. | PoE/PoE++ (48V, up to 90W per port): network-connected devices, LED lighting, sensors, cameras, small HVAC controls \u2014 governed by IEEE 802.3; no NEC permit required for powered devices; power-limited by standard | EMerge Alliance 380VDC standard: rack-mounted ICT equipment in data centers and telecom facilities \u2014 single AC-to-DC conversion at the UPS input eliminates multiple downstream conversions; EMerge describes 380VDC as 'global sweet spot for standardized components with the best balance of economics and safety' | FMP/Class 4 at ~350VDC: general-purpose kilowatt-range power delivery in occupied buildings \u2014 heat pumps, appliances, edge compute, EV charging \u2014 over standard structured cable; NEC Article 726; UL 1400-1 listed; touch-safe via packet monitoring",
+    "raw": {
+      "knowledge": {
+        "id": "MAP_DC_BUILDING_DISTRIBUTION_ARCHITECTURES",
+        "type": "knowledge.map.comparison",
+        "provenance": {
+          "sources": [
+            {
+              "source_id": "SRC_EMERGE_ALLIANCE_380VDC"
+            },
+            {
+              "source_id": "SRC_CURRENTOS_DC_STANDARDS"
+            },
+            {
+              "source_id": "SRC_UL_1400_1_FIRST_CERTIFICATION"
+            }
+          ]
+        },
+        "status": {
+          "confidence": "medium",
+          "review_date": "2026-03-03"
+        }
+      },
+      "title": "DC Building Distribution Architectures: PoE, 380VDC EMerge, and FMP/Class 4",
+      "key_claim": "Three distinct DC distribution architectures are deployed in commercial buildings today: PoE (48V, up to 90W per port), EMerge Alliance 380VDC (data centers and telecom), and FMP/Class 4 at ~350VDC (general-purpose building distribution including occupied spaces). Each targets a different power range and application context; they are not substitutes for each other.",
+      "bullets": [
+        "PoE/PoE++ (48V, up to 90W per port): network-connected devices, LED lighting, sensors, cameras, small HVAC controls \u2014 governed by IEEE 802.3; no NEC permit required for powered devices; power-limited by standard",
+        "EMerge Alliance 380VDC standard: rack-mounted ICT equipment in data centers and telecom facilities \u2014 single AC-to-DC conversion at the UPS input eliminates multiple downstream conversions; EMerge describes 380VDC as 'global sweet spot for standardized components with the best balance of economics and safety'",
+        "FMP/Class 4 at ~350VDC: general-purpose kilowatt-range power delivery in occupied buildings \u2014 heat pumps, appliances, edge compute, EV charging \u2014 over standard structured cable; NEC Article 726; UL 1400-1 listed; touch-safe via packet monitoring",
+        "Current/OS consortium (75 partners including ABB, Eaton, Schneider Electric, Siemens, Kone) standardizing around 350VDC for building and public infrastructure DC microgrids \u2014 same voltage range as FMP",
+        "Key differentiator: PoE is power-limited (not suitable for multi-kW loads); 380VDC requires listed ICT PDU infrastructure in controlled spaces; FMP/Class 4 is fault-managed and safe in occupied spaces without conduit",
+        "Hybrid AC/DC buildings are the dominant real-world deployment: AC grid connection at service entrance, DC bus for local generation/storage/loads, FMP for high-power last-mile runs to occupied spaces"
+      ],
+      "table": {
+        "headers": [
+          "Architecture",
+          "Voltage",
+          "Max Power",
+          "Standard",
+          "Primary Application"
+        ],
+        "rows": [
+          [
+            "PoE++",
+            "48V DC",
+            "90W/port",
+            "IEEE 802.3bt",
+            "Networked devices, LED lighting, sensors"
+          ],
+          [
+            "EMerge 380VDC",
+            "380V DC",
+            "No per-port limit",
+            "EMerge Alliance",
+            "Data center / telecom rack equipment"
+          ],
+          [
+            "FMP / Class 4",
+            "~350V DC",
+            "Multi-kW per run",
+            "NEC Art. 726 / UL 1400-1",
+            "Occupied building spaces, heat pumps, edge loads"
+          ]
+        ]
+      },
+      "references": [
+        {
+          "source_id": "SRC_EMERGE_ALLIANCE_380VDC",
+          "url": "https://www.emergealliance.org/standards/our-standards/",
+          "note": "EMerge Alliance Data/Telecom Center 380VDC Standard; Occupied Space Standard (24VDC)"
+        },
+        {
+          "source_id": "SRC_CURRENTOS_DC_STANDARDS",
+          "url": "https://currentos.org/",
+          "note": "Current/OS: open standards consortium for DC microgrids; 350VDC reference standard; 75 partners across 25 countries"
+        }
+      ],
+      "tags": [
+        "#dc-power",
+        "#architecture",
+        "#standards",
+        "#buildings",
+        "#comparison"
+      ],
+      "canonical": true,
+      "related_blocks": [
+        "CLAIM_DC_BUILDINGS_RATIONALE",
+        "CLAIM_FMP_DEFINITION",
+        "CLAIM_DC_MICROGRID_DEFINITION",
+        "MAP_DE_VS_POE_DC_PERFORMANCE"
+      ]
+    }
+  },
+  {
+    "id": "MAP_DE_VS_POE_DC_PERFORMANCE",
+    "file": "MAP_DE_VS_POE_DC_PERFORMANCE.yaml",
+    "type": "knowledge.mapping.comparison",
+    "tags": [
+      "ac_vs_fmp",
+      "distribution",
+      "cost_comparison",
+      "limits",
+      "architecture"
+    ],
+    "confidence": "unknown",
+    "key_claim": "Digital Electricity vs PoE vs DC: Distance and Power Delivery",
+    "text_summary": "Digital Electricity vs PoE vs DC: Distance and Power Delivery",
+    "raw": {
+      "knowledge": {
+        "id": "MAP_DE_VS_POE_DC_PERFORMANCE",
+        "type": "knowledge.mapping.comparison",
+        "provenance": {
+          "sources": [
+            {
+              "source_id": "SRC_BELDEN_DE_SOLUTION_OVERVIEW",
+              "page_or_slide": "2-3",
+              "pointer": "System comparison table: Data / Distance / Delivery"
+            }
+          ]
+        },
+        "status": {
+          "confidence": "high",
+          "review_date": "2026-03-01"
+        }
+      },
+      "title": "Digital Electricity vs PoE vs DC: Distance and Power Delivery",
+      "left_label": "Traditional (PoE / DC)",
+      "right_label": "Digital Electricity (FMP)",
+      "attributes_table": [
+        {
+          "attribute": "Max power delivery",
+          "left": "PoE: ~71W | DC: ~80\u201390W",
+          "right": "170W @ 2,000m | 1,500W @ 180m | 2kW+ on 16 AWG"
+        },
+        {
+          "attribute": "Max useful distance",
+          "left": "PoE: 100m | DC: ~123\u2013247m",
+          "right": "Up to 2,000m (power + data in one run)"
+        },
+        {
+          "attribute": "Conduit required",
+          "left": "DC: yes for many installations",
+          "right": "No \u2014 same methods as Cat6/PoE cabling"
+        },
+        {
+          "attribute": "Data in same cable",
+          "left": "PoE: yes (10Mb\u201310Gb) | DC: fiber separate",
+          "right": "Yes \u2014 DE hybrid cable carries power + 100Gb fiber"
+        },
+        {
+          "attribute": "Installation crew",
+          "left": "DC: licensed electrician at load end often required",
+          "right": "Low-voltage technician; same permit as Cat6"
+        },
+        {
+          "attribute": "Infrastructure savings (Belden data)",
+          "left": "Baseline",
+          "right": "30\u201360% TCO reduction | >50% cable/conduit cost | 30\u201340% labor reduction"
+        }
+      ],
+      "takeaway": "FMP is not a replacement for PoE \u2014 it is a power backbone that extends reach and capacity far beyond what PoE or DC can do, while using the same low-voltage installation practices. The sweet spot: runs over 100m, loads over 100W, or sites where conduit/AC infrastructure is expensive.",
+      "references": [
+        {
+          "source_id": "SRC_BELDEN_DE_SOLUTION_OVERVIEW",
+          "page_or_slide": "2-3",
+          "pointer": "Comparison table: System / Data / Distance / Delivery"
+        }
+      ],
+      "tags": [
+        "#ac_vs_fmp",
+        "#distribution",
+        "#cost_comparison",
+        "#limits",
+        "#architecture"
+      ],
+      "canonical": true
+    }
+  },
+  {
     "id": "MAP_TECH_TO_OWNER_VALUE",
     "file": "MAP_TECH_TO_OWNER_VALUE.yaml",
     "type": "mapping",
     "tags": [
-      "fit",
-      "cost-analysis",
-      "contractors",
-      "target-market"
+      "owner_value",
+      "sales",
+      "roi"
     ],
     "confidence": "high",
     "key_claim": "Owners buy schedule, disruption reduction, and risk reduction\u2014not wiring theory.",
@@ -1513,7 +2149,22 @@
             "note": "Attach to validated case study language where possible."
           }
         ]
-      }
+      },
+      "title": "Translate technical benefits into owner value",
+      "tags": [
+        "#owner_value",
+        "#sales",
+        "#roi"
+      ],
+      "key_claim": "Owners buy schedule, disruption reduction, and risk reduction\u2014not wiring theory.",
+      "references": [
+        {
+          "note": "Attach to validated case study language where possible.",
+          "page_or_slide": "TBD",
+          "pointer": "Owner value proposition section",
+          "source_id": "SRC_TBD"
+        }
+      ]
     }
   },
   {
@@ -1521,12 +2172,11 @@
     "file": "MAP_TRADITIONAL_ELECTRICAL_VS_DE_HEAT_PUMP_RETROFIT.yaml",
     "type": "knowledge.mapping.comparison",
     "tags": [
-      "comparison",
+      "ac_vs_fmp",
       "heatpumps",
-      "cost-analysis",
+      "cost_comparison",
       "installation",
-      "digital-electricity",
-      "buildings-old"
+      "mdus"
     ],
     "confidence": "unknown",
     "key_claim": "Heat Pump Retrofit: Traditional Electrical Upgrade vs Digital Electricity",
@@ -1613,12 +2263,11 @@
         }
       ],
       "tags": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
+        "#ac_vs_fmp",
+        "#heatpumps",
+        "#cost_comparison",
+        "#installation",
+        "#mdus"
       ],
       "canonical": true
     }
@@ -1628,9 +2277,8 @@
     "file": "OBJ_COMMON_CONTRACTOR.yaml",
     "type": "objections",
     "tags": [
+      "sales",
       "compliance",
-      "installation",
-      "contractors",
       "fit"
     ],
     "confidence": "medium",
@@ -1672,7 +2320,22 @@
             "note": "Replace with your approved FAQ language."
           }
         ]
-      }
+      },
+      "title": "Common contractor objections and responses",
+      "tags": [
+        "#sales",
+        "#compliance",
+        "#fit"
+      ],
+      "key_claim": "Objections are predictable; winning is answering them with evidence + boundaries.",
+      "references": [
+        {
+          "note": "Replace with your approved FAQ language.",
+          "page_or_slide": "TBD",
+          "pointer": "FAQ / training notes",
+          "source_id": "SRC_TBD"
+        }
+      ]
     }
   },
   {
@@ -1682,8 +2345,7 @@
     "tags": [
       "compliance",
       "code",
-      "installation",
-      "ahj"
+      "installation"
     ],
     "confidence": "high",
     "key_claim": "A complete AHJ package for a first-time Class 4 permit requires five elements: UL listing numbers, NEC article citation (both editions during transition), safety model summary with fault response time, a one-line diagram, and contact information for AHJ questions.\n",
@@ -1737,10 +2399,9 @@
         "Repeat installs in the same jurisdiction move significantly faster after first approval"
       ],
       "tags": [
-        "compliance",
-        "code",
-        "installation",
-        "ahj"
+        "#compliance",
+        "#code",
+        "#installation"
       ],
       "references": [
         {
@@ -1764,9 +2425,7 @@
     "type": "process",
     "tags": [
       "estimating",
-      "installation",
-      "cost-analysis",
-      "contractors"
+      "installation"
     ],
     "confidence": "high",
     "key_claim": "A reliable ROM estimate comes from counting endpoints + terminations + pathway method + headend build + testing.",
@@ -1808,7 +2467,21 @@
             "note": "Link to your estimating spreadsheet and guide when ready."
           }
         ]
-      }
+      },
+      "title": "ROM estimating workflow for FMP",
+      "tags": [
+        "#estimating",
+        "#installation"
+      ],
+      "key_claim": "A reliable ROM estimate comes from counting endpoints + terminations + pathway method + headend build + testing.",
+      "references": [
+        {
+          "note": "Link to your estimating spreadsheet and guide when ready.",
+          "page_or_slide": "TBD",
+          "pointer": "Estimating section / spreadsheet notes",
+          "source_id": "SRC_TBD"
+        }
+      ]
     }
   },
   {
@@ -1817,13 +2490,13 @@
     "type": "ruleset",
     "tags": [
       "fit",
-      "target-market",
-      "retrofits",
-      "estimating"
+      "installation",
+      "sales",
+      "schedule_risk"
     ],
     "confidence": "high",
-    "key_claim": "FMP is a strong candidate when AC distribution would be pathway-labor intensive, schedule-disruptive, or constrained by retrofit conditions.",
-    "text_summary": "FMP is a strong candidate when AC distribution would be pathway-labor intensive, schedule-disruptive, or constrained by retrofit conditions.",
+    "key_claim": "FMP is a strong candidate when AC distribution would be pathway-labor intensive, schedule-disruptive, or constrained by retrofit conditions \u2014 and a poor fit when runs are short, AC pathways are easy, or labor is cheap.",
+    "text_summary": "FMP is a strong candidate when AC distribution would be pathway-labor intensive, schedule-disruptive, or constrained by retrofit conditions \u2014 and a poor fit when runs are short, AC pathways are easy, or labor is cheap. | \u2705 FIT: Long runs, constrained risers, or expensive conduit work \u2014 FMP's labor shift pays off | \u2705 FIT: Distributed endpoints across a campus or large building where reach exceeds PoE limits | \u2705 FIT: Retrofits where disruption, timeline, or permit risk make AC upgrades unattractive",
     "raw": {
       "knowledge": {
         "id": "RULESET_FMP_FIT_CONDITIONS",
@@ -1864,7 +2537,31 @@
             "note": "Replace with your canonical 'good fit' guidance."
           }
         ]
-      }
+      },
+      "title": "Fit rules: when FMP wins vs AC",
+      "tags": [
+        "#fit",
+        "#installation",
+        "#sales",
+        "#schedule_risk"
+      ],
+      "key_claim": "FMP is a strong candidate when AC distribution would be pathway-labor intensive, schedule-disruptive, or constrained by retrofit conditions \u2014 and a poor fit when runs are short, AC pathways are easy, or labor is cheap.",
+      "bullets": [
+        "\u2705 FIT: Long runs, constrained risers, or expensive conduit work \u2014 FMP's labor shift pays off",
+        "\u2705 FIT: Distributed endpoints across a campus or large building where reach exceeds PoE limits",
+        "\u2705 FIT: Retrofits where disruption, timeline, or permit risk make AC upgrades unattractive",
+        "\u2705 FIT: Projects where speed-to-market or reduced downtime has high value",
+        "\u274c NOT FIT: Short, simple runs with easy conduit access and low labor costs",
+        "\u274c NOT FIT: Greenfield with abundant pathway space and straightforward AC distribution"
+      ],
+      "references": [
+        {
+          "note": "Replace with your canonical 'good fit' guidance.",
+          "page_or_slide": "TBD",
+          "pointer": "Fit logic slide(s)",
+          "source_id": "SRC_TBD"
+        }
+      ]
     }
   },
   {
@@ -2355,6 +3052,153 @@
           "Scalability + safety/flexibility in dense multi-tenant buildings (as stated)."
         ]
       }
+    }
+  },
+  {
+    "id": "what_is_de",
+    "file": "what_is_de.yaml",
+    "type": "document",
+    "tags": [],
+    "confidence": "unknown",
+    "key_claim": "Fault Managed Power (FMP), also referred to as Class 4 power, is a power distribution approach intended to deliver high power over longer distances with reduced fire and shock risk versus conventional methods.",
+    "text_summary": "Fault Managed Power (FMP), also referred to as Class 4 power, is a power distribution approach intended to deliver high power over longer distances with reduced fire and shock risk versus conventional methods.",
+    "raw": {
+      "document": {
+        "title": "What Is Fault Managed Power (FMP)?",
+        "type": "Article",
+        "publisher": "Southland Industries",
+        "section": "Blog",
+        "author": {
+          "name": "Lindsay Janssen"
+        },
+        "publish_date": "2024-10-04",
+        "source_url": "https://southlandind.com/article/what-fault-managed-power-fmp"
+      },
+      "summary": {
+        "what_it_is": "Fault Managed Power (FMP), also referred to as Class 4 power, is a power distribution approach intended to deliver high power over longer distances with reduced fire and shock risk versus conventional methods.",
+        "key_claims": [
+          "Recognized in the 2023 National Electrical Code as Class 4 Power (Article 726).",
+          "Uses a transmitter to convert AC to high-voltage DC and delivers pulsed power to a receiver that converts it to the required load form."
+        ]
+      },
+      "problem": {
+        "statement": "On large facilities and modern projects, customers increasingly need to deliver more power farther out to end devices and new loads, but conventional approaches (notably PoE and traditional wiring practices) can be constrained by distance, power per cable, and installation cost/speed.",
+        "context": {
+          "drivers": [
+            "Rising interest and demand for larger project applications.",
+            "Need to get higher power safely over longer distances, while simplifying construction and maintenance."
+          ],
+          "why_existing_options_break": [
+            "PoE is described as limited to 100 W per cable and constrained by a 100-meter distance limit.",
+            "Conventional buildouts often require more intermediate switching/power distribution points and more labor-intensive pathways (the article contrasts this with data-cabling-style installation practices)."
+          ]
+        }
+      },
+      "how_it_works": {
+        "components": [
+          {
+            "name": "Transmitter",
+            "role": "Converts AC to high-voltage DC and sends it as pulses ('packets')."
+          },
+          {
+            "name": "Receiver",
+            "role": "Converts pulsed DC at the destination into the required load type (DC voltages or AC)."
+          }
+        ],
+        "pulse_description": {
+          "packet_cycle_ms": 2.0,
+          "on_pulse_ms": 1.5,
+          "gap_ms": 0.5,
+          "hvdc_pulse_voltage_v": 336
+        },
+        "output_capabilities": {
+          "receivers_can_output": [
+            "Various DC voltages",
+            "AC power up to 277 V (480 V capabilities in development)"
+          ]
+        }
+      },
+      "customer_value": {
+        "primary_benefits": [
+          {
+            "name": "Efficient transmission and range",
+            "claims": [
+              "Up to 2 kW per pair of #16 AWG conductors.",
+              "Power over 500 feet; in some applications up to 2 km.",
+              "Example claim: 8-pair #16 multiconductor cable can deliver 16 kW in a 0.75-inch diameter cable without conduit routing."
+            ],
+            "compared_to": [
+              {
+                "technology": "PoE",
+                "limits_claimed": "100 W per cable; 100-meter distance limit."
+              }
+            ]
+          },
+          {
+            "name": "Streamlined installation process",
+            "claims": [
+              "Supports wiring methods like cable trays and j-hooks.",
+              "Can be installed by technicians rather than licensed electricians (reducing labor costs).",
+              "Positions this as helpful given the shrinking pool of skilled tradespeople."
+            ]
+          },
+          {
+            "name": "Enhanced safety",
+            "claims": [
+              "Transmitter continuously verifies the pulse reaching the receiver and shuts off if an anomaly is detected.",
+              "After the transmitter, arc flash concerns are stated to no longer apply."
+            ]
+          },
+          {
+            "name": "Monitoring",
+            "claims": [
+              "Power monitoring is described as inherent; data available in software without supplemental devices/wiring."
+            ]
+          }
+        ]
+      },
+      "adoption_and_applications": {
+        "code_and_standards": [
+          "NEC 2023: Article 726 (Class 4 Power) referenced in the article."
+        ],
+        "deployment_claims": [
+          "Installations have reached over 1,000 buildings globally."
+        ],
+        "example_environments": [
+          "Factories",
+          "Hotels",
+          "Offices",
+          "Airports",
+          "Conference centers",
+          "Large indoor agriculture facilities"
+        ],
+        "constraints_and_caveats": [
+          "The article notes FMP is not as versatile as traditional AC power; each application type must be evaluated for practicality."
+        ]
+      },
+      "people_and_relationships_mentioned": [
+        {
+          "name": "Michael Starego, PE",
+          "role": "Principal Electrical Engineer at Southland",
+          "notes": [
+            "Quoted source in the article; first exposure to FMP at a controlled environment agriculture tradeshow in Las Vegas."
+          ]
+        },
+        {
+          "name": "Stephen Eaves",
+          "role": "CEO of VoltServer",
+          "notes": [
+            "Quoted; described as inventor of FMP in the article."
+          ]
+        }
+      ],
+      "related_links": [
+        {
+          "title": "Utilizing Fault Managed Power Systems (FMPS) for Data Center Power Distribution",
+          "type": "Internal link",
+          "url": "https://southlandind.com/article/utilizing-fault-managed-power-systems-fmps-for-data-center-power-distribution"
+        }
+      ]
     }
   },
   {

@@ -1,0 +1,1389 @@
+[
+  {
+    "agent": "mep_system_designer",
+    "run_date": "2026-03-03",
+    "top_constraints": [
+      {
+        "constraint": "AI workload power density now exceeds air-cooling and traditional UPS design envelopes",
+        "design_assumption_under_pressure": "Legacy assumption: rack density stabilizes at 10-15 kW; UPS control loops handle steady enterprise IT loads with gradual ramps",
+        "architecture_shift": "Mandatory transition to liquid cooling, DC power delivery, and UPS re-selection for step-load handling; modular power distribution replacing fixed busway",
+        "downstream_effects": "Existing facilities cannot retrofit without cooling infrastructure overhaul; new greenfield designs must frontload liquid cooling and DC backbone. Monitoring/telemetry systems become non-optional (item 47: 79% expect continued density growth). Electrical contractors face skill gaps in megawatt-scale rack PDU commissioning.",
+        "levers": [
+          "cooling_architecture_decision",
+          "busway_vs_modular_selection",
+          "ups_chemistry_and_control_loop_tuning"
+        ],
+        "supporting_items": [
+          "53",
+          "51",
+          "49",
+          "45",
+          "43"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "Building electrification retrofit velocity is constrained by operating-cost barriers, not permitting or technical code pathways",
+        "design_assumption_under_pressure": "Assumption: permitting streamlining and heat pump policy will drive retrofit demand and service upgrade velocity",
+        "architecture_shift": "Service panel upgrade demand will remain suppressed unless California addresses residential electricity cost structure; electrical contractors cannot justify sizing larger services on permit ease alone",
+        "downstream_effects": "Heat pump adoption will trail state targets through 2030 (item 38: 6M units vs. actual economic adoption). Retrofit project pipelines remain thin despite code clarity (item 36 Class 4 pathway). Building electrification becomes a 2031+ acceleration rather than 2030 milestone.",
+        "levers": [
+          "incentive_structure_design",
+          "rate_reform_dependency",
+          "retrofit_project_bundling"
+        ],
+        "supporting_items": [
+          "38"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "UPS battery replacement scheduling must shift from calendar-based to condition-based monitoring due to accelerated aging in high-density, high-temp environments",
+        "design_assumption_under_pressure": "Traditional assumption: VRLA battery replacement on 3-5 year intervals; float current remains stable; autonomy windows remain 15-30 minutes",
+        "architecture_shift": "Facilities must deploy continuous battery health monitoring (voltage, internal resistance, float current); UPS commissioning now includes baseline impedance measurement and drift tracking. Shortened autonomy windows (5-15 min, item 57) increase cycling frequency and aging rate.",
+        "downstream_effects": "Maintenance budgets must absorb unexpected early battery replacement costs; cooling load increases as float current rises on aged batteries (hidden energy penalty). Commissioning complexity increases; operators need real-time condition dashboards to avoid runtime surprises.",
+        "levers": [
+          "battery_chemistry_selection",
+          "monitoring_instrumentation_scope",
+          "commissioning_test_protocol"
+        ],
+        "supporting_items": [
+          "57"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "PoE consolidation for edge devices reduces installation complexity but centralizes single-point failure risk for distributed OT systems",
+        "design_assumption_under_pressure": "Assumption: distributed edge devices benefit from local AC power and independent UPS; PoE adds unnecessary centralization",
+        "architecture_shift": "Centralized 48V PoE switch with UPS backup eliminates device-level AC outlets and enables remote power cycling; single-cable runs reduce installation labor and future maintenance truck rolls",
+        "downstream_effects": "If PoE switch fails, entire panel of edge devices (HMIs, monitors, access terminals) loses power simultaneously; must design redundant PoE switches or hybrid backup. Monitoring architecture now depends on switch-level telemetry (item 55: port-level power monitoring). Field teams need new troubleshooting skills (PoE power budgeting, switch configuration).",
+        "levers": [
+          "redundancy_topology",
+          "ups_placement_and_sizing",
+          "field_diagnostic_tools"
+        ],
+        "supporting_items": [
+          "55"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "tensions": [
+      {
+        "tension": "Megawatt-scale rack density vs. existing facility distribution backbone capacity",
+        "design_tradeoff": "Greenfield AI hyperscale can design for 30-80 kW per rack (items 49, 53); retrofit facilities face choice: (A) abandon legacy busway and re-core with modular/DC systems (capex-intensive, downtime risk) or (B) keep legacy infrastructure and cap AI density well below competitive thresholds. No graceful middle ground.",
+        "levers": [
+          "new_vs_retrofit_strategy",
+          "modular_power_architecture",
+          "staged_capacity_planning"
+        ],
+        "supporting_items": [
+          "45",
+          "53",
+          "49"
+        ]
+      },
+      {
+        "tension": "UPS efficiency at partial load vs. operating cost in AI facilities with variable GPU utilization",
+        "design_tradeoff": "Legacy UPS systems optimized for full-load efficiency (95-98%) degrade significantly at 30-50% load (item 49). AI facilities operate below full capacity most of the time due to workload variance, job scheduling, and inference patterns. Operators must choose: (A) oversize UPS to keep near full-load operating point (increases capital cost, cooling burden), (B) accept partial-load inefficiency and increased float current (item 57: higher cooling load on data center), or (C) deploy modular UPS that scales to actual load (adds complexity, commissioning risk).",
+        "levers": [
+          "ups_sizing_methodology",
+          "battery_chemistry_and_ripple_current",
+          "modular_vs_monolithic_architecture"
+        ],
+        "supporting_items": [
+          "49",
+          "57"
+        ]
+      },
+      {
+        "tension": "Class 4 fault-managed power code pathway availability vs. contractor field knowledge and inspection authority acceptance",
+        "design_tradeoff": "NEC now has formal Class 4 category (item 36), but electrical inspectors and contractors still accustomed to Class 2/3 rules. Early adopters face approval delays and inconsistent interpretation across jurisdictions. Streamlined permitting for building electrification (item 38) will not help fault-managed power if inspectors lack training on Class 4 distinctions.",
+        "levers": [
+          "inspector_education_programs",
+          "nec_adoption_timeline",
+          "early_adopter_documentation_burden"
+        ],
+        "supporting_items": [
+          "36",
+          "38"
+        ]
+      },
+      {
+        "tension": "DC power delivery efficiency gains vs. monitoring and control complexity in hyperscale data centers",
+        "design_tradeoff": "DC distribution (item 47) reclaims 2-5% energy lost in AC-DC conversion, freeing watts for compute. However, DC racks require new metering, isolated ground planes, fault detection, and operator training. Legacy monitoring tools cannot see DC feeds. Choice: (A) accept AC conversion losses and keep familiar AC infrastructure and tools, or (B) invest in DC architecture redesign, new PDU vendors, new telemetry stack, and operator retraining to unlock small efficiency gains that compound at scale.",
+        "levers": [
+          "dc_infrastructure_vendor_selection",
+          "monitoring_platform_compatibility",
+          "training_and_certification_scope"
+        ],
+        "supporting_items": [
+          "47",
+          "53"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "If average rack density remains on trajectory toward 20-30 kW (extrapolating from 12 kW in 2024, item 43), then retrofit-capable facilities will reach thermal saturation by Q4 2027, forcing operators to choose between capped utilization or liquid-cooling retrofits.",
+        "design_decision_it_affects": "Facilities management capital planning horizon and cooling infrastructure investment timing; determines whether to pursue air-cooled expansion or commit to liquid cooling now",
+        "supporting_items": [
+          "43",
+          "45",
+          "51"
+        ]
+      },
+      {
+        "hypothesis": "Condition-based UPS battery replacement (item 57) will reduce effective battery service life by 20-30% vs. calendar schedules in high-ambient data centers, creating recurring capex surprises unless monitoring systems are deployed as standard commissioning practice.",
+        "design_decision_it_affects": "UPS procurement specifications should mandate continuous impedance monitoring and float-current telemetry; maintenance budgets must assume 3-year replacement cycles instead of 5 years for hot environments",
+        "supporting_items": [
+          "57",
+          "49"
+        ]
+      },
+      {
+        "hypothesis": "Centralized PoE backup for edge OT panels (item 55) will become standard only if redundant switch design (N+1) becomes cost-competitive with distributed device-level UPS, suggesting threshold of ~8-12 edge devices per panel where central topology breaks even.",
+        "design_decision_it_affects": "Edge panel architecture decisions: below 8 devices, keep distributed AC; above 12, invest in redundant PoE switches",
+        "supporting_items": [
+          "55"
+        ]
+      },
+      {
+        "hypothesis": "Building electrification retrofit velocity will remain flat through 2028 despite permitting streamlining (item 38), because operating-cost parity (heat pump vs. gas) requires either 15-25% rate reductions or 30-40% equipment cost declines; neither is on trajectory to close by 2030.",
+        "design_decision_it_affects": "Service upgrade planning for electrical contractors; retrofit project pipelines should not be sized assuming 6M-unit adoption; focus instead on new construction and cost-reduction technology (mini-split efficiency gains)",
+        "supporting_items": [
+          "38"
+        ]
+      },
+      {
+        "hypothesis": "UPS step-load response failures (item 49: voltage excursions, bypass transfers) will become a documented failure mode in 20-30% of AI facility deployments through 2026, forcing vendors to issue tuning bulletins and operators to retrofit control-loop parameters.",
+        "design_decision_it_affects": "UPS commissioning must now include load-step testing with actual GPU cluster profiles; generic commissioning procedures are inadequate for AI workloads",
+        "supporting_items": [
+          "49"
+        ]
+      }
+    ],
+    "original_angles": [
+      {
+        "working_title": "The AI Retrofit Trap: Why Existing Data Centers Cannot Reach Competitive Density Without Full Infrastructure Redesign",
+        "thesis": "Existing data center facilities (built 2015-2020 for 5-8 kW average density) cannot retrofit to competitive AI densities (30+ kW per rack) through incremental upgrades. The constraint is not electrical code or individual components, but the interconnected dependencies: 36 kW racks (item 45) require liquid cooling (item 53), which requires DC distribution backbone (item 47), which requires new UPS chemistry (item 49), which requires condition-based monitoring (item 57). Attempting to retrofit one element without the others creates bottlenecks. Result: facilities must choose between capped utilization or full re-core, making retrofit economics marginal vs. hyperscale new-build.",
+        "outline": [
+          "Constraint 1: Cooling is the gate \u2013 air cooling tops out ~12-15 kW per rack; liquid cooling requires rework of cable routing, PDU placement, and connector standards",
+          "Constraint 2: Power distribution architecture \u2013 legacy busway and fixed PDU layouts cannot support 36 kW loads without full replacement (item 45); modular DC systems require new design envelope",
+          "Constraint 3: UPS control and monitoring \u2013 step-load response failures in 30-80 kW racks (item 49) demand control-loop re-tuning and condition-based battery management (item 57), not plug-and-play replacements"
+        ],
+        "must_cite_items": [
+          "45",
+          "53",
+          "49",
+          "57",
+          "47"
+        ],
+        "missing_evidence_to_find": [
+          "Cost estimate: full retrofit vs. new-build capex spread (amortization break-even point)",
+          "Survey data on % of existing colocation facilities pursuing retrofit vs. greenfield strategy",
+          "Timeline data: how long does full infrastructure re-core take with live tenant migrations?"
+        ]
+      },
+      {
+        "working_title": "Code Pathways Without Adoption: Why Class 4 Fault-Managed Power Will Lag NEC Approval",
+        "thesis": "The NEC's formal recognition of Class 4 (item 36) creates a code pathway, but will not accelerate adoption until three non-code barriers are addressed: (1) inspector training and acceptance variance by jurisdiction, (2) contractor skill certification, (3) integration with streamlined permitting processes. Building electrification's promised permitting acceleration (item 38) will not apply to Class 4 because it targets residential heat pump retrofits, not edge-power fault-managed systems. Result: Class 4 products will be available, but deployment will lag 2-4 years behind code adoption, limiting market pull.",
+        "outline": [
+          "Issue 1: Code clarity is not adoption driver \u2013 NEC Article 725 and Class 4 definition (item 36) are clear, but AHJs have not updated training or inspection protocols",
+          "Issue 2: Permitting streamlining mismatch \u2013 California's expedited pathways (item 38) target residential heat pump projects, not industrial edge power; Class 4 deployments do not benefit",
+          "Issue 3: Contractor certification gap \u2013 electrical field teams lack training on fault-managed power design; certification programs not yet established"
+        ],
+        "must_cite_items": [
+          "36",
+          "38"
+        ],
+        "missing_evidence_to_find": [
+          "Survey: % of inspectors and contractors familiar with Class 4 rules by region",
+          "Timeline: when will NFPA or accredited programs issue Class 4 electrician certifications?",
+          "Early adopter case studies: what permitting delays did first Class 4 projects encounter?"
+        ]
+      },
+      {
+        "working_title": "The Operating-Cost Ceiling: Why Heat Pump Adoption Cannot Reach Scale Without Rate Reform",
+        "thesis": "California's 6M heat pump goal (item 38) will not be achieved by 2030 because permitting streamlining and policy push do not address the fundamental barrier: residential electricity rates are among the highest in the nation, making heat pump operating costs uncompetitive vs. gas furnaces. Owner-operators evaluating retrofit business cases face a math problem, not a permitting problem. Achieving adoption targets requires 15-25% electricity rate reductions or 30-40% heat pump equipment cost declines\u2014neither on current trajectory. Streamlined permitting (item 38 evidence) will accelerate projects for operators who have already decided to electrify, but will not move the needle on the margin.",
+        "outline": [
+          "Barrier 1: Operating-cost parity \u2013 at current CA rates, heat pump payback exceeds equipment life; gas furnace TCO remains lower",
+          "Barrier 2: Permitting is not the bottleneck \u2013 existing permitting timelines do not significantly delay retrofit projects relative to the multi-year payback analysis",
+          "Barrier 3: Policy mismatch \u2013 incentive programs and streamlined permitting address supply-side (contractor velocity, code clarity) but not demand-side (operating cost economics)"
+        ],
+        "must_cite_items": [
+          "38"
+        ],
+        "missing_evidence_to_find": [
+          "California electricity rate trend forecast through 2030; probability of 15%+ reduction",
+          "Heat pump equipment cost decline trajectory; current $/kW trend vs. 30% target",
+          "Retrofit adoption survey: % of building owners citing operating cost vs. permitting as primary barrier",
+          "Comparison: heat pump TCO analysis vs. gas furnace at current and projected future rates"
+        ]
+      },
+      {
+        "working_title": "Centralized vs. Distributed Backup: When PoE Edge Architecture Inverts Resilience Risk",
+        "thesis": "PoE consolidation for industrial edge devices (item 55) shifts power distribution from device-level AC adapters to centralized 48V switches with UPS protection. This improves single-device serviceability (remote power cycling, reduced cabling) and installation labor, but inverts the resilience topology: failure of a central PoE switch now cascades to 8-12+ edge devices simultaneously, whereas distributed AC power would isolate failures to individual devices. The tradeoff becomes attractive only when redundant switch designs (N+1) cost less than device-level distributed UPS\u2014a threshold that varies by panel size and criticality tier.",
+        "outline": [
+          "Benefit: Single-point-of-service \u2013 centralized PoE enables remote reset, port-level power budgeting, and reduced installation labor (single CAT6 run vs. CAT6 + AC outlet + wall chase)",
+          "Risk: Single-point-of-failure inverted \u2013 switch failure takes down entire panel vs. distributed failure isolation; requires N+1 design to mitigate",
+          "Economics: Break-even analysis \u2013 distributed UPS cost vs. redundant PoE switch cost as function of edge device count per panel"
+        ],
+        "must_cite_items": [
+          "55"
+        ],
+        "missing_evidence_to_find": [
+          "Cost comparison: redundant PoE switch pair (N+1) + single UPS vs. distributed device-level UPS for 8, 12, 16 device panels",
+          "Reliability data: observed failure rates for PoE switches vs. AC outlets in industrial edge deployments",
+          "Case studies: organizations that deployed centralized PoE and subsequently upgraded to N+1; drivers and timelines"
+        ]
+      }
+    ],
+    "questions_for_owner": [
+      "What is the actual retrofit adoption rate for building electrification in California as of Q4 2025? Is it tracking toward the 6M-unit 2030 goal, or is operating-cost parity driving slower adoption (item 38)?",
+      "Do you have internal data on % of existing colocation and enterprise data center facilities pursuing full infrastructure re-cores (liquid cooling + DC backbone) vs. capping AI density at retrofit-compatible levels?",
+      "What percentage of data center operators are currently using condition-based (vs. calendar-based) UPS battery replacement strategies? What monitoring instrumentation is being deployed at commissioning (item 57)?",
+      "Have you observed jurisdictional variation in AHJ acceptance of Class 4 fault-managed power designs post-NEC adoption? Is permitting streamlining (item 38) being applied to Class 4 edge-power deployments?",
+      "For PoE-based edge device deployments (item 55), what is the typical device count per panel above which N+1 PoE switch redundancy becomes cost-competitive with distributed UPS solutions?",
+      "Are data center operators observing the voltage excursion and bypass-transfer failures predicted in item 49 (steep load steps from GPU clusters exceeding UPS control-loop response)? What is the failure rate and retrofit cost to address?",
+      "What is the current market adoption rate for DC power distribution in hyperscale data centers (item 47)? What percentage of new builds are greenfielding DC vs. accepting AC-DC conversion losses?"
+    ]
+  },
+  {
+    "agent": "installer_electrical_contractor",
+    "run_date": "2026-03-03",
+    "top_constraints": [
+      {
+        "constraint": "AI rack power density now 30\u201336 kW per unit, forcing wholesale redesign of PDU, busway, and distribution backbone sizing",
+        "why_now": "60% of large colo deals are AI-driven (51); 33% higher power density than non-AI (51); hyperscale now designs for 36 kW/rack (45). Legacy 12 kW design assumptions obsolete.",
+        "who_feels_it": "Electrical contractors designing distribution runs, selecting PDU topologies, and estimating conduit/busway fill. Facilities managers retrofitting existing data centers.",
+        "implication_for_design": "Conduit and busway specs must accommodate 2\u20133\u00d7 historical current and thermal load. Circuit density per panel increases; vertical routing pathways may require relocation or new riser infrastructure. Commissioning includes load-step verification and UPS response testing.",
+        "levers": [
+          "Use DC distribution (item 47) to reduce conversion losses and reclaim watts for compute",
+          "Right-size busway for 36+ kW racks upfront rather than phased retrofit",
+          "Pre-stage UPS and PDU commissioning to verify voltage stability under step-load transients (item 49)"
+        ],
+        "supporting_items": [
+          "45",
+          "51",
+          "53",
+          "49"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "UPS systems designed for steady enterprise IT loads fail under AI workload step-load transients, requiring re-selection and commissioning rework",
+        "why_now": "AI racks at 30\u201380 kW with synchronized GPU cluster load swings (49) exceed control-loop bandwidth of legacy VRLA UPS systems. Voltage excursions and nuisance bypass transfers observed in field (49).",
+        "who_feels_it": "Data center commissioning teams and electrical contractors testing and tuning UPS response. Facilities operations if unplanned bypass transfers occur post-handoff.",
+        "implication_for_design": "UPS selection must be validated for step-load performance, not just kVA rating. Commissioning scope must include dynamic load profiling (ramp rates, peak step sizes) and UPS transfer time verification. Rework risk if legacy units installed without load-transient testing.",
+        "levers": [
+          "Specify UPS systems explicitly rated for 30+ kW step loads before procurement (item 49)",
+          "Conduct factory acceptance testing (FAT) with load-step profiles matching expected AI workload patterns",
+          "Build contingency for UPS model swap if on-site commissioning reveals voltage excursion or efficiency degradation (item 49 evidence on partial-load losses)"
+        ],
+        "supporting_items": [
+          "49",
+          "57"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "Class 4 fault-managed power systems are new to NEC (Article 725) and require field education; contractors unfamiliar with code pathway risk approval delays and install errors",
+        "why_now": "Item 36 identifies Class 4 as newly introduced in NEC specifically for fault-managed power, distinct from traditional Class 2/3 power-limited circuits. No widespread field familiarity yet.",
+        "who_feels_it": "Electrical contractors and permit reviewers on edge-power-ups deployments (LED, building controls, HMI panels). Designers specifying Class 4 circuits.",
+        "implication_for_design": "Specs must clearly state 'Class 4' and reference NEC Article 725 requirements (not Article 720 or Article 800). Wiring methods, overcurrent protection, and labeling differ from Class 2/3. Plan design review cycles with AHJ early to confirm code pathway acceptance.",
+        "levers": [
+          "Include NEC Article 725 Class 4 cite and requirements checklist in electrical specs (item 36)",
+          "Request pre-design AHJ meeting to confirm Class 4 pathway acceptance before installation",
+          "Budget extra time for inspector education and possible rework if Class 4 rules misapplied in field"
+        ],
+        "supporting_items": [
+          "36"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "constraint": "PoE consolidates power and data for edge HMI/control devices, eliminating local AC drops but forcing centralized 48V distribution and UPS architecture decisions",
+        "why_now": "Item 55 describes PoE (IEEE 802.3at, 30W) for industrial edge devices (HMI, gateways). Centralized 48V PoE reduces current and cable losses, enables port-level monitoring and remote power cycling.",
+        "who_feels_it": "Installers routing edge device power; facilities designing building automation and OT monitoring infrastructure. Trade-off decisions between distributed vs. centralized backup.",
+        "implication_for_design": "Single-cable runs (CAT6A/fiber) replace dedicated power drops, reducing labor and pathway congestion. However, PoE switch and centralized UPS become single point of failure for distributed edge devices. Commissioning must verify port power budgets and remote reset capability.",
+        "levers": [
+          "Use PoE for devices rated \u226430W (802.3at) to avoid dual-feed architectures",
+          "Size PoE switch for full stack + 20% margin; verify PSE capacity matches device load under peak CPU (item 55)",
+          "Specify PoE-aware UPS at switch level with port-level monitoring for telemetry and remote cycling"
+        ],
+        "supporting_items": [
+          "55"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "constraint": "Heat pump electrification retrofit demand in California undercut by operating-cost economics, delaying service-upgrade work and affecting panel-sizing business forecasts",
+        "why_now": "California targets 6M heat pumps by 2030 but residential electricity prices are highest in nation, negating operating-cost savings vs. gas (item 38). Policy streamlining proposed but economics remain barrier.",
+        "who_feels_it": "Electrical contractors estimating service-upgrade demand for residential retrofits. Equipment suppliers and distributors forecasting panel/breaker/wiring volume.",
+        "implication_for_design": "Fewer retrofit projects may proceed despite streamlined permitting; contractor capacity may be allocated elsewhere. For projects that proceed, service upgrades to 200A+ required for heat pump + existing load\u2014affects labor sequencing and feeder sizing.",
+        "levers": [
+          "Clarify with owners/developers timing of heat pump retrofit relative to service upgrade; may not be bundled",
+          "If retrofit proceeds, right-size service and feeder for 200A heat pump + existing kW to avoid future rework",
+          "Monitor regional adoption trends; high electricity rates may accelerate in other states, affecting addressable market"
+        ],
+        "supporting_items": [
+          "38"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "tensions": [
+      {
+        "tension": "AI workload density (30\u201336 kW/rack) vs. existing data center cooling and distribution architecture",
+        "why_it_matters": "Items 51 and 53 document AI customers at 33% higher power density and megawatt-scale racks requiring liquid cooling and modular power. Item 43 reports legacy facilities lack cooling capacity and defer retrofits. Contractors face retrofit feasibility gaps: new pathways, busway rerouting, and cooling integration all required simultaneously.",
+        "levers": [
+          "Retrofit strategy: prioritize greenfield deployments for AI loads; existing facilities may need phased density ramps or off-site expansion",
+          "Liquid cooling integration forces coordination between mechanical and electrical\u2014electrical must size distribution *before* cooling layout is finalized (item 53)",
+          "PDU and busway rework in-service risk; item 43 notes legacy facilities postpone upgrades\u2014expect retrofit delays and cost overruns"
+        ],
+        "supporting_items": [
+          "43",
+          "45",
+          "51",
+          "53"
+        ]
+      },
+      {
+        "tension": "Calendar-based UPS battery replacement vs. condition-based replacement driven by AI thermal stress",
+        "why_it_matters": "Item 57 documents that higher ambient temps and AI density accelerate VRLA aging beyond interval schedules, causing float-current creep and cooling load surprises. Facilities using 3\u20135 year replacement cycles face unplanned runtime shortfalls mid-cycle.",
+        "levers": [
+          "Shift commissioning and O&M to condition-based monitoring (float current, impedance trending) rather than replace-by-calendar",
+          "Specify battery chemistry alternatives (LiFePO4, hybrid) if condition-based monitoring shows unacceptable aging trajectory in high-temp data centers",
+          "Plan spare battery capacity on hand for unplanned mid-cycle replacement; budget impact on OpEx"
+        ],
+        "supporting_items": [
+          "57"
+        ]
+      },
+      {
+        "tension": "PoE centralization and single-cable routing vs. resilience and device autonomy in edge OT infrastructure",
+        "why_it_matters": "Item 55 promotes PoE for cost and simplicity (single cable, centralized UPS, remote reset), but centralizes power distribution and control. If PoE switch fails, all edge devices lose power and telemetry. Installer must trade off labor savings against resilience risk.",
+        "levers": [
+          "For mission-critical edge devices (fire panels, access control), use dual-feed or local UPS backup despite cable complexity",
+          "For non-critical monitoring (HMI, gateways), PoE aggregation acceptable; design fast failover to standby switch or local power",
+          "Commissioning scope must include PoE switch redundancy validation and port failover testing"
+        ],
+        "supporting_items": [
+          "55"
+        ]
+      },
+      {
+        "tension": "DC power distribution efficiency gain vs. field commissioning complexity and connector standardization risk",
+        "why_it_matters": "Item 47 cites DC distribution to reduce AC-DC conversion losses and reclaim watts for compute. However, DC power distribution lacks field-proven connector standards, grounding practices, and installer familiarity. Commissioning risk high; retrofit pathways unclear.",
+        "levers": [
+          "For new hyperscale greenfield: specify DC distribution with clear PDU/connector standard (e.g., 48V DC busway with Hyperscale DC standard connectors)",
+          "For retrofit: DC conversion may add cost and complexity; evaluate vs. optimizing AC distribution efficiency first",
+          "Plan extended commissioning for DC systems; fewer field-proven integrators and spares availability unknown"
+        ],
+        "supporting_items": [
+          "47",
+          "53"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Electrical contractors bidding AI data center work without UPS load-transient testing in their commissioning scope will face rework and change orders when legacy systems encounter voltage excursions.",
+        "what_would_change_my_mind": "Evidence that standard UPS commissioning checklists in industry RFQs now require step-load testing, or that major colo operators mandate load-step FAT before UPS acceptance.",
+        "supporting_items": [
+          "49"
+        ]
+      },
+      {
+        "hypothesis": "Class 4 fault-managed power (item 36) will be adopted primarily in new edge-power-ups deployments; retrofits will remain on Class 2/3 due to AHJ unfamiliarity and permit friction.",
+        "what_would_change_my_mind": "Evidence of widespread Class 4 retrofits, or major AHJ guidance documents adopted in high-volume markets (California, New York) clarifying Class 4 pathway and approval timelines.",
+        "supporting_items": [
+          "36"
+        ]
+      },
+      {
+        "hypothesis": "Data center retrofit projects for AI densification will be bid higher and face longer schedules than greenfield AI builds because existing cooling and distribution cannot support 30+ kW racks without partial service outages.",
+        "what_would_change_my_mind": "Documented retrofit projects completing on-time at legacy facilities to 30+ kW/rack density without service interruptions or major rework. Evidence of standardized retrofit toolkits or phased approaches that reduce risk.",
+        "supporting_items": [
+          "43",
+          "45",
+          "51"
+        ]
+      },
+      {
+        "hypothesis": "California residential heat pump retrofit demand will lag policy targets (6M by 2030) because service-upgrade labor and material costs, combined with high electricity rates, make the business case marginal for owner-operators without rebate/financing.",
+        "what_would_change_my_mind": "Evidence of sharp increase in residential service-upgrade permits post-streamlined-permitting law, or documented rebate/financing programs that move adoption curve significantly.",
+        "supporting_items": [
+          "38"
+        ]
+      },
+      {
+        "hypothesis": "Data center operators will adopt condition-based UPS battery replacement (monitoring float current, impedance) within 18\u201324 months, shifting away from calendar-based replacement, as item 57 findings propagate and unplanned outages spike.",
+        "what_would_change_my_mind": "Absence of float-current monitoring adoption in new RFQs or continued calendar-replacement language in major hyperscale contracts. Evidence that VRLA aging is not as severe as item 57 claims in production field data.",
+        "supporting_items": [
+          "57"
+        ]
+      }
+    ],
+    "original_angles": [
+      {
+        "working_title": "The 36 kW Inflection: Why AI Retrofit Bids Will Spike and Greenfield Will Dominate",
+        "thesis": "The shift from 12 kW average rack density to 30\u201336 kW AI deployments (items 43, 45, 51) represents a threshold beyond which existing data center power, cooling, and distribution architecture cannot be retrofit without major rework and extended outages. Electrical contractors and facilities managers will bifurcate strategy: greenfield for AI workloads, retrofit for legacy enterprise IT. Legacy facility operators will defer or cancel upgrades (item 43), slowing addressable market and consolidating work in new builds.",
+        "outline": [
+          "The 36 kW inflection: from 12 kW avg (item 43) to 30\u201380 kW AI racks (items 45, 49, 51)",
+          "Why retrofit fails: cooling bottleneck (item 43 evidence on legacy architecture), distribution routing congestion, UPS commissioning complexity (item 49 step-load failures)",
+          "Greenfield strategy: DC power (item 47), modular busway (item 53), AI-rated UPS (item 49), liquid cooling integration",
+          "Market bifurcation: legacy facilities defer (item 43), hyperscale races to new builds (items 45, 51, 53); contractor capacity shifts to greenfield"
+        ],
+        "must_cite_items": [
+          "43",
+          "45",
+          "49",
+          "51",
+          "53"
+        ],
+        "missing_evidence_to_find": [
+          "Field data on retrofit cost/schedule overruns for existing data centers moving from 12 kW to 30+ kW density",
+          "AHJ and code official guidance on DC power distribution in colocation facilities (item 47 lacks code pathway clarity)",
+          "Comparative cost-benefit analysis: retrofit existing facility vs. lease space in new hyperscale build for AI workloads",
+          "Timeline and adoption rate for condition-based UPS battery monitoring (item 57) in production environments"
+        ]
+      },
+      {
+        "working_title": "Class 4 and the Code Adoption Gap: Why Fault-Managed Power Will Stall in Retrofit Markets",
+        "thesis": "Item 36 identifies Class 4 as a newly introduced NEC category for fault-managed power systems, but lacks widespread field familiarity and AHJ acceptance guidance. Electrical contractors will encounter permit delays and rework risk if they treat Class 4 as Class 2/3. Retrofit projects will remain on Class 2/3; new edge-power-ups deployments will attempt Class 4 but face design-review friction.",
+        "outline": [
+          "NEC Article 725 Class 4 definition and wiring requirements (item 36); differs from Class 2/3 in overcurrent, labeling, routing",
+          "Adoption risk: unfamiliar AHJs, missing guidance documents, installer education lag (item 36 framed as 'educational resource')",
+          "Greenfield projects will drive Class 4 adoption (LED, fault-managed building systems); retrofits will avoid risk and stay on Class 2/3",
+          "Design-review timing and AHJ pre-meeting critical; budget extra 4\u20136 weeks for code acceptance path"
+        ],
+        "must_cite_items": [
+          "36"
+        ],
+        "missing_evidence_to_find": [
+          "Field data on permit approval timelines for Class 4 vs. Class 2/3 circuits in major AHJ markets",
+          "Guidance documents or model codes released by NFPA or major AHJs on Class 4 acceptance criteria",
+          "Cost premium or labor-hour delta between Class 4 and Class 2/3 installations for same fault-managed power application",
+          "Evidence of Class 4 system failures or field compliance issues post-NEC adoption"
+        ]
+      },
+      {
+        "working_title": "PoE at the Edge: Single-Cable Simplicity vs. Centralized Resilience Risk",
+        "thesis": "Item 55 promotes PoE (IEEE 802.3at, 30W) for edge industrial HMI and gateways, offering single-cable routing, centralized UPS, and remote power cycling. However, PoE consolidates power distribution and creates single-point-of-failure risk for distributed edge devices. Installers must trade off labor savings and monitoring benefits against resilience loss; mission-critical OT infrastructure will require dual-feed or local backup despite cable complexity.",
+        "outline": [
+          "PoE architecture: 48V centralized distribution, IEEE 802.3at limits (30W per port), port-level monitoring (item 55)",
+          "Cost and labor benefits: single-cable run eliminates AC drops, reduces pathway congestion, simplifies remote management",
+          "Resilience trade-off: centralized PoE switch failure cascades to all edge devices; lack of per-device UPS on failure",
+          "Deployment differentiation: non-critical edge (monitoring, HMI) \u2192 PoE aggregation; mission-critical (access control, fire) \u2192 dual-feed or local backup"
+        ],
+        "must_cite_items": [
+          "55"
+        ],
+        "missing_evidence_to_find": [
+          "Field data on PoE switch availability and failover time in production OT networks",
+          "Cost comparison: PoE-centralized vs. distributed AC power for same edge device footprint and redundancy level",
+          "IEEE 802.3bt (90W PoE) adoption timelines for heavier industrial edge devices; impact on payload and commissioning",
+          "Case studies of PoE-based edge infrastructure outages and recovery timelines"
+        ]
+      }
+    ],
+    "questions_for_owner": [
+      "Item 49 and 57 both discuss UPS behavior under AI load stress, but 49 emphasizes voltage control transients and 57 focuses on battery aging. Do you have commissioning data on whether standard UPS load-step testing (ramp rate, voltage recovery time) is now included in your data center RFQs and FAT protocols?",
+      "Item 43 cites legacy facility operators deferring intelligent PDU retrofits due to cooling and architectural constraints. Are you seeing similar deferral patterns in your project pipeline, and what fraction of your quotes are for greenfield AI builds vs. retrofit densification of existing facilities?",
+      "Item 36 introduces Class 4 fault-managed power as a new NEC category. Have your local AHJs or electrical inspectors raised questions about Class 4 wiring methods, labeling, or routing in permit reviews, and are you planning to request pre-design AHJ meetings for Class 4 projects?",
+      "Items 47 and 53 discuss DC power distribution for hyperscale and liquid cooling integration. Are you seeing RFQs that specify DC distribution, and what is your confidence level in field-proven DC connector standards and grounding practices for these systems?",
+      "Item 55 describes PoE consolidation for edge OT devices. For your building automation and industrial control projects, are you finding owner preference for single-cable PoE routing, or are mission-critical systems still requesting dual-feed AC power despite added cost and labor?"
+    ]
+  },
+  {
+    "agent": "finance_roi_skeptic",
+    "run_date": "2026-03-03",
+    "top_constraints": [
+      {
+        "constraint": "AI rack density (30-80kW per rack, trending to 36-40kW) exceeds legacy UPS, cooling, and distribution architectures; retrofit vs. accept stranded assets",
+        "who_pays": "Data center operators / facility owners",
+        "who_benefits": "Equipment vendors (UPS, PDU, liquid cooling), cloud/AI customers (get dense capacity), not legacy operators",
+        "what_metric_matters": "Cost per kW of delivered compute vs. infrastructure replacement cost; time-to-revenue from deferred retrofits",
+        "levers": [
+          "UPS re-selection",
+          "PDU/busway re-architecture",
+          "cooling upgrade sequencing"
+        ],
+        "supporting_items": [
+          "49",
+          "53",
+          "45",
+          "43",
+          "51"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "California heat pump economics broken: 6M unit adoption goal clashes with electricity rates that eliminate operating-cost payback vs. gas; retrofit decision held hostage to rate policy, not technology",
+        "who_pays": "Building owners/operators (permitting costs + electrical service upgrades)",
+        "who_benefits": "Equipment manufacturers, utilities (load), state climate scorecards (but not bill payers)",
+        "what_metric_matters": "Payback period in months; panel/service upgrade cost per building as % of total retrofit cost",
+        "levers": [
+          "Rate design reform",
+          "incentive structure (rebate vs. net metering)",
+          "service upgrade cost transparency"
+        ],
+        "supporting_items": [
+          "38"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "UPS battery aging accelerates 2-3x under AI-density conditions (higher temps, frequent cycling); calendar-based replacement schedules systematically underestimate maintenance cadence and cooling load from aging batteries",
+        "who_pays": "Data center operators (unplanned replacements, increased cooling energy)",
+        "who_benefits": "Battery vendors (more replacement cycles)",
+        "what_metric_matters": "Mean time to failure (MTTF) under actual load profiles; float current drift as % of total backup load; avoided downtime value of condition-based monitoring",
+        "levers": [
+          "Condition monitoring systems",
+          "battery chemistry selection",
+          "cooling/setpoint tuning"
+        ],
+        "supporting_items": [
+          "57"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "PoE consolidation shifts power architecture from device-level AC to centralized 48V+switch UPS; ROI depends on capturing labor savings + avoided truck rolls, but numbers missing from deployment examples",
+        "who_pays": "Integrators / facility ops teams (upfront PoE switch infrastructure)",
+        "who_benefits": "Edge device deployments (centralized resilience, remote reset), ops teams (reduced service calls)",
+        "what_metric_matters": "Install labor hours saved per 100 devices; downtime avoidance value from centralized reset vs. on-site power cycling; total cost of ownership at 5-year scale",
+        "levers": [
+          "Switch-level UPS sizing",
+          "port-density cost",
+          "remote power management tooling adoption"
+        ],
+        "supporting_items": [
+          "55"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "constraint": "NEC Class 4 code pathway is newly recognized but field adoption requires contractor re-training; code clarity does not equal market adoption velocity",
+        "who_pays": "Training / certification bodies and contractors (ramp time)",
+        "who_benefits": "Fault-managed power deployments (regulatory pathway), equipment vendors (legitimacy)",
+        "what_metric_matters": "Installer certification rate by region; permitting approval timeline (variance reduction); cost of code-clarification delays",
+        "levers": [
+          "AHJ training outreach",
+          "model permit language",
+          "standard specification language"
+        ],
+        "supporting_items": [
+          "36"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "tensions": [
+      {
+        "tension": "AI rack density growth (79% of operators expect ongoing increases per item 47) forces CapEx on cooling/power infrastructure, but many legacy facilities lack architectural capacity to retrofit\u2014operators must choose between write-off stranded assets or accept lower density and lose customers to hyperscalers",
+        "economic_tradeoff": "Sunk cost of legacy infrastructure vs. revenue loss from refusing high-density customers; upfront retrofit CapEx vs. customer acquisition cost and margin on dense workloads",
+        "levers": [
+          "retrofit_architecture_choice",
+          "customer_pricing_strategy",
+          "capacity_planning_horizon"
+        ],
+        "supporting_items": [
+          "43",
+          "47",
+          "51",
+          "53"
+        ]
+      },
+      {
+        "tension": "Heat pump adoption in California gated by electricity rates (policy lever outside facility scope), but climate policy and permitting streamlining (policy lever inside scope) create misaligned incentive\u2014facilities approve retrofit without economic case, then occupants reject install due to high operating cost",
+        "economic_tradeoff": "Permitting cost and electrical service upgrade cost borne upfront by owner; operating-cost barrier borne by occupant indefinitely; alignment failure means stranded retrofit design work",
+        "levers": [
+          "rate_reform_timeline",
+          "incentive_rebate_level",
+          "service_upgrade_cost_transparency"
+        ],
+        "supporting_items": [
+          "38"
+        ]
+      },
+      {
+        "tension": "Legacy UPS systems fail on AI loads (voltage excursions, nuisance transfers, poor partial-load efficiency per item 49), but replacing UPS during operation is high-risk; operators defer replacement, accept failure risk, or schedule extended maintenance windows with customer impact",
+        "economic_tradeoff": "Cost of unplanned downtime + emergency replacement vs. planned replacement CapEx + scheduled downtime revenue loss vs. risk of catastrophic load drop during GPU cluster step change",
+        "levers": [
+          "UPS_sizing_methodology",
+          "modular_bypass_design",
+          "customer_notification_window"
+        ],
+        "supporting_items": [
+          "49"
+        ]
+      },
+      {
+        "tension": "PDU market growth (item 43) driven by demand for intelligent monitoring on dense racks, but legacy facilities lack cooling to support retrofit; intelligent PDU becomes aspirational purchase without cooling upgrade, leaving monitoring capability unutilized",
+        "economic_tradeoff": "PDU purchase cost without cooling investment = visible load data but no ability to act on it; cooling upgrade cost is bottleneck, not PDU cost; delayed retrofit = extended period of blind load management",
+        "levers": [
+          "cooling_capacity_assessment",
+          "modular_cooling_deployment",
+          "monitoring_value_quantification"
+        ],
+        "supporting_items": [
+          "43"
+        ]
+      },
+      {
+        "tension": "DC distribution adoption (item 47) promised to free watts and improve efficiency, but requires parallel infrastructure redesign and connector standardization; upfront systems integration cost unclear and avoided AC-DC loss quantification is missing",
+        "economic_tradeoff": "AC-DC conversion loss (typically 5-8% of input) vs. DC infrastructure redesign and parallel run cost; who bears upgrade cost\u2014operator, customer, or shared model?",
+        "levers": [
+          "connector_standard_adoption",
+          "parallel_vs_replacement_strategy",
+          "loss_quantification_by_rack_density"
+        ],
+        "supporting_items": [
+          "47"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Data center operators using calendar-based UPS replacement (every 5-7 years) will see 30-40% unplanned battery failures within 3-5 years under AI-density operating conditions (higher ambient temps, frequent cycling); condition-based monitoring reduces failure rate by 60%+ but requires upfront sensor cost and integration.",
+        "data_needed": "MTTF data stratified by load profile (idle vs. frequent discharge vs. AI-density step loads); float current trend data from monitored systems; cost of condition monitoring system vs. unplanned replacement event cost; actual replacement frequency in AI-dense vs. traditional facilities",
+        "supporting_items": [
+          "57"
+        ]
+      },
+      {
+        "hypothesis": "California heat pump retrofit projects started after permitting streamlining will have <40% completion-to-occupancy rate within 12 months due to operating-cost payback barrier (electricity rate shock at first bill); completion rate will correlate inversely with local electricity rates.",
+        "data_needed": "Retrofit start rate post-streamlining; % reaching occupancy handoff; occupant rejection rate by rated annual operating cost; regional electricity rate correlation with retrofit completion; incentive payout level needed to close payback gap",
+        "supporting_items": [
+          "38"
+        ]
+      },
+      {
+        "hypothesis": "Colocation operators with legacy air-cooled infrastructure that refuse >15kW average rack density will lose 25-40% of large deal pipeline within 18 months as customers migrate to hyperscaler or specialized dense-AI providers; retrofitting to support 30+ kW racks costs 30-50% of new-facility capex and takes 6-12 months.",
+        "data_needed": "Customer churn rate by density refusal; deal-size distribution lost vs. retained; retrofit cost per kW as % of new-build cost; retrofit timeline and downtime impact on retained customers",
+        "supporting_items": [
+          "43",
+          "47",
+          "51",
+          "53"
+        ]
+      },
+      {
+        "hypothesis": "PoE-based edge device architectures (centralized 48V + switch UPS) achieve 25-35% lower 5-year TCO than distributed AC-adapter + local UPS models when scaled to 100+ devices per site, but upfront PoE switch infrastructure cost creates barrier in pilot deployments <50 devices.",
+        "data_needed": "Install labor cost differential per device; maintenance/service call frequency and cost by architecture; UPS footprint and real-estate cost (centralized vs. distributed); pilot site scale threshold where TCO crossover occurs; remote power cycling ROI quantification",
+        "supporting_items": [
+          "55"
+        ]
+      },
+      {
+        "hypothesis": "NEC Class 4 fault-managed power pathways will see <15% adoption in first 18 months post-clarification; adoption rate will correlate with AHJ education and model permit language availability, not technical clarity alone.",
+        "data_needed": "Permit applications citing Class 4 by region and month; AHJ familiarity survey before/after training outreach; timeline from code clarification to first five permit approvals by region; installer certification progress",
+        "supporting_items": [
+          "36"
+        ]
+      },
+      {
+        "hypothesis": "AI rack power density (30-80 kW) generates step-load transients that exceed 20% voltage deviation in traditional UPS systems not designed for dV/dt >100V/ms; facilities will see nuisance transfers to bypass in 5-15% of measured events, reducing resilience below stated SLA.",
+        "data_needed": "Measured voltage transient waveforms during GPU cluster ramp (dV/dt, magnitude, recovery time); bypass transfer frequency in AI-dense vs. legacy workload facilities; actual voltage deviation tolerance of downstream equipment; UPS re-selection cost and performance gain",
+        "supporting_items": [
+          "49"
+        ]
+      }
+    ],
+    "original_angles": [
+      {
+        "working_title": "The AI Density Cliff: Where Legacy Data Center Economics Hit a Wall",
+        "thesis": "AI workload consolidation (36-80 kW per rack, 79% expecting growth) has created a step-function constraint on existing data center infrastructure. Operators face a binary choice: expensive retrofit to support new density or write down stranded asset value and lose market share. The financial dynamics of this choice\u2014retrofit cost, customer migration risk, and avoided-downtime value\u2014are not being disclosed in industry messaging.",
+        "outline": [
+          "Concrete density thresholds where legacy air cooling + AC distribution becomes non-functional (per items 45, 51, 53)",
+          "Retrofit cost and timeline barriers preventing mid-market colocation from competing (per items 43, 47); hyperscaler advantage crystallizes",
+          "UPS and PDU re-selection requirements force decision trees with hidden CapEx (per items 49, 43); partial upgrades leave load management blind",
+          "Financial case for CapEx vs. customer acquisition: when is retrofit ROI-positive vs. when should operator exit segment?"
+        ],
+        "must_cite_items": [
+          "43",
+          "45",
+          "47",
+          "49",
+          "51",
+          "53"
+        ],
+        "missing_evidence_to_find": [
+          "Actual retrofit cost per kW for legacy facility to 30+ kW density (not vendor estimates)",
+          "Customer churn rate in mid-market colocation due to density refusal",
+          "Payback period for retrofit CapEx based on marginal revenue from higher-density customers",
+          "Unplanned downtime / SLA miss frequency in facilities running legacy UPS on AI loads",
+          "Decision framework used by operators for retrofit vs. exit (financial thresholds, customer lock-in value)"
+        ]
+      },
+      {
+        "working_title": "California's Permitting Win + Electricity Rate Loss: A Policy Alignment Failure in Building Electrification",
+        "thesis": "California is advancing streamlined permitting for heat pump retrofits (policy lever: reduce soft costs) while electricity rates remain at nation-high levels (policy lever: increase operating cost). The two policies are economically misaligned\u2014permitting speed cannot overcome operating-cost payback barrier. Retrofit projects will start and stall at the occupant adoption phase, wasting design/permitting sunk costs.",
+        "outline": [
+          "6M unit target by 2030 depends on operating-cost payback case, which breaks under current CA electricity rates (item 38 evidence)",
+          "Permitting streamlining reduces soft costs (maybe 10-15% of retrofit cost) but does not move operating-cost needle (per-kWh rate is policy-external to permitting authority)",
+          "Building owners will invest in service upgrades and design approval, then face occupant rejection when heat pump heating cost exceeds gas baseline",
+          "Incentive structure (rebate level, net metering, time-of-use pricing) becomes the actual gating constraint, not permitting pathway"
+        ],
+        "must_cite_items": [
+          "38"
+        ],
+        "missing_evidence_to_find": [
+          "Actual electricity rate impact on heat pump annual operating cost vs. baseline gas furnace (per building type, climate zone)",
+          "Rebate / incentive level needed to close payback gap to <5 year horizon",
+          "Retrofit project start rate post-permitting streamlining; completion-to-occupancy rate; occupant acceptance rate by utility rate tier",
+          "Service upgrade cost per building as % of total retrofit cost (to test whether permitting acceleration unlocks meaningful economic motion)",
+          "Precedent from other states where rate policy was reformed concurrent with permitting streamlining (did completion rates improve?)"
+        ]
+      },
+      {
+        "working_title": "The UPS Battery Trap: Calendar-Based Replacement Meets AI Density Cycling",
+        "thesis": "Data center operators use calendar-based UPS battery replacement (every 5-7 years) inherited from traditional IT load profiles. AI workloads introduce high-frequency charge/discharge cycling and elevated ambient temps, accelerating VRLA aging by 2-3x. Most operators will not discover this until unplanned failures occur; condition-based monitoring exists but requires upfront investment and operator discipline to act on early-warning signals.",
+        "outline": [
+          "Evidence: higher ambient temps + shorter autonomy (5-15 min) = more cycling events per year than traditional IT (item 57 specifics)",
+          "Float current creep from aging batteries increases cooling load invisibly; sunk cooling cost makes condition monitoring ROI opaque",
+          "Unplanned battery failure during AI workload step-load is high-risk scenario (power loss during GPU cluster ramp); avoided downtime cost is real but not quantified",
+          "CapEx choice: upgrade to condition-based monitoring now vs. emergency battery replacement later; no industry benchmark for MTTF under AI load"
+        ],
+        "must_cite_items": [
+          "57",
+          "49"
+        ],
+        "missing_evidence_to_find": [
+          "MTTF curve for VRLA UPS batteries stratified by ambient temp, cycling frequency, and load profile (traditional vs. AI)",
+          "Float current trend data from 10+ monitored data centers showing correlation with age, temp, and cooling load",
+          "Unplanned replacement cost (parts + labor + downtime) vs. planned replacement cost for mid-size data center",
+          "Condition monitoring system cost and integration complexity; cost per UPS per year",
+          "Industry survey: % of operators currently using condition-based monitoring; triggers and decision rules for early replacement"
+        ]
+      },
+      {
+        "working_title": "PoE as Power Architecture Simplification: Labor Savings Hidden in TCO",
+        "thesis": "PoE consolidation (48V centralized distribution + switch-level UPS) simplifies edge device deployment labor and enables remote power management, but the ROI case is scattered across installer time, service call frequency, and avoided on-site truck rolls. Deployment scale threshold where PoE TCO beats distributed AC-adapter model is not standardized, causing adoption hesitation below 100-device deployments.",
+        "outline": [
+          "PoE eliminates per-device AC adapter + local power supply; centralizes UPS backup and enables remote power cycling (item 55 specifics)",
+          "Installer labor saving per device (single cable vs. power + data runs) compounds at scale; service call cost reduction from remote reset is not quantified",
+          "Upfront PoE switch infrastructure cost creates barrier in small pilots; no published TCO calculator for different deployment scales",
+          "Adoption gated by integrator familiarity with IEEE 802.3at/bt and power budgeting discipline; education cost not in vendor messaging"
+        ],
+        "must_cite_items": [
+          "55"
+        ],
+        "missing_evidence_to_find": [
+          "Install labor time and cost per device for PoE vs. distributed AC-adapter architecture",
+          "Service call frequency and cost by architecture; remote power cycling adoption rate and time saved per incident",
+          "PoE switch upfront cost per port; UPS sizing and cost for centralized architecture",
+          "5-year TCO model for 25, 50, 100, and 500+ device deployments showing crossover point",
+          "Case studies: integrators currently using PoE for edge panels; cost and adoption barriers cited"
+        ]
+      }
+    ],
+    "questions_for_owner": [
+      "How should we model the economic decision tree for data center operators facing retrofit vs. customer churn under AI density growth? What financial metrics (IRR, payback, NPV) are operators actually using, and at what thresholds do they exit a market segment?",
+      "California's permitting streamlining + high electricity rates create misaligned incentives. Are there early signals of retrofit starts that stall pre-occupancy due to operating-cost rejection? What would a leading indicator dataset look like?",
+      "For UPS batteries aging 2-3x faster under AI load, what is the avoided-downtime value of condition-based monitoring? Should we quantify MTTF curves by load profile and ambient temp to enable retrofit investment ROI?",
+      "PoE consolidation for edge deployments appears labor-efficient at scale, but the TCO threshold (breakeven device count) is not published. Should we develop a standardized TCO calculator stratified by integrator type and deployment geography?",
+      "NEC Class 4 is now a recognized code pathway, but field adoption requires AHJ education and permit language standardization. What is the timeline to see material permit approval rate increase, and how do we measure code-clarification effectiveness independent of market adoption speed?",
+      "AI rack densities (30-80 kW) generate voltage transients that exceed traditional UPS control loop design margins. Do we need industry data on actual bypass transfer frequency and voltage deviation magnitude to justify UPS re-selection ROI?",
+      "Is there a regional or operator-type segmentation where heat pump operating cost becomes non-prohibitive without rate reform (e.g., low-cost electricity regions, specific building types with high gas baseline)? Should we target early adoption analysis there rather than statewide?"
+    ]
+  },
+  {
+    "agent": "compliance_ahj",
+    "run_date": "2026-03-03",
+    "top_constraints": [
+      {
+        "constraint": "Class 4 Fault Managed Power lacks field-ready commissioning checklists and inspection protocols; AHJs treat it as novel with no precedent guidance",
+        "what_ahj_cares_about": "Does the installation meet Article 725 intent? What's the approval pathway when AHJ has never inspected Class 4? Risk of project stalls when inspector requests clarification or defers to authority-having-jurisdiction higher-up.",
+        "documentation_gap": "Item 36 identifies Class 4 as 'newer category' but provides no commissioning evidence template, test sequence, or pre-inspection checklist. Contractors lack documented proof that installation complies with Class 4 requirements before inspection.",
+        "how_to_de-risk": "Develop Class 4-specific commissioning package: (1) signed statement of compliance with Class 4 definition; (2) fault-managed system architecture diagram with control limits; (3) witness test protocol for fault isolation (e.g., overcurrent response, voltage limiting); (4) pre-inspection checklist signed by licensed installer. Provide AHJ with one-page 'Class 4 at a glance' to reduce inspection friction.",
+        "levers": [
+          "L1_pre_inspection_coordination",
+          "L2_commissioning_documentation",
+          "L3_ahj_education_materials"
+        ],
+        "supporting_items": [
+          "36"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "AI rack density (30\u201380kW) exceeds UPS control loop specifications; legacy UPS systems generate nuisance alarms and voltage excursions on step load changes, forcing mid-project re-selection",
+        "what_ahj_cares_about": "Does the UPS system meet NEC Article 700/701 resilience and voltage regulation requirements for critical systems? Nuisance transfers to bypass violate uptime SLAs and create inspection concerns about inadequate system design.",
+        "documentation_gap": "Items 49 and 53 document step-load control failures but do NOT provide guidance on UPS commissioning test procedures for high-density AI racks. Facilities lack load-step test protocols, voltage envelope acceptance criteria, or partial-load efficiency documentation required to prove UPS fitness before energization.",
+        "how_to_de-risk": "Require commissioning plan for AI-density racks: (1) dynamic load-step test procedure (e.g., 50% \u2192 100% in <500ms); (2) voltage regulation tolerance acceptance (\u00b13% per NEC 110.3); (3) efficiency vs. load curve demonstrating partial-load performance; (4) bypass transfer inhibit settings and bypass duration limits. AHJ inspection becomes verification of test results, not guesswork on unknown workload behavior.",
+        "levers": [
+          "L2_commissioning_documentation",
+          "L4_equipment_pre_approval",
+          "L5_load_test_protocols"
+        ],
+        "supporting_items": [
+          "49",
+          "53"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "DC power distribution for high-density racks (36\u201380kW) lacks NEC Article 390 prescriptive guidance and listing pathways; AHJs struggle to approve non-traditional DC systems without manufacturer documentation",
+        "what_ahj_cares_about": "Does the DC distribution system meet fire safety, overcurrent protection, and voltage regulation requirements? Traditional Article 445/490 assume low-voltage DC generators or battery systems; modern 48V/96V busway and modular PDU systems fall into regulatory gray zones.",
+        "documentation_gap": "Items 47, 53, and 45 identify DC as efficiency solution but provide zero evidence of UL listing, NEC compliance pathway, or approval documentation. Facilities proposing DC retrofits cannot produce inspection-ready proof that equipment meets applicable standards.",
+        "how_to_de-risk": "(1) Specify only UL-listed DC distribution equipment (e.g., 48V busway, modular PDUs with UL 508 or equivalent listing); (2) provide single-line diagram showing overcurrent protection at source, voltage regulation, and grounding per NEC Article 250 for low-voltage DC; (3) include manufacturer's compliance statement referencing applicable NEC articles (Article 705 if PV+DC hybrid); (4) pre-submit to AHJ with UL file numbers before equipment procurement. Eliminates approval surprises.",
+        "levers": [
+          "L1_pre_inspection_coordination",
+          "L4_equipment_pre_approval",
+          "L6_nec_compliance_narrative"
+        ],
+        "supporting_items": [
+          "47",
+          "53",
+          "45"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "Liquid cooling integration for megawatt-scale racks creates new electrical design interface gaps; water-to-power control dependencies not covered in standard electrical inspection checklists",
+        "what_ahj_cares_about": "Electrical safety of liquid cooling systems (pump power, coolant flow monitoring, emergency shutdown circuits). If liquid cooling fails, does electrical system safely de-rate or shut down? Are emergency disconnect circuits properly labeled and tested?",
+        "documentation_gap": "Items 53, 51, and 45 discuss liquid cooling necessity but do NOT provide electrical control diagrams, emergency shutdown sequences, or commissioning test procedures proving that electrical and cooling systems are safely integrated.",
+        "how_to_de-risk": "Require schematic showing: (1) pump/compressor electrical supply with dedicated breaker and disconnect; (2) coolant flow/temperature sensors tied to electrical load-shedding logic (if flow drops below threshold, reduce rack power); (3) emergency shutdown circuit diagram; (4) functional test protocol proving pump failure triggers controlled load reduction or panel shutdown. AHJ inspection verifies control logic and emergency response, not guesses about integration.",
+        "levers": [
+          "L2_commissioning_documentation",
+          "L5_load_test_protocols",
+          "L7_cross_discipline_sign_off"
+        ],
+        "supporting_items": [
+          "53",
+          "51",
+          "45"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "constraint": "PoE-based edge device backup (UPS at switch level) introduces new single-point-of-failure risk; AHJs lack guidance on PoE PSE fault tolerance and battery capacity documentation for distributed edge networks",
+        "what_ahj_cares_about": "Does centralized PoE UPS provide sufficient runtime for all edge devices (HMIs, access terminals, sensors) to safe-shutdown? What happens if PoE switch UPS fails? Are all PoE runs on same UPS or segmented by criticality?",
+        "documentation_gap": "Item 55 describes PoE centralization benefits (remote reset, single-point backup) but provides no battery sizing worksheet, fault-tree analysis, or runtime verification procedure. Facilities cannot prove to AHJ that PoE UPS backup meets NEC Article 700/701 runtime for critical OT systems.",
+        "how_to_de-risk": "(1) Device inventory spreadsheet: list all PoE devices, wattage, and criticality classification (life-safety vs. convenience); (2) PoE PSE battery sizing calculation (runtime \u00d7 total load + margin); (3) single-line diagram showing PoE switch position, UPS input/output, and segmentation by critical tier; (4) functional test: measure runtime under worst-case load, verify all devices achieve safe-shutdown before battery depletion. AHJ can verify backup fitness by reviewing calculations and test results.",
+        "levers": [
+          "L1_pre_inspection_coordination",
+          "L2_commissioning_documentation",
+          "L5_load_test_protocols"
+        ],
+        "supporting_items": [
+          "55"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "constraint": "Heat pump electrification retrofit permitting streamlined at state policy level but local AHJ has no standardized electrical load calculation or service upgrade checklist; leads to project delays and rework",
+        "what_ahj_cares_about": "Does proposed panel/service upgrade meet NEC load calculation for heat pump + existing loads? Are resistive backup elements properly sized and interlocked? Does feeder/service entrance meet new amperage?",
+        "documentation_gap": "Item 38 notes California aims for 6M heat pumps by 2030 with 'streamlined permitting,' but no evidence that AHJs have adoption checklists for typical retrofit scenarios. Contractors submit generic service upgrade plans; AHJs request custom load calcs, delaying permit approval.",
+        "how_to_de-risk": "Work with state/local AHJs to publish 'Heat Pump Retrofit Load Calculation Template' for common scenarios (e.g., 4-ton heat pump replacing gas furnace in 100A service). Include: (1) HVAC load per ASHRAE/MCA; (2) existing house load; (3) diversity factors; (4) backup heating element sizing; (5) recommended panel upgrade (100A \u2192 150A/200A). Pre-approved templates eliminate custom calc friction and accelerate permitting.",
+        "levers": [
+          "L1_pre_inspection_coordination",
+          "L3_ahj_education_materials",
+          "L6_nec_compliance_narrative"
+        ],
+        "supporting_items": [
+          "38"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "tensions": [
+      {
+        "tension": "Class 4 Fault Managed Power (novel code pathway per item 36) vs. AHJ inspection certainty \u2014 NEC formally recognizes Class 4 but provides no prescriptive commissioning test method; inspectors cannot distinguish compliant from non-compliant installations without witness testing protocols.",
+        "why_it_matters": "Contractors and facilities managers cannot obtain permit approval with confidence because AHJ approval process undefined. Risk: projects stall at permit stage, inspectors demand ad-hoc testing, or installations rejected post-completion. De-risking requires pre-inspection coordination and signed commissioning checklist (see constraint #1).",
+        "levers": [
+          "L1_pre_inspection_coordination",
+          "L2_commissioning_documentation"
+        ],
+        "supporting_items": [
+          "36"
+        ]
+      },
+      {
+        "tension": "AI workload power density surging (12\u201336kW per rack, 33% higher than non-AI per items 43, 51, 45) vs. traditional UPS/PDU equipment certification \u2014 legacy UPS systems cannot handle step-load dynamics; facilities must choose between acceptance of nuisance failures or costly mid-project equipment swaps (item 49).",
+        "why_it_matters": "Facilities managers specify equipment based on catalog nameplate but discover at commissioning that equipment does not perform under AI workload profiles. AHJ may halt operation if UPS transfers to bypass during load transients (safety concern). Inspection becomes blame-game: is it equipment fault, installation fault, or load design fault?",
+        "levers": [
+          "L2_commissioning_documentation",
+          "L4_equipment_pre_approval",
+          "L5_load_test_protocols"
+        ],
+        "supporting_items": [
+          "49",
+          "51",
+          "43",
+          "45"
+        ]
+      },
+      {
+        "tension": "Liquid cooling necessity for high-density racks (items 51, 53) vs. electrical-only inspection scope \u2014 AHJ inspectors trained on electrical code but not thermal/mechanical integration; approval becomes uncertain when cooling failure affects electrical safety (e.g., uncontrolled power draw if coolant pump fails).",
+        "why_it_matters": "Electrical permits assume electrical systems are isolated; liquid cooling systems create new failure modes (flow loss \u2192 thermal runaway \u2192 uncontrolled load \u2192 electrical overstress). AHJs lack inspection checklist for cooling-electrical handoff. Risk: facilities operate with unproven emergency shutdown logic, creating liability.",
+        "levers": [
+          "L2_commissioning_documentation",
+          "L5_load_test_protocols",
+          "L7_cross_discipline_sign_off"
+        ],
+        "supporting_items": [
+          "51",
+          "53",
+          "45"
+        ]
+      },
+      {
+        "tension": "DC power distribution efficiency gain (item 47) vs. NEC prescriptive guidance \u2014 Article 390 covers premise wiring but not modern 48V/96V busway and modular PDU systems typical of data center deployments. Manufacturers claim UL listing but AHJs unsure if listing applies to complete system or sub-components only.",
+        "why_it_matters": "Facilities cannot obtain pre-approval for DC retrofits because compliance pathway unclear. AHJ requests unnecessary engineering studies or denies permits due to 'non-traditional' design. Delays high-efficiency infrastructure rollouts.",
+        "levers": [
+          "L1_pre_inspection_coordination",
+          "L4_equipment_pre_approval",
+          "L6_nec_compliance_narrative"
+        ],
+        "supporting_items": [
+          "47",
+          "45",
+          "53"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "AHJ stalls on AI data center projects increase when facilities fail to pre-submit UPS dynamic load-step test procedures; nuisance bypass transfers during inspection trigger 'code violation' interpretations even though equipment is UL-listed.",
+        "what_evidence_would_support_it": "Survey of data center permit delays: ask AHJs if they've rejected/delayed UPS approvals due to voltage excursions or bypass transfers during ramp-up tests. Compare approval timelines between projects with pre-submitted load-step test protocols vs. those without. If projects with witness-tested UPS profiles approve 40%+ faster, hypothesis holds.",
+        "supporting_items": [
+          "49"
+        ]
+      },
+      {
+        "hypothesis": "Heat pump retrofit permitting in California will experience 20\u201330% rework cycles (permit denial, customer re-submission, re-approval) until AHJs adopt standardized load-calculation templates; streamlined permit language at state level does NOT reduce AHJ-level friction without local checklists.",
+        "what_evidence_would_support_it": "Track California heat pump retrofit permits filed Jan\u2013Dec 2026: measure % requiring second submission for load-calc revision. If >25% require rework, hypothesis confirmed. Interview AHJs: do they lack standardized heat pump retrofit checklist? Do contractors report 'custom calc every time' frustration?",
+        "supporting_items": [
+          "38"
+        ]
+      },
+      {
+        "hypothesis": "Legacy data centers deferring intelligent PDU and liquid cooling upgrades (item 43) cite not cost but LACK OF COMMISSIONING GUIDANCE; facilities fear unproven integration will trigger AHJ compliance gaps or uptime SLA failures.",
+        "what_evidence_would_support_it": "Survey facility managers at 50+ legacy data centers: ask top 3 reasons for deferring PDU/cooling upgrade. If 'lack of commissioning protocol' or 'unclear AHJ approval pathway' ranks top-2, hypothesis holds. Compare upgrade timelines between facilities with pre-coordinated AHJ pre-approval vs. those without.",
+        "supporting_items": [
+          "43"
+        ]
+      },
+      {
+        "hypothesis": "PoE-based edge device backup (item 55) will generate AHJ pushback on runtime documentation; AHJs will require life-safety device backup to prove NEC Article 700 compliance even though edge devices are typically convenience load.",
+        "what_evidence_would_support_it": "Interviews with AHJs approving OT/building automation systems using centralized PoE UPS: do they request runtime calculations? Do they demand separate UPS for life-safety circuits (emergency lighting, security, etc.)? If 60%+ require runtime documentation and tiered backup, hypothesis holds.",
+        "supporting_items": [
+          "55"
+        ]
+      },
+      {
+        "hypothesis": "DC power distribution will remain stalled in retrofit applications until facility engineers obtain UL-listed system (not sub-component) certifications; piecemeal equipment approvals (48V busway UL-listed, modular PDU UL-listed, control logic unknown) do not satisfy AHJ 'system approval' expectations.",
+        "what_evidence_would_support_it": "Survey 20+ colocation/hyperscale operators planning DC retrofits: ask how many cite 'system listing uncertainty' as primary blocker. Review AHJ denial letters for DC retrofit projects: tally reasons given (listing, safety concern, NEC interpretation). If 50%+ cite lack of complete system approval, hypothesis holds.",
+        "supporting_items": [
+          "47",
+          "45"
+        ]
+      }
+    ],
+    "original_angles": [
+      {
+        "working_title": "Class 4 Adoption Stall: The Commissioning Documentation Gap That AHJs Cannot Inspect",
+        "thesis": "Class 4 Fault Managed Power has a clear NEC pathway (item 36) but will experience permit delays and inspection friction until field contractors and AHJs agree on witness test protocols and commissioning checklists. The gap is not code clarity but actionable commissioning evidence.",
+        "outline": [
+          "What is Class 4 and why NEC adoption matters (item 36)",
+          "Why AHJs lack inspection confidence: no prescriptive test method in code (Article 725 silent on witness testing)",
+          "Real-world friction: what inspectors ask for (interviews needed) and what contractors can provide (fault-isolation test, control voltage limits, voltage regulation demo)",
+          "De-risking playbook: pre-inspection coordination letter, signed commissioning checklist, fault-response witness test, one-page AHJ briefing"
+        ],
+        "must_cite_items": [
+          "36"
+        ],
+        "missing_evidence_to_find": [
+          "Interview 5\u201310 AHJs: what Class 4 questions have you seen in permit submissions? What documentation would give you inspection confidence?",
+          "Survey field contractors: have you encountered AHJ hesitation on Class 4 approvals? What commissioning evidence did you have to provide?",
+          "Review 3\u20135 Class 4 projects that received approval: what commissioning package did they submit?"
+        ]
+      },
+      {
+        "working_title": "AI Workload UPS Mismatch: Why Nameplate Ratings Fail Under Step Load and How Commissioning Protocols De-Risk Approval",
+        "thesis": "AI data center projects face UPS approval delays because traditional equipment specifications (kW, voltage rating) do not capture dynamic load-step performance. AHJs interpret voltage excursions and bypass transfers as safety violations. Pre-submission load-step test protocols and efficiency curves eliminate inspection ambiguity.",
+        "outline": [
+          "AI workload power density thresholds (12\u201380kW racks per items 43, 49, 51, 45) exceed UPS control loop design envelope",
+          "Failure modes: voltage excursions, nuisance bypass transfers, partial-load efficiency loss (item 49) \u2014 all observable during commissioning but invisible in permit documents",
+          "AHJ inspection gap: traditional UPS Article 700/701 inspection assumes steady-state load; step-load testing not part of standard practice",
+          "De-risking: witness load-step test (50%\u2192100% ramp), voltage envelope acceptance criteria (\u00b13% per NEC 110.3), bypass transfer inhibit settings, partial-load efficiency curves documented pre-inspection"
+        ],
+        "must_cite_items": [
+          "49",
+          "43",
+          "51",
+          "45"
+        ],
+        "missing_evidence_to_find": [
+          "Survey data center operators: have you experienced UPS approval delays or mid-project equipment swaps due to AI workload dynamics?",
+          "Interview AHJs in data center jurisdictions: have you encountered UPS voltage excursion complaints? What testing protocol would satisfy you?",
+          "Collect 3\u20135 AI data center projects with documented commissioning test results: what load-step procedure was used? Did it accelerate AHJ approval?"
+        ]
+      },
+      {
+        "working_title": "Liquid Cooling + Electrical: The Missing Cross-Discipline Inspection Checklist",
+        "thesis": "Megawatt-scale racks (items 53, 51) require liquid cooling, but electrical code assumes cooling is outside scope. When coolant flow sensors trigger electrical load-shedding logic or pump failure blocks rack power, AHJs face undefined approval authority. Pre-submitted control architecture and functional test protocols clarify inspection responsibility.",
+        "outline": [
+          "Cooling necessity for dense AI racks: 36kW+ per rack requires liquid cooling (items 53, 51, 45)",
+          "Electrical-thermal interface gap: pump power, flow monitoring, thermal shutdown interlocks not covered in NEC Articles 700/701 inspection standards",
+          "AHJ confusion: is cooling failure an electrical code violation? Does electrical system have emergency shutdown responsibility?",
+          "De-risking: single-line diagram showing pump power, flow sensor circuit, load-shedding logic; functional test demonstrating safe behavior if flow drops; cross-discipline sign-off (electrical + mechanical engineer, facility manager witness)"
+        ],
+        "must_cite_items": [
+          "53",
+          "51",
+          "45"
+        ],
+        "missing_evidence_to_find": [
+          "Interview AHJ inspectors in hyperscale data center jurisdictions: have you encountered projects with integrated liquid cooling? What electrical/cooling interface questions did you ask?",
+          "Survey facilities deploying megawatt-scale racks: did you encounter AHJ concerns about cooling-electrical handoff? Was approval delayed pending cross-discipline coordination?",
+          "Review 2\u20133 megawatt-scale rack installations: what control architecture diagrams and functional test procedures were submitted to AHJ?"
+        ]
+      },
+      {
+        "working_title": "Heat Pump Retrofit Permitting Paradox: State Streamlining \u2260 AHJ Friction Reduction Without Local Checklists",
+        "thesis": "California policy targets 6M heat pumps by 2030 with 'streamlined permitting' (item 38), but AHJs lack standardized retrofit load-calculation templates. Permit submissions generate rework cycles because each AHJ applies custom interpretation of HVAC + existing house load diversity factors. Template-based checklists address real friction, not policy rhetoric.",
+        "outline": [
+          "State policy disconnect: 6M heat pump goal + streamlined permitting pathway (item 38) vs. AHJ-level approval friction (no templates)",
+          "Real-world rework: contractors submit generic service upgrade plans; AHJs request custom load calcs; permits delayed 4\u20138 weeks per rework cycle",
+          "Why it happens: NEC 220.85 (HVAC load calc) and 215.2 (service sizing) are prescriptive but allow diversity interpretation; no heat pump retrofit baseline scenario",
+          "De-risking: publish 3\u20135 'pre-approved retrofit scenarios' (4-ton heat pump replacing gas furnace, 100A\u2192150A/200A service) with AHJ sign-off; contractors use templates, AHJ accelerates review"
+        ],
+        "must_cite_items": [
+          "38"
+        ],
+        "missing_evidence_to_find": [
+          "Survey 20+ California electricians: how many heat pump retrofit permits required second submission for load calc? What AHJ feedback triggered rework?",
+          "Interview 10\u201315 California AHJs: do you have a heat pump retrofit checklist? What % of submissions require custom load calc review?",
+          "Collect sample heat pump retrofit permits filed Jan\u2013Mar 2026: measure approval timelines and rework cycles. Identify AHJ with fastest approvals; reverse-engineer their process."
+        ]
+      }
+    ],
+    "questions_for_owner": [
+      "Do we have access to AHJ interview data from data center jurisdictions (CA, TX, VA, NC)? If yes, what % of AI workload projects cite UPS approval friction or mid-project equipment changes? This would validate the UPS commissioning protocol hypothesis (constraint #2).",
+      "Can we survey 20\u201330 facility managers deferring intelligent PDU or liquid cooling upgrades (item 43) to ask their top-3 blockers? If 'lack of commissioning guidance' or 'unclear AHJ approval pathway' ranks in top-2, it proves that documentation gaps\u2014not cost\u2014drive deferral decisions.",
+      "Do we have permits-filed data from California (Jan\u2013Dec 2025) showing heat pump retrofit rework cycles? If we can measure % of permits requiring second submission for load-calc revision, we can test whether state streamlining policy has actually reduced AHJ friction at permit level.",
+      "Can we obtain 3\u20135 completed Class 4 Fault Managed Power projects (item 36) and review their commissioning packages to reverse-engineer what documentation AHJs accepted? This would inform the de-risking playbook for emerging contractors.",
+      "Do we have contact with AHJs in colocation/hyperscale-heavy jurisdictions who can share their approval timelines and inspection checklists for DC power distribution retrofits? If AHJs require 'system listing' vs. 'component listing,' this would validate the DC pathway hypothesis (constraint #3)."
+    ]
+  },
+  {
+    "agent": "owner_operator_facilities",
+    "run_date": "2026-03-03",
+    "top_constraints": [
+      {
+        "constraint": "UPS battery aging accelerates beyond calendar schedules in high-density, high-temp data centers; calendar-based replacement strategies create runtime drift risk",
+        "failure_mode": "Degraded VRLA batteries increase float current and cooling load; runtime shortfalls emerge mid-autonomy window; partial load efficiency collapses; unplanned downtime when battery fails to support step load",
+        "operational_burden": "Facilities operators must implement condition-based monitoring (internal resistance, voltage recovery, float current trending) across fleet of UPS units; legacy interval-based capital budgets become inaccurate; cooling overhead from aged batteries rises undetected until crisis",
+        "what_buyers_will_require_next": "Real-time battery health telemetry integrated into DCIM; predictive replacement scheduling based on remaining useful life (RUL) models; battery chemistry selection tied to ambient temp and AI workload cycling patterns; commissioning standards that establish baseline float current and aging rate curves",
+        "levers": [
+          "condition-based-maintenance",
+          "monitoring-telemetry",
+          "battery-chemistry-selection",
+          "commissioning-standards"
+        ],
+        "supporting_items": [
+          "57"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "AI rack power density (30-80kW per rack, avg 12-36kW) exceeds legacy UPS control loop design; traditional systems cannot handle synchronized step load swings without voltage excursions and nuisance bypass transfers",
+        "failure_mode": "Steep load steps from GPU clusters cause voltage sag/swell; UPS control loop cannot respond fast enough; logic transfers to static bypass unintentionally; loss of UPS protection during high-power transient; inefficiency at partial load (AI facilities run 40-60% of max, not 85-95%)",
+        "operational_burden": "Facilities teams must re-qualify and potentially replace UPS systems designed for steady enterprise IT; UPS sizing becomes coupled to workload dynamics, not just peak kW; bypass transfer tuning becomes critical commissioning task; ongoing monitoring of bypass transfer frequency and voltage excursion events",
+        "what_buyers_will_require_next": "UPS systems with dynamic load response specs (dV/dt tolerance, step load recovery time <100ms); dual-mode efficiency curves (one for sustained, one for partial load AI workloads); bypass transfer audit trails and alerting; UPS selection methodology that includes GPU cluster load characterization",
+        "levers": [
+          "ups-architecture-redesign",
+          "commissioning",
+          "power-quality-surge",
+          "monitoring-telemetry"
+        ],
+        "supporting_items": [
+          "49",
+          "51"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "Megawatt-scale rack density and liquid cooling architectures require modular power distribution and busway; legacy PDU and circuit density insufficient for 36kW+ racks; retrofit pathways blocked by cooling constraints",
+        "failure_mode": "Existing power distribution backbone (feeders, busbars, PDUs) saturates; facilities cannot achieve target rack density without full power system redesign; retrofit attempts fail because cooling capacity absent; colocation operators cannot accept new AI customers due to power/cooling limit",
+        "operational_burden": "Facilities must conduct power pathway audits to identify capacity bottlenecks; retrofit projects become 12-24 month efforts; parallel running of legacy and new distribution systems during transition; deferred customer commitments until infrastructure ready; CAPEX budgeting for modular PDU and liquid cooling systems",
+        "what_buyers_will_require_next": "Modular PDU systems rated for 30-80kW rack loads; busway systems with higher current density; liquid cooling integration specs tied to power distribution layout; future-proofed pathways in new builds (conduit, cable trays sized for 50kW+ single-rack scenarios); retrofit feasibility assessments before customer acquisition",
+        "levers": [
+          "modular-power-design",
+          "liquid-cooling-integration",
+          "pathways-future-proofing",
+          "capacity-planning"
+        ],
+        "supporting_items": [
+          "53",
+          "45"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "AC-to-DC conversion losses become unacceptable at 12-36kW rack densities; DC power distribution adoption accelerates but creates new infrastructure debt (hybrid AC/DC pathways, connectors, monitoring, safety standards immature)",
+        "failure_mode": "Facilities deploying only AC power distribution lose 3-5% of power budget to rectification/conversion; in megawatt-scale racks, reclaimed watts via DC justify infrastructure investment but create unfamiliar operational model; dual distribution system monitoring complexity; connector interoperability gaps",
+        "operational_burden": "Operators must maintain two parallel power delivery systems; DC power monitoring/metering standards not yet commoditized; technicians unfamiliar with DC safety protocols and arc hazards; connector/breaker selection fragmented across vendors; no agreed-upon DC voltage standard for edge-to-rack feeds",
+        "what_buyers_will_require_next": "Industry standardization on DC voltage (240V vs 380V vs 48V for different use cases); commodity DC PDUs and monitoring; DC arc detection and protection standards; training/certification for field technicians on DC safety; DCIM templates that track AC/DC distribution separately and calculate efficiency deltas",
+        "levers": [
+          "dc-standards-harmonization",
+          "monitoring-telemetry",
+          "safety-certification",
+          "training-workforce"
+        ],
+        "supporting_items": [
+          "47",
+          "51"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "constraint": "PoE centralization for edge devices (30W per device, 48V distribution, remote power cycling) creates operational debt at scale (200+ endpoints, multi-building deployments); single point of failure in PoE switch UPS, port-level monitoring noise, and remote power cycling complexity in OT environments",
+        "failure_mode": "Outage in centralized PoE switch or its UPS causes all connected edge devices to fail simultaneously (loss of power + data); port-level power monitoring generates alert spam across DCIM (false highs on PSE budget); remote reboot of device may cascade into dependent systems in building automation",
+        "operational_burden": "Facilities must design redundant PoE switch pairs (rapid failover); UPS sizing tied to total PoE draw (can scale to 5-10kW for large deployments); monitoring tuning to suppress false positives on port power; commissioning checklist for safe remote power cycling sequences (e.g., energy management system reboot order)",
+        "what_buyers_will_require_next": "PoE switch redundancy and failover specs; centralized UPS capacity planning tied to edge device count/density; DCIM port-level monitoring templates with alert threshold tuning; safety interlocks to prevent dangerous remote power cycles in critical OT systems; standardized PoE connector/PSE specs for 90W+ applications",
+        "levers": [
+          "redundancy-design",
+          "monitoring-telemetry",
+          "commissioning-procedures",
+          "safety-interlocks"
+        ],
+        "supporting_items": [
+          "55"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "constraint": "Building electrification retrofit adoption in California blocked by high electricity rates; panel/service upgrade demand will remain lumpy and unpredictable, complicating electrical contractor capacity planning and utility grid forecasting",
+        "failure_mode": "Heat pump operating costs exceed gas furnace savings at current CA rates; retrofit business case fails for middle-income homeowners despite climate policy incentives; electrical contractors cannot predict retrofit pipeline; utilities cannot plan feeder upgrades to neighborhoods",
+        "operational_burden": "Electrical service companies must maintain flexible crews for unpredictable retrofit volumes; facilities managers evaluating multi-unit residential electrification lack confidence in retrofit ROI; panel upgrade projects cluster during low-electricity periods (misaligned with utility demand response goals)",
+        "what_buyers_will_require_next": "Time-of-use (TOU) rate structures and demand response programs that improve heat pump operating economics; standardized retrofit cost/benefit calculators that account for regional electricity rates; utility incentives tied to off-peak installation timing; community-scale electrification planning (block-by-block) to amortize feeder upgrades",
+        "levers": [
+          "rate-design",
+          "demand-response-programs",
+          "incentive-structure",
+          "utility-planning"
+        ],
+        "supporting_items": [
+          "38"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "tensions": [
+      {
+        "tension": "Centralize UPS backup (PoE switches, data center PDUs) vs. distribute backup (device-level batteries, rack-local UPS)",
+        "tradeoff": "Centralization reduces CAPEX and simplifies monitoring (single UPS, single battery health curve) but creates single point of failure across 200+ devices or multiple racks; distribution increases device cost and monitoring complexity but isolates failures and allows staged replacement",
+        "who_wins_who_loses": "Colocation operators and large facilities win with centralized PoE UPS (lower TCO, easier refresh); edge integrators with OT criticality constraints lose (forced to add local backup anyway); small facilities pay more per-device for redundancy",
+        "levers": [
+          "redundancy-design",
+          "monitoring-telemetry",
+          "cost-modeling"
+        ],
+        "supporting_items": [
+          "55",
+          "57"
+        ]
+      },
+      {
+        "tension": "Legacy air-cooled infrastructure retrofit vs. accept customer density limits vs. adopt liquid cooling (CAPEX, operational unfamiliarity, supply chain risk)",
+        "tradeoff": "Retrofitting air cooling to meet 36kW density requires expensive PDU and busway replacement; accepting density limits means leaving revenue on table (60% of new deals are AI-driven); liquid cooling frees power/space but requires new technician skills, maintenance contracts, leak risk management",
+        "who_wins_who_loses": "Greenfield colocation operators and hyperscale facilities win (design for liquid cooling from start); legacy colocation and enterprise data centers lose (retrofit costs prohibitive, customer acquisition stalled); liquid cooling vendors win; HVAC contractors lose relevance",
+        "levers": [
+          "liquid-cooling-adoption",
+          "pathways-install",
+          "commissioning",
+          "workforce-development"
+        ],
+        "supporting_items": [
+          "53",
+          "51",
+          "45"
+        ]
+      },
+      {
+        "tension": "Condition-based UPS battery maintenance (high monitoring overhead, RUL models, vendor dependencies) vs. fixed replacement intervals (predictable CAPEX, operational simplicity, battery waste)",
+        "tradeoff": "Condition-based requires real-time telemetry infrastructure, predictive models, and supplier relationships; fixed intervals waste battery life in cool environments but guarantee predictability; hybrid approach (age + condition) costly to implement",
+        "who_wins_who_loses": "Large hyperscale and data center operators win with condition-based (cost savings at scale); small facilities lose (monitoring overhead not justified for 5-10 UPS units); battery vendors lose (no guaranteed replacement cycles) but gain long-term service contracts",
+        "levers": [
+          "monitoring-telemetry",
+          "predictive-modeling",
+          "capital-planning"
+        ],
+        "supporting_items": [
+          "57"
+        ]
+      },
+      {
+        "tension": "UPS system re-selection for AI load dynamics (higher CAPEX, longer procurement, qualified systems scarce) vs. keep legacy UPS and accept bypass transfers / voltage excursions (operational risk, energy waste)",
+        "tradeoff": "New UPS systems with fast dynamic response cost 20-30% more and have 16-week lead times; legacy systems are paid-for and available but fail to protect against AI workload step loads; hybrid approach (load banks, reactor tuning) defers but doesn't solve problem",
+        "who_wins_who_loses": "Hyperscale operators with CAPEX budgets win (replace aging UPS with purpose-built AI systems); colocation providers and mid-market facilities lose (forced upgrade choice: expensive or risky); UPS vendors win (higher-spec systems, service revenue from tuning)",
+        "levers": [
+          "ups-architecture-redesign",
+          "commissioning",
+          "capital-planning"
+        ],
+        "supporting_items": [
+          "49"
+        ]
+      },
+      {
+        "tension": "AC power distribution (familiar, standardized, commodity PDUs) vs. DC distribution (efficiency gains, non-standard, immature safety/monitoring, dual infrastructure during transition)",
+        "tradeoff": "AC requires no new training/standards but loses 3-5% to conversion at 36kW density; DC saves watts but operators must manage hybrid AC/DC system, new connector types, non-standard voltage (240V vs 380V debates ongoing), and DC arc hazards without mature field practices",
+        "who_wins_who_loses": "Hyperscale facilities with dedicated AI racks win (invest in DC for power reclamation); colocation providers and multi-tenant facilities lose (cannot justify dual infrastructure for subset of customers); DC equipment vendors win; legacy PDU/busway suppliers lose",
+        "levers": [
+          "dc-standards-harmonization",
+          "monitoring-telemetry",
+          "safety-certification"
+        ],
+        "supporting_items": [
+          "47",
+          "51"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "UPS runtime shortfalls will occur in AI data centers within 18-24 months for facilities that deployed 5-10 year old VRLA batteries without condition monitoring; metric will be bypass transfer events and runtime drift complaints in support tickets",
+        "measurement_or_metric": "Track bypass transfer frequency and duration in DCIM logs; correlate with battery age, ambient temp, and UPS float current; measure actual autonomy time vs. nameplate spec across fleet",
+        "supporting_items": [
+          "57"
+        ]
+      },
+      {
+        "hypothesis": "Colocation facilities that cannot retrofit liquid cooling by Q4 2026 will lose 40-60% of new enterprise AI customer opportunities due to power/cooling density mismatch; facilities without modular PDU upgrade path will decline high-density deals",
+        "measurement_or_metric": "Quarterly revenue from AI/HPC customers; win/loss ratio on opportunities turned away due to power/cooling limits; retrofit project timeline slippage tracking",
+        "supporting_items": [
+          "51",
+          "53",
+          "45"
+        ]
+      },
+      {
+        "hypothesis": "Legacy data centers will defer intelligent PDU and power monitoring upgrades until either cooling capacity constraints force full retrofit (capex justification) or customer acquisition stalls (revenue trigger); average deferral window 2-3 years",
+        "measurement_or_metric": "Track PDU upgrade project starts and completions per facility; correlate with customer demand pipeline and cooling capacity utilization; survey facilities on retrofit decision drivers",
+        "supporting_items": [
+          "43"
+        ]
+      },
+      {
+        "hypothesis": "California heat pump retrofit adoption will remain below state targets (6M by 2030) unless TOU rates improve operating economics; retrofits will cluster in wealthy areas (solar + battery incentives) and cluster in spring/fall (mild weather, lower rates)",
+        "measurement_or_metric": "Track heat pump installation permits by income quartile and season; measure cumulative retrofit rate vs. state goal; conduct contractor pipeline surveys on retrofit backlog confidence",
+        "supporting_items": [
+          "38"
+        ]
+      },
+      {
+        "hypothesis": "Class 4 fault managed power adoption will accelerate in industrial OT deployments once field electricians gain hands-on experience (12-18 months of code pathway availability); permit approval timelines will shorten as AHJs become familiar with Class 4 safety model",
+        "measurement_or_metric": "Count Class 4 installations per quarter; survey electricians on code pathway clarity before/after training; track AHJ approval timelines for Class 4 permits vs. Class 2/3 baseline",
+        "supporting_items": [
+          "36"
+        ]
+      },
+      {
+        "hypothesis": "Facilities that implement PoE centralization at scale (200+ edge devices) without redundant PoE switches will experience 1-2 unplanned outages per year from single PoE UPS failure; facilities with redundancy will report zero outages but 15-20% higher CAPEX",
+        "measurement_or_metric": "Track outage events attributed to PoE infrastructure failure; measure CAPEX for redundant vs. single PoE switch deployments; correlate downtime cost to redundancy investment",
+        "supporting_items": [
+          "55"
+        ]
+      }
+    ],
+    "original_angles": [
+      {
+        "working_title": "Operational Debt in High-Density Data Centers: The Battery, Bypass, and Busway Crisis",
+        "thesis": "AI workload density (30-80kW per rack, avg 12-36kW) is exposing three cascading infrastructure failures in legacy data centers: (1) UPS batteries aging faster than calendar schedules predict, creating runtime drift; (2) UPS control loops designed for steady enterprise IT cannot tolerate synchronized GPU load steps, triggering unplanned bypass transfers; (3) power distribution pathways (feeders, busbars, PDUs) saturate and cannot be retrofitted cost-effectively because cooling constraints prevent achieving target density. Collectively, these failures are forcing colocation operators to choose between accepting customer density limits (lost revenue) or accepting high operational/reliability risk (deferred maintenance).",
+        "outline": [
+          "Battery Aging Beyond Calendar: High temps + AI cycling accelerate VRLA degradation; facilities still using interval-based replacement face runtime shortfalls",
+          "UPS Control Loop Mismatch: Legacy systems experience voltage excursions and nuisance bypass transfers when AI clusters draw 30+ kW with steep ramps; designers optimized for steady load, not dynamic",
+          "Power Pathway Saturation: 36kW per rack exceeds legacy busway and PDU density; retrofit blocked by inadequate cooling; modular PDU adoption + liquid cooling needed but immature in supply chain",
+          "Operational Debt Multiplier: Deferred UPS replacements + bypass transfer tuning + conditional monitoring overhead + liquid cooling unfamiliarity = compounding maintenance risk and technician burden at 200+ rack scales"
+        ],
+        "must_cite_items": [
+          "57",
+          "49",
+          "53",
+          "45"
+        ],
+        "missing_evidence_to_find": [
+          "Cost per kW of legacy vs. modular PDU retrofit in real deployments",
+          "Bypass transfer frequency data from facilities with 10+ year old UPS systems under AI workload",
+          "Liquid cooling adoption timeline and cost benchmarks for colocation vs. hyperscale",
+          "UPS replacement lead times and market availability for AI-spec dynamic response systems"
+        ]
+      },
+      {
+        "working_title": "The PoE Centralization Paradox: Operational Simplicity vs. Scale Fragility",
+        "thesis": "PoE consolidation (power + data, centralized 48V distribution, remote device cycling) simplifies edge deployments at small scale (10-50 devices) by eliminating local AC outlets and enabling centralized UPS backup. At scale (200+ devices across multi-building OT environments), PoE architecture inverts: single point of failure in the PoE switch and its UPS endangers all downstream devices simultaneously; remote power cycling becomes operationally hazardous in critical building systems (HVAC, access control); port-level monitoring generates unsustainable alert noise. Facilities deploying PoE at scale will require redundancy, safety interlocks, and sophisticated commissioning workflows that negate the simplicity gain.",
+        "outline": [
+          "PoE Simplicity at 50 Devices: Single cable run, centralized backup, remote reset, monitoring aggregation",
+          "PoE Fragility at 200+ Devices: Single UPS failure = mass device outage; PoE switch becomes infrastructure critical asset requiring redundancy; port monitoring per 802.3at creates alert storm",
+          "OT Safety Gap: Remote power cycling without safety interlocks in building automation creates cascade risks (e.g., rebooting energy management system during demand response); commissioning procedures immature",
+          "Operational Debt: Cost of redundant PoE switch pairs + UPS capacity planning + monitoring tuning + safe reboot sequencing erodes CAPEX advantage vs. distributed device batteries"
+        ],
+        "must_cite_items": [
+          "55"
+        ],
+        "missing_evidence_to_find": [
+          "Actual alert volume and tuning effort at 200+ device PoE deployments",
+          "Incident reports from remote power cycling in OT environments",
+          "CAPEX comparison: distributed device backup vs. redundant PoE switch + UPS at scale",
+          "Field deployment data on single-PoE-switch failures and customer impact"
+        ]
+      },
+      {
+        "working_title": "Electrification Adoption Friction: Why California's Heat Pump Goals Will Miss Targets",
+        "thesis": "California's aggressive heat pump deployment target (6M units by 2030) assumes adoption is limited by permitting friction and upfront incentives. In reality, adoption is constrained by operating cost: state's highest-in-nation residential electricity rates (15-25\u00a2/kWh) eliminate the operating-cost value proposition vs. natural gas furnaces ($1.2-1.5/therm). Streamlined permitting and upfront rebates (addressed by policy) do not solve the monthly utility bill problem. Retrofit adoption will remain skewed toward high-income households with solar+battery cost-recovery paths and geographic clusters in areas with lower TOU rates. Electrical contractors and utilities cannot forecast retrofit pipeline; service upgrade demand will remain lumpy.",
+        "outline": [
+          "Policy Assumption Gap: Permitting streamlining assumes installer/homeowner choice set is open; high rates collapse the economics argument for heat pumps",
+          "TOU Rate Opportunity: California's time-of-use rates are coarse (2-3 periods); off-peak rates (10pm-6am) could improve heat pump economics if thermal storage (tank) paired; current residential TOU does not support cheap overnight charging",
+          "Retrofit Clustering Risk: Adoptions will concentrate in wealthy zip codes (Santa Cruz, Bay Area, LA coastal) with solar incentives and low TOU baseline rates; underserved communities face worse rate economics",
+          "Contractor/Utility Forecasting Failure: Unpredictable retrofit pipeline means electrical service companies over/under-sized; utilities cannot plan feeder upgrades; infrastructure mismatch with policy goals"
+        ],
+        "must_cite_items": [
+          "38"
+        ],
+        "missing_evidence_to_find": [
+          "Residential heat pump operating cost vs. gas furnace at California rates by utility district",
+          "Retrofit adoption data by income quartile and geography; any existing clustering by rate zone",
+          "Electrical contractor survey: retrofit pipeline confidence, service upgrade lead times",
+          "Utility feeder upgrade plans tied to electrification goals; any capacity constraints identified"
+        ]
+      },
+      {
+        "working_title": "DC Distribution Standardization Race: Why Megawatt Racks Will Force Industry Choice",
+        "thesis": "AC power distribution at 36kW per rack loses 3-5% to rectification (105-180W per rack, significant at scale). DC distribution reclaims watts for compute but introduces operational fragmentation: no agreed voltage standard (240V, 380V, 48V candidates compete), connector types immature, safety protocols unfamiliar, dual infrastructure required during transition. Facilities are forced to pick DC voltage/architecture prematurely without industry consensus, betting that their choice will become standard. Hyperscale operators (able to standardize internally) will adopt; colocation and mid-market facilities will defer until industry converges, creating 3-5 year window of incompatible, non-commodity DC equipment.",
+        "outline": [
+          "Efficiency Case for DC: 3-5% conversion loss = 3-15 kW per 100+ rack facility; ROI improves with density (>12kW average)",
+          "Voltage Standard Chaos: 240V (high current, cable losses), 380V (Europe-aligned), 48V (low voltage, safety-friendly but lower efficiency) all have advocates; no agreed standard",
+          "Operational Immaturity: DC arc hazards, safety clearances, breaker/connector selection fragmented; technician training lagging; DCIM tools do not track AC/DC separately",
+          "Adoption S-Curve Risk: Early adopters choose incompatible standards; late majority waits for consensus; equipment vendors struggle with portfolio breadth; supply chain fragmented"
+        ],
+        "must_cite_items": [
+          "47",
+          "51"
+        ],
+        "missing_evidence_to_find": [
+          "Detailed power loss analysis: AC vs. 240V vs. 380V vs. 48V DC at 12kW, 36kW, 100kW rack densities",
+          "Market share by proposed DC voltage standard; vendor commitments and timelines",
+          "Safety incident data (if any) from early DC deployments; arc flash studies for DC environments",
+          "DCIM vendor roadmaps for AC/DC hybrid tracking and monitoring"
+        ]
+      }
+    ],
+    "questions_for_owner": [
+      "What is your current UPS battery replacement schedule, and do you have telemetry (float current, internal resistance trends) to detect aging ahead of calendar intervals? If not, how would you prioritize adding condition-based monitoring across your fleet?",
+      "For facilities deploying AI workloads, have you experienced voltage excursions or nuisance bypass transfers on legacy UPS systems? What was the failure mode, and did it force UPS replacement or acceptance of operational risk?",
+      "If you operate multiple colocation or data center sites, how much power/cooling density growth do you forecast over the next 24 months, and what is your retrofit pathway for modular PDU and liquid cooling? Are any projects blocked by cooling constraints or CAPEX limits?",
+      "For edge deployments using PoE (200+ devices across multiple buildings), are you implementing redundant PoE switches with failover, or single-switch architecture? What alert volume are you seeing from port-level power monitoring, and is it sustainable?",
+      "If you're evaluating DC power distribution, which voltage standard (240V, 380V, 48V) are you considering, and how are you assessing the risk that your choice may not align with industry consensus 3-5 years from now?",
+      "For building electrification projects (heat pump retrofits, panel upgrades), how does your local electricity rate impact the operating-cost business case? Are TOU programs available, and do they improve economics enough to justify retrofit to mid-income customers?",
+      "Are your commissioning and safety procedures ready for PoE remote power cycling in critical OT systems (HVAC, building management, access control), or would unintended device reboot cascades pose operational risk?"
+    ]
+  }
+]
