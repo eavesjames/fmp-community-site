@@ -54,6 +54,35 @@ def _validate_approval(approval: dict, date: str) -> list[str]:
     return approved_ids
 
 
+def approve_all(date: str | None = None) -> dict:
+    """
+    Move all pending_candidate_ids to approved_candidate_ids in today's
+    approval.json, then run publish. Returns run_publish_approved() stats.
+    """
+    today = date or datetime.now().strftime("%Y-%m-%d")
+    approval_file = REVIEW_DIR / f"{today}_approval.json"
+
+    if not approval_file.exists():
+        print(f"ERROR: No approval file found for {today}", file=sys.stderr)
+        sys.exit(1)
+
+    with open(approval_file) as f:
+        approval = json.load(f)
+
+    pending = approval.get("pending_candidate_ids", [])
+    already_approved = approval.get("approved_candidate_ids", [])
+    all_approved = already_approved + [p for p in pending if p not in already_approved]
+
+    approval["approved_candidate_ids"] = all_approved
+    approval["pending_candidate_ids"] = []
+
+    with open(approval_file, "w") as f:
+        json.dump(approval, f, indent=2)
+
+    print(f"Approved all {len(all_approved)} candidate(s) → running publish...")
+    return run_publish_approved(date=date)
+
+
 def run_publish_approved(date: str | None = None) -> dict:
     """
     Phase 2: read approval.json → filter approved candidates →

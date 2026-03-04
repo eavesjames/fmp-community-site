@@ -25,7 +25,7 @@ from lib.evergreen import update_evergreen
 from lib.glossary import suggest_glossary_terms
 from lib.pr import open_pr, open_daily_pr
 from lib.candidates import run_candidates
-from lib.publish_approved import run_publish_approved
+from lib.publish_approved import run_publish_approved, approve_all
 from lib.email_digest import send_review_email
 
 
@@ -48,6 +48,10 @@ def main():
     publish_parser = subparsers.add_parser("publish",
         help="Phase 2: publish approved candidates, render pages, open PR")
     publish_parser.add_argument("--date", help="Override date (YYYY-MM-DD)")
+
+    approve_all_parser = subparsers.add_parser("approve_all",
+        help="Approve all pending candidates for today, then publish")
+    approve_all_parser.add_argument("--date", help="Override date (YYYY-MM-DD)")
 
     subparsers.add_parser("generate",
         help="Phase 1 full workflow: intake → extract → candidates → insights → email")
@@ -103,6 +107,12 @@ def main():
         elif args.command == "publish":
             date = getattr(args, "date", None)
             stats = run_publish_approved(date=date)
+            if stats.get("published", 0) > 0:
+                open_daily_pr(run_stats=stats)
+
+        elif args.command == "approve_all":
+            date = getattr(args, "date", None)
+            stats = approve_all(date=date)
             if stats.get("published", 0) > 0:
                 open_daily_pr(run_stats=stats)
 

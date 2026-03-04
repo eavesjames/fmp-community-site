@@ -2,7 +2,8 @@
   "date": "2026-03-03",
   "generated_at": "2026-03-03T19:00:56",
   "instructions": "Move candidate IDs from pending_candidate_ids to approved_candidate_ids to publish them. Move unwanted IDs to rejected_candidate_ids (or leave in pending \u2014 they will not be published either way).",
-  "pending_candidate_ids": [
+  "pending_candidate_ids": [],
+  "approved_candidate_ids": [
     "9ed425cb5a9d",
     "024d1708f874",
     "c1628ed1c51f",
@@ -79,6 +80,5 @@
     "6742d14102af",
     "026870e46ffe"
   ],
-  "approved_candidate_ids": [],
   "rejected_candidate_ids": []
 }
