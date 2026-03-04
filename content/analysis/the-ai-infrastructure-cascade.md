@@ -4,8 +4,8 @@ description: "Data center operators attempting to upgrade legacy facilities for 
 summary: "Partial AI infrastructure retrofits fail because the failure modes are interdependent. The minimum viable retrofit strategy is zone-by-zone full re-core (cooling + power distribution + UPS concurrently in an isolated zone). The alternative is accepting density limits that will cost 40–60% of new AI customer pipeline within 18 months."
 slug: the-ai-infrastructure-cascade
 date: 2026-03-03
-draft: true
-type: originals
+draft: false
+type: analysis
 
 insight_id: "2026-03-03-A01"
 

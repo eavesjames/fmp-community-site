@@ -5,7 +5,7 @@ summary: "Static load testing and calendar-based battery replacement are both in
 slug: unified-ups-commissioning-standard
 date: 2026-03-03
 draft: true
-type: originals
+type: analysis
 
 insight_id: "2026-03-03-A02"
 

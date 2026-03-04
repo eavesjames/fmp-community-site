@@ -5,7 +5,7 @@ summary: "Sequential staging of AI infrastructure retrofits fails not because of
 slug: the-forced-concurrency-trap
 date: 2026-02-27
 draft: true
-type: originals
+type: analysis
 
 insight_id: "2026-02-27-A01"
 

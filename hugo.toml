@@ -16,7 +16,7 @@ buildExpired = false
   pulse = "/pulse/:slug/"
   digests = "/digests/:slug/"
   posts = "/posts/:slug/"
-  originals = "/originals/:slug/"
+  analysis = "/analysis/:slug/"
   guides = "/guides/:slug/"
   topics = "/topics/:slug/"
   players = "/players/:slug/"
@@ -83,6 +83,12 @@ buildExpired = false
     name = "Players"
     url = "/players/"
     weight = 30
+
+  [[menu.main]]
+    identifier = "analysis"
+    name = "Analysis"
+    url = "/analysis/"
+    weight = 35
 
   [[menu.main]]
     identifier = "about"

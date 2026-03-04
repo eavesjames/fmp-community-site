@@ -68,8 +68,8 @@ def _originals_html(draft_originals: list) -> str:
 
 
 def _scan_draft_originals(project_root: Path, repo: str, branch: str) -> list:
-    """Return list of dicts for content/originals/*.md files with draft: true."""
-    originals_dir = project_root / "content" / "originals"
+    """Return list of dicts for content/analysis/*.md files with draft: true."""
+    originals_dir = project_root / "content" / "analysis"
     results = []
     if not originals_dir.exists():
         return results
@@ -89,7 +89,7 @@ def _scan_draft_originals(project_root: Path, repo: str, branch: str) -> list:
             if line.startswith("title:"):
                 title = line.split("title:", 1)[1].strip().strip('"')
                 break
-        gh_url = _github_url(repo, branch, f"content/originals/{md_file.name}") if repo and branch else "#"
+        gh_url = _github_url(repo, branch, f"content/analysis/{md_file.name}") if repo and branch else "#"
         results.append({"title": title, "file": md_file.name, "url": gh_url})
     return results
 

@@ -5,7 +5,7 @@ summary: "PoE and Class 4 FMP solve the same architectural problem from differen
 slug: one-gap-two-technologies
 date: 2026-02-27
 draft: true
-type: originals
+type: analysis
 
 insight_id: "2026-02-27-A03"
 

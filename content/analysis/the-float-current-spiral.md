@@ -5,7 +5,7 @@ summary: "Raising ambient setpoints is recommended efficiency guidance. In AI fa
 slug: the-float-current-spiral
 date: 2026-02-27
 draft: true
-type: originals
+type: analysis
 
 insight_id: "2026-02-27-A02"
 

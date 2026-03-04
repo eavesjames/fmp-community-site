@@ -5,7 +5,7 @@ summary: "Code clarity is necessary but not sufficient for technology adoption. 
 slug: code-pathways-and-field-execution
 date: 2026-03-03
 draft: true
-type: originals
+type: analysis
 
 insight_id: "2026-03-03-A03"
 

@@ -24,6 +24,7 @@ from lib.digest import generate_weekly_digest
 from lib.evergreen import update_evergreen
 from lib.glossary import suggest_glossary_terms
 from lib.pr import open_pr, open_daily_pr
+from lib.publish_social import publish_social_drafts
 from lib.candidates import run_candidates
 from lib.publish_approved import run_publish_approved, approve_all
 from lib.email_digest import send_review_email
@@ -56,6 +57,10 @@ def main():
     subparsers.add_parser("generate",
         help="Phase 1 full workflow: intake → extract → candidates → insights → email")
     subparsers.add_parser("send_review_email", help="(Re)send review email for today")
+
+    social_parser = subparsers.add_parser("social_publish", help="Post today's LinkedIn drafts")
+    social_parser.add_argument("--date",    help="Override date (YYYY-MM-DD)")
+    social_parser.add_argument("--dry-run", action="store_true", help="Preview without posting")
 
     # Weekly workflow
     subparsers.add_parser("digest_weekly",     help="Generate weekly digest pages")
@@ -141,6 +146,12 @@ def main():
 
         elif args.command == "send_review_email":
             send_review_email()
+
+        elif args.command == "social_publish":
+            publish_social_drafts(
+                date=getattr(args, "date", None),
+                dry_run=getattr(args, "dry_run", False),
+            )
 
         elif args.command == "digest_weekly":
             generate_weekly_digest()

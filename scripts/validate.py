@@ -63,7 +63,7 @@ VALID_TOPICS = {
 REQUIRED = {
     "pulse":     ["title", "date", "source_name", "source_url", "source_date",
                   "vertical", "topics", "persona", "so_what", "summary"],
-    "originals": ["title", "date", "topics", "thesis", "sources"],
+    "analysis": ["title", "date", "topics", "thesis", "sources"],
     "guides":    ["title", "date", "topics", "summary"],
 }
 
@@ -100,7 +100,7 @@ def detect_type(path: Path) -> str | None:
     """Detect content type from file path."""
     parts = path.parts
     for i, part in enumerate(parts):
-        if part in ("pulse", "originals", "guides"):
+        if part in ("pulse", "analysis", "guides"):
             return part
     return None
 
@@ -209,7 +209,7 @@ def validate_file(path: Path, valid_players: set, strict: bool) -> tuple[int, in
                 f"so_what is {len(so_what)} chars (max {SO_WHAT_MAX}): {so_what[:60]}..."
             )
 
-    elif content_type == "originals":
+    elif content_type == "analysis":
         sources = fm.get("sources") or []
         for s in sources:
             if not is_valid_url(s):
