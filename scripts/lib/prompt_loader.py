@@ -2,7 +2,7 @@
 from pathlib import Path
 
 # agent_prompts/ lives at the repo root, two levels above scripts/lib/
-PROMPTS_DIR = Path(__file__).parent.parent.parent.parent / "agent_prompts"
+PROMPTS_DIR = Path(__file__).parent.parent.parent / "agent_prompts"
 
 
 def load_prompt(name: str, **variables) -> str:
