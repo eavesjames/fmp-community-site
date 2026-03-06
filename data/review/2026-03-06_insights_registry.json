@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-06",
+  "insights": [
+    {
+      "insight_id": "2026-03-06-A01",
+      "working_title": "The Oversizing Trap: How 3-Minute UPS Runtimes and NFPA 855 Compound to Make Every Battery Chemistry More Expensive",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-06-the-oversizing-trap-how-3-minute-ups-runtimes-and-.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-06-A02",
+      "working_title": "The Three-Way Lock: Why GPU Rack Deployments Break Sequential MEP Design Workflows",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-06-the-three-way-lock-why-gpu-rack-deployments-break-.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-06-A03",
+      "working_title": "NFPA 855 Retroactivity: The Compliance Liability That Scales With Battery Cabinet Count",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-06-nfpa-855-retroactivity-the-compliance-liability-th.md",
+      "confidence": "",
+      "levers": []
+    }
+  ]
+}
