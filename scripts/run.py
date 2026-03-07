@@ -8,7 +8,9 @@ Handles: intake, extract, normalize, render_pulse_pages,
 """
 
 import argparse
+import subprocess
 import sys
+from datetime import datetime
 from pathlib import Path
 
 # Add lib to path
@@ -28,6 +30,31 @@ from lib.publish_social import publish_social_drafts
 from lib.candidates import run_candidates
 from lib.publish_approved import run_publish_approved, approve_all
 from lib.email_digest import send_review_email
+
+
+def _commit_published(date: str):
+    """Stage and commit rendered pulse pages and updated items list."""
+    repo_root = Path(__file__).parent.parent
+    result = subprocess.run(
+        ["git", "diff", "--quiet", "HEAD", "--", "content/pulse/", "data/pulse/items.json"],
+        cwd=repo_root,
+    )
+    if result.returncode == 0:
+        # Also check for untracked files in content/pulse/
+        untracked = subprocess.run(
+            ["git", "ls-files", "--others", "--exclude-standard", "content/pulse/"],
+            cwd=repo_root, capture_output=True, text=True,
+        )
+        if not untracked.stdout.strip():
+            print("No rendered changes to commit.")
+            return
+    subprocess.run(["git", "add", "content/pulse/", "data/pulse/items.json"], cwd=repo_root, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", f"Publish approved — {date}"],
+        cwd=repo_root, check=True,
+    )
+    subprocess.run(["git", "push", "origin", "HEAD"], cwd=repo_root, check=True)
+    print("Committed and pushed rendered pages.")
 
 
 def main():
@@ -113,12 +140,14 @@ def main():
             date = getattr(args, "date", None)
             stats = run_publish_approved(date=date)
             if stats.get("published", 0) > 0:
+                _commit_published(date or datetime.now().strftime("%Y-%m-%d"))
                 open_daily_pr(run_stats=stats)
 
         elif args.command == "approve_all":
             date = getattr(args, "date", None)
             stats = approve_all(date=date)
             if stats.get("published", 0) > 0:
+                _commit_published(date or datetime.now().strftime("%Y-%m-%d"))
                 open_daily_pr(run_stats=stats)
 
         elif args.command == "generate":
