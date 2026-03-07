@@ -1,0 +1,274 @@
+{
+  "agent": "moderator_synthesis",
+  "run_date": "2026-03-06",
+  "coverage_notes": {
+    "observed_skews": [
+      "All 10 Pulse items are data-center vertical; zero items from edge-power-ups or building-electrification this cycle, making cross-vertical synthesis impossible and limiting moderator to data-center-only composite insights.",
+      "Three items (138, 134, 136) contributed no extractable evidence due to corrupted PDF content; analysts correctly flagged these but they inflate the item count without adding signal.",
+      "UPS resilience and battery chemistry dominate the item set (items 44, 46, 100 appear in all five analyst outputs), creating over-indexing on UPS topics relative to distribution pathway, PDU, and FMP topics.",
+      "FMP (item 40) appears in only one item but commands disproportionate analytical attention from finance and MEP analysts; no corroborating items exist to validate or challenge the 6 MW savings claim.",
+      "All analysts treated item 44 (AWS distributed UPS) as a proven architecture; none flagged that the evidence is a single hyperscaler's self-reported announcement with no third-party validation or operational cost data.",
+      "Rack PDU items (76, 134, 136, 138) are collectively thin on extractable content; analysts generated limited insights from this cluster despite its relevance to distribution design decisions."
+    ],
+    "suggested_query_adjustments": [
+      "Add edge-power-ups and building-electrification Pulse items in next cycle to enable cross-vertical synthesis.",
+      "Source items specifically on NFPA 855 AHJ enforcement records and retrofit case studies from LA and NYC jurisdictions.",
+      "Find corroborating third-party operational data on distributed rack-level UPS deployments beyond AWS to test the 35% efficiency claim.",
+      "Source items on lithium-ion BMS discharge threshold specifications from major OEMs (Saft, Samsung SDI, CATL) to validate or refute the 'data center failover shutdown' claim.",
+      "Add items on FMP adoption rates, AHJ code acceptance status, and sub-6 MW cost comparisons to test the Southland Industries claim at different scales.",
+      "Source items on liquid cooling electrical integration standards (ASHRAE TC 9.9, IEC) to fill the thermal-electrical code gap identified by compliance and MEP analysts."
+    ]
+  },
+  "composite_insights": [
+    {
+      "insight_id": "INS-001",
+      "insight": "The shift to 3-minute UPS runtimes, intended to reduce battery requirements by leveraging faster generator failover, is producing the opposite result: both battery chemistries require oversizing in short-runtime architectures (lead-acid for volume, lithium-ion to stay below BMS discharge-rate shutdown thresholds), while NFPA 855 simultaneously imposes retroactive compliance costs on those same oversized installations. The two trends compound: facilities must buy more battery capacity than theoretically needed AND face unbudgeted retrofit liability on what they have already deployed. This creates a scenario where no currently available battery chemistry provides a cost-optimal solution for short-runtime data center UPS at scale.",
+      "why_it_is_new": "Individual analysts identified the BMS oversizing problem (items 100, 44) and the NFPA 855 retrofit cost (item 46) as separate constraints. No single analyst connected the two: NFPA 855 retroactive enforcement applies to the oversized installations that result from BMS threshold workarounds, meaning the 'solution' to lithium BMS shutdowns (buying more cabinets) increases NFPA 855 retrofit scope and cost. The compliance tail is proportional to the oversizing penalty.",
+      "new_perspective_from_disagreement": "The finance analyst framed BMS discharge thresholds as a firmware/warranty choice that OEMs could relax ('data center mode'), potentially recovering 20-30% oversizing. The compliance analyst countered that AHJs cannot inspect BMS firmware behavior, creating an enforcement gap that would make any OEM-relaxed threshold invisible to regulators but still legally exposed under NFPA 855. These two perspectives in tension reveal that even if OEMs offered higher discharge thresholds, facilities would face a compliance documentation problem: how to prove to an AHJ that the relaxed BMS setting is NFPA 855-compliant when no inspection protocol exists for firmware parameters.",
+      "who_cares": [
+        "data-center-facilities-manager",
+        "mep-designer",
+        "compliance-ahj",
+        "ups-vendor"
+      ],
+      "which_verticals": [
+        "data-centers"
+      ],
+      "levers": [
+        "ups-resilience",
+        "code-standards",
+        "reliability-uptime",
+        "retrofits-mdus"
+      ],
+      "supporting_items": [
+        "46",
+        "100",
+        "44"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposes: Runtime reduction does not reduce total battery capex or floor space when BMS constraints are included\u2014the assumed savings from 3-minute vs. 30-minute runtimes are partially or fully offset by oversizing requirements.",
+        "Exposes: NFPA 855 retroactive scope scales with battery cabinet count, meaning facilities that oversized to avoid BMS shutdowns now have larger NFPA 855 retrofit surface area.",
+        "Unresolved: No publicly available data on whether BMS firmware threshold relaxation is a viable engineering path or whether it would require hardware redesign and new UL/safety certifications that would take longer than the NFPA 855 compliance window."
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-002",
+      "insight": "The AWS distributed rack-level UPS architecture (item 44) is analytically compelling across all five analyst perspectives, but its adoption faces a self-reinforcing barrier: it requires the very operational infrastructure\u2014per-rack BMS telemetry, DCIM integration, predictive maintenance analytics, hot-swap logistics\u2014that most non-hyperscale operators do not currently have. The 35% conversion loss savings and hot-swap maintenance benefits accrue primarily to operators who can absorb the monitoring complexity cost, meaning the architecture widens the operational gap between hyperscalers and enterprise/colocation operators rather than providing a generalizable solution. Simultaneously, NFPA 855 compliance pressure (item 46) creates a separate forcing function that could accelerate distributed UPS adoption as a compliance risk-isolation strategy (rack-level scope vs. facility-level scope), but only if AHJ commissioning standards for rack-level UPS are developed\u2014which currently do not exist.",
+      "why_it_is_new": "Finance, compliance, installer, MEP, and owner-operator analysts each identified distributed UPS benefits and barriers from their own lens. None synthesized the dynamic where NFPA 855 compliance pressure could act as an accelerant for distributed UPS adoption (because isolating compliance scope to individual racks is operationally attractive) while simultaneously the absence of AHJ commissioning standards for distributed UPS creates a legal barrier that cancels that accelerant. These two forces point in opposite directions and their net effect on adoption timing is unknown without AHJ policy data.",
+      "new_perspective_from_disagreement": "The owner-operator analyst argued distributed UPS increases operational burden (200+ monitoring endpoints, predictive analytics requirement) and will disadvantage enterprise operators vs. hyperscalers. The compliance analyst argued distributed UPS lacks AHJ precedent and cannot achieve broad adoption without commissioning standards. These two disagreements together reveal a third-order effect neither identified alone: the absence of commissioning standards protects hyperscalers (who can self-certify and negotiate custom AHJ acceptance) while blocking enterprise operators (who depend on published standards for plan approval). AWS's published architecture may inadvertently create a compliance moat that hyperscalers can cross and others cannot.",
+      "who_cares": [
+        "data-center-owner-operator",
+        "compliance-ahj",
+        "mep-designer",
+        "electrical-contractor"
+      ],
+      "which_verticals": [
+        "data-centers"
+      ],
+      "levers": [
+        "ups-resilience",
+        "monitoring-telemetry",
+        "commissioning",
+        "code-standards",
+        "reliability-uptime"
+      ],
+      "supporting_items": [
+        "44",
+        "46",
+        "100"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposes: NFPA 855 compliance pressure and absence of distributed UPS commissioning standards are pulling adoption in opposite directions; net effect is unknown without AHJ policy data.",
+        "Exposes: Distributed UPS benefits are real but contingent on operational infrastructure (telemetry, DCIM, logistics) that non-hyperscale operators lack, creating a capability prerequisite that the architecture's proponents do not quantify.",
+        "Partially resolved: The 35% efficiency gain is the strongest adoption argument, but it requires facility-scale energy accounting to verify ROI vs. incremental OpEx of monitoring/logistics infrastructure\u2014no operator outside AWS has published this comparison."
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "insight_id": "INS-003",
+      "insight": "The AI/GPU rack density step-change (8.2 kW average to 40+ kW per rack) does not trigger infrastructure upgrades incrementally\u2014it forces simultaneous and interdependent redesign of electrical distribution, liquid cooling, PDU specification, and UPS capacity. All five analysts identified this bundled capex requirement, but from different angles. The synthesis reveals a sequencing problem that none fully articulated: cooling infrastructure placement decisions (CDU location, liquid loop routing) must be locked before electrical conduit routing is finalized, but UPS battery sizing cannot be confirmed until actual GPU rack power draw is verified, which is only known after IT procurement commits to specific SKUs. This creates a critical-path dependency loop where no single trade can finalize design until all three are simultaneously resolved\u2014a condition that standard MEP sequencing workflows do not handle.",
+      "why_it_is_new": "Individual analysts identified cooling-electrical interdependency and UPS sizing dependencies separately. The composite insight is that the three-way dependency (cooling placement \u2192 electrical routing \u2192 UPS sizing) forms a loop with no natural starting point under conventional sequential MEP design, meaning facilities that use standard design-bid-build workflows will systematically encounter mid-project design conflicts. This is a workflow and procurement process problem, not just a technical constraint\u2014and it affects schedule and change-order risk independent of the technical solution chosen.",
+      "new_perspective_from_disagreement": "The installer analyst emphasized the physical sequencing conflict (cooling hardware blocks conduit routing, requiring pre-staged feeders). The MEP designer emphasized the design-phase commitment problem (cannot finalize PDU specs until cooling strategy is locked). These two perspectives together reveal that the problem exists at both the design phase (workflow) and the installation phase (physical sequencing), and that solving one without the other still produces delays. A facility that resolves the design-phase sequencing problem through integrated MEP design but retains sequential subcontractor mobilization will still hit physical routing conflicts on-site.",
+      "who_cares": [
+        "electrical-contractor",
+        "mep-designer",
+        "data-center-owner-operator",
+        "project-manager"
+      ],
+      "which_verticals": [
+        "data-centers"
+      ],
+      "levers": [
+        "power-quality-surge",
+        "pathways-install",
+        "ups-resilience",
+        "commissioning",
+        "ai-infrastructure"
+      ],
+      "supporting_items": [
+        "98",
+        "52",
+        "100",
+        "76"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposes: Standard sequential MEP design workflows are structurally incompatible with GPU density deployments because the three infrastructure systems have circular dependencies, not linear ones.",
+        "Exposes: Facilities that pre-stage 3-phase feeders to anticipated GPU zones (installer recommendation) without confirming final GPU SKU power draw risk over- or under-sizing those feeders, creating either stranded capacity or rework.",
+        "Unresolved: No published integrated design workflow exists that resolves the cooling-electrical-UPS circular dependency for 40+ kW rack deployments; this is a gap in MEP practice, not just a technical question."
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-004",
+      "insight": "The FMP vs. AC cost comparison for a 6 MW data center (item 40) claims multi-million dollar savings, and the Southland Industries PE authorship gives it credibility. However, all analysts who engaged with this item identified the same evidentiary gap from different directions: no itemized breakdown, no adoption rate data, no OpEx impact, and no AHJ code acceptance record. The convergence of five independent analysts on the same gap is itself a signal: the FMP savings claim is analytically isolated\u2014it is the only item in the Pulse set making a cost-efficiency argument at this scale, with no corroborating items and no evidence of replication. Until the savings claim is decomposed (which cost categories, what assumptions about labor rates and material counts, what OpEx is excluded) and validated against a second independent analysis, it should be treated as a directional hypothesis rather than a design-decision input. Practitioners who use this number for capex budgeting without the underlying breakdown are making decisions on incomplete evidence.",
+      "why_it_is_new": "No single analyst explicitly stated that the convergence of independent skepticism across all five lenses is itself informative evidence about the claim's reliability. The finance analyst flagged missing OpEx data; the compliance analyst flagged AHJ acceptance uncertainty; the MEP analyst flagged retrofit feasibility unknowns; the installer implicitly treated it as low-priority. The meta-observation\u2014that five analysts independently arrived at the same evidentiary gap\u2014strengthens the conclusion that the gap is real and material, not an artifact of any single analytical lens.",
+      "new_perspective_from_disagreement": "The finance analyst hypothesized that FMP savings are primarily labor and material count reductions (fewer copper runs, no transformer banks) but do not account for commissioning complexity and diagnostic OpEx. The MEP analyst separately hypothesized that FMP retrofit feasibility is constrained by AHJ code acceptance, not just cost. These two concerns point to different adoption blockers: the finance concern is that lifecycle cost may erode the capex savings; the MEP concern is that capex savings may be irrelevant if code acceptance is not established. A practitioner deciding whether to spec FMP needs to resolve both independently\u2014one does not substitute for the other.",
+      "who_cares": [
+        "data-center-owner-operator",
+        "mep-designer",
+        "finance-capital-planning",
+        "electrical-contractor"
+      ],
+      "which_verticals": [
+        "data-centers"
+      ],
+      "levers": [
+        "estimating",
+        "pathways-install",
+        "schedule-value",
+        "code-standards",
+        "dc-distribution"
+      ],
+      "supporting_items": [
+        "40"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposes: A PE-stamped cost comparison from a credentialed firm (Southland Industries) is being used as a design-decision anchor without the underlying cost decomposition being publicly available\u2014this is a reproducibility gap that practitioners should treat as a due-diligence requirement before using the number.",
+        "Unresolved: Whether FMP AHJ code acceptance is jurisdiction-specific or a general national gap; without this, operators cannot assess whether the savings are realizable in their specific project location.",
+        "Unresolved: Whether the multi-million dollar savings figure includes or excludes commissioning, testing, fault diagnostics, and first-year maintenance costs that would be new line items in an FMP deployment."
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "ranked_original_angles": [
+    {
+      "rank": 1,
+      "working_title": "The Oversizing Trap: How 3-Minute UPS Runtimes and NFPA 855 Compound to Make Every Battery Chemistry More Expensive",
+      "thesis": "The data center industry's shift to 3-minute UPS runtimes was expected to reduce battery capex and floor space by leveraging faster generator failover. In practice, both battery chemistries require oversizing under short-runtime, high-current discharge profiles\u2014lead-acid for energy density limits, lithium-ion to stay below BMS discharge-rate shutdown thresholds. NFPA 855 retroactive enforcement then applies compliance costs proportional to installed battery cabinet count, meaning the oversizing 'solution' amplifies the regulatory liability. No currently available chemistry provides a cost-optimal short-runtime UPS at scale; the distributed micro-UPS architecture (AWS model) may break the tradeoff but introduces operational prerequisites most non-hyperscale operators cannot meet without significant infrastructure investment.",
+      "outline": [
+        "H1: Context\u2014runtime compression from 30 min to 3 min was driven by generator failover speed improvements, with the stated goal of reducing battery requirements and capex.",
+        "H2: The lead-acid penalty\u2014low energy density requires proportionally more physical cabinet volume at high discharge rates over short windows; oversizing is a physics constraint, not a design choice.",
+        "H3: The lithium-ion penalty\u2014BMS discharge-rate thresholds trigger automatic safety shutdowns at the current levels required for 3-minute failover, forcing operators to specify more strings/cells to reduce per-cell discharge rate below the BMS ceiling; oversizing is a safety firmware constraint, potentially addressable by OEMs but with unresolved certification and AHJ documentation consequences.",
+        "H4: The NFPA 855 compounding effect\u2014retroactive compliance applies to all battery installations >70 kW; oversized deployments have larger cabinet counts and greater retrofit scope; the 'solution' to BMS shutdown risk directly increases NFPA 855 retrofit cost and AHJ inspection surface area.",
+        "H5: The distributed UPS partial escape\u2014AWS rack-level micro-UPS reduces per-rack discharge rates by distributing load, potentially staying below BMS thresholds without gross oversizing; 35% conversion loss reduction is a secondary benefit; but adoption requires per-rack BMS telemetry, DCIM integration, and hot-swap logistics that most enterprise operators lack.",
+        "H6: Decision framework for practitioners\u2014when to accept lead-acid oversizing vs. lithium oversizing vs. evaluate distributed UPS; key variables are facility scale, available floor space, IT load discharge profile, and AHJ jurisdiction for NFPA 855 enforcement timing."
+      ],
+      "must_cite_items": [
+        "100",
+        "46",
+        "44"
+      ],
+      "missing_evidence_to_find": [
+        "BMS discharge-rate threshold specifications (amperes per cell, total kW) from major lithium UPS OEMs (Saft, Samsung SDI, Eaton, Vertiv) to quantify the oversizing factor required to avoid shutdown.",
+        "Actual peak discharge current measurements during generator failover events at operational data centers to determine how frequently facilities hit BMS thresholds in practice.",
+        "Itemized NFPA 855 retrofit cost for a typical 250 kW\u20131 MW UPS installation (engineering, hardware, labor, testing, AHJ fees) from LA or NYC facilities that have completed compliance work.",
+        "Third-party operational cost data for distributed rack-level UPS (non-AWS) deployments: DCIM integration hours, spare battery inventory carrying cost, technician dispatch frequency, MTTR vs. centralized baseline.",
+        "Whether BMS threshold relaxation requires new UL 1973 or UL 9540 certification cycles, or can be achieved via firmware update within existing certifications."
+      ],
+      "recommended_owner_questions": [
+        "Do you have actual discharge current telemetry from generator failover tests that shows whether your lithium-ion BMS units are approaching or exceeding shutdown thresholds? If so, what oversizing factor did you deploy to create headroom?",
+        "When you received your NFPA 855 compliance notice from the LA or NYC AHJ, what was the specific list of remediation items\u2014was it hardware replacement, documentation submission, testing, or all three? What was the total cost and elapsed time from notice to final AHJ approval?",
+        "If you are evaluating distributed rack-level UPS, what is the estimated annual cost of the monitoring infrastructure (DCIM integration, telemetry licensing, technician dispatch for hot-swaps) relative to the projected energy savings from the 35% conversion loss reduction?"
+      ]
+    },
+    {
+      "rank": 2,
+      "working_title": "The Three-Way Lock: Why GPU Rack Deployments Break Sequential MEP Design Workflows",
+      "thesis": "AI/GPU rack deployments at 40+ kW per rack force simultaneous redesign of electrical distribution, liquid cooling, and UPS architecture\u2014three systems with circular design dependencies that standard sequential MEP workflows cannot resolve. Cooling infrastructure placement must be locked before electrical conduit routing is finalized; electrical routing must be locked before PDU specification is confirmed; UPS battery sizing cannot be confirmed until actual GPU power draw is verified post-IT-procurement. This circular dependency creates systematic mid-project design conflicts and change-order risk that is independent of the technical solutions chosen for each system. Facilities that adopt integrated concurrent design workflows and pre-stage flexible infrastructure (3-phase feeders to anticipated GPU zones, modular PDU configurations, scalable UPS topology) can reduce change-order exposure by 30\u201350% on GPU deployment projects.",
+      "outline": [
+        "H1: Density context\u2014average rack density at 8.2 kW (2020) followed incremental scaling; GPU/AI workloads at 20\u201340 kW represent a discontinuous jump that exceeds air cooling ceilings and existing electrical circuit sizing assumptions.",
+        "H2: The three-system interdependency map\u2014cooling CDU/loop placement constrains conduit routing; conduit routing constrains PDU physical fit and amperage tier; PDU amperage and phase configuration constrains UPS battery sizing; UPS sizing is contingent on confirmed GPU power draw that is only known after IT procurement commits to specific SKUs.",
+        "H3: Why sequential MEP workflows fail\u2014design-bid-build sequencing assumes each system can be designed, specified, and installed before the next begins; the circular GPU dependency means no system has a natural starting point under this model.",
+        "H4: The physical installation conflict layer\u2014even when design-phase sequencing is resolved through integrated design, physical conflicts emerge on-site when cooling hardware installation blocks conduit routing access and cooling contractor and electrical contractor mobilization windows overlap.",
+        "H5: Risk-reduction strategies\u2014pre-stage 3-phase feeders to anticipated GPU-dense zones before cooling hardware arrives; specify modular/scalable PDU configurations that can accommodate 20\u201340 kW range without full replacement; use concurrent MEP design with shared power-density model updated by all three trades; hold mandatory three-trade coordination meeting before design release.",
+        "H6: Economics of getting it wrong\u2014estimated 40\u201360 additional labor hours per GPU rack when electrical routing requires rework after cooling hardware placement; PDU reorder lead times of 6\u20138 weeks for BTO/ETO units when first-specified units do not fit the final cooling-constrained rack layout."
+      ],
+      "must_cite_items": [
+        "98",
+        "52",
+        "76",
+        "100"
+      ],
+      "missing_evidence_to_find": [
+        "Project post-mortem data from at least two GPU rack deployments showing root-cause analysis of schedule delays attributable to cooling-electrical-UPS sequencing conflicts vs. other causes.",
+        "Electrical feeder sizing rules and cost estimates ($/linear foot, conduit fill, voltage drop) for 3-phase 60A and 100A feeds to 40 kW rack zones in retrofitted facilities.",
+        "Rear-door liquid cooler physical dimensions and installation clearance requirements relative to PDU placement and conduit routing constraints in standard 48U racks.",
+        "Lead time and cost premium for BTO/ETO PDUs at 60A and 100A three-phase configurations from Raritan, Vertiv, and Schneider to quantify the procurement risk from late PDU specification."
+      ],
+      "recommended_owner_questions": [
+        "On your most recent GPU rack deployment project, which constraint hit first in the field\u2014cooling hardware blocking conduit access, PDU spec mismatch requiring reorder, or UPS battery sizing change due to confirmed power draw differing from IT estimate? How many weeks of schedule delay resulted?",
+        "Do you currently use a shared power-density model that all three trades (cooling, electrical, UPS) update simultaneously during design, or does each trade receive a separate scope document? If separate, at what project milestone do you reconcile conflicts?",
+        "What is your current standard for pre-staging electrical infrastructure to future GPU-dense zones\u2014do you install 3-phase feeders speculatively, or only after IT procurement confirms GPU equipment?"
+      ]
+    },
+    {
+      "rank": 3,
+      "working_title": "NFPA 855 Retroactivity: The Compliance Liability That Scales With Battery Cabinet Count",
+      "thesis": "NFPA 855 retroactive application to existing UPS installations >70 kW creates an immediate and unbudgeted compliance liability for operational data centers in LA, NYC, and other early-enforcing jurisdictions. Critically, the liability scales with battery cabinet count\u2014facilities that oversized UPS deployments to work around lithium-ion BMS limitations or to provide longer runtimes face proportionally larger retrofit scope. The absence of published retrofit certification standards means AHJs in early-enforcing jurisdictions are applying the standard without a documented compliance pathway for existing installations, forcing operators into full replacement, costly custom engineering submissions, or interim variance permits with heightened insurance exposure. The 18\u201324 month compliance cycle (audit \u2192 design \u2192 AHJ review \u2192 installation) compresses against an enforcement window that has already begun.",
+      "outline": [
+        "H1: NFPA 855 scope and retroactive trigger\u2014all stationary energy storage >70 kW is covered, encompassing nearly all enterprise and hyperscale data center UPS deployments; retroactive application means systems installed before the standard's adoption are subject to compliance review.",
+        "H2: Enforcement geography and timeline\u2014LA and NYC AHJs are already enforcing specific sections; national adoption trajectory based on historical NFPA standard diffusion patterns suggests 80% jurisdiction coverage within 3\u20135 years.",
+        "H3: The missing retrofit certification standard\u2014no published template for bringing existing installations into compliance; AHJs are applying new-construction requirements to existing systems, creating design documentation and testing burdens that were not contemplated when original systems were specified.",
+        "H4: Cost structure and timing\u2014estimated 18\u201324 month cycle from audit to final AHJ approval; interim variance permits expose facilities to heightened insurance scrutiny and potential liability; retrofit engineering, hardware, labor, and testing costs are highly variable and poorly documented in published sources.",
+        "H5: The cabinet-count scaling effect\u2014facilities that oversized UPS (either for lead-acid energy density or lithium BMS threshold headroom) have more cabinets in scope for NFPA 855 review; the BMS oversizing problem and the NFPA 855 liability are not independent.",
+        "H6: Operator decision tree\u2014audit now vs. wait for national enforcement; retrofit vs. replace vs. seek variance; financing options for unbudgeted mid-life compliance capex; jurisdictional prioritization strategy for multi-facility portfolios."
+      ],
+      "must_cite_items": [
+        "46",
+        "100",
+        "44"
+      ],
+      "missing_evidence_to_find": [
+        "Section-by-section detail of which NFPA 855 provisions LA and NYC AHJs are currently enforcing for existing (retroactive) installations vs. new construction only.",
+        "At least one documented retrofit case study (facility type, UPS capacity, remediation items, cost, elapsed time, AHJ jurisdiction) to establish a real cost baseline.",
+        "Insurance industry guidance on coverage implications for data center operators operating under NFPA 855 variance permits during retrofit periods.",
+        "NFPA 855 adoption timeline data from NFPA's own diffusion tracking or from state fire marshal records to project enforcement expansion beyond LA/NYC."
+      ],
+      "recommended_owner_questions": [
+        "Have you received any formal NFPA 855 compliance notice or inspection finding from an AHJ in LA or NYC? If so, what specific remediation was required, and what was the AHJ's stated timeline for achieving compliance before enforcement action?",
+        "For multi-facility portfolios with UPS installations in both enforcing (LA, NYC) and non-enforcing jurisdictions, are you conducting proactive audits in non-enforcing jurisdictions now, or waiting for local AHJ action? What is the cost difference between proactive vs. reactive compliance?",
+        "Has your insurance carrier explicitly addressed NFPA 855 compliance status in your current policy renewal? Are there coverage limitations or premium adjustments tied to battery installation compliance status?"
+      ]
+    }
+  ],
+  "tomorrow_search_briefs": [
+    {
+      "goal": "Establish the actual BMS discharge-rate shutdown behavior of commercial lithium-ion UPS systems under data center failover conditions, and determine whether OEM-adjustable thresholds are technically and certificationally feasible.",
+      "queries": [
+        "lithium-ion UPS BMS discharge rate threshold data center failover shutdown site:eaton.com OR site:vertiv.com OR site:schneider-electric.com filetype:pdf",
+        "\"BMS\" \"discharge rate\" \"data center\" \"UPS\" \"shutdown\" \"failover\" site:uptime.org OR site:afcom.com OR site:datacenterdynamics.com 2023..2026",
+        "UL 1973 OR \"UL 9540\" lithium UPS discharge rate reconfiguration firmware data center \"data center mode\" BMS threshold adjustment certification"
+      ],
+      "why_this_will_improve_insights": "INS-001 and the top-ranked article both depend on whether BMS shutdown thresholds are a physics constraint or an adjustable firmware parameter. If OEMs can offer higher thresholds within existing certifications, the oversizing penalty is eliminable without hardware redesign. If new UL certification is required, the timeline makes it irrelevant to the current NFPA 855 compliance window. This distinction changes the practitioner decision between lithium vs. lead-acid for short-runtime UPS at the design phase."
+    },
+    {
+      "goal": "Find documented NFPA 855 retrofit case studies or AHJ enforcement records from LA and NYC that establish actual compliance timelines, cost ranges, and specific sections being enforced on existing UPS installations.",
+      "queries": [
+        "NFPA 855 \"retroactive\" OR \"existing installation\" data center UPS retrofit \"Los Angeles\" OR \"New York\" AHJ enforcement 2024..2026",
+        "NFPA 855 section 4 OR section 5 OR section 15 data center UPS compliance \"fire marshal\" OR \"building department\" enforcement citation 2025 2026",
+        "\"NFPA 855\" data center UPS retrofit cost \"variance\" OR \"permit\" OR \"compliance timeline\" case study 2024 2025 2026"
+      ],
+      "why_this_will_improve_insights": "All five analysts independently flagged the absence of retrofit cost data and AHJ enforcement specifics as the critical evidentiary gap for the NFPA 855 constraint. Without actual cost ranges and section-specific enforcement details, practitioners cannot triage their compliance exposure or budget retrofits accurately. A single documented case study would anchor all five analysts' cost estimates and validate or refute the 18-24 month compliance cycle hypothesis."
+    },
+    {
+      "goal": "Validate or refute the AWS distributed rack-level UPS 35% efficiency claim through third-party operational data, and identify whether any non-AWS operator has deployed comparable architecture with published commissioning or operational cost data.",
+      "queries": [
+        "distributed rack-level UPS \"micro-UPS\" data center efficiency comparison centralized UPS third-party deployment 2023..2026 site:datacenterdynamics.com OR site:theregister.com OR site:nextplatform.com",
+        "rack-level UPS hot-swap commissioning standard AHJ approval \"plan review\" data center distributed battery architecture 2024 2025",
+        "\"distributed UPS\" OR \"in-rack UPS\" data center operational cost DCIM integration battery inventory monitoring 2024 2025 2026"
+      ],
+      "why_this_will_improve_insights": "INS-002 identifies that the AWS distributed UPS claim (item 44) is based on a single self-reported hyperscaler announcement with no third-party validation. If third-party deployments with operational cost data exist, the efficiency and maintenance claims can be verified and the adoption barrier analysis (telemetry, DCIM, logistics prerequisites) can be tested against real operator experience. If no third-party deployments are found, that absence itself is confirmatory evidence for the 'compliance moat' hypothesis that AWS's architecture creates."
+    }
+  ]
+}

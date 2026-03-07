@@ -1,0 +1,173 @@
+{
+  "run_date": "2026-03-06",
+  "drafts": [
+    {
+      "draft_id": "SOC-001",
+      "channel": "linkedin",
+      "text": "Data center teams shortening UPS runtimes to 3 minutes expected to cut battery costs. The evidence suggests the opposite is happening. Both lead-acid and lithium-ion chemistries require oversizing under short-runtime, high-discharge conditions\u2014lead-acid for energy density reasons, lithium-ion to stay below BMS shutdown thresholds. NFPA 855 then applies retroactive compliance costs proportional to cabinet count, meaning the oversizing workaround directly expands your regulatory liability. No currently available chemistry offers a cost-optimal short-runtime UPS solution at scale without tradeoffs that compound. Is your team accounting for both the oversizing penalty and the NFPA 855 retrofit scope when modeling total battery capex? https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/ https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+        "https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "100",
+          "46"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "code-standards",
+          "reliability-uptime"
+        ],
+        "target_persona": "data-center-facilities-manager"
+      }
+    },
+    {
+      "draft_id": "SOC-002",
+      "channel": "linkedin",
+      "text": "The AWS distributed rack-level UPS architecture reduces conversion losses and eliminates centralized failure domains. Those are real benefits. But the adoption analysis reveals a prerequisite stack that rarely gets stated plainly: per-rack BMS telemetry, DCIM integration, predictive maintenance analytics, and hot-swap logistics\u2014none of which most enterprise or colocation operators currently have. There is also a commissioning standards gap: AHJs have no published framework for approving distributed UPS deployments, which means hyperscalers who can negotiate custom acceptance agreements have a pathway that smaller operators do not. Before evaluating distributed UPS for your facility, what monitoring and logistics infrastructure would you need to build first, and what does that cost relative to projected energy savings? https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/ https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/",
+        "https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/"
+      ],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": [
+          "44",
+          "46"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "monitoring-telemetry",
+          "commissioning",
+          "code-standards"
+        ],
+        "target_persona": "data-center-owner-operator"
+      }
+    },
+    {
+      "draft_id": "SOC-003",
+      "channel": "linkedin",
+      "text": "GPU rack deployments at 40+ kW per rack do not just require more electrical capacity\u2014they create a three-way circular design dependency that standard sequential MEP workflows cannot resolve. Cooling CDU placement must be locked before conduit routing is finalized. Conduit routing must be locked before PDU specification is confirmed. UPS battery sizing cannot be confirmed until actual GPU power draw is verified, which only happens after IT procurement commits to specific SKUs. The result is systematic mid-project design conflicts and change-order exposure that is independent of the technical solutions chosen. A facility that resolves the design-phase sequencing problem through integrated MEP coordination but retains sequential subcontractor mobilization will still hit physical routing conflicts on-site. If your team is deploying GPU-dense racks, at what project milestone are your cooling, electrical, and UPS trades sharing a single reconciled power-density model? https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/ https://faultmanagedpower.org/pulse/2022-09-20-other-basics-of-selecting-rackmount-power/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+        "https://faultmanagedpower.org/pulse/2022-09-20-other-basics-of-selecting-rackmount-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "100",
+          "138"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "pathways-install",
+          "commissioning",
+          "ups-resilience",
+          "ai-infrastructure"
+        ],
+        "target_persona": "mep-designer"
+      }
+    },
+    {
+      "draft_id": "SOC-004",
+      "channel": "x",
+      "text": "3-minute UPS runtimes were supposed to cut battery costs. Instead: lithium oversizing (BMS thresholds) + NFPA 855 liability scaling with cabinet count = more expensive, not less. Both problems compound. Are you modeling this? https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "100",
+          "46"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "code-standards"
+        ],
+        "target_persona": "data-center-facilities-manager"
+      }
+    },
+    {
+      "draft_id": "SOC-005",
+      "channel": "x",
+      "text": "AWS distributed rack UPS: real efficiency gains, but no AHJ commissioning standard exists. Hyperscalers negotiate custom acceptance. Enterprise operators cannot. Is that a compliance moat? https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/"
+      ],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": [
+          "44",
+          "46"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "commissioning",
+          "code-standards"
+        ],
+        "target_persona": "compliance-ahj"
+      }
+    },
+    {
+      "draft_id": "SOC-006",
+      "channel": "x",
+      "text": "GPU rack at 40+ kW: cooling placement locks before conduit routing, conduit before PDU spec, PDU before UPS sizing\u2014but UPS sizing needs confirmed GPU draw that only exists post-IT-procurement. Circular dependency. Standard MEP sequencing breaks here. https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "100"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "pathways-install",
+          "commissioning",
+          "ai-infrastructure"
+        ],
+        "target_persona": "electrical-contractor"
+      }
+    },
+    {
+      "draft_id": "SOC-007",
+      "channel": "prompt",
+      "text": "NFPA 855 retroactive enforcement is arriving in LA and NYC now, and the compliance liability scales directly with how many battery cabinets you have installed. Here is a tension worth discussing: facilities that oversized UPS deployments to work around lithium-ion BMS discharge-rate shutdown thresholds\u2014a common short-runtime design response\u2014now have larger NFPA 855 retrofit scope as a direct consequence of that workaround. Five independent analysts reviewing the same evidence all arrived at the same evidentiary gap: there is no published retrofit certification pathway, no documented cost baseline from a completed retrofit, and no AHJ-approved commissioning standard for distributed rack-level UPS as an alternative. For practitioners who have navigated NFPA 855 compliance in LA or NYC\u2014what did the AHJ actually require? Was it hardware replacement, documentation submission, third-party testing, or something else? And for those evaluating distributed UPS as a compliance risk-isolation strategy: has any AHJ in your jurisdiction reviewed and approved a rack-level distributed UPS installation under NFPA 855 scope? https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/ https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/ https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/",
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+        "https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "46",
+          "100",
+          "44"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "code-standards",
+          "commissioning",
+          "retrofits-mdus"
+        ],
+        "target_persona": "data-center-facilities-manager"
+      }
+    }
+  ]
+}
