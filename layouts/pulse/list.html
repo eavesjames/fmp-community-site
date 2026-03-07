@@ -2,20 +2,8 @@
 
 {{- $allPulse := .Pages }}
 
-{{- /* Sort: source_date desc, fallback to .Date desc */ -}}
-{{- $withDate := slice }}
-{{- $noDate   := slice }}
-{{- range $allPulse }}
-  {{- if isset .Params "source_date" }}
-    {{- $withDate = $withDate | append . }}
-  {{- else }}
-    {{- $noDate = $noDate | append . }}
-  {{- end }}
-{{- end }}
-{{- $sorted := sort $withDate "Params.source_date" "desc" }}
-{{- range $noDate.ByDate.Reverse }}
-  {{- $sorted = $sorted | append . }}
-{{- end }}
+{{- /* Sort by .Date desc (Hugo infers date from filename YYYY-MM-DD prefix) */ -}}
+{{- $sorted := $allPulse.ByDate.Reverse }}
 
 {{- $paginator := .Paginate $sorted 50 }}
 
