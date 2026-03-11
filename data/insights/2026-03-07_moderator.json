@@ -1,0 +1,262 @@
+{
+  "agent": "moderator_synthesis",
+  "run_date": "2026-03-07",
+  "coverage_notes": {
+    "observed_skews": [
+      "All 10 pulse items are data-center vertical; zero coverage of edge-power-ups or building-electrification this cycle, creating blind spots in cross-vertical synthesis.",
+      "Three pulse items (136, 134, 138) are corrupted PDF extracts with near-zero substantive evidence, inflating item count while contributing no verifiable constraints; analysts correctly flagged but still padded analyses around them.",
+      "Heavy concentration on UPS/battery chemistry (items 44, 100, 46) relative to distribution architecture (items 40, 76, 98, 52); FMP cost case (item 40) is the only item addressing DC distribution economics yet received proportionally less analyst attention than battery topics.",
+      "AWS distributed UPS (item 44) is a single hyperscaler case study treated by most analysts as a generalizable architecture signal; no counterexample or independent third-party deployment data exists in the item set.",
+      "Rack density trend data (items 52, 98) is primarily sourced from 2020 AFCOM survey; analysts cite it as current but the data is 5-6 years old relative to run date, potentially understating density acceleration."
+    ],
+    "suggested_query_adjustments": [
+      "Add edge-power-ups and building-electrification vertical items to next cycle to enable cross-vertical synthesis (shared battery chemistry constraints, NFPA 855 applicability outside data centers).",
+      "Replace or supplement corrupted PDF items (136, 134, 138) with full-text rack PDU and high-density distribution sources to fill the phase/voltage/amperage constraint gap.",
+      "Source 2024-2026 rack density survey data (Uptime Institute State of the Data Center, AFCOM 2024) to replace 2020 baselines in items 52 and 98.",
+      "Add at least one FMP deployment case study or field cost report beyond the single Southland Industries webinar (item 40) to validate or challenge the multi-million dollar savings claim.",
+      "Source lithium BMS discharge-rate specification sheets from at least three major UPS vendors (Eaton, Schneider Electric, Vertiv) to ground the item 100 BMS shutdown claim in quantified thresholds."
+    ]
+  },
+  "composite_insights": [
+    {
+      "insight_id": "INS-001",
+      "insight": "NFPA 855 retroactive enforcement and lithium-ion BMS discharge-rate shutdown risk are not independent problems \u2014 they converge on the same facility at the same decision point. A data center with a centralized lithium-ion UPS >70kW faces simultaneous pressure from two directions: (1) NFPA 855 forces a compliance retrofit or replacement of the existing battery system, and (2) the 3-5 minute runtime target needed for faster generator failover pushes discharge rates into the zone where BMS safety mechanisms can trigger shutdown. The compliance retrofit window is the natural moment to evaluate whether the replacement architecture should be distributed rack-level UPS (item 44), which simultaneously satisfies NFPA 855 by reducing per-unit battery capacity below or near the 70kW threshold, sidesteps BMS discharge-rate trips by reducing per-rack failover current demand, and eliminates the facility-scale failure domain. Operators and designers treating NFPA 855 compliance and battery chemistry selection as separate workstreams are missing a forced-choice moment that will not recur cheaply.",
+      "why_it_is_new": "No single analyst connected the NFPA 855 retroactive enforcement trigger (item 46) directly to the BMS shutdown risk at short runtimes (item 100) as a combined forcing function toward distributed UPS architecture (item 44). Finance analyst treated them as separate cost buckets; MEP designer noted the overlap but did not quantify the convergence; compliance analyst flagged both but analyzed them in separate constraint buckets. The composite view is that the retrofit window created by NFPA 855 is the lowest-cost moment to also resolve the BMS discharge-rate problem \u2014 deferring one defers the other at increasing cost.",
+      "new_perspective_from_disagreement": "Finance analyst hypothesized that AWS distributed UPS 35% efficiency savings are not transferable to third-party operators due to integration cost. MEP designer and installer both independently noted that distributed UPS reduces per-unit failover current, which is the mechanism that avoids BMS shutdown trips. These two views disagree on whether distributed UPS is economically viable for non-hyperscalers, but the disagreement surfaces a testable hypothesis: the financial viability of distributed UPS for third-party operators depends critically on whether the BMS-shutdown-avoidance benefit is quantified as a risk-adjusted cost, not just an energy efficiency metric. If BMS shutdowns are rare in practice, distributed UPS economics are marginal for non-hyperscalers; if BMS shutdowns are common, distributed UPS pays back faster than the 35% efficiency claim alone suggests.",
+      "who_cares": [
+        "data-center-owner-operator",
+        "mep-system-designer",
+        "compliance-ahj",
+        "electrical-contractor"
+      ],
+      "which_verticals": [
+        "data-centers"
+      ],
+      "levers": [
+        "ups-resilience",
+        "code-standards",
+        "reliability-uptime",
+        "monitoring-telemetry",
+        "retrofits-mdus"
+      ],
+      "supporting_items": [
+        "46",
+        "100",
+        "44"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposes: NFPA 855 compliance retrofit and battery chemistry re-selection are not separable decisions for existing centralized lithium-ion UPS facilities; treating them separately inflates total cost and extends risk window.",
+        "Exposes: The 35% efficiency claim for distributed UPS (item 44) is insufficient to justify adoption for non-hyperscalers unless BMS shutdown risk premium is added to the ROI model \u2014 no analyst quantified this risk premium.",
+        "Resolves partially: The apparent contradiction between 'lithium is more efficient' and 'lithium shuts down when needed' is resolved by recognizing that distributed architecture reduces per-unit discharge current, making lithium safe at short runtimes without oversizing."
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-002",
+      "insight": "The rack density acceleration to 40+kW for AI/GPU workloads is creating a bifurcated infrastructure problem that legacy upgrade assumptions cannot bridge: the jump from 8.2kW average to 40+kW is not a linear scaling challenge but a multi-system simultaneous threshold crossing (air cooling ceiling at 25-40kW, standard 20-30A branch circuit limits, UPS battery discharge rate limits, PDU phase/amperage specifications). Each threshold can be addressed individually, but all four must be crossed simultaneously for a GPU rack deployment to function. The critical implication for power distribution decisions is that FMP infrastructure (item 40), which eliminates AC/DC conversion steps and reduces distribution complexity, is structurally better suited to this multi-threshold environment than incremental upgrades to legacy AC infrastructure \u2014 but only in new-build or greenfield scenarios. Retrofit economics for legacy facilities almost certainly do not support FMP adoption given the simultaneous rip-and-replace scope required across cooling, electrical distribution, UPS, and PDU layers.",
+      "why_it_is_new": "Finance analyst and owner-operator analyst treated density growth and FMP economics as related but separate topics. MEP designer noted that liquid cooling and electrical distribution must co-evolve but did not connect this explicitly to FMP as the architecture that resolves the co-evolution problem. Installer analyst focused on riser capacity constraints. No analyst synthesized the observation that FMP's primary economic advantage (eliminating conversion stages) also happens to be the mechanism that resolves the multi-system threshold-crossing problem \u2014 fewer conversion stages means fewer systems that each have independent upgrade thresholds. The composite insight is that FMP's value proposition for high-density AI deployments is not primarily cost savings but architectural simplicity at the density threshold crossing.",
+      "new_perspective_from_disagreement": "Finance analyst hypothesized FMP savings require new-build timing and cannot be cost-justified in retrofit. Compliance analyst hypothesized FMP savings will be cancelled by AHJ approval friction in 50%+ of projects. These views disagree on where the FMP adoption barrier lies (economics vs. regulatory), but both point to the same conclusion: FMP is a new-build-only solution in the near term. The disagreement surfaces a useful framing for practitioners: the decision is not 'FMP vs. AC' but 'build new FMP-native facility vs. retrofit legacy AC facility for GPU workloads,' and the retrofit option is increasingly nonviable regardless of whether the barrier is economic or regulatory.",
+      "who_cares": [
+        "data-center-owner-operator",
+        "mep-system-designer",
+        "finance-capital-planner"
+      ],
+      "which_verticals": [
+        "data-centers"
+      ],
+      "levers": [
+        "dc-distribution",
+        "power-quality-surge",
+        "pathways-install",
+        "ai-infrastructure",
+        "estimating"
+      ],
+      "supporting_items": [
+        "40",
+        "98",
+        "52",
+        "100",
+        "136"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Resolves: The apparent tension between FMP cost savings (item 40) and AHJ approval friction (compliance analyst) is resolved by recognizing both point to the same practical constraint: FMP is viable only in new-build contexts with pre-engaged AHJs, not as a retrofit path.",
+        "Exposes: No item in this set provides retrofit cost data for legacy AC facilities absorbing GPU workloads; the multi-system threshold-crossing cost is unquantified and may be the strongest argument for new greenfield FMP builds over legacy upgrades.",
+        "Exposes: The 2020-era density data in items 52 and 98 likely understates the current proportion of sites at or near the 40kW threshold, meaning the retrofit pressure is larger and more immediate than the cited statistics suggest."
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-003",
+      "insight": "The data center industry's UPS architecture choices are currently being driven by two incompatible optimization pressures: (1) reduce runtime to 3-5 minutes to match faster generator failover, which increases peak discharge rates and triggers BMS shutdowns or forces oversizing; (2) increase rack density to 40+kW for GPU workloads, which increases total UPS load and amplifies the discharge-rate problem. These pressures compound: a 40kW rack running a 3-minute runtime UPS requires roughly 5x the peak discharge rate of an 8kW rack running a 15-minute runtime UPS. Neither lead-acid nor lithium-ion chemistry is well-suited to this combined constraint without significant oversizing or architectural change. Distributed rack-level UPS (item 44) addresses the combined problem by reducing per-unit discharge current demand, but at the cost of multiplying commissioning touch points and monitoring complexity proportional to rack count. The practical implication: facilities planning GPU workload deployments should not treat UPS sizing as a secondary design decision; it is the primary constraint that drives battery chemistry selection, architecture (centralized vs. distributed), floorspace allocation, and commissioning scope simultaneously.",
+      "why_it_is_new": "All five analysts noted the runtime-vs-battery and density-vs-cooling tensions independently, but no analyst explicitly computed or flagged the multiplicative effect of combining short runtimes with high rack densities on peak discharge rates. The finance analyst noted both constraints as separate cost buckets. The MEP designer noted the co-evolution requirement but focused on cooling as the primary driver. The installer noted riser capacity as the field constraint. The composite insight is that the peak discharge rate requirement is the common failure mode across all three battery/UPS concerns (oversizing, BMS shutdown, string failure), and it is driven by the product of density increase and runtime reduction, not either factor alone.",
+      "new_perspective_from_disagreement": "Owner-operator analyst argued that distributed UPS adoption will track with rack density above 15kW/rack because per-unit cost is not justified below that threshold. Finance analyst argued distributed UPS economics are not transferable to third-party operators at any density due to integration cost. These views conflict on the density threshold for distributed UPS viability, but the disagreement reveals that the decision variable is not density alone \u2014 it is the combined peak discharge rate per rack. A facility with 40kW racks and 3-minute runtimes faces a fundamentally different discharge constraint than one with 15kW racks and 10-minute runtimes, even though both are 'high density.' The owner-operator's 15kW threshold may be correct for the old runtime assumption but wrong for the new 3-minute target.",
+      "who_cares": [
+        "data-center-owner-operator",
+        "mep-system-designer",
+        "electrical-contractor",
+        "finance-capital-planner"
+      ],
+      "which_verticals": [
+        "data-centers"
+      ],
+      "levers": [
+        "ups-resilience",
+        "reliability-uptime",
+        "power-quality-surge",
+        "ai-infrastructure",
+        "monitoring-telemetry"
+      ],
+      "supporting_items": [
+        "100",
+        "44",
+        "98",
+        "52"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposes: The multiplicative effect of density increase and runtime reduction on peak discharge rates is unquantified in any of the five analyst outputs and in none of the pulse items; this is a critical missing calculation for UPS sizing decisions.",
+        "Resolves: The apparent contradiction between 'lithium is more efficient than lead-acid' and 'lithium shuts down when needed' is not a lithium-specific problem \u2014 it is a peak-discharge-rate problem that worsens as density and runtime-reduction compound, affecting lead-acid (via oversizing requirement) and lithium (via BMS shutdown) through different mechanisms.",
+        "Exposes: The AWS distributed UPS claim (item 44) of 35% efficiency gain does not specify the rack density or runtime target at which the efficiency was measured; the claim may not hold at 40kW/3-minute conditions."
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-004",
+      "insight": "The FMP cost comparison (item 40) and the distributed UPS efficiency claim (item 44) are the two most actionable economic signals in this item set, but neither has been validated outside its originating organization (Southland Industries/AWS respectively), and both are cited repeatedly across analyst outputs as if they were industry baselines. The risk is that practitioners use these figures as decision inputs without recognizing they are single-source claims with unknown methodology. The FMP 'multi-million dollar savings' figure (item 40) is from a PE-stamped webinar but omits AHJ approval costs, commissioning soft costs, and supply chain lead times. The AWS '35% efficiency gain' (item 44) does not specify the baseline (legacy centralized vs. optimized centralized), the rack density tested, or the runtime target. A practitioner who uses either figure directly in a capital budget or design decision without obtaining the underlying methodology is accepting unquantified schedule and cost risk. The composite recommendation: both claims require independent replication or disclosure of methodology before they can be used as design decision inputs rather than directional signals.",
+      "why_it_is_new": "Finance analyst challenged both claims but treated them as separate issues. Compliance analyst challenged FMP on AHJ grounds. MEP designer challenged distributed UPS on commissioning grounds. Installer analyst challenged distributed UPS on commissioning labor grounds. No analyst synthesized the observation that both claims share the same evidentiary weakness: single-source, single-facility, methodology-undisclosed figures being used as industry-wide decision inputs. The composite insight is a meta-level warning about the evidentiary quality of the two most-cited economic claims in the item set.",
+      "new_perspective_from_disagreement": "Finance analyst and compliance analyst disagree on the primary risk of FMP adoption: finance sees retrofit economics as the barrier, compliance sees AHJ approval friction as the barrier. Neither is wrong, but the disagreement itself reveals that the Southland Industries cost comparison (item 40) cannot be evaluated without knowing which project context it assumes \u2014 a new build in a hyperscaler-friendly AHJ jurisdiction (where both barriers are low) or a general-market facility. The 'multi-million dollar savings' figure is context-dependent in ways that the webinar presentation does not disclose, making it a marketing signal rather than a transferable engineering benchmark until methodology is published.",
+      "who_cares": [
+        "data-center-owner-operator",
+        "finance-capital-planner",
+        "mep-system-designer"
+      ],
+      "which_verticals": [
+        "data-centers"
+      ],
+      "levers": [
+        "estimating",
+        "dc-distribution",
+        "ups-resilience",
+        "schedule-value",
+        "code-standards"
+      ],
+      "supporting_items": [
+        "40",
+        "44"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposes: Both the primary DC distribution economic claim (item 40, FMP savings) and the primary UPS architecture efficiency claim (item 44, distributed UPS gain) lack published methodology; practitioners citing both without qualification are propagating unverified figures.",
+        "Exposes: The disagreement between finance and compliance analysts on FMP adoption barriers reveals that the item 40 cost comparison is jurisdiction- and context-dependent in undisclosed ways, reducing its transferability as a capital budgeting input.",
+        "Resolves: The apparent conflict between 'FMP saves millions' and 'AHJ friction will cancel savings' is not a contradiction \u2014 both can be true simultaneously in different project contexts, which is precisely why methodology disclosure matters."
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "ranked_original_angles": [
+    {
+      "rank": 1,
+      "working_title": "The Compound Discharge Problem: Why Combining 3-Minute Runtimes with 40kW GPU Racks Breaks Every Battery Chemistry",
+      "thesis": "The data center industry is simultaneously pursuing two UPS optimization pressures \u2014 reducing runtime from 30 minutes to 3 minutes (faster generator failover) and increasing rack density from 8kW to 40+kW for GPU workloads \u2014 without recognizing that these pressures multiply peak discharge rate requirements by approximately 5x compared to the baseline assumptions under which current battery chemistry and UPS architectures were designed. Neither lead-acid nor lithium-ion is viable at this combined operating point without oversizing that defeats the economic rationale for the runtime reduction. Distributed rack-level UPS (AWS model) is the only architecture that resolves both pressures simultaneously by reducing per-unit discharge current, but it introduces commissioning and monitoring complexity that is not yet quantified for non-hyperscaler deployments.",
+      "outline": [
+        "H1: Quantify the compound effect \u2014 baseline (8kW rack, 15-min runtime) vs. current target (40kW rack, 3-min runtime) in peak discharge rate per UPS unit; show that this is a 5x+ change, not incremental.",
+        "H2: Lead-acid response \u2014 low energy density forces oversizing that was tolerable at 8kW/15-min but becomes a floor-space and capex crisis at 40kW/3-min; calculate the cabinet footprint premium per MW of usable backup at the new operating point.",
+        "H3: Lithium BMS response \u2014 discharge-rate safety thresholds were designed for the old operating point; at 40kW/3-min the threshold is more likely to trigger, making the efficiency advantage of lithium conditional on oversizing that partially erases it.",
+        "H4: Distributed UPS as the resolution \u2014 per-rack architecture reduces discharge current per unit to manageable levels for both chemistries, but multiplies commissioning touch points and monitoring requirements by N racks; quantify the commissioning labor premium and monitoring infrastructure cost for a representative 6MW facility."
+      ],
+      "must_cite_items": [
+        "100",
+        "44",
+        "98",
+        "52"
+      ],
+      "missing_evidence_to_find": [
+        "Actual peak discharge current measurements from generator failover events in facilities running 40kW GPU racks at 3-minute runtime targets \u2014 needed to confirm the 5x discharge rate hypothesis.",
+        "BMS discharge-rate threshold specifications from at least three major lithium UPS vendors (Eaton, Schneider, Vertiv) at 3-minute timescales \u2014 no vendor data is present in the current item set.",
+        "AWS distributed UPS technical specification: per-unit battery capacity, discharge rate, and the rack density and runtime target under which the 35% efficiency gain was measured.",
+        "Commissioning labor hours for distributed rack-level UPS deployment at scale (50+ racks) vs. equivalent centralized UPS \u2014 needed to quantify the operational cost of the architectural resolution."
+      ],
+      "recommended_owner_questions": [
+        "For facilities currently deploying or planning GPU racks at 40+kW, what UPS runtime target are you using, and have you calculated the peak discharge rate per battery string at that combined operating point? Has any vendor confirmed their BMS will not trip at that discharge rate without oversizing?",
+        "Has your organization modeled the total cost of ownership for distributed rack-level UPS (hardware, commissioning labor per rack, monitoring integration) vs. oversized centralized lithium at your current and projected rack density? What density threshold made distributed UPS economically preferable in that model?"
+      ]
+    },
+    {
+      "rank": 2,
+      "working_title": "NFPA 855 as Architecture Forcing Function: Why the Compliance Retrofit Window Is the Cheapest Moment to Solve Three Problems at Once",
+      "thesis": "NFPA 855 retroactive enforcement on existing >70kW battery installations is a forced architecture review moment. For centralized lithium-ion UPS facilities, this window is the lowest-cost point to simultaneously resolve BMS discharge-rate shutdown risk, right-size for 3-5 minute runtime targets, and evaluate whether distributed rack-level UPS reduces future NFPA 855 compliance surface. Operators treating it as a paperwork exercise will incur retrofit costs twice.",
+      "outline": [
+        "H1: NFPA 855 scope and enforcement reality \u2014 what the 70kW threshold covers, why retroactive application is unusual, current enforcement geography (LA/NYC confirmed, national timeline unclear), and what documentation AHJs are actually requiring.",
+        "H2: The retrofit-as-architecture-review opportunity \u2014 how the compliance window aligns with natural battery replacement cycles, and why the cost of redesigning at this moment is lower than redesigning post-compliance when discharge-rate or density problems force a second retrofit.",
+        "H3: Distributed UPS as the compliance-plus-performance solution \u2014 how rack-level micro UPS reduces per-installation battery capacity below or near the 70kW threshold, eliminating recurring NFPA 855 compliance surface, while also resolving BMS discharge-rate risk and facility-scale failure domain.",
+        "H4: Decision framework for operators \u2014 retrofit centralized UPS to NFPA 855 compliance (minimum cost, defers other problems), replace centralized with optimized centralized (medium cost, addresses compliance and battery chemistry), or migrate to distributed architecture (high upfront, resolves compliance plus discharge-rate plus failure domain simultaneously)."
+      ],
+      "must_cite_items": [
+        "46",
+        "100",
+        "44"
+      ],
+      "missing_evidence_to_find": [
+        "Documented retrofit cost and scope from at least two LA/NYC facilities that have completed NFPA 855 compliance retrofits on existing centralized UPS systems \u2014 needed to ground the 'retrofit cost' side of the decision framework.",
+        "National NFPA 855 enforcement timeline: which AHJs are in active adoption pipeline vs. speculative; without this, the urgency outside LA/NYC cannot be assessed.",
+        "Per-unit battery capacity for AWS distributed rack UPS (item 44) \u2014 needed to confirm whether individual units fall below the 70kW NFPA 855 threshold, validating the compliance surface reduction hypothesis."
+      ],
+      "recommended_owner_questions": [
+        "For your existing centralized UPS installations in LA or NYC (or jurisdictions you expect to adopt NFPA 855 within 24 months), have you received a compliance audit scope from your AHJ? Does that scope require redesign of isolation distances or BMS configuration, or only documentation of existing systems?",
+        "In your compliance retrofit planning, have you evaluated distributed rack-level UPS as an alternative to retrofitting the existing centralized system? If not, what is the primary barrier \u2014 capital, operational complexity, or lack of vendor support for your facility type?"
+      ]
+    },
+    {
+      "rank": 3,
+      "working_title": "FMP and Distributed UPS: Why the Two Most-Cited Economic Claims in Data Center Power Design Lack the Methodology to Be Used as Capital Budget Inputs",
+      "thesis": "The two economic claims most frequently cited in current data center power distribution discussions \u2014 Southland Industries' 'multi-million dollar savings' for FMP at 6MW scale (item 40) and AWS's '35% energy loss reduction' for distributed rack-level UPS (item 44) \u2014 share a critical evidentiary weakness: both are single-source, single-facility figures with undisclosed methodology. FMP savings omit AHJ approval timeline, commissioning soft costs, and supply chain lead time for DC components. The AWS efficiency figure does not specify its baseline (legacy vs. optimized centralized UPS), the rack density at which it was measured, or the runtime target. Practitioners using either figure directly in capital budgets or design decisions are accepting unquantified schedule and cost risk. This article would present the specific methodology gaps, quantify the risk range for each claim, and propose the evidence standard required before either figure can be used as a transferable engineering benchmark.",
+      "outline": [
+        "H1: What the FMP cost comparison (item 40) actually claims and what it omits \u2014 parts-and-labor savings figure, missing soft costs (AHJ approval, commissioning labor, supply chain lead time, operational training), and the new-build vs. retrofit context dependency that is not disclosed in the webinar presentation.",
+        "H2: What the AWS efficiency claim (item 44) actually claims and what it omits \u2014 35% loss reduction, missing baseline specification (which centralized UPS topology is the comparison?), missing rack density and runtime operating conditions, and the absence of third-party or non-AWS deployment validation.",
+        "H3: The risk of single-source figures becoming industry benchmarks \u2014 how both claims are propagating through analyst outputs and practitioner discussions as if validated, and what decisions are being made on that basis.",
+        "H4: The evidence standard required \u2014 what methodology disclosure, independent replication, and deployment context specification would be needed before either figure can be used as a capital budget input rather than a directional signal."
+      ],
+      "must_cite_items": [
+        "40",
+        "44",
+        "100"
+      ],
+      "missing_evidence_to_find": [
+        "Southland Industries full parts-and-labor breakdown from the item 40 webinar, itemized by component category (transformers, switchgear, conduit/pathways, labor), plus any post-commissioning actuals from the referenced 6MW facility.",
+        "AWS technical publication or peer-reviewed source specifying the baseline topology, rack density, runtime target, and measurement methodology for the 35% efficiency gain claim in item 44.",
+        "At least one non-AWS facility deploying distributed rack-level UPS with published TCO data including commissioning labor, monitoring infrastructure, and spare parts inventory costs."
+      ],
+      "recommended_owner_questions": [
+        "For the Southland Industries 6MW FMP comparison (item 40), can you obtain the full webinar recording and parts-and-labor breakdown? Specifically: does the savings figure include AHJ approval and commissioning costs, and is there a post-commissioning actual-vs-estimate comparison available?",
+        "Has your organization received the AWS distributed UPS technical specification that underlies the 35% efficiency claim? Does AWS disclose the centralized UPS baseline, rack density, and runtime target for that figure, and is there a published deployment case study from a non-AWS facility?"
+      ]
+    }
+  ],
+  "tomorrow_search_briefs": [
+    {
+      "goal": "Quantify lithium-ion BMS discharge-rate shutdown thresholds from major UPS vendors to ground the item 100 claim in verifiable specifications and determine whether the risk materializes at 3-minute runtime targets combined with 40kW rack densities.",
+      "queries": [
+        "lithium ion UPS BMS discharge rate limit shutdown threshold specification site:eaton.com OR site:se.com OR site:vertiv.com",
+        "\"battery management system\" \"discharge rate\" \"UPS\" \"data center\" shutdown \"3 minute\" OR \"5 minute\" failover commissioning test report",
+        "VRLA vs lithium ion UPS \"peak discharge\" \"high density\" failover performance comparison 2023 OR 2024 OR 2025"
+      ],
+      "why_this_will_improve_insights": "INS-001 and INS-003 both depend on whether BMS discharge-rate shutdowns are a documented real-world failure mode or a theoretical risk. Without vendor-published threshold specifications and at least one field incident report, the hypothesis that BMS shutdowns are frequent enough to justify distributed UPS adoption for non-hyperscalers remains ungrounded. This search would either confirm the risk is quantified and serious (strengthening the case for distributed UPS or lead-acid) or reveal that shutdown events are rare in practice (weakening that case and reducing urgency of the INS-001 architecture-change recommendation)."
+    },
+    {
+      "goal": "Establish NFPA 855 enforcement timeline and retroactive compliance scope outside LA/NYC to determine whether the 'spreading enforcement' assumption driving INS-001 and ranked article #2 is supported by AHJ adoption data.",
+      "queries": [
+        "NFPA 855 enforcement AHJ adoption 2024 2025 state adoption table \"energy storage\" \"data center\" retroactive",
+        "NFPA 855 \"existing installations\" retroactive compliance \"battery\" \"UPS\" code enforcement jurisdiction 2025",
+        "\"NFPA 855\" data center UPS retrofit compliance case study \"Los Angeles\" OR \"New York\" permit rejection OR compliance audit 2024 2025"
+      ],
+      "why_this_will_improve_insights": "The urgency of both INS-001 (NFPA 855 as architecture forcing function) and ranked article #2 depends entirely on how quickly enforcement is spreading beyond LA/NYC. If adoption is slow or grandfathering provisions exist, the 18-36 month compliance capex window hypothesis collapses and the architecture-change recommendation loses its time pressure. Conversely, if multiple additional jurisdictions have adopted or are in active pipeline, the urgency is higher than current items suggest. This search would replace the speculative national enforcement assumption with verifiable jurisdiction-specific data."
+    },
+    {
+      "goal": "Obtain independent cost validation for FMP infrastructure and distributed rack-level UPS to replace the single-source economic claims in items 40 and 44 with transferable benchmarks usable in capital budget decisions.",
+      "queries": [
+        "\"fault managed power\" OR \"FMP\" data center 6MW cost comparison AC infrastructure parts labor breakdown 2024 2025 site:faultmanagedpower.org OR filetype:pdf",
+        "distributed rack UPS \"micro UPS\" data center total cost ownership commissioning labor monitoring 2024 2025 non-AWS deployment case study",
+        "\"Southland Industries\" \"Starego\" FMP data center webinar cost breakdown 2024 transcript OR slides OR follow-up"
+      ],
+      "why_this_will_improve_insights": "INS-004 and ranked article #3 are built on the observation that both key economic claims (FMP multi-million savings, AWS 35% efficiency) lack disclosed methodology and independent validation. If a follow-up Southland Industries publication, a third-party FMP cost study, or a non-AWS distributed UPS deployment TCO report exists, it would either validate or challenge these figures and make them usable as capital budget inputs rather than directional signals. This search directly addresses the most consequential evidentiary gap in the current item set."
+    }
+  ]
+}

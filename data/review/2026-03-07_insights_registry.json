@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-07",
+  "insights": [
+    {
+      "insight_id": "2026-03-07-A01",
+      "working_title": "The Compound Discharge Problem: Why Combining 3-Minute Runtimes with 40kW GPU Racks Breaks Every Battery Chemistry",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-07-the-compound-discharge-problem-why-combining-3-min.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-07-A02",
+      "working_title": "NFPA 855 as Architecture Forcing Function: Why the Compliance Retrofit Window Is the Cheapest Moment to Solve Three Problems at Once",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-07-nfpa-855-as-architecture-forcing-function-why-the-.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-07-A03",
+      "working_title": "FMP and Distributed UPS: Why the Two Most-Cited Economic Claims in Data Center Power Design Lack the Methodology to Be Used as Capital Budget Inputs",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-07-fmp-and-distributed-ups-why-the-two-most-cited-eco.md",
+      "confidence": "",
+      "levers": []
+    }
+  ]
+}
