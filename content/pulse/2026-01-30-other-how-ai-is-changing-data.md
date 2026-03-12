@@ -1,19 +1,19 @@
 ---
 title: "How AI is changing data center infrastructure site selection and power planning"
 date: 2026-01-30
-lastmod: 2026-03-09
-description: "Flexential examines how AI workloads are shifting data center site selection priorities from fiber density to power availability, utility coordination, and grid capacity."
-summary: "Flexential blog post explores how AI-driven power density and energy demand are reshaping data center site selection. Power availability, utility capacity confirmation, and grid modernization readiness have become primary location criteria, overtaking traditional factors like fiber density and latency."
+lastmod: 2026-03-08
+description: "Flexential examines shift from latency-first to power-first site selection as AI workloads drive unprecedented energy demand and utility coordination challenges."
+summary: "Flexential blog post analyzing how AI workload energy demands have elevated power availability to the primary driver of data center site selection, overtaking traditional factors like fiber density and latency. Developers now engage utilities before land acquisition to validate generation capacity, transmission upgrades, and grid modernization readiness."
 
 type: "pulse"
 artifact_type: "other"
 
 source_url: "https://www.flexential.com/resources/blog/data-center-infrastructure-reality-check"
-source_name: "Flexential Blog"
+source_name: "Flexential"
 source_date: 2026-01-30
 vertical: "data-centers"
 persona: "owner-operator"
-so_what: "Utility interconnection backlogs and transmission constraints now gate data center development timelines, requiring power validation before land acquisition."
+so_what: "Power availability now gates AI data center siting; utilities face record interconnection queues and multi-year delays tied to transmission/grid constraints."
 
 players: ["other"]
 topics: ["ai-infrastructure", "reliability-uptime", "schedule-value"]
@@ -27,17 +27,17 @@ confidence: "medium"
 ---
 ## What it is
 
-Flexential blog post explores how AI-driven power density and energy demand are reshaping data center site selection. Power availability, utility capacity confirmation, and grid modernization readiness have become primary location criteria, overtaking traditional factors like fiber density and latency.
+Flexential blog post analyzing how AI workload energy demands have elevated power availability to the primary driver of data center site selection, overtaking traditional factors like fiber density and latency. Developers now engage utilities before land acquisition to validate generation capacity, transmission upgrades, and grid modernization readiness.
 
 ## Why it matters
 
-The constraint is multi-year interconnection delays and utility capacity limits blocking data center builds. This impacts owner-operators and developers who must now secure utility commitments and validate generation/transmission capacity before land acquisition, fundamentally reordering the site selection and entitlement process.
+Utilities managing record interconnection queues and multi-year transmission upgrade delays are forcing disciplined, sequenced development models where power confirmation precedes commitments. Owner-operators must validate utility capacity and grid scalability before site acquisition, fundamentally changing the risk profile and timeline of expansion decisions.
 
 **Evidence from source:**
 
-- Developers now engaging utilities and municipalities before securing land, validating generation capacity, transmission upgrades, and distribution timelines as standard practice
-- Utilities managing record interconnection queues; regions without early grid planning face multi-year delays tied to interconnection backlogs and infrastructure constraints
-- Site selection hierarchy shifted: power availability over fiber density, utility alignment before land acquisition as new priority order
+- Power availability is now the first question, with developers engaging utilities and municipalities before securing land
+- Utilities across major markets are managing record interconnection queues and transmission upgrade constraints
+- Regions that began planning grid expansion years ago are positioned to support AI growth; others face multi-year delays
 
 ## Links
 
@@ -48,5 +48,5 @@ The constraint is multi-year interconnection delays and utility capacity limits 
 
 ## Open questions
 
-- What specific utility coordination milestones are developers requiring before breaking ground?
-- Which markets have completed grid modernization planning and can support near-term AI workload deployments?
+- What specific utility coordination checkpoints or validation milestones are developers building into site selection workflows?
+- How are regions with existing grid expansion plans quantifying their competitive advantage in multi-year timelines?

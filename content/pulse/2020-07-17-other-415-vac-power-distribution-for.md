@@ -1,9 +1,9 @@
 ---
-title: "415 VAC Power Distribution for Higher Efficiency in North American Data Centers"
+title: "415 VAC Power Distribution for Data Center Efficiency and Density"
 date: 2020-07-17
-lastmod: 2026-03-09
-description: "White paper on deploying 415V 3-phase AC to rack level to reduce transformers, improve efficiency, and lower capital costs in high-density data centers."
-summary: "Server Technology white paper examines deploying 415V 3-phase AC power directly to IT racks in North American data centers. Discusses reducing power conversion stages and transformers to improve end-to-end efficiency, lower upfront capital costs, reduce floor space, and address rising power density and cost constraints."
+lastmod: 2026-03-08
+description: "White paper on deploying 415V 3-phase AC power to rack level in North American data centers to reduce transformer losses, capital costs, and floor space."
+summary: "White paper examining 415 VAC 3-phase power distribution deployed to rack level in North American data centers. Discusses reducing number of transformers and converters in power path from building entrance to IT loads to improve efficiency, reduce electrical costs, and address rising power densities."
 
 type: "pulse"
 artifact_type: "doc"
@@ -13,10 +13,10 @@ source_name: "Data Center Frontier"
 source_date: 2020-07-17
 vertical: "data-centers"
 persona: "facilities"
-so_what: "Deploying 415VAC to rack reduces transformer count and losses, cutting capital and operational costs as power densities rise and grid availability tightens."
+so_what: "Reducing transformers by deploying 415V to rack increases end-to-end efficiency, cuts capital costs, and shrinks floor space for high-density loads."
 
 players: ["other"]
-topics: ["power-quality-surge", "pathways-install", "reliability-uptime", "estimating"]
+topics: ["power-quality-surge", "pathways-install", "reliability-uptime", "dc-distribution"]
 value_levers: []
 
 canonical_source: "https://www.datacenterfrontier.com/energy/whitepaper/11431833/server-technology-power-efficiency-gains-by-deploying-415-vac-power-distribution-in-north-american-data-centers"
@@ -27,17 +27,17 @@ confidence: "high"
 ---
 ## What it is
 
-Server Technology white paper examines deploying 415V 3-phase AC power directly to IT racks in North American data centers. Discusses reducing power conversion stages and transformers to improve end-to-end efficiency, lower upfront capital costs, reduce floor space, and address rising power density and cost constraints.
+White paper examining 415 VAC 3-phase power distribution deployed to rack level in North American data centers. Discusses reducing number of transformers and converters in power path from building entrance to IT loads to improve efficiency, reduce electrical costs, and address rising power densities.
 
 ## Why it matters
 
-As data center power densities climb and utility availability decreases, facilities teams face tradeoffs between efficiency, capex, and footprint. This approach reduces transformer count in the power path from building entrance to rack, directly impacting electrical design decisions, floor planning, and operational expense calculations.
+As power densities rise and availability decreases, facilities teams must choose between costly specialty infrastructure or alternative distribution architectures. This voltage approach reduces upfront capital, power consumption, and floor space by eliminating transformation steps, directly affecting design decisions for high-density deployments.
 
 **Evidence from source:**
 
-- Deploying 415V 3-phase AC to rack reduces number of transformers and power converters from building entrance to IT loads, improving efficiency
-- Alternative approach increases efficiencies by reducing upfront capital costs, power consumption, and floor space in high power density environments
-- Power availability decreasing and power cost increasing, driving need for more efficient solutions
+- Discusses deploying 415V 3-phase AC power to the rack to maximize physical and power density without specialty infrastructure
+- Reducing number of transformers and operating at higher voltage improves efficiency and reduces electrical costs
+- Alternative approach reduces upfront capital costs, power consumption and floor space in North American data centers
 
 ## Links
 
@@ -48,5 +48,5 @@ As data center power densities climb and utility availability decreases, facilit
 
 ## Open questions
 
-- What are the specific NEC or local code considerations for 415VAC distribution in North American jurisdictions?
-- How do upfront equipment and labor costs compare between 208V and 415V rack distribution at scale?
+- What are the specific code/AHJ barriers to deploying 415V in North American jurisdictions versus traditional 208V distribution?
+- What are the real-world efficiency gains measured in deployed facilities compared to baseline 208V distribution?

@@ -1,9 +1,9 @@
 ---
-title: "CPI White Paper: Selecting Rack-Mount PDUs and Power Strips"
+title: "CPI White Paper: Selecting Rack-Mount PDUs and Power Strips for Data Centers"
 date: 2019-02-23
-lastmod: 2026-03-09
-description: "Chatsworth Products white paper on key concepts for PDU/power strip selection, covering phase, redundancy, monitoring capabilities, and rack-level integration."
-summary: "Chatsworth Products white paper addresses selection considerations for rack-mount PDUs and power strips in data center ICT equipment racks. Covers phase configuration, redundancy levels, monitoring/reporting functionality, and integration of other rack-level monitoring hardware through the PDU."
+lastmod: 2026-03-08
+description: "White paper covers phase, redundancy, monitoring capabilities, and integration features for selecting rack-level PDUs and power strips in ICT equipment racks."
+summary: "Chatsworth Products white paper addresses considerations for selecting rack-mount PDUs and power strips in 19-inch EIA racks. Focuses on phase configuration, redundancy levels, monitoring/reporting functionality, and ability to integrate other rack-level monitoring hardware through the PDU."
 
 type: "pulse"
 artifact_type: "doc"
@@ -13,10 +13,10 @@ source_name: "Data Center Frontier"
 source_date: 2019-02-23
 vertical: "data-centers"
 persona: "facilities"
-so_what: "PDU selection impacts rack-level monitoring integration, redundancy design, and reporting capability—core decisions for facilities managing power delivery."
+so_what: "Rack-level PDU selection affects monitoring integration, redundancy design, and power delivery reliability for ICT equipment installations."
 
 players: ["other"]
-topics: ["monitoring-telemetry", "reliability-uptime", "pathways-install"]
+topics: ["monitoring-telemetry", "reliability-uptime", "power-quality-surge"]
 value_levers: []
 
 canonical_source: "https://www.datacenterfrontier.com/data-center-design/whitepaper/11431962/chatsworth-products-additional-considerations-when-selecting-rack-mount-power-distribution-units-and-power-strips"
@@ -27,17 +27,17 @@ confidence: "medium"
 ---
 ## What it is
 
-Chatsworth Products white paper addresses selection considerations for rack-mount PDUs and power strips in data center ICT equipment racks. Covers phase configuration, redundancy levels, monitoring/reporting functionality, and integration of other rack-level monitoring hardware through the PDU.
+Chatsworth Products white paper addresses considerations for selecting rack-mount PDUs and power strips in 19-inch EIA racks. Focuses on phase configuration, redundancy levels, monitoring/reporting functionality, and ability to integrate other rack-level monitoring hardware through the PDU.
 
 ## Why it matters
 
-Facilities teams responsible for specifying rack-level power distribution must evaluate phase configuration, redundancy architecture, and monitoring integration—not just basic power delivery. The white paper provides a structured approach to selecting PDUs that balance reliable delivery with telemetry needs, directly affecting uptime and operational visibility at the rack level.
+Facilities managers selecting rack-level power distribution must evaluate phase configuration, redundancy architecture, and monitoring integration capabilities. These decisions affect both initial cabinet-level design and ongoing operational visibility into power delivery and environmental conditions at the rack level.
 
 **Evidence from source:**
 
-- Covers 'impact of phase, level of redundancy, functionality on monitoring and reporting capabilities and the ability to integrate other rack-level monitoring hardware through the PDU'
-- Targets ICT equipment racks (19" EIA rack-mount) for servers, data storage, and network switches
-- Addresses 'key concepts and features that enhance reliable power delivery and monitoring at the rack level'
+- Addresses impact of phase, level of redundancy, functionality on monitoring and reporting capabilities for rack-mount PDUs
+- Covers integration of other rack-level monitoring hardware through the PDU
+- Targets 19-inch EIA rack-mount structures for servers, storage, and network switches
 
 ## Links
 
@@ -48,5 +48,5 @@ Facilities teams responsible for specifying rack-level power distribution must e
 
 ## Open questions
 
-- What specific monitoring protocols or integration standards does the white paper recommend for rack-level telemetry?
-- How do phase and redundancy choices interact with cabinet power density limits in practice?
+- What specific monitoring protocols or standards does the paper recommend for PDU integration with existing DCIM systems?
+- How do phase and redundancy choices impact cabinet power density limits in practice?

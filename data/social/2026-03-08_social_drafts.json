@@ -1,0 +1,174 @@
+{
+  "run_date": "2026-03-08",
+  "drafts": [
+    {
+      "draft_id": "SOC-001",
+      "channel": "linkedin",
+      "text": "Data center UPS teams are budgeting NFPA 855 retrofit costs and lithium BMS oversizing costs as separate line items. They are not separate problems. Here is the coupling: 40+kW GPU rack densities increase peak discharge rates, which pushes nameplate-sized lithium systems into BMS shutdown territory, which forces 20\u201330% oversizing, which pushes total installed capacity above the NFPA 855 70kW threshold, which triggers retrofit requirements. Three penalties, one root cause, and most capital plans only count one of them. Distributed rack-level micro-UPS (the AWS model) is the only architecture that plausibly addresses all three constraints simultaneously \u2014 but only if per-unit capacity stays below the 70kW threshold at actual rack power draw, which has not been publicly validated at 40+kW densities. Before your next UPS procurement, are you comparing architectures on total system cost across all three penalty categories, or on battery capex alone? https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/ https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/",
+        "https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "46",
+          "44",
+          "100"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "code-standards",
+          "ups-resilience",
+          "retrofits-mdus",
+          "reliability-uptime"
+        ],
+        "target_persona": "data-center-capital-planners, compliance-managers, mep-design-engineers"
+      }
+    },
+    {
+      "draft_id": "SOC-002",
+      "channel": "linkedin",
+      "text": "Reducing UPS runtime from 30 minutes to 3 minutes does not save capex. It moves capex to different budget lines and transfers risk to a system most facilities have not re-engineered to absorb it. The battery savings are real. So are the offsetting costs: lithium BMS physics forces 20\u201330% oversizing (added cabinet capex), NFPA 855 enforced retroactively in LA and NYC forces retrofit spend on both lithium and lead-acid installations, and shorter runtime transfers the bridging burden to generator failover \u2014 a system typically commissioned to nameplate conditions, not to the 40+kW per-rack peak load profiles now showing up in AI deployments. The organizational gap makes this worse: IT sets the runtime target, facilities buys the batteries, and operations maintains the generator. No single team sees the full cost-risk chain. Has your organization mapped the generator failover validation requirements that your 3-minute runtime SLA actually depends on? https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/ https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+        "https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/"
+      ],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": [
+          "100",
+          "46"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "reliability-uptime",
+          "power-quality-surge",
+          "commissioning"
+        ],
+        "target_persona": "data-center-capital-planners, facilities-managers, UPS-procurement-teams"
+      }
+    },
+    {
+      "draft_id": "SOC-003",
+      "channel": "linkedin",
+      "text": "GPU rack density upgrades from 8kW to 40+kW are not three separate infrastructure projects. They are one integrated redesign with a critical path that most facility teams are not following. Cooling must be decided first: air-versus-liquid determines conduit routing and cable tray placement, which sets PDU amperage and phase configuration, which sets UPS discharge rate requirements and battery sizing. Facilities that upgrade cooling without locking electrical design face conduit rework. Facilities that upgrade electrical to 100A three-phase without committing to liquid cooling strand their branch circuit infrastructure when the cooling decision is forced later. NFPA 855 battery compliance adds a third simultaneous requirement that further compresses available sequencing options. The binding constraint is organizational, not technical: mechanical and electrical teams planning these as sequential projects managed through separate handoffs is the primary mechanism that produces expensive, irreversible rework. Is your next high-density deployment being designed by an integrated mechanical-electrical team working from a single shared load model, or by sequential handoffs? https://faultmanagedpower.org/pulse/2022-09-20-other-basics-of-selecting-rackmount-power/ https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2022-09-20-other-basics-of-selecting-rackmount-power/",
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "100",
+          "138"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "pathways-install",
+          "ai-infrastructure",
+          "commissioning",
+          "reliability-uptime"
+        ],
+        "target_persona": "mep-design-engineers, data-center-owner-operators, electrical-contractors, AHJ-permit-reviewers"
+      }
+    },
+    {
+      "draft_id": "SOC-004",
+      "channel": "x",
+      "text": "NFPA 855 retrofit + lithium BMS oversizing + 40kW rack density = one coupled UPS cost problem, not three. Facilities budgeting them separately undercount total system cost by 30\u201350%. Is distributed micro-UPS the only architecture that resolves all three? https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "46",
+          "44"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "code-standards",
+          "ups-resilience",
+          "retrofits-mdus"
+        ],
+        "target_persona": "data-center-capital-planners, compliance-managers"
+      }
+    },
+    {
+      "draft_id": "SOC-005",
+      "channel": "x",
+      "text": "Cutting UPS runtime from 30min to 3min moves capex to different lines and transfers risk to generator failover \u2014 a system most facilities haven't re-commissioned for 40kW rack loads. The savings are real. So is the hidden SLA liability. https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/"
+      ],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": [
+          "100",
+          "46"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "reliability-uptime",
+          "commissioning"
+        ],
+        "target_persona": "data-center-operators-with-SLA-obligations, facilities-managers"
+      }
+    },
+    {
+      "draft_id": "SOC-006",
+      "channel": "x",
+      "text": "AI rack density forces cooling, electrical, and UPS to be designed simultaneously \u2014 cooling decision gates all others. Facilities treating these as sequential projects by separate teams are producing irreversible rework. What does integrated MEP coordination actually look like at 40kW/rack? https://faultmanagedpower.org/pulse/2022-09-20-other-basics-of-selecting-rackmount-power/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2022-09-20-other-basics-of-selecting-rackmount-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "138"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "pathways-install",
+          "ai-infrastructure",
+          "commissioning"
+        ],
+        "target_persona": "mep-design-engineers, electrical-contractors"
+      }
+    },
+    {
+      "draft_id": "SOC-007",
+      "channel": "prompt",
+      "text": "The AWS distributed rack-level micro-UPS model (https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/) is cited as a potential solution to three simultaneous constraints: NFPA 855 compliance (by keeping per-unit capacity below the 70kW threshold), lithium BMS discharge shutdown risk (by distributing load across many small units), and high-density rack failover reliability (by shrinking failure domains). But the critical unknown is unresolved: at 40+kW per rack, does a rack-level micro-UPS unit actually stay below the 70kW NFPA 855 threshold \u2014 or does the density itself push each unit back above it? For those of you who have evaluated or deployed distributed UPS architectures: what per-unit capacity are you working with at high-density racks, and have you had a specific conversation with your AHJ about whether those units fall under NFPA 855 review? https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/",
+        "https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "44",
+          "46"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "code-standards",
+          "ups-resilience",
+          "reliability-uptime",
+          "commissioning"
+        ],
+        "target_persona": "data-center-owner-operators, mep-design-engineers, compliance-managers, AHJ-permit-reviewers"
+      }
+    }
+  ]
+}

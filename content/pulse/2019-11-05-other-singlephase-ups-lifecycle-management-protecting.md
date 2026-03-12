@@ -1,9 +1,9 @@
 ---
 title: "Single-Phase UPS Lifecycle Management: Protecting IT Availability"
 date: 2019-11-05
-lastmod: 2026-03-09
-description: "Vertiv white paper on battery lifecycle challenges in single-phase UPS systems and total unit replacement economics beyond five-year service thresholds."
-summary: "Vertiv white paper examines battery health monitoring and lifecycle management for single-phase UPS systems. Addresses replacement timing to prevent failure during outages and introduces economic threshold: units older than five years may warrant total replacement versus battery-only swaps, particularly as IT networks disperse."
+lastmod: 2026-03-08
+description: "Vertiv white paper on battery lifecycle management within single-phase UPS systems, covering replacement timing and total unit replacement economics."
+summary: "White paper from Vertiv addressing battery health monitoring and replacement timing within single-phase UPS systems. Highlights the tradeoff between battery replacement versus total unit replacement for UPS systems older than five years, especially as IT networks grow more dispersed."
 
 type: "pulse"
 artifact_type: "doc"
@@ -13,10 +13,10 @@ source_name: "Data Center Frontier"
 source_date: 2019-11-05
 vertical: "edge-power-ups"
 persona: "facilities"
-so_what: "Battery failure modes and 5-year unit replacement economics affect lifecycle budgeting and maintenance planning for dispersed single-phase UPS loads."
+so_what: "UPS battery lifecycle blind spots create availability risk; paper frames replacement-vs-refresh tradeoff at 5-year threshold for single-phase units."
 
 players: ["other"]
-topics: ["ups-resilience", "commissioning", "reliability-uptime"]
+topics: ["ups-resilience", "reliability-uptime", "commissioning"]
 value_levers: []
 
 canonical_source: "https://www.datacenterfrontier.com/home/whitepaper/11431889/single-phase-ups-lifecycle-management-protecting-it-availability"
@@ -27,26 +27,26 @@ confidence: "medium"
 ---
 ## What it is
 
-Vertiv white paper examines battery health monitoring and lifecycle management for single-phase UPS systems. Addresses replacement timing to prevent failure during outages and introduces economic threshold: units older than five years may warrant total replacement versus battery-only swaps, particularly as IT networks disperse.
+White paper from Vertiv addressing battery health monitoring and replacement timing within single-phase UPS systems. Highlights the tradeoff between battery replacement versus total unit replacement for UPS systems older than five years, especially as IT networks grow more dispersed.
 
 ## Why it matters
 
-Facilities managers deploying single-phase UPS for dispersed edge or small IT loads face a maintenance planning constraint: battery lifecycle uncertainty creates failure risk during power events, and the five-year threshold introduces a total-cost-of-ownership decision between battery replacement and full unit swap that affects capex/opex allocation and service continuity planning.
+Facilities managers operating distributed edge or remote IT loads face a replacement-vs-refresh decision point around the 5-year mark for single-phase UPS units. The excerpt frames battery lifecycle as a blind spot that can compromise load protection during outages, directly affecting uptime and total-cost-of-ownership decisions for small-scale critical power infrastructure.
 
 **Evidence from source:**
 
-- Batteries have defined lifecycle and may fail during complete power outage if not replaced before end of life expectancy
-- Small UPS older than five years may be more cost-efficient to replace entirely versus battery-only replacement
-- White paper addresses challenges as IT networks increase in size/complexity and become more dispersed
+- UPS older than five years may be more cost-efficient to replace entirely versus making another battery replacement.
+- Paper targets IT networks that are 'increasing in size and complexity and/or becoming more dispersed.'
+- Battery lifecycle management framed as key challenge: knowing when batteries near end-of-life before they fail during a power outage.
 
 ## Links
 
 - **Canonical source**: [https://www.datacenterfrontier.com/home/whitepaper/11431889/single-phase-ups-lifecycle-management-protecting-it-availability](https://www.datacenterfrontier.com/home/whitepaper/11431889/single-phase-ups-lifecycle-management-protecting-it-availability)
 - **Player**: /players/other/
 - **Topic**: /topics/ups-resilience/
-- **Topic**: /topics/commissioning/
+- **Topic**: /topics/reliability-uptime/
 
 ## Open questions
 
-- What monitoring telemetry or predictive indicators enable proactive battery replacement before end-of-life failure in dispersed single-phase UPS deployments?
-- How does the five-year replacement threshold economics scale across edge sites with varied runtime and cycling profiles?
+- What specific battery health indicators or monitoring telemetry does the paper recommend for predicting end-of-life?
+- At what unit age or battery replacement cycle count does total replacement become more cost-efficient than battery swap?

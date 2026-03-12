@@ -4830,6 +4830,36 @@
     "evidence": []
   },
   {
+    "id": 180,
+    "slug": "2026-03-08-other-youtube-video-on-data-center",
+    "title": "YouTube video on data center power density oversight",
+    "description": "YouTube video discussing power density challenges in AI-era data centers, but excerpt contains no content beyond platform boilerplate and footer links.",
+    "canonical_source": "https://www.youtube.com/watch?v=RLy_4EKZhH0",
+    "artifact_type": "other",
+    "publish_date": null,
+    "discovered_at": "2026-03-08T09:30:12.148316",
+    "players": [],
+    "topics": [
+      "ai-infrastructure"
+    ],
+    "value_levers": [],
+    "confidence": "low",
+    "summary": "The SERP snippet suggests a video about power density oversight in AI data centers and career reskilling, but the page excerpt contains only YouTube's standard footer links and copyright notices with no substantive content.",
+    "score": 11,
+    "query_vertical": "data-centers",
+    "vertical": "data-centers",
+    "source_name": "YouTube",
+    "source_date": null,
+    "persona": "facilities",
+    "so_what": "Cannot assess relevance: excerpt is only YouTube footer text with no video content, transcript, or technical details.",
+    "why_it_matters": "Unable to determine impact or relevance. The excerpt provides zero technical content, constraints, or concrete details about power distribution, density challenges, or infrastructure decisions.",
+    "open_questions": [
+      "What specific power density oversight does the video identify?",
+      "What distribution or cooling constraints are discussed for AI workloads?"
+    ],
+    "evidence": []
+  },
+  {
     "id": 182,
     "slug": "2026-03-09-other-instagram-post-discussing-electrical-panel",
     "title": "Instagram post discussing electrical panel upgrades for home electrification",
@@ -4859,40 +4889,6 @@
       "What inspection failure modes or upgrade costs are typical in existing homes?"
     ],
     "evidence": []
-  },
-  {
-    "id": 180,
-    "slug": "2026-03-09-other-heat-pump-replacement-quotes-escalated",
-    "title": "Heat pump replacement quotes escalated by legacy hot water system wiring",
-    "description": "Facebook group post discussing expensive heat pump replacement quotes driven by switchboard reconfiguration and imperial-size wiring compatibility constraints.",
-    "canonical_source": "https://www.facebook.com/groups/MyEfficientElectricHome/posts/26443056488645444/",
-    "artifact_type": "other",
-    "publish_date": null,
-    "discovered_at": "2026-03-09T09:52:32.540745",
-    "players": [],
-    "topics": [
-      "pathways-install",
-      "retrofits-mdus"
-    ],
-    "value_levers": [],
-    "confidence": "low",
-    "summary": "A Facebook group post in My Efficient Electric Home describes heat pump replacement quotes as expensive due to legacy gravity-fed hot water systems. The post mentions imperial-size wiring (1.064) and switchboard reconfiguration needs, though no specific costs, timeline, or detailed constraints are provided.",
-    "score": 12,
-    "query_vertical": "building-electrification",
-    "vertical": "building-electrification",
-    "source_name": "My Efficient Electric Home (Facebook)",
-    "source_date": null,
-    "persona": "electrical-contractor",
-    "so_what": "Gravity-fed hot water systems create switchboard reconfiguration burden during heat pump retrofits, escalating labor and material costs.",
-    "why_it_matters": "Legacy residential hot water infrastructure forces electrical contractors to reconfigure switchboards during heat pump retrofits, increasing scope and cost. The constraint affects homeowners and contractors navigating electrification upgrades, but the excerpt lacks sufficient detail on the specific bottleneck, cost delta, or panel capacity issues.",
-    "open_questions": [
-      "What specific switchboard reconfigurations are required when replacing gravity-fed systems with heat pumps?",
-      "How does imperial-size wiring impact electrical panel capacity and upgrade costs?"
-    ],
-    "evidence": [
-      "Mentions imperial-size wiring 1.064 and that 'the switchboard will need some configuring'",
-      "References 'ancient gravity fed hot water' system as driver of 'very expensive quotes'"
-    ]
   },
   {
     "id": 188,
