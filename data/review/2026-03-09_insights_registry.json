@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-09",
+  "insights": [
+    {
+      "insight_id": "2026-03-09-A01",
+      "working_title": "The 40 kW Infrastructure Trap: Why GPU Density Forces a Build Sequence That Nobody Is Following",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-09-the-40-kw-infrastructure-trap-why-gpu-density-forc.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-09-A02",
+      "working_title": "NFPA 855's Hidden Asymmetry: How Compliance Burden Falls on Mid-Market Operators While Hyperscalers Architect Around It",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-09-nfpa-855-s-hidden-asymmetry-how-compliance-burden-.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-09-A03",
+      "working_title": "The Commissioning Gap: Why Short-Runtime UPS Claims Cannot Be Validated Under Current Acceptance Testing Practice",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-09-the-commissioning-gap-why-short-runtime-ups-claims.md",
+      "confidence": "",
+      "levers": []
+    }
+  ]
+}

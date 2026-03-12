@@ -1,0 +1,174 @@
+{
+  "run_date": "2026-03-09",
+  "drafts": [
+    {
+      "draft_id": "SOC-001",
+      "channel": "linkedin",
+      "text": "Data centers adopting lithium-ion UPS systems for GPU-density deployments may be walking into a three-way trap that no single analyst has fully mapped. Short-runtime UPS targets (<5 min) demand peak discharge current. Lithium BMS safety thresholds are designed to prevent exactly that peak discharge. And NFPA 855 enforcement in LA and NYC now requires witnessed commissioning tests that document what your UPS actually delivers \u2014 not what the nameplate claims. The uncomfortable reality: even if BMS shutdowns are rare in practice, the commissioning documentation requirement is not optional. Has your most recent UPS acceptance test included a witnessed load test at 100% nameplate discharge current for the full rated runtime duration?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+        "https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "100",
+          "46"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "code-standards",
+          "commissioning"
+        ],
+        "target_persona": "mep_system_designer"
+      }
+    },
+    {
+      "draft_id": "SOC-002",
+      "channel": "linkedin",
+      "text": "There is a sequencing problem embedded in almost every GPU-density data center project right now, and it does not show up until commissioning. Standard MEP practice sizes electrical distribution and UPS for IT load, then coordinates cooling infrastructure afterward. At 40+ kW/rack densities, liquid cooling plant \u2014 pumps, CDUs, controls, heat exchanger feeds \u2014 adds a non-trivial electrical load on top of IT load. That cooling plant load is not in the UPS sizing calculation when electrical equipment is specified and procured, because cooling architecture has not been finalized yet. The result is systematic distribution and UPS undersizing that only becomes visible when the cooling design is complete. For projects currently in design: at what phase does your cooling plant electrical load formally enter the UPS and distribution sizing calculation? https://faultmanagedpower.org/pulse/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+        "https://faultmanagedpower.org/pulse/2022-09-20-other-basics-of-selecting-rackmount-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "100",
+          "138"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "power-quality-surge",
+          "schedule-value",
+          "ai-infrastructure"
+        ],
+        "target_persona": "installer_electrical_contractor"
+      }
+    },
+    {
+      "draft_id": "SOC-003",
+      "channel": "linkedin",
+      "text": "Distributed rack-level UPS (the AWS model) and fault-managed power DC distribution both claim to solve the same AC/DC conversion loss problem \u2014 but they are architecturally incompatible with each other, and neither has an established NFPA 110 or NFPA 855 commissioning approval pathway. An operator evaluating either architecture for a new build is simultaneously accepting an unverified cost claim and an unverified AHJ approval timeline. There is a second structural issue that is less discussed: NFPA 855's 70 kW threshold may apply per installation point rather than per facility aggregate. If that interpretation holds, distributed rack-level UPS could reduce per-point capacity well below the trigger \u2014 a potential compliance exemption that benefits hyperscalers, who can justify distributed UPS at scale, but is economically out of reach for mid-market operators. Is your code consultant tracking this threshold interpretation, and has your AHJ been asked for a formal ruling? See the background on distributed UPS architecture: https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/ and NFPA 855 data center impacts: https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/",
+        "https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "44",
+          "46"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "code-standards",
+          "ups-resilience",
+          "dc-distribution",
+          "estimating"
+        ],
+        "target_persona": "owner_operator_facilities"
+      }
+    },
+    {
+      "draft_id": "SOC-004",
+      "channel": "x",
+      "text": "Lithium UPS for GPU racks: BMS shuts down at peak discharge \u2014 exactly when 3-min runtime needs max current. NFPA 855 now requires you to prove what yours actually delivers. Has your commissioning test ever run 100% nameplate load for full rated runtime? faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "100",
+          "46"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "commissioning",
+          "code-standards"
+        ],
+        "target_persona": "mep_system_designer"
+      }
+    },
+    {
+      "draft_id": "SOC-005",
+      "channel": "x",
+      "text": "At 40+ kW/rack, liquid cooling plant (pumps, CDUs, controls) adds load that isn't in your UPS sizing calc \u2014 because cooling architecture isn't finalized when electrical is specified. Standard MEP sequence creates systematic undersizing. When does cooling load enter your design? faultmanagedpower.org/pulse/2022-09-20-other-basics-of-selecting-rackmount-power/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2022-09-20-other-basics-of-selecting-rackmount-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "138",
+          "100"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "power-quality-surge",
+          "schedule-value"
+        ],
+        "target_persona": "installer_electrical_contractor"
+      }
+    },
+    {
+      "draft_id": "SOC-006",
+      "channel": "x",
+      "text": "NFPA 855 70 kW threshold: per installation point or per facility aggregate? That single interpretation determines whether distributed rack UPS (AWS model) escapes scope entirely. Mid-market operators can't afford distributed UPS \u2014 and may be absorbing the full retrofit cost hyperscalers architect around. faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "46",
+          "44"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "code-standards",
+          "ups-resilience",
+          "retrofits-mdus"
+        ],
+        "target_persona": "finance_roi_skeptic"
+      }
+    },
+    {
+      "draft_id": "SOC-007",
+      "channel": "prompt",
+      "text": "For MEP engineers and facilities operators currently designing or retrofitting data center power infrastructure for GPU/AI rack deployments:\n\nNFPA 855 enforcement in LA and NYC is forcing UPS commissioning documentation that many existing systems cannot support. At the same time, the shift to 40+ kW/rack densities is exposing a sequencing problem: liquid cooling plant electrical load is typically absent from UPS and distribution sizing calculations because cooling architecture is finalized after electrical equipment is specified.\n\nTwo connected questions for practitioners who have worked through this in the field:\n\n1. In your last GPU-density project, at what design phase did liquid cooling plant electrical load formally enter the UPS and distribution sizing calculation \u2014 and did it require a change order or resizing after initial electrical design was complete?\n\n2. Has your UPS vendor disclosed the BMS discharge current threshold at which automatic shutdown triggers, and have you verified it is not exceeded by your actual peak failover load at the discharge rate required by your rated runtime?\n\nBackground on the UPS runtime and battery trade-off: https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/\nBackground on NFPA 855 data center implications: https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/\n\nWe are tracking whether the cooling-load sequencing gap and the BMS shutdown risk are showing up as mid-project surprises in practice, or whether current design workflows are already accounting for both. Specific project observations (anonymized) are especially useful.",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+        "https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "100",
+          "46"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "code-standards",
+          "commissioning",
+          "schedule-value",
+          "ai-infrastructure"
+        ],
+        "target_persona": "mep_system_designer"
+      }
+    }
+  ]
+}
