@@ -1,0 +1,22 @@
+[
+  {
+    "agent": "installer_electrical_contractor",
+    "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CYw5RcpTN2wbszawC93rg'}"
+  },
+  {
+    "agent": "finance_roi_skeptic",
+    "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CYw5Rcoi4cYSjP3AviLUd'}"
+  },
+  {
+    "agent": "owner_operator_facilities",
+    "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CYw5Rcpwv7d56pgGqZPhf'}"
+  },
+  {
+    "agent": "compliance_ahj",
+    "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CYw5RcoxV9xaj83rNaL8B'}"
+  },
+  {
+    "agent": "mep_system_designer",
+    "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CYw5RcpxAFnSua21FMXZm'}"
+  }
+]
