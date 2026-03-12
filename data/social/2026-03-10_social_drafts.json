@@ -1,0 +1,173 @@
+{
+  "run_date": "2026-03-10",
+  "drafts": [
+    {
+      "draft_id": "SOC-001",
+      "channel": "linkedin",
+      "text": "Most data center operators evaluating distributed rack-level UPS are running an efficiency ROI calculation. That may be the wrong calculation. NFPA 855 already applies retroactively to centralized battery banks above 70kW in LA and NYC, and retrofit costs for those systems \u2014 enclosure isolation, thermal management, BMS upgrades, monitoring infrastructure \u2014 have no published cost benchmarks. Per-rack micro UPS units are likely below the 70kW threshold entirely, which may make compliance cost avoidance the dominant economic argument for distributed architecture, not the 35% efficiency gain. There is a complication: distributed UPS multiplies AHJ inspection scope from a handful of facility-level events to potentially hundreds of per-rack inspections, and no sampling protocol exists for that scenario. The net compliance cost of distributed versus centralized UPS \u2014 NFPA 855 retrofit avoidance minus per-rack inspection overhead \u2014 has not been calculated for any specific facility size or jurisdiction. That number is the decision-critical input operators are missing right now. Have you received any AHJ signals about NFPA 855 enforcement on your existing centralized UPS systems?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/",
+        "https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "46",
+          "44",
+          "100"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "code-standards",
+          "ups-resilience",
+          "commissioning"
+        ],
+        "target_persona": "owner_operator_facilities"
+      }
+    },
+    {
+      "draft_id": "SOC-002",
+      "channel": "linkedin",
+      "text": "The data center industry has framed the GPU and AI rack density challenge as a cooling problem. It is not primarily a cooling problem. Liquid cooling rear-door heat exchangers can be procured and installed in weeks. Branch circuit upgrades from 20A to the 60\u2013100A required for 40kW racks involve conduit replacement, new breaker panels, feeder capacity additions, permitting, and inspections \u2014 on timelines of 6 to 12 months minimum. Facilities designed for 8kW average racks in 2018\u20132020 cannot be electrically upgraded in place on the same cadence as 2\u20133 year GPU rack refresh cycles. The result is cooling systems ready and waiting while AI racks sit delayed by circuits. Concurrent design of cooling and electrical is necessary but not sufficient \u2014 electrical infrastructure lead time, not design concurrency, determines whether AI rack deployments actually land on schedule. What is your current lead time for a branch circuit upgrade from 20A to 60\u2013100A at your facility, including permitting and inspection?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2019-07-09-other-alternating-phase-highdensity-rack-power/",
+        "https://faultmanagedpower.org/pulse/2022-09-20-other-basics-of-selecting-rackmount-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": [
+          "136",
+          "138",
+          "52"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "pathways-install",
+          "ai-infrastructure",
+          "schedule-value"
+        ],
+        "target_persona": "mep_system_designer"
+      }
+    },
+    {
+      "draft_id": "SOC-003",
+      "channel": "linkedin",
+      "text": "The shift from 30-minute to 3-minute UPS runtimes was supposed to shrink battery footprints and reduce capex. In lithium-ion systems, the footprint reduction has largely not materialized. Shorter runtimes demand higher discharge rates. Higher discharge rates push lithium battery management systems toward automatic shutdown thresholds \u2014 the exact moment the UPS needs to function. To stay below those thresholds, operators oversize lithium capacity by 20\u201330%, which erases much of the space advantage the short runtime was meant to create. In colocation environments where each cabinet represents $10,000\u2013$50,000 in annual revenue potential, the oversized battery footprint carries a real opportunity cost that does not appear in any standard UPS total cost of ownership model. The 3-minute runtime target was optimized for generator failover speed. It was not re-evaluated against battery chemistry physics or floor space economics. Operators who treat 3 minutes as a fixed constraint and optimize battery chemistry within it may be solving the wrong sub-problem. Has your team ever included floor space opportunity cost when comparing UPS runtime targets or battery chemistry options?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+        "https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "100",
+          "44"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "estimating",
+          "reliability-uptime"
+        ],
+        "target_persona": "finance_roi_skeptic"
+      }
+    },
+    {
+      "draft_id": "SOC-004",
+      "channel": "x",
+      "text": "NFPA 855 retroactive enforcement on centralized UPS banks >70kW may make compliance cost avoidance \u2014 not efficiency \u2014 the real driver for distributed rack UPS adoption. Has anyone calculated the net compliance cost? faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "46",
+          "44"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "code-standards",
+          "ups-resilience"
+        ],
+        "target_persona": "compliance_ahj"
+      }
+    },
+    {
+      "draft_id": "SOC-005",
+      "channel": "x",
+      "text": "AI rack deployments aren't stalling on cooling \u2014 they're stalling on branch circuits. Liquid cooling installs in weeks. 60\u2013100A circuit upgrades take 6\u201312 months. Electrical is the critical path. faultmanagedpower.org/pulse/2019-07-09-other-alternating-phase-highdensity-rack-power/ Is your facility planning electrical capacity ahead of GPU refresh cycles?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2019-07-09-other-alternating-phase-highdensity-rack-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": [
+          "136",
+          "98"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "pathways-install",
+          "ai-infrastructure",
+          "schedule-value"
+        ],
+        "target_persona": "installer_electrical_contractor"
+      }
+    },
+    {
+      "draft_id": "SOC-006",
+      "channel": "x",
+      "text": "3-min UPS runtime forces high lithium discharge rates \u2192 BMS oversizing \u2192 larger footprint \u2192 lost colocation revenue. The space savings never arrived. Is 3 minutes still the right target? faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "100",
+          "44"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "estimating",
+          "power-quality-surge"
+        ],
+        "target_persona": "owner_operator_facilities"
+      }
+    },
+    {
+      "draft_id": "SOC-007",
+      "channel": "prompt",
+      "text": "Two constraints are converging on data center UPS architecture decisions in 2026: NFPA 855 retroactive enforcement on centralized battery banks above 70kW, and lithium BMS discharge-rate shutdowns under short-runtime failover conditions. Distributed rack-level micro UPS potentially sidesteps both \u2014 per-rack units are likely below the NFPA 855 threshold, and spreading load across many small units reduces per-unit discharge demand. But distributed UPS also multiplies AHJ inspection scope, and no sampling inspection standard exists for rack-scale deployments. The net compliance cost of distributed versus centralized UPS has not been published for any facility size or jurisdiction. Background: https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/ and https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/ \u2014 For those operating or designing data centers in NFPA 855 enforcement jurisdictions: have you modeled the compliance cost difference between centralized UPS retrofit and migrating to distributed rack-level architecture? What variables drove the outcome, and did per-rack AHJ inspection overhead factor into the calculation?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/",
+        "https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "46",
+          "44",
+          "100"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "code-standards",
+          "ups-resilience",
+          "commissioning",
+          "reliability-uptime"
+        ],
+        "target_persona": "compliance_ahj"
+      }
+    }
+  ]
+}

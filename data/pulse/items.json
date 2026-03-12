@@ -4830,32 +4830,340 @@
     "evidence": []
   },
   {
+    "id": 184,
+    "slug": "2026-03-10-other-beyond-capex-closing-the-power",
+    "title": "Beyond capex: Closing the power efficiency gap in AI data centers",
+    "description": "Opinion piece on power efficiency in AI data centers, focusing on high-efficiency UPS systems and right-sized PDUs to prevent stranded energy in power distribution.",
+    "canonical_source": "https://www.datacenterdynamics.com/en/opinions/beyond-capex-closing-the-power-efficiency-gap-in-ai-data-centers/",
+    "artifact_type": "other",
+    "publish_date": null,
+    "discovered_at": "2026-03-10T09:43:50.072562",
+    "players": [],
+    "topics": [
+      "ups-resilience",
+      "power-quality-surge",
+      "ai-infrastructure"
+    ],
+    "value_levers": [],
+    "confidence": "low",
+    "summary": "Opinion piece discussing power efficiency gaps in AI data centers, with mention of high-efficiency UPS systems and right-sized power distribution units (PDUs) as measures to prevent stranded energy.",
+    "score": 13,
+    "query_vertical": "data-centers",
+    "vertical": "data-centers",
+    "source_name": "Data Center Dynamics",
+    "source_date": null,
+    "persona": "facilities",
+    "so_what": "UPS and PDU sizing decisions affect stranded energy, but insufficient detail in available excerpt to extract constraints or tradeoffs.",
+    "why_it_matters": "UPS efficiency and PDU sizing directly impact utilization rates in AI data centers, affecting facilities teams' infrastructure planning and capacity decisions. However, without the full excerpt, concrete constraints or implementation details cannot be verified.",
+    "open_questions": [
+      "What specific efficiency thresholds or UPS topologies are recommended for AI workloads?",
+      "How does PDU right-sizing methodology differ for AI versus traditional data center loads?"
+    ],
+    "evidence": [
+      "Mentions high-efficiency UPS systems as preventive measure for stranded energy",
+      "References right-sized PDUs in context of power distribution efficiency"
+    ]
+  },
+  {
+    "id": 182,
+    "slug": "2026-03-10-other-california-heat-pump-adoption-hindered",
+    "title": "California heat pump adoption hindered by high electricity bills",
+    "description": "California's heat pump deployment goals face obstacle from high operating costs due to electricity rates, affecting building electrification economics.",
+    "canonical_source": "https://www.ktvb.com/article/syndication/associatedpress/california-wants-millions-of-heat-pumps-high-power-bills-might-get-in-the-way/616-3bcbd652-9e0c-45de-a6c4-adbdf9d21d46",
+    "artifact_type": "press",
+    "publish_date": null,
+    "discovered_at": "2026-03-10T09:43:46.419969",
+    "players": [],
+    "topics": [
+      "incentives-policy"
+    ],
+    "value_levers": [],
+    "confidence": "low",
+    "summary": "Article discusses California's push for widespread heat pump adoption being challenged by high electricity bills that affect the operating cost economics. Mentions Building Decarbonization Coalition involvement and references a second unit installed last year.",
+    "score": 13,
+    "query_vertical": "building-electrification",
+    "vertical": "building-electrification",
+    "source_name": "KTVB / Associated Press",
+    "source_date": null,
+    "persona": "owner-operator",
+    "so_what": "Operational cost barriers may slow electrification deployment regardless of equipment availability or installation capacity.",
+    "why_it_matters": "Economic viability of heat pump operations affects owner-operator ROI calculations and deployment pace, but without panel capacity, service upgrade, or installation constraint details, relevance to power distribution planning is unclear.",
+    "open_questions": [
+      "What electrical service or panel upgrades were required for the second heat pump installation?",
+      "How do utility rate structures interact with load profiles to affect sizing and circuit design decisions?"
+    ],
+    "evidence": []
+  },
+  {
     "id": 180,
-    "slug": "2026-03-08-other-youtube-video-on-data-center",
+    "slug": "2026-03-09-other-irs-bulletin-202611-pdf",
+    "title": "IRS Bulletin 2026-11 (PDF)",
+    "description": "IRS bulletin PDF with embedded binary content; excerpt contains no readable tax code, standard references, or incentive policy details relevant to FMP verticals.",
+    "canonical_source": "https://www.irs.gov/pub/irs-irbs/irb26-11.pdf",
+    "artifact_type": "doc",
+    "publish_date": "2026-03-09",
+    "discovered_at": "2026-03-10T09:43:44.193007",
+    "players": [],
+    "topics": [],
+    "value_levers": [],
+    "confidence": "low",
+    "summary": "The excerpt is a PDF binary stream with no extractable text content beyond header metadata and the mention of 'plant or equipment necessary to production' in the snippet.",
+    "score": 13,
+    "query_vertical": "building-electrification",
+    "vertical": "building-electrification",
+    "source_name": "IRS",
+    "source_date": "2026-03-09",
+    "persona": "owner-operator",
+    "so_what": "",
+    "why_it_matters": "",
+    "open_questions": [],
+    "evidence": []
+  },
+  {
+    "id": 194,
+    "slug": "2026-03-10-other-edge-enclosure-thermal-constraints-at",
+    "title": "Edge enclosure thermal constraints at 5\u201310 kW power density",
+    "description": "Social media post by Chatsworth Products discussing thermal constraints in edge enclosures as power density reaches 5\u201310 kW per cabinet in edge computing environments.",
+    "canonical_source": "https://www.facebook.com/chatsworthproductsinc/posts/as-power-density-increases-in-edge-computing-environments-the-edge-enclosure-its/1542726837855651/",
+    "artifact_type": "other",
+    "publish_date": null,
+    "discovered_at": "2026-03-10T09:43:51.681808",
+    "players": [],
+    "topics": [
+      "power-quality-surge",
+      "reliability-uptime"
+    ],
+    "value_levers": [],
+    "confidence": "low",
+    "summary": "A Facebook post from Chatsworth Products mentions that as power density increases in edge computing environments to 5\u201310 kW per enclosure, the enclosure itself becomes a thermal constraint. The excerpt snippet repeats the opening line but provides no additional detail.",
+    "score": 12,
+    "query_vertical": "edge-power-ups",
+    "vertical": "edge-power-ups",
+    "source_name": "Chatsworth Products (Facebook)",
+    "source_date": null,
+    "persona": "it-network",
+    "so_what": "Edge enclosure thermal limits at 5\u201310 kW may constrain deployment density, but excerpt provides no distribution or install details.",
+    "why_it_matters": "The 5\u201310 kW power density range represents a thermal threshold for edge enclosures, potentially affecting IT/network engineers planning edge deployments. However, without details on power distribution, cooling integration, UPS constraints, or installation tradeoffs, the relevance to FMP distribution and install practices cannot be established.",
+    "open_questions": [
+      "What power distribution or UPS constraints emerge at this density threshold?",
+      "How do thermal limits affect enclosure placement and circuit planning in edge environments?"
+    ],
+    "evidence": []
+  },
+  {
+    "id": 192,
+    "slug": "2026-03-10-other-the-hidden-cost-of-going",
+    "title": "The Hidden Cost of Going All Electric",
+    "description": "YouTube video discussing electrical service upgrades, wiring, and utility coordination requirements when switching to electric heat pumps for building electrification.",
+    "canonical_source": "https://www.youtube.com/shorts/YIlnRWy1Bwo",
+    "artifact_type": "other",
+    "publish_date": null,
+    "discovered_at": "2026-03-10T09:43:48.733405",
+    "players": [],
+    "topics": [
+      "pathways-install",
+      "code-standards"
+    ],
+    "value_levers": [],
+    "confidence": "low",
+    "summary": "A YouTube Shorts video that addresses the hidden costs of electrification, specifically mentioning electrical service upgrades, new wiring runs, and utility company coordination when switching to electric heat pumps. The page excerpt contains only YouTube boilerplate footer text with no actual video content or transcript.",
+    "score": 12,
+    "query_vertical": "building-electrification",
+    "vertical": "building-electrification",
+    "source_name": "YouTube",
+    "source_date": null,
+    "persona": "facilities",
+    "so_what": "Highlights service upgrade and wiring costs for heat pump retrofits, but excerpt lacks concrete details needed for practitioner guidance.",
+    "why_it_matters": "Service upgrades and utility coordination are known bottlenecks in building electrification retrofits, affecting facilities managers planning HVAC conversions. However, without transcript or specific constraints (panel sizes, permitting timelines, cost ranges), the content cannot inform design or scheduling decisions.",
+    "open_questions": [
+      "What panel amperage upgrades are typically required for residential vs. commercial heat pump retrofits?",
+      "What are typical utility interconnection timelines for service upgrades in electrification projects?"
+    ],
+    "evidence": []
+  },
+  {
+    "id": 190,
+    "slug": "2026-03-10-other-reddit-post-1520k-installation-cost",
+    "title": "Reddit post: $15-20K installation cost for heat pump upgrade with panel and wiring",
+    "description": "Homeowner quoted $15-20K for heat pump installation requiring new 200A panel upgrade, high-voltage wiring, and heat pump water heater installation work.",
+    "canonical_source": "https://www.reddit.com/r/heatpumps/comments/1rnfjs6/im_being_quoted_15_to_20k_for_installation_plus/",
+    "artifact_type": "other",
+    "publish_date": null,
+    "discovered_at": "2026-03-10T09:43:48.733401",
+    "players": [],
+    "topics": [
+      "pathways-install",
+      "estimating"
+    ],
+    "value_levers": [],
+    "confidence": "low",
+    "summary": "A Reddit user reports receiving quotes of $15-20K for heat pump installation labor, including a new 200A electrical panel upgrade, high-voltage wiring for the heat pump, and heat pump water heater installation. The user purchased equipment separately.",
+    "score": 12,
+    "query_vertical": "building-electrification",
+    "vertical": "building-electrification",
+    "source_name": "Reddit r/heatpumps",
+    "source_date": null,
+    "persona": "owner-operator",
+    "so_what": "Residential heat pump upgrades requiring panel and service upgrades face $15-20K+ installation costs beyond equipment price.",
+    "why_it_matters": "Panel upgrade requirements add significant cost burden to residential electrification projects, affecting adoption economics. For homeowners and contractors, the ratio of installation-to-equipment cost becomes a decision point for electrification pathways. However, this is a single anecdotal data point without project details, constraints analysis, or broader market context.",
+    "open_questions": [
+      "What share of residential heat pump retrofits require panel upgrades vs. load management solutions?",
+      "How do permit timelines and AHJ requirements affect total installation cost and schedule?"
+    ],
+    "evidence": [
+      "Quote of $15-20K for installation labor including new 200A panel",
+      "Scope included high-voltage wiring for heat pump and heat pump water heater installation"
+    ]
+  },
+  {
+    "id": 188,
+    "slug": "2026-03-10-other-reddit-discussion-nyc-coop-boards",
+    "title": "Reddit discussion: NYC co-op boards planning for Local Law 97 compliance",
+    "description": "Co-op board discussion on Local Law 97 carbon compliance strategies, noting heat pump technology limitations for large buildings and deployment uncertainty.",
+    "canonical_source": "https://www.reddit.com/r/AskNYC_Coops/comments/1refn93/how_are_boards_and_owners_planning_for_local_law/",
+    "artifact_type": "other",
+    "publish_date": null,
+    "discovered_at": "2026-03-10T09:43:46.419971",
+    "players": [],
+    "topics": [
+      "code-standards",
+      "retrofits-mdus"
+    ],
+    "value_levers": [],
+    "confidence": "low",
+    "summary": "Reddit thread discussing how NYC co-op boards and owners are planning for Local Law 97 carbon emission limits. One comment notes heat pump technology for heating/cooling large buildings is not proven at scale.",
+    "score": 12,
+    "query_vertical": "building-electrification",
+    "vertical": "building-electrification",
+    "source_name": "Reddit r/AskNYC_Coops",
+    "source_date": null,
+    "persona": "owner-operator",
+    "so_what": "LL97 compliance uncertainty reflects early-stage electrification constraint awareness but lacks deployment specifics.",
+    "why_it_matters": "Local Law 97 mandates carbon reductions for large buildings starting 2024, forcing boards to evaluate electrification pathways. Owner-operators face technology uncertainty around heat pump scalability and building service upgrades, affecting capital planning and compliance timelines. However, without project specifics, panel/riser constraints, or deployment details, the discussion remains too high-level for actionable insight.",
+    "open_questions": [
+      "What electrical service and distribution upgrades are NYC MDUs encountering when evaluating heat pump conversions for LL97?",
+      "Are boards finding practical pathways to compliance or deferring decisions due to technology/cost uncertainty?"
+    ],
+    "evidence": [
+      "Mentions Local Law 97 compliance planning context",
+      "Notes heat pump technology for large buildings 'isn't really proven'"
+    ]
+  },
+  {
+    "id": 186,
+    "slug": "2026-03-10-other-tiktok-video-explaining-faultmanaged-power",
+    "title": "TikTok video explaining fault-managed power delivery up to 1 kilowatt over twisted pair",
+    "description": "Social media video describing fault-managed power characteristics: high voltage, very low current delivery up to 1kW over single twisted pair cabling.",
+    "canonical_source": "https://www.tiktok.com/@digital.byte/video/7610057889071385870",
+    "artifact_type": "other",
+    "publish_date": null,
+    "discovered_at": "2026-03-10T09:43:39.929970",
+    "players": [],
+    "topics": [
+      "safety-model",
+      "pathways-install"
+    ],
+    "value_levers": [],
+    "confidence": "low",
+    "summary": "A TikTok video by digital.byte claims to explain fault-managed power delivering up to 1 kilowatt over single twisted pair using high voltage and very low current. The page excerpt provides no retrievable content beyond the platform's generic interface.",
+    "score": 12,
+    "query_vertical": "edge-power-ups",
+    "vertical": "edge-power-ups",
+    "source_name": "TikTok",
+    "source_date": null,
+    "persona": "it-network",
+    "so_what": "Unable to assess impact: page excerpt contains only TikTok branding/navigation, no technical content beyond SERP snippet.",
+    "why_it_matters": "Cannot determine relevance or constraints. The excerpt contains zero technical details, no standards references, no deployment context, and no concrete specifications beyond the SERP snippet's generic claims about high voltage and low current.",
+    "open_questions": [
+      "What specific voltage/current parameters and safety mechanisms are demonstrated?",
+      "Does the video reference UL/NEC compliance or real deployment constraints?"
+    ],
+    "evidence": []
+  },
+  {
+    "id": 200,
+    "slug": "2026-03-10-other-youtube-video-on-data-center",
     "title": "YouTube video on data center power density oversight",
-    "description": "YouTube video discussing power density challenges in AI-era data centers, but excerpt contains no content beyond platform boilerplate and footer links.",
+    "description": "Video discussing power density challenges in AI-era data centers, focusing on infrastructure and energy constraints in hyperscale and colocation facilities.",
     "canonical_source": "https://www.youtube.com/watch?v=RLy_4EKZhH0",
     "artifact_type": "other",
     "publish_date": null,
-    "discovered_at": "2026-03-08T09:30:12.148316",
+    "discovered_at": "2026-03-10T09:43:50.072553",
     "players": [],
     "topics": [
       "ai-infrastructure"
     ],
     "value_levers": [],
     "confidence": "low",
-    "summary": "The SERP snippet suggests a video about power density oversight in AI data centers and career reskilling, but the page excerpt contains only YouTube's standard footer links and copyright notices with no substantive content.",
+    "summary": "A YouTube video titled about data center power density oversight in the AI era, referencing hyperscale and colocation contexts. The page excerpt contains only YouTube's standard footer navigation and copyright information, with no substantive content from the video itself.",
     "score": 11,
     "query_vertical": "data-centers",
     "vertical": "data-centers",
     "source_name": "YouTube",
     "source_date": null,
     "persona": "facilities",
-    "so_what": "Cannot assess relevance: excerpt is only YouTube footer text with no video content, transcript, or technical details.",
-    "why_it_matters": "Unable to determine impact or relevance. The excerpt provides zero technical content, constraints, or concrete details about power distribution, density challenges, or infrastructure decisions.",
+    "so_what": "Insufficient excerpt content to assess concrete power distribution constraints or implementation details.",
+    "why_it_matters": "Cannot determine impact from excerpt. The page provides no transcript, description, or content beyond standard YouTube footer elements. No constraints, technical details, or specific issues are visible in the captured text.",
     "open_questions": [
       "What specific power density oversight does the video identify?",
-      "What distribution or cooling constraints are discussed for AI workloads?"
+      "What constraints or solutions are discussed for AI workload power requirements?"
+    ],
+    "evidence": []
+  },
+  {
+    "id": 198,
+    "slug": "2026-03-10-other-instagram-post-promoting-class-4",
+    "title": "Instagram post promoting Class 4 Fault Managed Power marketing claims",
+    "description": "Social media marketing post highlighting distance and safety features of Class 4 Fault Managed Power with no technical details or concrete evidence provided.",
+    "canonical_source": "https://www.instagram.com/p/DVO7ZvrErSp/",
+    "artifact_type": "other",
+    "publish_date": null,
+    "discovered_at": "2026-03-10T09:43:39.929978",
+    "players": [],
+    "topics": [
+      "safety-model"
+    ],
+    "value_levers": [],
+    "confidence": "low",
+    "summary": "Instagram social media post promoting Class 4 Fault Managed Power technology. Post mentions longer distances, smarter delivery, and built-in safety but provides no technical specifications, project details, or concrete implementation information.",
+    "score": 11,
+    "query_vertical": "edge-power-ups",
+    "vertical": "edge-power-ups",
+    "source_name": "Instagram",
+    "source_date": null,
+    "persona": "electrical-contractor",
+    "so_what": "No actionable constraints or specifications provided beyond generic marketing language.",
+    "why_it_matters": "Cannot determine impact because the excerpt contains only marketing claims ('game changes,' 'engineering meets real-world') without any technical details, constraints, project context, or specifications that would inform design, installation, or operational decisions.",
+    "open_questions": [],
+    "evidence": []
+  },
+  {
+    "id": 196,
+    "slug": "2026-03-10-other-instagram-reel-by-alexis-bertholf",
+    "title": "Instagram reel by Alexis Bertholf discussing fault-managed power",
+    "description": "Social media post defining fault-managed power characteristics: high voltage, very low current, continuous fault detection, and instant shutoff capability.",
+    "canonical_source": "https://www.instagram.com/reel/DVGgXy-kQYv/",
+    "artifact_type": "other",
+    "publish_date": null,
+    "discovered_at": "2026-03-10T09:43:39.929969",
+    "players": [],
+    "topics": [
+      "safety-model"
+    ],
+    "value_levers": [],
+    "confidence": "low",
+    "summary": "Instagram reel by Alexis Bertholf defines fault-managed power by four characteristics: high voltage, very low current, continuous fault detection, and instant fault shutoff. The excerpt provides no additional context beyond the SERP snippet.",
+    "score": 11,
+    "query_vertical": "edge-power-ups",
+    "vertical": "edge-power-ups",
+    "source_name": "Instagram",
+    "source_date": null,
+    "persona": "electrical-contractor",
+    "so_what": "Defines fault-managed power safety attributes but lacks implementation constraints, project context, or distributional tradeoffs.",
+    "why_it_matters": "The definition highlights a safety model differentiator (continuous detection + instant shutoff) relevant to electrical contractors and integrators evaluating FMP vs. traditional systems. However, without implementation details, code context, or project constraints, practitioners cannot assess design, install, or approval implications.",
+    "open_questions": [
+      "What voltage and current thresholds define 'high voltage, very low current' in practice?",
+      "How does continuous fault detection integrate with existing monitoring systems or code requirements?"
     ],
     "evidence": []
   },

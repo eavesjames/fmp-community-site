@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-10",
+  "insights": [
+    {
+      "insight_id": "2026-03-10-A01",
+      "working_title": "The Compliance Accelerant: How NFPA 855 Is Forcing Distributed UPS Adoption Faster Than Any Efficiency Argument Could",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-10-the-compliance-accelerant-how-nfpa-855-is-forcing-.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-10-A02",
+      "working_title": "The Electrical Distribution Bottleneck: Why AI Rack Deployments Will Stall on Circuits, Not Cooling",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-10-the-electrical-distribution-bottleneck-why-ai-rack.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-10-A03",
+      "working_title": "The 3-Minute Runtime Trap: Why the Industry's UPS Optimization Created a Floor Space Problem It Is Not Measuring",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-10-the-3-minute-runtime-trap-why-the-industry-s-ups-o.md",
+      "confidence": "",
+      "levers": []
+    }
+  ]
+}
