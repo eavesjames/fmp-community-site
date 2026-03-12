@@ -1,0 +1,178 @@
+{
+  "run_date": "2026-03-07",
+  "drafts": [
+    {
+      "draft_id": "SOC-001",
+      "channel": "linkedin",
+      "text": "NFPA 855 compliance and lithium-ion BMS discharge-rate risk are not separate problems \u2014 they converge on the same facility at the same moment. If you operate a centralized lithium-ion UPS above 70kW, retroactive enforcement already active in LA and NYC is forcing a retrofit or replacement decision. That same retrofit window is also the moment your 3\u20135 minute runtime target pushes discharge rates into the zone where BMS safety mechanisms can trigger shutdown during the exact failover event you need the UPS for. The compliance retrofit is the lowest-cost point to also resolve the discharge-rate problem \u2014 deferring one defers the other at compounding cost. Distributed rack-level UPS architecture (modeled by AWS) reduces per-unit battery capacity and per-rack discharge current simultaneously, addressing both constraints in one architecture change. Are you treating NFPA 855 compliance and battery chemistry re-selection as separate workstreams, or as a single forced-choice decision?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/",
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+        "https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "46",
+          "100",
+          "44"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "code-standards",
+          "reliability-uptime"
+        ],
+        "target_persona": "data-center-owner-operator"
+      }
+    },
+    {
+      "draft_id": "SOC-002",
+      "channel": "linkedin",
+      "text": "The data center industry is pursuing two UPS optimization pressures simultaneously \u2014 cutting runtime from 30 minutes to 3\u20135 minutes for faster generator failover, and scaling rack density from 8kW to 40kW+ for GPU workloads. These pressures do not add; they multiply. A 40kW rack at a 3-minute runtime target requires roughly 5x the peak discharge rate of an 8kW rack at 15 minutes \u2014 the operating point for which most current battery chemistry and centralized UPS architectures were actually designed. Neither lead-acid nor lithium-ion handles this combined constraint cleanly without oversizing that undermines the economic rationale for the runtime reduction in the first place. Distributed rack-level UPS reduces per-unit discharge current and resolves both pressures architecturally, but introduces commissioning and monitoring complexity that has not been publicly quantified outside hyperscaler deployments. If your facility is planning GPU workload expansion, UPS sizing is not a secondary design decision \u2014 it is the constraint that determines battery chemistry, architecture, floorspace, and commissioning scope at the same time. What discharge-rate assumptions are you using in your UPS sizing today, and have your vendors confirmed BMS will not trip at those conditions?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+        "https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "100",
+          "44",
+          "98",
+          "52"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "reliability-uptime",
+          "ai-infrastructure",
+          "monitoring-telemetry"
+        ],
+        "target_persona": "mep-system-designer"
+      }
+    },
+    {
+      "draft_id": "SOC-003",
+      "channel": "linkedin",
+      "text": "Two economic figures are circulating widely in data center power design discussions right now: Southland Industries' 'multi-million dollar savings' for fault managed power at 6MW scale, and AWS's '35% energy loss reduction' for distributed rack-level UPS. Both are being cited as if they were industry baselines. Both are single-source, single-facility figures with undisclosed methodology. The FMP savings figure does not account for AHJ approval timeline, commissioning soft costs, or DC component supply chain lead times. The AWS efficiency figure does not specify its comparison baseline, the rack density tested, or the runtime target used. A capital budget or design decision built directly on either figure is absorbing unquantified schedule and cost risk. This is not an argument against FMP or distributed UPS \u2014 it is an argument that neither claim has been validated to the standard required for a transferable engineering benchmark. What evidence standard does your organization apply before an external cost claim enters a capital budget model?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "40",
+          "44"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "estimating",
+          "dc-distribution",
+          "ups-resilience",
+          "schedule-value",
+          "code-standards"
+        ],
+        "target_persona": "finance-capital-planner"
+      }
+    },
+    {
+      "draft_id": "SOC-004",
+      "channel": "x",
+      "text": "NFPA 855 compliance retrofit and lithium BMS discharge-rate risk converge on the same facility at the same moment. Treating them as separate workstreams inflates total cost and extends the risk window. Is your team solving both at once? faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2019-04-01-other-new-nfpa-855-battery-standard/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "46",
+          "100"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "code-standards"
+        ],
+        "target_persona": "data-center-owner-operator"
+      }
+    },
+    {
+      "draft_id": "SOC-005",
+      "channel": "x",
+      "text": "40kW GPU rack + 3-min UPS runtime = ~5x peak discharge rate vs. legacy 8kW/15-min baseline. Neither lead-acid nor lithium handles this cleanly without oversizing. Has your UPS vendor confirmed BMS won't trip at that combined operating point? faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "100",
+          "44"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "ai-infrastructure",
+          "reliability-uptime"
+        ],
+        "target_persona": "mep-system-designer"
+      }
+    },
+    {
+      "draft_id": "SOC-006",
+      "channel": "x",
+      "text": "FMP 'multi-million dollar savings' and AWS distributed UPS '35% efficiency gain' are the two most-cited data center power economics claims \u2014 and neither has published methodology. Are you using either figure as a capital budget input? faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "40",
+          "44"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "estimating",
+          "dc-distribution",
+          "schedule-value"
+        ],
+        "target_persona": "finance-capital-planner"
+      }
+    },
+    {
+      "draft_id": "SOC-007",
+      "channel": "prompt",
+      "text": "For those designing or operating data centers with GPU or AI workloads: when you're sizing UPS for 40kW+ racks at a 3\u20135 minute runtime target, what battery chemistry and architecture are you specifying \u2014 and have you explicitly modeled the peak discharge rate at that combined operating point rather than treating density and runtime as separate sizing variables? Relevant context on the BMS shutdown risk at short runtimes: https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/ and on distributed rack-level UPS as an architectural response: https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/ \u2014 We're tracking whether the distributed UPS economics that work for a hyperscaler translate to third-party operators, and the answer likely depends on how often BMS discharge-rate shutdowns actually occur in practice. Has your team observed or tested this failure mode during generator failover commissioning?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2024-12-09-other-ups-runtime-reduction-battery-technology/",
+        "https://faultmanagedpower.org/pulse/2020-12-11-other-aws-designs-inrack-micro-ups/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "100",
+          "44",
+          "52",
+          "98"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "ups-resilience",
+          "reliability-uptime",
+          "ai-infrastructure",
+          "monitoring-telemetry"
+        ],
+        "target_persona": "mep-system-designer"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1243 @@
+[
+  {
+    "agent": "finance_roi_skeptic",
+    "run_date": "2026-03-07",
+    "top_constraints": [
+      {
+        "constraint": "NFPA 855 retroactive compliance forces retrofit capex on existing installations >70kW without clear ROI or compliance timeline",
+        "who_pays": "Data center operators (retrofit labor, equipment redesign, testing)",
+        "who_benefits": "AHJs, insurance carriers, safety ecosystem (not operators)",
+        "what_metric_matters": "Cost per MW of existing battery capacity to retrofit; timeline until enforcement hardens in non-early-adopter jurisdictions; retrofit vs. replacement NPV",
+        "levers": [
+          "compliance_cost_allocation",
+          "retrofit_scheduling",
+          "battery_replacement_cycle"
+        ],
+        "supporting_items": [
+          "46"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "Battery discharge rate limits (lithium BMS shutdowns, lead-acid low energy density) force oversized UPS deployments that reduce usable cabinet density",
+        "who_pays": "Data center operators (excess capex for battery capacity, lost revenue from floorspace)",
+        "who_benefits": "Battery vendors (larger deployments), power engineers (conservative designs)",
+        "what_metric_matters": "Cost per kW of usable UPS capacity delivered; ratio of installed battery capacity to actual discharge capacity available; cabinet floorspace premium per MW of backup power",
+        "levers": [
+          "battery_chemistry_selection",
+          "runtime_target_reduction",
+          "discharge_rate_constraints"
+        ],
+        "supporting_items": [
+          "100"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "Rack density acceleration (8.2kW avg \u2192 20-40kW AI racks) outpaces electrical distribution and cooling infrastructure upgrade cycles, creating stranded asset risk",
+        "who_pays": "Facility operators (forced infrastructure upgrades, retrofit labor, potential downtime)",
+        "who_benefits": "GPU vendors, cooling equipment vendors, new construction projects with FMP-ready infrastructure",
+        "what_metric_matters": "Upgrade cost per kW of new density absorbed; time-to-upgrade vs. workload growth rate; capex required to support next 3-year density trajectory",
+        "levers": [
+          "infrastructure_refresh_cycle",
+          "cooling_architecture_choice",
+          "power_distribution_upgrade_timing"
+        ],
+        "supporting_items": [
+          "98",
+          "52"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "Distributed UPS (micro-units) eliminates centralized failure domain but requires new maintenance operational procedures and spare parts logistics",
+        "who_pays": "Operators (training, spare inventory, procedures); AWS (design/integration)",
+        "who_benefits": "AWS (operational efficiency, energy savings claimed at 35%), customers (improved rack-level redundancy)",
+        "what_metric_matters": "Cost of distributed maintenance model vs. centralized; total system cost of ownership including spare parts inventory; measurable energy savings validation across customer deployments",
+        "levers": [
+          "maintenance_procedure_redesign",
+          "spare_parts_allocation",
+          "distributed_vs_centralized_capex"
+        ],
+        "supporting_items": [
+          "44"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "tensions": [
+      {
+        "tension": "Short runtime targets (3-5 min) vs. battery technology limits: faster failover reduces backup duration, forcing larger/oversized battery deployments that consume more space and capex",
+        "economic_tradeoff": "Lower backup runtime (OpEx benefit via faster generator startup) requires higher battery capex (CapEx penalty) and stranded cabinet capacity; 3-min target may cost more total TCO than 15-min target despite faster failover",
+        "levers": [
+          "runtime_requirement_definition",
+          "generator_failover_speed",
+          "battery_sizing_methodology"
+        ],
+        "supporting_items": [
+          "100"
+        ]
+      },
+      {
+        "tension": "Distributed rack-level UPS (35% loss reduction per AWS claim) vs. centralized UPS (industry standard): higher upfront design/integration cost and inventory complexity vs. lower energy waste",
+        "economic_tradeoff": "Distributed architecture claims 35% energy conversion savings (long-term OpEx win) but requires redesigned spare parts strategy, maintenance procedures, and monitoring\u2014hidden OpEx costs not quantified in AWS claim; retrofit cost for existing facilities likely prohibitive",
+        "levers": [
+          "architecture_centralization_choice",
+          "energy_efficiency_vs_operational_complexity",
+          "new_build_vs_retrofit_decisions"
+        ],
+        "supporting_items": [
+          "44"
+        ]
+      },
+      {
+        "tension": "AI workload densities (40kW/rack) exceed air cooling maximum (25-40kW) and push beyond legacy PDU/circuit designs, but FMP alternative lacks industry adoption baseline and retrofit cost clarity",
+        "economic_tradeoff": "Upgrade to liquid cooling + new electrical distribution (large capex, operational complexity) vs. constrain workload density to air-cooled maximum (lost revenue/market share); FMP cost savings claimed at $millions for 6MW new builds (item_40) but no retrofit cost or retrofit-to-new-build capex premium published",
+        "levers": [
+          "cooling_technology_selection",
+          "workload_density_ceiling_acceptance",
+          "infrastructure_vs_business_model"
+        ],
+        "supporting_items": [
+          "98",
+          "52",
+          "40"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "NFPA 855 retrofit costs will concentrate capex in 2026-2028 for early-adopter jurisdictions (LA/NYC), creating 18-36 month window of elevated compliance capex before national enforcement clarifies",
+        "data_needed": "Audit of retrofit labor/material costs for 70kW+ battery installations; timeline projections for AHJ adoption outside CA/NY; sample of operator retrofit budgets already filed",
+        "supporting_items": [
+          "46"
+        ]
+      },
+      {
+        "hypothesis": "Lithium-ion BMS discharge-rate shutdowns represent a design flaw masquerading as safety feature; operators will migrate to lead-acid oversizing or demand BMS firmware patches, negating lithium TCO advantage",
+        "data_needed": "Field data on BMS shutdown frequency during actual UPS events (not just test protocols); cost comparison of oversized lead-acid vs. lithium with constrained discharge rates; battery vendor roadmap for BMS firmware changes",
+        "supporting_items": [
+          "100"
+        ]
+      },
+      {
+        "hypothesis": "AWS's 35% energy loss reduction claim for distributed UPS is not transferable to third-party operators without AWS-scale integration; retrofit/adoption cost will exceed savings within typical 5-7 year payback window for legacy facilities",
+        "data_needed": "AWS's source data for 35% loss reduction (are they comparing to legacy centralized UPS or to optimized centralized baseline?); customer TCO model that includes distributed maintenance cost and spare parts inventory premium; deployment count outside AWS facilities",
+        "supporting_items": [
+          "44"
+        ]
+      },
+      {
+        "hypothesis": "Rack density increases (8.2\u219220-40kW) are not uniformly distributed; operators with legacy infrastructure face forced choice between 3-5 year infrastructure upgrade capex or workload mix constraints that reduce revenue-per-floorspace",
+        "data_needed": "Distribution of rack densities within surveyed facilities (median vs. tail); percentage of installed base at >15kW/rack that still uses air cooling only; capex budgets allocated for density-driven upgrades vs. maintenance/replacement budgets",
+        "supporting_items": [
+          "98",
+          "52"
+        ]
+      },
+      {
+        "hypothesis": "FMP multi-million dollar savings (item_40: 6MW facility) are driven primarily by reduction in AC/DC conversion equipment and conduit/pathways, but require new-build timing and cannot be cost-justified in retrofit scenarios",
+        "data_needed": "Southland Industries full parts-and-labor breakdown from item_40 webinar; itemized capex comparison (transformer costs, switch-gear, conduit, labor); cost delta if retrofitting FMP into existing AC-designed facility",
+        "supporting_items": [
+          "40"
+        ]
+      }
+    ],
+    "original_angles": [
+      {
+        "working_title": "The Hidden Cost of Speed: Why 3-Minute UPS Runtimes Are Actually Expensive",
+        "thesis": "Data center industry's push toward 3-5 minute UPS runtimes to accommodate faster generator failover masks a cost transfer: operators pay for oversized battery deployments (wasted capacity, lost floorspace) while benefiting from faster failover that primarily benefits facility uptime narratives rather than bottom-line economics. Lead-acid requires more cabinets; lithium shuts down exactly when needed. Neither solution is optimized.",
+        "outline": [
+          "The speedup trend: from 30-min to 3-min runtimes driven by generator reliability improvements (item_100)",
+          "The constraint trap: lead-acid low energy density + lithium BMS shutdown limits force simultaneous oversizing (item_100)",
+          "The floorspace penalty: oversized battery strings consume revenue-generating cabinet space; cost per usable kW of backup delivery climbs",
+          "The second-order question: who benefits from the speed? (failover reliability vs. usable capacity) and what is the true capex/OpEx tradeoff vs. moderate (10-15 min) runtimes?"
+        ],
+        "must_cite_items": [
+          "100"
+        ],
+        "missing_evidence_to_find": [
+          "Cost per MW of backup power delivered (not installed) for 3-min vs. 15-min runtime targets",
+          "Field data on generator failover success rates at current speeds and whether faster failover materially improves uptime vs. other failure modes",
+          "Battery deployment cost/space premium attributable solely to runtime reduction vs. density increases"
+        ]
+      },
+      {
+        "working_title": "Density Cliff: Why Infrastructure Upgrade Cycles Are Out of Sync with AI Workload Growth",
+        "thesis": "Rack density acceleration from 8.2kW avg to 20-40kW for GPU workloads has created a 3-5 year infrastructure lag: facilities designed for 8-12kW/rack cannot absorb 40kW without major electrical and cooling upgrades. Operators face binary choice: constrain high-margin AI workloads or invest $millions in infrastructure that will again be stranded when workloads densify further. FMP is one answer, but retrofit economics remain opaque.",
+        "outline": [
+          "The acceleration curve: 68% reporting density increases; 5% already at 40kW/rack; 40kW exceeds air cooling ceiling (item_98, item_52)",
+          "The infrastructure lag: 3-5 year HVAC/electrical upgrade cycles vs. annual workload density increases; legacy facilities face stranded asset risk",
+          "The upgrade options: liquid cooling retrofit, FMP infrastructure redesign, or workload density ceilings\u2014each with hidden OpEx costs not quantified in vendor presentations",
+          "The data center arbitrage: new-build FMP facilities (item_40) vs. legacy retrofit; who wins, who loses?"
+        ],
+        "must_cite_items": [
+          "98",
+          "52",
+          "40"
+        ],
+        "missing_evidence_to_find": [
+          "Retrofit cost delta for liquid cooling + electrical distribution upgrade vs. new-build FMP at equivalent MW scale",
+          "Quantified energy/space/maintenance OpEx differences between liquid cooling retrofit and FMP for 30-40kW/rack scenarios",
+          "Workload density ceiling impact on revenue: cost of constraining AI workloads to 15kW/rack vs. infrastructure upgrade capex"
+        ]
+      },
+      {
+        "working_title": "Compliance Tax: NFPA 855 Retroactive Application as Hidden Cost Allocation",
+        "thesis": "NFPA 855 retroactive application to existing >70kW battery installations represents a compliance cost transfer from regulators/AHJs to operators, with unclear timeline and no grandfathering. Early-adopter jurisdictions (LA/NYC) are enforcing now; operators in non-adopter regions have unclear urgency. This creates a 18-36 month capex burst in compliant jurisdictions, competitive disadvantage for early movers, and retrofit cost uncertainty.",
+        "outline": [
+          "The retroactive trap: NFPA 855 applies to >70kW existing installations; already enforced in LA/NYC; timeline/enforcement variance across jurisdictions (item_46)",
+          "The cost allocation: who pays for retrofit (operators), who benefits (AHJs/safety ecosystem), who bears timing risk (early movers in LA/NYC)",
+          "The competitive penalty: retrofitted facilities incur capex not borne by later-moving competitors; unclear if compliance will accelerate nationally or remain regional",
+          "The NPV question: when is it cheaper to retrofit vs. replace battery system entirely on normal replacement cycle?"
+        ],
+        "must_cite_items": [
+          "46"
+        ],
+        "missing_evidence_to_find": [
+          "Estimated retrofit labor and material costs for 70kW+ battery installations in LA/NYC facilities",
+          "Timeline projection for NFPA 855 adoption beyond CA/NY; enforcement predictability by jurisdiction",
+          "Operator retrofit budget allocations filed in early-adopter regions; capex impact on margins/forecasts"
+        ]
+      },
+      {
+        "working_title": "Distributed UPS Economics: AWS Claims vs. Operator Reality",
+        "thesis": "AWS's distributed rack-level UPS claims 35% energy loss reduction and simplified maintenance, but the claim lacks operator deployment data outside AWS facilities and hides OpEx costs in spare parts inventory and procedure redesign. Third-party adoption will likely require custom integration (high cost) and may not achieve AWS's economies of scale.",
+        "outline": [
+          "The AWS efficiency claim: 35% loss reduction via distributed architecture and AC/DC simplification (item_44)",
+          "The hidden OpEx: distributed spares strategy, maintenance procedure redesign, monitoring/telemetry expansion not quantified in AWS claim",
+          "The retrofit barrier: distributed UPS is built-in for new AWS facilities; third-party retrofit cost and integration complexity likely prohibitive",
+          "The comparison gap: no field data on distributed UPS TCO vs. optimized centralized UPS in third-party deployments"
+        ],
+        "must_cite_items": [
+          "44"
+        ],
+        "missing_evidence_to_find": [
+          "AWS's source methodology for 35% loss reduction claim (baseline comparison: legacy centralized vs. optimized centralized?)",
+          "Customer deployment data: how many third-party facilities have adopted distributed UPS; measured energy savings in field",
+          "TCO model comparison: distributed UPS (new design, spare parts, monitoring) vs. centralized UPS (optimized configuration) for retrofit scenarios"
+        ]
+      }
+    ],
+    "questions_for_owner": [
+      "Item 40 claims multi-million dollar savings for FMP at 6MW scale: what is the itemized capex breakdown (transformer, switch-gear, conduit, labor), and what is the cost premium/penalty if retrofitting FMP into an existing AC-distribution facility vs. new build?",
+      "Item 100 shows lithium-ion BMS shutdowns cripple UPS during peak discharge\u2014has this been reproduced at customer sites in production outages, or only in lab testing? If field incidents exist, what is the failure rate and customer cost impact?",
+      "Item 46 states NFPA 855 applies retroactively to >70kW installations and is enforced in LA/NYC but implies uncertainty elsewhere\u2014what is the timeline/probability that this becomes federally enforced, and what capex premium are operators in non-compliant jurisdictions incurring today vs. deferring?",
+      "Item 44 references AWS's distributed UPS achieving 35% energy loss reduction\u2014can AWS or third-party operators publish field TCO data (including spare parts, maintenance procedure redesign costs) that validates this against optimized centralized UPS baselines?",
+      "Items 98 and 52 show rack density growing from 8.2kW avg to 20-40kW for AI workloads: how many legacy facilities have sufficient cooling/electrical capacity to absorb 40kW/rack without major upgrades, and what capex premium do operators in capacity-constrained facilities face?",
+      "Items 138, 136, and 134 contain corrupted PDF content\u2014can you provide the source documents or full-text excerpts so rack PDU constraints (phase, voltage, amperage, outlet types) and high-density distribution solutions can be properly evaluated?",
+      "No item addresses the relative cost of lead-acid vs. lithium-ion UPS at equivalent usable discharge capacity (accounting for oversizing penalties from both chemistry types)\u2014what is the true capex and space footprint comparison for operators choosing between the two?"
+    ]
+  },
+  {
+    "agent": "owner_operator_facilities",
+    "run_date": "2026-03-07",
+    "top_constraints": [
+      {
+        "constraint": "NFPA 855 retroactive enforcement on >70kW battery installations creates immediate compliance burden for operating data centers with no retrofit timeline",
+        "failure_mode": "Existing UPS installations in LA, NYC, and spreading jurisdictions become code-non-compliant; facilities face citations, forced shutdowns, or mandated retrofits during revenue-generating operations",
+        "operational_burden": "Facilities managers must audit all existing battery installations >70kW against NFPA 855 design/testing protocols. Retrofits require downtime coordination, new BMS/safety controls, and potential re-certification. No clear deadline published; retroactive application creates compliance uncertainty across portfolio.",
+        "what_buyers_will_require_next": "Pre-purchase UPS compliance audits against NFPA 855 for existing facilities; retrofit cost estimation in acquisition due diligence; forward-looking UPS specs that bake in NFPA 855 design margins (thermal monitoring, disconnects, testing cadence) to avoid mid-life compliance surprises",
+        "levers": [
+          "code-standards",
+          "ups-resilience",
+          "retrofits-mdus"
+        ],
+        "supporting_items": [
+          "46"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "Lithium-ion BMS discharge-rate shutdowns can cripple UPS failover exactly when needed; lead-acid oversizing wastes floorspace; single-cell failures cascade to full battery-string loss",
+        "failure_mode": "During peak demand generator failover, lithium BMS triggers automatic shutdown due to discharge current threshold exceeded. UPS becomes inert during outage. Lead-acid requires 30-50% oversizing for short-runtime (3-5 min) discharge profiles, consuming cabinet real estate that could hold revenue servers. Single cell failure in either chemistry brings down entire string.",
+        "operational_burden": "Sizing UPS for 3-5 min runtime requires choosing between over-purchasing lead-acid cabinets or accepting lithium-BMS shutdown risk. No vendor consensus on safe discharge thresholds. Maintenance teams must plan for string-level failures rather than cell-level degradation. Monitoring/telemetry needed to predict BMS shutdown risk in advance.",
+        "what_buyers_will_require_next": "UPS vendors to publish safe discharge profiles that guarantee no BMS shutdowns under nameplate load for 5+ min. Modular battery architectures (AWS micro UPS model) that fail at rack-granularity, not facility-granularity. Predictive BMS health telemetry integrated into facility monitoring. Third-party validation (not OEM self-test) of discharge-rate safety margins.",
+        "levers": [
+          "ups-resilience",
+          "monitoring-telemetry",
+          "reliability-uptime"
+        ],
+        "supporting_items": [
+          "100"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "Rack densities (AI/GPU: 40+ kW/rack; enterprise average: 8.2 kW, trending 20-40 kW) now exceed air-cooling ceiling (25-40 kW) and force parallel upgrades to cooling, electrical distribution, and UPS sizing",
+        "failure_mode": "Legacy data centers designed for 7-8 kW/rack cannot absorb GPU workload density without thermal runaway or circuit breaker tripping. Hot-swap to liquid cooling requires simultaneous redesign of rack PDU specs (higher amperage), UPS runtime (shorter = less battery), and branch-circuit redundancy. Phased builds risk oversizing some racks, undersizing others.",
+        "operational_burden": "Facilities teams must coordinate three parallel upgrades: cooling hardware (rear-door heat exchangers or inline chiller loops), electrical distribution (move from 30A to 60A/100A per rack), and UPS capacity/runtime recalculation. No single vendor owns all three domains. Migration of live workloads across density tiers requires maintenance windows. Circuit tracing and load-balancing becomes error-prone at 40+ kW/rack.",
+        "what_buyers_will_require_next": "Modular power distribution that scales from 8 kW to 40+ kW per rack without full electrical redesign. Integrated cooling + power sizers (e.g., PDU vendors partnering with liquid-cooling providers) to avoid mismatches. Real-time per-rack power/thermal monitoring to catch overloads before breaker trips. UPS architectures that degrade gracefully (shed non-critical loads) rather than fail suddenly at density step-changes.",
+        "levers": [
+          "power-quality-surge",
+          "reliability-uptime",
+          "ai-infrastructure",
+          "pathways-install"
+        ],
+        "supporting_items": [
+          "98",
+          "52"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "Rack PDU selection requires alignment across 8+ electrical and physical parameters (phases, voltage, amps, branch circuits, outlets, socket type, rack units, dimensions) with no standardized decision tree; misalignment forces field rework",
+        "failure_mode": "PDU specifications chosen without considering downstream cooling (e.g., single-phase PDU chosen for rack that requires three-phase for liquid-cooling pump), UPS attachment method (wrong outlet type), or future density scaling. Field rework requires rebreaking circuits, moving panel connections, or swapping PDUs mid-deployment\u2014all during construction or commissioning.",
+        "operational_burden": "Specification teams (MEP, data center ops, IT procurement) must coordinate across electrical design, rack layout, cooling design, and UPS topology. No single authority document covers all trade-offs. Custom BTO/ETO PDU options increase lead times and cost. Commissioning teams discover mismatches during plug-in phase, when rework is most expensive.",
+        "what_buyers_will_require_next": "Pre-deployment PDU specification worksheets that force cross-functional sign-off (cooling, electrical, UPS, IT load profiles). Vendors to publish 'compatibility matrices' showing which PDU configs work with specific UPS models, cooling architectures, and rack densities. Modular PDU designs that allow field reconfiguration (swappable branch-circuit cards, plug-and-play socket types) to reduce rework cost.",
+        "levers": [
+          "pathways-install",
+          "commissioning",
+          "monitoring-telemetry"
+        ],
+        "supporting_items": [
+          "76",
+          "138",
+          "134"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "tensions": [
+      {
+        "tension": "Centralized UPS (facility-level) vs. distributed micro UPS (rack-level)",
+        "tradeoff": "Centralized UPS: simpler topology, lower per-unit cost, but entire data hall fails if UPS fails. Distributed (AWS model): single-rack failure domain, 35% energy loss reduction via simplified AC/DC/DC path, hot-swappable batteries, but more UPS units to monitor/maintain, higher aggregate capex, new commissioning workflows.",
+        "who_wins_who_loses": "Wins: new builds with greenfield design freedom (AWS, hyperscalers); operators who can absorb higher unit count and maintenance complexity. Loses: retrofit-constrained facilities (space/budget for multiple UPS units); teams without mature distributed-system monitoring; small/mid-size data centers where per-unit cost dominates.",
+        "levers": [
+          "ups-resilience",
+          "reliability-uptime",
+          "monitoring-telemetry"
+        ],
+        "supporting_items": [
+          "44"
+        ]
+      },
+      {
+        "tension": "Short runtime (3-5 min) UPS designs vs. battery chemistry/sizing constraints",
+        "tradeoff": "Shift to 3-5 min runtime (faster generator failover, lower capital) forces either over-purchase of lead-acid (wastes floorspace) or acceptance of lithium BMS shutdown risk during peak demand. No third option: longer runtimes reintroduce slow generator failover (defeats purpose).",
+        "who_wins_who_loses": "Wins: operators with proven fast-start generators and IT load-shedding discipline (hyperscalers). Loses: facilities with aging generators or no load-shedding automation; teams risk-averse to BMS shutdown scenarios; retrofits of existing UPS (cannot change runtime assumptions without rework).",
+        "levers": [
+          "ups-resilience",
+          "reliability-uptime"
+        ],
+        "supporting_items": [
+          "100"
+        ]
+      },
+      {
+        "tension": "Standardized rack density (8-10 kW avg design) vs. heterogeneous AI/GPU tier (20-40+ kW per rack)",
+        "tradeoff": "Legacy electrical design assumes 8 kW/rack; GPU tier cannot fit in same distribution board, breaker panel, or UPS architecture. Mixing tiers in same facility requires dual-path electrical design or overprovisioning entire facility to highest density. Overprovisioning cuts revenue-per-watt; dual-path increases complexity and failure modes.",
+        "who_wins_who_loses": "Wins: new builds designed top-down for 40+ kW/rack (AWS, hyperscalers); single-tier facilities (all GPU or all standard compute). Loses: mixed-workload facilities forced to choose between overprovisioning or accepting operational fragmentation; retrofit-constrained sites cannot easily absorb GPU tier.",
+        "levers": [
+          "ai-infrastructure",
+          "power-quality-surge",
+          "pathways-install"
+        ],
+        "supporting_items": [
+          "98",
+          "52"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "NFPA 855 retroactive enforcement will force >30% of operating data centers with lithium or VRLA batteries >70kW to retrofit or decommission UPS units within 24 months of jurisdiction enforcement",
+        "measurement_or_metric": "Audit sample: count of >70kW UPS installations in LA/NYC that fail NFPA 855 design/testing criteria; timeline from first citation to retrofit completion; cost per retrofit as % of UPS replacement value",
+        "supporting_items": [
+          "46"
+        ]
+      },
+      {
+        "hypothesis": "Lithium BMS shutdown during peak-load failover occurs in >10% of deployments at 3-min runtime targets due to mismatch between OEM discharge thresholds and actual peak demand profiles",
+        "measurement_or_metric": "Survey/incident reports: count of UPS shutdowns during generator failover events; peak discharge current vs. BMS threshold specification; correlation between discharge shutdown events and data center load profile (GPU density, thermal workload)",
+        "supporting_items": [
+          "100"
+        ]
+      },
+      {
+        "hypothesis": "Distributed (micro) UPS architecture adoption will track with data center density >15 kW/rack; facilities below 15 kW/rack avg will remain centralized due to per-unit cost and maintenance overhead not justified by energy loss savings",
+        "measurement_or_metric": "Compare facility architecture choice (centralized vs. distributed UPS) against average rack density; cost model: energy loss savings vs. monitoring/maintenance burden; deployment timelines for each architecture type across new builds vs. retrofits",
+        "supporting_items": [
+          "44",
+          "52",
+          "98"
+        ]
+      },
+      {
+        "hypothesis": "FMP (forced-mode power) infrastructure for 6 MW data center yields multi-million dollar savings (Starego's claim) only when combined with distributed UPS architecture; traditional centralized UPS eliminates most savings due to complexity in DC/AC/DC conversions not eliminated by FMP alone",
+        "measurement_or_metric": "Detailed opex/capex comparison: FMP + centralized UPS vs. FMP + distributed UPS vs. traditional AC; parts list and labor hours; first-year energy cost; maintenance cost projections over 10-year lifecycle",
+        "supporting_items": [
+          "40",
+          "44"
+        ]
+      }
+    ],
+    "original_angles": [
+      {
+        "working_title": "NFPA 855 Retrofit Debt: Hidden Compliance Costs in Operating Data Centers",
+        "thesis": "NFPA 855 retroactive enforcement creates an unbudgeted operational liability for facilities with >70kW battery installations (nearly all data centers). Unlike future-proofed new builds, operating facilities face immediate audit/citation risk, retrofit costs, and zero-failure-tolerance outage windows. This compliance burden disproportionately impacts mid-market operators lacking enterprise compliance teams, converting fixed-cost UPS into ongoing retrofit liability.",
+        "outline": [
+          "NFPA 855 scope (>70kW) captures 95%+ of data center UPS installations; retroactive application in LA/NYC signals broader enforcement wave",
+          "Retrofit costs and downtime: battery replacement, BMS upgrades, design re-certification, testing cadence. Cannot defer; citations accelerate timeline.",
+          "Risk pooling: operators lacking formal compliance audit function face highest citation risk; portfolio owners with 10+ facilities face compounded retrofit scheduling burden",
+          "Design debt for new builds: forward-looking UPS specs must bake in NFPA 855 margins (thermal monitoring, disconnects) to avoid mid-life surprises"
+        ],
+        "must_cite_items": [
+          "46"
+        ],
+        "missing_evidence_to_find": [
+          "Retrofit cost per kWh of battery capacity; labor hours for retrofit vs. new install",
+          "Timeline from first AHJ citation to compliant retrofit (actual case studies from LA/NYC); penalties/fines for non-compliance",
+          "NFPA 855 design changes (thermal monitoring, BMS logic, testing protocols) that differentiate new UPS specs from pre-855 units"
+        ]
+      },
+      {
+        "working_title": "The 3-Minute UPS Trap: Why Shorter Runtimes Break Battery Chemistry",
+        "thesis": "Data center industry shift to 3-5 min UPS runtimes (driven by faster generator failover) creates a constraint triangle with no clean exit: lead-acid requires 30-50% oversizing (wastes floorspace), lithium BMS shutdown risk spikes at high discharge rates (cripples failover), and single-cell failures cascade to full battery-string loss in both chemistries. Operators are forced to choose between capital waste or failover reliability risk\u2014a decision that scales negatively as facility density increases and UPS uptime becomes the critical path to 99.999% availability.",
+        "outline": [
+          "Industry driver: faster generator failover (5-30 min \u2192 <5 min) reduces runtime requirement and lowers UPS capex, but pushes batteries into high-discharge regimes",
+          "Lead-acid constraint: low energy density + 3-5 min runtime = oversized cabinet footprint (30-50% excess capacity). Opportunity cost: revenue servers per rack decline.",
+          "Lithium BMS constraint: safety shutdowns trigger at high discharge rates exactly when UPS needed most. Single cell failure opens entire string. No consensus on safe discharge profiles.",
+          "Path forward: modular battery (AWS model), predictive BMS health, vendor discharge-rate guarantees, or acceptance of risk. Trade-off analysis for buyer decision-making."
+        ],
+        "must_cite_items": [
+          "100",
+          "44"
+        ],
+        "missing_evidence_to_find": [
+          "Quantified floorspace waste from lead-acid oversizing (% of revenue-generating footprint lost per MW of UPS)",
+          "Empirical data on BMS shutdown triggers in deployed systems; incident frequency vs. discharge rate profiles",
+          "Total cost of ownership (capex + maintenance + energy loss + risk premium) comparing 3-min vs. 15-min vs. 30-min UPS runtimes"
+        ]
+      },
+      {
+        "working_title": "The Density Cliff: Why 40 kW/Rack Breaks Legacy Data Center Infrastructure",
+        "thesis": "AI/GPU workload densities (40+ kW/rack, 1 kW/RU) represent a discontinuous break from historical trends (7-8 kW/rack avg). This is not a linear scaling problem; it forces simultaneous, non-interchangeable upgrades to cooling (air \u2192 liquid), electrical distribution (30A \u2192 60-100A circuits), UPS architecture (longer runtime no longer viable), and monitoring (per-rack vs. per-PDU granularity). Facilities that cannot absorb all three upgrades simultaneously become bottlenecked; mixed-density sites create operational fragmentation and elevated failure modes. This cliff will drive consolidation toward single-tier facilities and accelerate obsolescence of mid-density infrastructure.",
+        "outline": [
+          "Historical density progression (2.4 kW \u2192 8.2 kW over 8 years) vs. AI acceleration (8 kW \u2192 40+ kW in <3 years). Cliff, not curve.",
+          "Cooling bottleneck: air cooling ceiling 25-40 kW; GPU tier requires liquid cooling with 100% facility redesign (no retrofit path for legacy air-cooled halls)",
+          "Electrical bottleneck: 8 kW avg design assumes single-phase PDU, 30A branch circuits; 40 kW/rack requires three-phase, 60-100A, circuit redesign. Cannot mix tiers without dual infrastructure.",
+          "UPS bottleneck: shorter UPS runtime required for high-density (faster failover, less battery); but battery chemistry constraints force over-sizing. Distributed UPS (AWS model) may be only escape hatch.",
+          "Operational fragmentation: facilities mixing 8 kW and 40 kW racks face per-tier maintenance, monitoring, and failure procedures. Complexity scales non-linearly."
+        ],
+        "must_cite_items": [
+          "98",
+          "52",
+          "100",
+          "44"
+        ],
+        "missing_evidence_to_find": [
+          "Retrofit cost for legacy 8 kW air-cooled facility to absorb 20% GPU tier (cooling + electrical + UPS changes); TCO comparison vs. new greenfield build",
+          "Incident/outage data: failure rate correlation between mixed-density and single-tier facilities",
+          "Timeline: data centers still operating majority <10 kW/rack avg; when will density inflection force mass facility refreshes?"
+        ]
+      }
+    ],
+    "questions_for_owner": [
+      "Do you have existing UPS installations >70kW in LA or NYC? If so, have you conducted NFPA 855 compliance audits, and what retrofit timeline/cost estimates have you received from vendors? Is this driving budget reallocation away from growth capex?",
+      "For your current UPS deployments targeting 3-5 min runtime, have you experienced or modeled BMS shutdown risk during peak load generator failover events? What discharge thresholds does your lithium chemistry guarantee, and have those guarantees been validated by third parties outside vendor testing?",
+      "What is your facility mix by rack density (% of racks at <10 kW, 10-20 kW, 20-40 kW, >40 kW)? For sites with GPU tier approaching or exceeding 40 kW/rack, are you planning air cooling containment upgrades, liquid cooling retrofit, or new greenfield facilities? What is the capex/opex trade-off driving that decision?",
+      "Have you evaluated distributed (rack-level) UPS architectures like AWS's micro UPS model? What operational barriers (monitoring overhead, maintenance complexity, per-unit cost) are blocking adoption compared to the 35% energy loss reduction benefit?",
+      "For new data center builds or major retrofits, how are you coordinating PDU specification across cooling design, electrical distribution, UPS topology, and AI/GPU density planning? Are you seeing field rework due to PDU misalignment with downstream infrastructure, and how is that impacting schedule and cost?"
+    ]
+  },
+  {
+    "agent": "mep_system_designer",
+    "run_date": "2026-03-07",
+    "top_constraints": [
+      {
+        "constraint": "NFPA 855 retroactive application to >70kW battery installations forces immediate compliance redesign of existing UPS architectures across all major data centers",
+        "design_assumption_under_pressure": "Legacy UPS designs assumed stable code environment; retrofits can be applied only during planned maintenance windows without disrupting operations",
+        "architecture_shift": "From centralized large-format UPS batteries to distributed rack-level micro UPS units (AWS model) reduces battery compliance footprint and enables modular replacement without facility shutdown",
+        "downstream_effects": "Facilities must choose between: (1) expensive retrofit of existing centralized UPS to meet NFPA 855 testing/safety protocols, or (2) migrate to distributed architecture requiring complete failover/monitoring redesign. Timeline pressure from LA/NYC enforcement creates forced-choice scenario.",
+        "levers": [
+          "commissioning",
+          "monitoring-telemetry",
+          "code-standards",
+          "retrofits-mdus"
+        ],
+        "supporting_items": [
+          "46",
+          "44"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "Lithium-ion BMS discharge-rate shutdowns occur exactly during peak failover demand, forcing over-specification of battery capacity to stay below BMS trip thresholds",
+        "design_assumption_under_pressure": "UPS battery sizing follows worst-case load discharge math; designers assumed active BMS would manage safety without crippling failover reliability",
+        "architecture_shift": "Move to lead-acid oversizing (requires more cabinet space) or accept lithium with de-rated discharge limits and larger string redundancy; AWS distributed micro-UPS may sidestep this by reducing per-unit failover current demand",
+        "downstream_effects": "Lead-acid forces floorspace trade-off vs. revenue-generating IT load; lithium forces capex overspend for excess capacity sitting idle. Single cell failure in either chemistry creates open-circuit string failure\u2014both options lose redundancy catastrophically.",
+        "levers": [
+          "ups-resilience",
+          "power-quality-surge",
+          "reliability-uptime"
+        ],
+        "supporting_items": [
+          "100"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "GPU/AI rack densities (40+kW) exceed air cooling ceiling (25-40kW max), forcing simultaneous redesign of cooling + electrical distribution + UPS failover capacity in parallel",
+        "design_assumption_under_pressure": "Rack density growth was linear; electrical design followed incremental density increases. Current 5-17% of sites at 40+kW/rack was treated as outlier; now baseline for AI deployments.",
+        "architecture_shift": "Cooling drives electrical: liquid cooling requires precision power distribution (rear-door heat exchanger + chilled water loops), forcing shift from simple PDU distribution to intelligent metered/switched PDU with thermal feedback loops",
+        "downstream_effects": "UPS/battery sizing must accommodate 40+kW peak discharge rates (amplifies lithium BMS shutdown risk from #2 above). Circuit sizing jumps from standard 20A/30A to 60A/100A distribution, creating pathway congestion. Density increase of 3-5x (8.4kW\u219240kW) cascades into commissioning complexity and monitoring burden.",
+        "levers": [
+          "power-quality-surge",
+          "pathways-install",
+          "ai-infrastructure",
+          "monitoring-telemetry",
+          "commissioning"
+        ],
+        "supporting_items": [
+          "98",
+          "52"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "Distributed micro-UPS architecture (AWS model) eliminates facility-level failure domain but introduces new single points of failure at rack instrumentation and BMS communication",
+        "design_assumption_under_pressure": "Centralized UPS = single point of failure but deterministic; distributed = many small failures but requires flawless monitoring/alerting or cascading rack outages occur silently",
+        "architecture_shift": "From passive/manual battery monitoring to mandatory intelligent monitoring-telemetry at every rack; from hours-long planned maintenance to continuous hot-swap capability requiring 24/7 spare battery logistics",
+        "downstream_effects": "Commissioning burden shifts to monitoring system validation\u2014hot-swap failure modes, BMS comms latency, battery recognition protocols must be tested in live environment. Operational staffing changes: fewer battery techs needed but require higher skill level and real-time alerting discipline.",
+        "levers": [
+          "monitoring-telemetry",
+          "commissioning",
+          "reliability-uptime",
+          "ups-resilience"
+        ],
+        "supporting_items": [
+          "44"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "constraint": "FMP (facility-level micro power) infrastructure delivers multi-million dollar capex savings vs. AC for 6MW facilities, but adoption requires wholesale architectural change from AC distribution paradigm",
+        "design_assumption_under_pressure": "Standard data center design assumes AC distribution backbone; AC-to-DC conversion losses accepted as inevitable. FMP eliminates steps but requires designer/operator buy-in and code acceptance from AHJs unfamiliar with topology",
+        "architecture_shift": "From distributed AC-fed UPS+PDUs to centralized/modular DC bus with buck-converters at rack level; reduces conversion stages (AC\u2192UPS battery\u2192DC converter\u2192equipment) to (DC bus\u2192buck)",
+        "downstream_effects": "6MW cost savings cited but no breakdown of maintenance/commissioning complexity change. Requires AHJ pre-approval and code variance arguments. Standardization risk: no two data center AHJs enforce FMP uniformly yet.",
+        "levers": [
+          "estimating",
+          "dc-distribution",
+          "code-standards",
+          "schedule-value"
+        ],
+        "supporting_items": [
+          "40"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "tensions": [
+      {
+        "tension": "Distributed UPS reliability vs. monitoring complexity: AWS micro-UPS eliminates centralized failure domain but multiplies number of monitored failure points from 1 to N (racks)",
+        "design_tradeoff": "Accept increased monitoring/alerting burden and hot-swap logistics cost to gain rack-level fault isolation and 35% efficiency gain. Trade manual labor (centralized battery swaps) for soft skills (real-time telemetry interpretation).",
+        "levers": [
+          "monitoring-telemetry",
+          "commissioning",
+          "reliability-uptime"
+        ],
+        "supporting_items": [
+          "44"
+        ]
+      },
+      {
+        "tension": "Density growth forces electrical pathways and cooling to co-evolve; liquid cooling enables 40+kW/rack but requires precision power distribution that standard PDU catalog cannot deliver",
+        "design_tradeoff": "Must specify intelligent/metered PDU at scale (50-100 racks per data hall) with thermal feedback loops, or revert to air cooling and cap density at 25-40kW. Cost penalty for intelligent PDU is outweighed by GPU revenue per rack\u2014but commissioning risk increases non-linearly.",
+        "levers": [
+          "power-quality-surge",
+          "pathways-install",
+          "commissioning"
+        ],
+        "supporting_items": [
+          "98",
+          "52",
+          "76"
+        ]
+      },
+      {
+        "tension": "NFPA 855 compliance vs. UPS runtime reduction: Shorter runtimes (3-5 min) force higher discharge rates \u2192 lithium BMS shutdown risk. Compliance testing requires proving BMS will not trip during worst-case failover.",
+        "design_tradeoff": "Either: (a) specify lead-acid and accept oversizing/floorspace loss, (b) spec lithium with de-rated capacity headroom and over-buy, or (c) migrate to distributed UPS to reduce per-unit failover current and sidestep BMS trip risk. Option (c) requires NFPA 855 retrofit of entire architecture.",
+        "levers": [
+          "ups-resilience",
+          "code-standards",
+          "reliability-uptime"
+        ],
+        "supporting_items": [
+          "46",
+          "100"
+        ]
+      },
+      {
+        "tension": "Capex savings (FMP) vs. operational/commissioning complexity: Southland Industries reports multi-million dollar savings for 6MW FMP vs. AC, but no data on commissioning labor or AHJ approval cycle time",
+        "design_tradeoff": "FMP offers attractive capex but schedule risk is unknown. If AHJ review adds 6-12 months, NPV advantage may evaporate. Requires parallel cost model including soft costs (design review, permitting, learning curve troubleshooting).",
+        "levers": [
+          "estimating",
+          "schedule-value",
+          "commissioning"
+        ],
+        "supporting_items": [
+          "40"
+        ]
+      },
+      {
+        "tension": "Rack density (8.2kW avg, 40+kW peak) vs. single circuit design: Standard 20A/30A branch circuits were sized for 2-3kW; 40kW racks force 60A/100A distribution, stranding old pathways and requiring conduit/switch gear upsizing",
+        "design_tradeoff": "New builds can standardize on 60A/100A infrastructure from ground up. Existing facilities face: (a) retrofit entire MSB/PDU infrastructure, (b) operate split workloads (legacy <10kW on old circuits, AI >20kW on new circuits), or (c) co-locate AI workloads in new data halls. Economics favor (c) but fragments operational footprint.",
+        "levers": [
+          "pathways-install",
+          "power-quality-surge",
+          "schedule-value"
+        ],
+        "supporting_items": [
+          "52",
+          "98",
+          "136"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Facilities currently operating centralized large-format UPS >70kW will face unplanned outages during NFPA 855 retrofit validation if they attempt in-service redesign; forced migration to distributed micro-UPS reduces retrofit risk but adds 12-18 month lead time for hot-swap logistics and monitoring commissioning",
+        "design_decision_it_affects": "Should new data center designs default to distributed UPS architecture now, even if centralized UPS is cheaper upfront, to avoid being locked into retrofit path in 2-3 years when NFPA 855 enforcement spreads beyond LA/NYC?",
+        "supporting_items": [
+          "46",
+          "44"
+        ]
+      },
+      {
+        "hypothesis": "Lithium-ion BMS discharge-rate trip thresholds are specified conservatively by manufacturers to avoid liability; actual field failures during failover are rare, but the catastrophic consequence (complete UPS shutdown) is making operators specify lead-acid despite efficiency penalties",
+        "design_decision_it_affects": "Should MEP designers demand BMS discharge-rate validation from lithium suppliers at 3-minute failover timescales before spec'ing lithium for <5min UPS runtime facilities? Or default to lead-acid?",
+        "supporting_items": [
+          "100"
+        ]
+      },
+      {
+        "hypothesis": "GPU/AI workload concentration (40+kW/rack) is not evenly distributed\u2014clusters of 10-20 high-density racks will create electrical distribution 'hotspots' within data halls, requiring local UPS/power conditioning that older designs assumed was handled uniformly by facility-level systems",
+        "design_decision_it_affects": "Should intelligent PDU metering and local micro-UPS deployment be zoned by workload type (GPU clusters vs. standard compute), forcing separate electrical design zones within same data hall? Or attempt uniform high-density infrastructure across all racks?",
+        "supporting_items": [
+          "98",
+          "52",
+          "44"
+        ]
+      },
+      {
+        "hypothesis": "FMP's multi-million dollar savings at 6MW scale assume labor cost constants; adoption will be fastest in regions (Austin TX, Virginia, Northern CA) with high MEP labor costs and lowest in regions (Ohio, North Carolina) with lower labor / where AC design is already embedded in local code acceptance",
+        "design_decision_it_affects": "Should FMP be positioned as regional solution (high-labor markets first) rather than universal data center standard? Or will standardization pressure from hyperscalers force AHJ acceptance regardless of local labor economics?",
+        "supporting_items": [
+          "40"
+        ]
+      },
+      {
+        "hypothesis": "Rack density increase from 8.2kW to 40+kW is being driven by AI/GPU deployments, not general compute refresh; this creates a bifurcated data center footprint (old standard-compute buildings can stay air-cooled/AC; new AI builds require liquid-cooled/FMP). Mixing workloads on same infrastructure will fail.",
+        "design_decision_it_affects": "Should MEP design strategy be to build separate 'AI pods' (40+kW liquid-cooled racks) isolated from legacy compute infrastructure, rather than attempting unified upgrades? Forces greenfield approach over retrofit.",
+        "supporting_items": [
+          "98",
+          "52"
+        ]
+      }
+    ],
+    "original_angles": [
+      {
+        "working_title": "The NFPA 855 / Distributed UPS Retrofit Trap: Compliance Forcing Architecture Migration",
+        "thesis": "NFPA 855's retroactive 70kW battery threshold, already enforced in LA/NYC, will force most data centers to choose between expensive centralized UPS retrofit (compliance + testing + downtime) or wholesale migration to distributed micro-UPS. AWS's distributed model eliminates the retrofit path entirely, but requires commissioning and monitoring architecture redesign. Facilities locked into centralized UPS now face a 2-3 year window before AHJ enforcement spreads; deferring UPS upgrades is increasingly risky.",
+        "outline": [
+          "NFPA 855 threshold (70kW) catches almost all data center UPS installations; retroactive application creates immediate compliance friction",
+          "Centralized UPS retrofit requires in-service validation that risks outages during testing; downtime cost exceeds retrofit cost for operational facilities",
+          "Distributed micro-UPS (AWS model) eliminates retrofit path but trades single-point-of-failure for N-point-of-failure requiring flawless monitoring",
+          "Design decision: Should architects specify distributed UPS now to avoid being forced into retrofit trap in 2-3 years?"
+        ],
+        "must_cite_items": [
+          "46",
+          "44"
+        ],
+        "missing_evidence_to_find": [
+          "NFPA 855 enforcement timeline: which AHJs have adopted, which are in pipeline?",
+          "Retrofit cost/schedule data for centralized UPS compliance retrofits in operational facilities",
+          "Detailed monitoring/commissioning cost for distributed micro-UPS at scale (100+ racks)"
+        ]
+      },
+      {
+        "working_title": "GPU Density Threshold: When 40kW/Rack Forces Complete Electrical Rearchitecture",
+        "thesis": "Average rack density has crossed a hard ceiling (40kW peak for AI/GPU) where air cooling is no longer viable and standard electrical distribution (20A/30A circuits, PDU passthrough designs) breaks. This is not an incremental upgrade; it's a wholesale redesign of cooling + power distribution + monitoring simultaneously. Facilities with legacy 8.2kW average infrastructure cannot retrofit into GPU zones; they must build separate high-density pods or accept that old infrastructure is stranded.",
+        "outline": [
+          "Density evolution: 2.4kW (2011) \u2192 8.4kW (2020) \u2192 40+kW (2024 AI) represents two hard thresholds, not linear scaling",
+          "Air cooling maxes at 25-40kW; liquid cooling required for GPU workloads but forces precision power distribution (intelligent PDU, thermal feedback)",
+          "Standard PDU + 20A circuit design cascades into failures at 40kW: voltage drop, thermal margin loss, monitoring blind spots",
+          "Design strategy: Separate high-density 'GPU pods' with purpose-built electrical infra (60A/100A, intelligent PDU, micro-UPS) vs. attempting unified infrastructure retrofit"
+        ],
+        "must_cite_items": [
+          "98",
+          "52"
+        ],
+        "missing_evidence_to_find": [
+          "Cost premium of intelligent PDU + thermal monitoring vs. standard PDU at high density",
+          "Case study: facility that attempted to retrofit standard PDU infrastructure into 40kW zone\u2014what failed?",
+          "Lithium BMS discharge-rate spec data: at what discharge rate does trip threshold activate for common models?"
+        ]
+      },
+      {
+        "working_title": "The Lithium BMS Paradox: Efficiency Loss Masking Failover Risk in Short-Runtime UPS",
+        "thesis": "Data centers are moving from 30-minute to 3-5-minute UPS runtimes to speed generator failover. Lithium-ion batteries offer 35% efficiency gain over lead-acid but introduce a catastrophic risk: BMS discharge-rate limits can trigger automatic shutdown exactly during peak failover demand, disabling the UPS when most needed. Operators are responding by either: (a) specifying lead-acid despite efficiency loss, (b) over-buying lithium capacity to stay below BMS thresholds, or (c) migrating to distributed UPS to reduce per-unit failover current. None of these solutions is optimal; the underlying issue is that short-runtime UPS architectures were not designed with lithium BMS safety constraints in mind.",
+        "outline": [
+          "Runtime compression trend: 30min \u2192 15min \u2192 5min \u2192 3min driven by faster diesel gen startup and cloud redundancy expectations",
+          "Higher discharge rates (to deliver same energy in shorter time) trigger lithium BMS protective shutdowns designed for safety",
+          "Design paradox: lithium chosen for efficiency, but efficiency gain is erased by forced over-specification to avoid BMS trips during failover",
+          "Single cell failure in lead-acid or lithium creates open-circuit string failure; no graceful degradation",
+          "Distributed UPS (AWS) may sidestep this by reducing per-rack failover current, but requires complete monitoring/failover redesign"
+        ],
+        "must_cite_items": [
+          "100",
+          "44"
+        ],
+        "missing_evidence_to_find": [
+          "Field data: how many data center UPS shutdowns have been caused by lithium BMS discharge-rate trips vs. other causes?",
+          "Lithium BMS discharge-rate specs from major suppliers (LG, Samsung, BYD, Lishen) at 3-min timescale",
+          "AWS distributed UPS technical specs: per-unit battery capacity, discharge rate, failover timescale"
+        ]
+      },
+      {
+        "working_title": "FMP Cost Savings Unraveled: Why Southland's 6MW Case Study Hides Commissioning Risk",
+        "thesis": "Southland Industries' claim of 'multi-million dollar savings' for FMP vs. AC infrastructure at 6MW scale is compelling but incomplete. The presentation cites parts-and-labor cost but omits soft costs: AHJ approval cycle time, commissioning labor for unfamiliar topology, supply chain lead-time for modular DC components, and ongoing operational training. For a new facility in a region where AHJs already accept FMP (unlikely outside of hyperscaler hubs), savings may be real. For a facility in a conservative AHJ or retrofit scenario, the soft-cost penalties could erase capex advantage. Need detailed cost model including schedule risk.",
+        "outline": [
+          "Southland's cost comparison: parts-and-labor breakdown shows AC vs. FMP capex advantage",
+          "Hidden costs not included: AHJ approval time, code variance arguments, commissioning labor for unfamiliar topology, supply chain lead-time risk",
+          "Regional variation: AHJ acceptance of FMP is not uniform; conservative jurisdictions may require pre-approval pilot or additional validation",
+          "Schedule risk: if AHJ adds 6-12 months approval time, NPV advantage flips from positive to negative",
+          "Operational risk: FMP requires different training/staffing model; long-term operational cost savings not quantified"
+        ],
+        "must_cite_items": [
+          "40"
+        ],
+        "missing_evidence_to_find": [
+          "AHJ acceptance timeline for FMP: which codes have formally adopted? Which are in comment period?",
+          "Commissioning labor cost comparison: FMP vs. AC infrastructure at 6MW scale (detailed breakdown)",
+          "Case study: facility that built FMP infrastructure\u2014actual cost vs. estimate, commissioning surprises",
+          "Supply chain data: lead-time for modular DC power components vs. standard AC UPS/PDU ecosystem"
+        ]
+      }
+    ],
+    "questions_for_owner": [
+      "Are we designing for retrofit risk by defaulting to distributed UPS architecture now, anticipating NFPA 855 enforcement spread beyond LA/NYC in 2-3 years? Or betting that centralized UPS will be grandfathered in operational facilities?",
+      "For facilities with planned AI/GPU workload deployment (40+kW/rack), are we building separate high-density pods with purpose-built electrical infrastructure (60A/100A, intelligent PDU, liquid cooling), or attempting unified 'all-in-one' data hall design that will force legacy infrastructure to operate at limits?",
+      "For lithium-ion UPS specifications at <5min runtime, what discharge-rate validation are we requiring from battery suppliers to confirm BMS will not trip during worst-case failover? Or defaulting to lead-acid to avoid the risk?",
+      "Is FMP infrastructure in scope for new builds in our jurisdiction, or does AHJ approval uncertainty (no formal code adoption yet) make AC distribution the safer default until hyperscaler standardization forces adoption?",
+      "How are we staging capacity and monitoring design for distributed UPS (rack-level micro-UPS) to ensure hot-swap logistics and real-time BMS telemetry do not become operational liabilities during failover events?"
+    ]
+  },
+  {
+    "agent": "compliance_ahj",
+    "run_date": "2026-03-07",
+    "top_constraints": [
+      {
+        "constraint": "NFPA 855 retroactive application to existing battery installations >70kW with inconsistent AHJ enforcement timelines",
+        "what_ahj_cares_about": "Battery safety standard compliance for stationary energy storage; jurisdictional enforcement already live in LA/NYC but undefined rollout nationally; existing data center UPS systems may be non-compliant without retrofit documentation",
+        "documentation_gap": "No evidence of standardized NFPA 855 compliance audit checklists, retrofit-readiness assessments, or documentation packages for existing installations. No guidance on how to demonstrate compliance for mixed VRLA/lithium deployments or what testing protocols satisfy AHJ inspection.",
+        "how_to_de-risk": "Conduct pre-design NFPA 855 applicability audit (scope, jurisdiction, retrofit triggers) before UPS sizing. Document existing battery specification sheets, discharge curves, and thermal management systems against NFPA 855 design requirements. Prepare BMS shutdown threshold maps and failure-mode analysis for lithium systems. Engage AHJ early (pre-design, pre-permit, pre-install) to establish acceptance criteria and inspection protocols.",
+        "levers": [
+          "L7_standards-mapping",
+          "L6_ahj-early-engagement",
+          "L5_compliance-audit-template"
+        ],
+        "supporting_items": [
+          "46"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "Lithium-ion BMS automatic shutdowns during high-discharge failover events cripple UPS exactly when needed, forcing oversized cabinet purchases",
+        "what_ahj_cares_about": "Reliability and safety of backup power during grid/generator failure. BMS shutdowns that prevent discharge at rated capacity create undisclosed failure modes that fail to meet code-required backup duration and load capacity. Inspectors cannot verify actual failover performance without discharge test data.",
+        "documentation_gap": "No standardized method to document BMS discharge rate thresholds, shutdown behavior, or de-rating curves in UPS specification packages. Manufacturers do not provide commissioning test protocols proving the UPS can discharge at nameplate capacity during failover without BMS intervention. No acceptance criteria for AHJ review of BMS firmware versions or safety settings.",
+        "how_to_de-risk": "Request BMS discharge threshold documentation and firmware version from supplier pre-design. Conduct factory acceptance test (FAT) that includes full-load discharge at target amperage with BMS monitoring and logging. Document actual discharge performance vs. nameplate. Include BMS firmware lock/read-only configuration in commissioning package to prevent mid-life setting changes. Establish field commissioning protocol requiring supervised discharge test with AHJ observation to verify no shutdowns occur at design load.",
+        "levers": [
+          "L6_fat-commissioning-protocol",
+          "L6_bms-transparency-requirement",
+          "L5_discharge-test-acceptance-criteria"
+        ],
+        "supporting_items": [
+          "100"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "40+kW per-rack GPU densities exceed air cooling ceiling (25-40kW) and force simultaneous redesign of power distribution, cooling, and UPS sizing without standardized interoperability guidance",
+        "what_ahj_cares_about": "Electrical code compliance for branch circuits, feeder sizing, and thermal management; cooling infrastructure safety (liquid containment, drain paths); UPS/backup capacity adequate for load at nameplate rating. High-density deployments are non-standard and require custom analysis per NEC 110.3(B) (use in accordance with instructions).",
+        "documentation_gap": "No standardized design checklists for 40+kW racks integrating power, cooling, and backup. Missing guidance on circuit sizing for mixed air/liquid cooling topologies. No AHJ pre-approval pathways for non-standard GPU-dense configurations. Cooling system discharge temperature/flow documentation often disconnected from electrical load analysis, creating inconsistent thermal/electrical de-rating assumptions.",
+        "how_to_de-risk": "Create integrated load/cooling analysis upfront (thermal model + electrical load + UPS duty cycle) stamped by PE. Include cooling system design (rear-door heat exchanger, liquid drain containment, isolation valves) in electrical permit package. Provide rack-by-rack power and thermal budget spreadsheets with de-rating assumptions documented. Request pre-design AHJ review of non-standard density (>20kW/rack) with engineered justification before permitting. Include commissioning protocol for simultaneous power/cooling/UPS performance verification.",
+        "levers": [
+          "L7_integrated-design-standard",
+          "L6_pe-stamped-analysis",
+          "L6_ahj-pre-review-high-density"
+        ],
+        "supporting_items": [
+          "98",
+          "52"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "Distributed rack-level micro UPS architecture eliminates centralized failure domain but requires new commissioning and maintenance documentation paradigm",
+        "what_ahj_cares_about": "Verification that redundancy model remains adequate under distributed topology. Battery replacement procedures must not create unintended outages or bypass safety interlocks. Commissioning evidence must prove distributed UPS maintains required runtime and can sustain full load without cascading failures across racks.",
+        "documentation_gap": "No standardized commissioning checklist for distributed UPS hot-swap procedures, interlock verification, or rack-isolation testing. Missing documentation on how single-rack UPS failure affects adjacent racks (load shedding logic, interconnect topology). No AHJ guidance on how to inspect/approve seconds-long battery replacement procedures vs. traditional hours-long service windows.",
+        "how_to_de-risk": "Develop rack-level UPS commissioning procedure document covering: hot-swap battery insertion/removal without load interruption, interlock testing (power-down on improper seating), load redistribution logic if UPS fails, and runtime verification under nameplate load. Include isolation test procedure proving rack can operate independently on UPS if mains fail. Provide maintenance manual with step-by-step hot-swap process, tools required, and hold-down torque specs. Schedule pre-commissioning AHJ walkthrough to review distributed topology and approve maintenance procedures as alternative to traditional facility-level service events.",
+        "levers": [
+          "L7_distributed-ups-standard",
+          "L6_rack-isolation-test-procedure",
+          "L5_hot-swap-maintenance-manual"
+        ],
+        "supporting_items": [
+          "44"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "constraint": "Rack PDU specification matrix (phase, voltage, amperage, outlet type, rack units) creates design coupling that forces early electrical decisions before load finalization",
+        "what_ahj_cares_about": "Branch circuit capacity and outlet type compliance with NEC 210 (circuits and outlets). Undersized PDUs create overload risk; oversized PDUs waste capital and space. Mixed outlet types within single PDU can lead to mis-plugging and equipment damage.",
+        "documentation_gap": "No standardized PDU specification template or selection flow tied to actual load profiles. Missing guidance on when metered vs. intelligent vs. basic PDUs satisfy code intent vs. marketing differentiation. No documented acceptance criteria for AHJ verification that PDU outlet types match connected equipment plugs.",
+        "how_to_de-risk": "Create load schedule before PDU selection showing amperage per outlet, maximum simultaneous demand per circuit, and outlet type required. Select PDU configuration (phase, volts, total amps, branch circuits, outlet count/type) to match load schedule with documented spare capacity margin (typically 20-30%). Include PDU data sheet and outlet compatibility matrix in permit package. During inspection, verify actual outlet types installed match documentation and no adapter cables are used.",
+        "levers": [
+          "L6_load-schedule-first",
+          "L5_pdu-selection-template",
+          "L5_outlet-compatibility-verification"
+        ],
+        "supporting_items": [
+          "76",
+          "134"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "tensions": [
+      {
+        "tension": "Distributed micro-UPS innovation (hot-swap, seconds-long replacement, reduced energy loss) conflicts with AHJ inspection certainty; traditional facility-level UPS leaves clear audit trail and service windows, distributed topology requires new commissioning evidence and maintenance procedure approval",
+        "why_it_matters": "AWS and other hyperscalers are deploying distributed UPS (item 44) claiming 35% efficiency gains and zero-downtime battery replacement. AHJs have no precedent for approving seconds-long hot-swap procedures or verifying that rack isolation logic prevents cascading failures. Inspectors trained on centralized UPS topologies cannot visually verify distributed redundancy works. This gap will slow or block approval of distributed architectures unless new commissioning standards emerge.",
+        "levers": [
+          "L7_distributed-ups-standard",
+          "L6_ahj-pre-review-novel-topology"
+        ],
+        "supporting_items": [
+          "44",
+          "46"
+        ]
+      },
+      {
+        "tension": "Rapid rack density increases (8.2kW avg, 40+kW for GPU) demand faster design/approval cycles, but NFPA 855 and novel cooling architectures require deeper pre-design AHJ engagement and documentation. Early engagement adds schedule delay upfront but prevents late-stage rework.",
+        "why_it_matters": "Data center operators want to deploy GPU racks in weeks; engineers need months for integrated power/cooling/UPS design and AHJ pre-review. NFPA 855 retroactive enforcement (item 46) forces existing facilities to conduct compliance audits mid-project. Skipping early AHJ engagement saves initial calendar time but creates permit rejection risk and re-design rework that costs more time downstream.",
+        "levers": [
+          "L7_integrated-design-standard",
+          "L6_ahj-pre-review-early",
+          "L6_nfpa-855-audit-upfront"
+        ],
+        "supporting_items": [
+          "46",
+          "98",
+          "52"
+        ]
+      },
+      {
+        "tension": "FMP cost savings at scale (multi-million dollars for 6 MW facility, item 40) may incentivize simplified design that skips traditional AC infrastructure documentation; AHJs unfamiliar with FMP may reject designs lacking familiar AC/UPS/genset architectures",
+        "why_it_matters": "Southland Industries provided PE-stamped cost comparison (item 40) showing FMP infrastructure significantly cheaper than traditional AC for new builds. However, FMP is novel to most AHJs; inspectors trained on legacy AC/UPS topologies may lack expertise to verify FMP safety and reliability claims. Cost incentive pushes adoption, but documentation/approval friction may reverse the savings if re-design is required post-rejection.",
+        "levers": [
+          "L7_fmp-commissioning-standard",
+          "L6_ahj-fmp-education",
+          "L5_fmp-design-package-template"
+        ],
+        "supporting_items": [
+          "40"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "NFPA 855 retroactive enforcement in LA/NYC will create a two-tier approval process: jurisdictions with live enforcement (LA/NYC) will demand pre-design NFPA 855 compliance audits; jurisdictions without enforcement will delay requirements until state/national adoption, creating unpredictable re-work risk for multi-region operators.",
+        "what_evidence_would_support_it": "Documented examples of LA/NYC AHJ rejection of UPS designs lacking NFPA 855 compliance documentation; survey of other AHJs showing no NFPA 855 requirement in permitting checklists; case study of operator forced to retrofit existing battery installations in one jurisdiction but not others.",
+        "supporting_items": [
+          "46"
+        ]
+      },
+      {
+        "hypothesis": "Lithium-ion BMS discharge shutdowns are under-documented in data center UPS specification packages because manufacturers optimize for consumer battery safety, not data center failover performance; this creates hidden de-rating that operators discover only during actual outages or commissioning tests.",
+        "what_evidence_would_support_it": "Comparison of BMS discharge threshold curves across 3+ lithium UPS manufacturers; documentation of at least one data center outage caused by BMS shutdown during failover; survey of data center operators asking whether they've observed unexpected UPS shutdowns during discharge testing or actual backup events.",
+        "supporting_items": [
+          "100"
+        ]
+      },
+      {
+        "hypothesis": "40+kW per-rack GPU deployments will become standard in next 24-36 months (currently 5% of sites per item 52), forcing ~500+ enterprise data centers to undergo simultaneous power/cooling/UPS redesigns; AHJs will lack precedent and consistent approval criteria, creating critical path delays for AI infrastructure projects.",
+        "what_evidence_would_support_it": "Trend data from Uptime Institute or AFCOM showing adoption acceleration of 20+kW racks; documented AHJ permit delays for high-density racks; survey of major data center operators asking about planned GPU rack deployments in next 24 months.",
+        "supporting_items": [
+          "98",
+          "52"
+        ]
+      },
+      {
+        "hypothesis": "Distributed micro-UPS architectures (item 44) will face AHJ rejection or extensive design review delays in jurisdictions with small/resource-constrained building departments; hyperscaler-friendly jurisdictions (CA, VA, TX) will approve first, creating geographic competition advantage.",
+        "what_evidence_would_support_it": "Documentation of AWS/Google/Meta distributed UPS approvals by jurisdiction; survey of AHJs asking about familiarity with distributed UPS; case study of rejection or extended review by resource-constrained AHJ.",
+        "supporting_items": [
+          "44"
+        ]
+      },
+      {
+        "hypothesis": "FMP infrastructure cost savings (item 40) will be cancelled or reversed in 50%+ of projects due to AHJ documentation/approval friction; traditional AC infrastructure will remain default design in conservative jurisdictions despite higher capex.",
+        "what_evidence_would_support_it": "Survey of data center projects that considered FMP and final design choice; documented AHJ rejections citing lack of familiarity with FMP or missing code reference; comparison of total project cost (design, review, rework, inspection labor) between FMP and traditional AC across 3+ projects.",
+        "supporting_items": [
+          "40"
+        ]
+      }
+    ],
+    "original_angles": [
+      {
+        "working_title": "The Hidden Lithium Battery Trap: Why BMS Discharge Shutdowns Fail Data Centers During Outages",
+        "thesis": "Lithium-ion UPS systems are widely specified for data centers without documented discharge rate limits or BMS shutdown thresholds; commissioning tests rarely include full-load discharge verification; when actual outages occur, BMS safety mechanisms trigger automatic shutdowns at exactly the moment backup power is most critical, defeating the purpose of the UPS.",
+        "outline": [
+          "Why BMS shutdown thresholds exist (cell voltage, thermal, current-limiting) and how they differ from VRLA",
+          "Gap in data center commissioning: discharge tests typically 10-30min at reduced load, not nameplate load",
+          "Three failure modes: (1) BMS shutdown during failover, (2) cascading cell failures from overdischarge, (3) undersizing forcing operators to buy excess cabinet capacity",
+          "How to detect risk pre-installation: request BMS firmware spec, discharge curves, and thermal management design from supplier",
+          "Commissioning fix: mandate full-load discharge test (FAT) with BMS logging; acceptance criteria must show zero shutdowns at nameplate amperage",
+          "AHJ approval risk: inspectors cannot verify BMS safety settings visually; need documented firmware lock and discharge test report in permit package"
+        ],
+        "must_cite_items": [
+          "100",
+          "46"
+        ],
+        "missing_evidence_to_find": [
+          "Documented data center outage caused by BMS shutdown during failover",
+          "Comparison of BMS discharge thresholds across 3+ lithium UPS manufacturers",
+          "Case study of UPS oversizing due to BMS current limiting (actual amperage de-rating vs. nameplate)"
+        ]
+      },
+      {
+        "working_title": "NFPA 855 Enforcement Patchwork: Why Retroactive Battery Code Is Stalling Data Center Projects",
+        "thesis": "NFPA 855 battery safety standard is being enforced retroactively in LA/NYC but not nationally; data center operators cannot determine if existing UPS installations are compliant without jurisdiction-specific audit; ambiguity is delaying decisions on whether to retrofit, replace, or leave systems as-is.",
+        "outline": [
+          "What NFPA 855 requires (design, testing, thermal management, BMS safety) for installations >70kW",
+          "Why retroactive application creates risk: existing systems installed under old codes may not meet new requirements without retrofit",
+          "Geographic enforcement patchwork: LA/NYC enforcing now; 48 states have no clear timeline; multi-region operators cannot design to single standard",
+          "Documentation gap: no standardized NFPA 855 compliance audit checklist or retrofit-readiness assessment template",
+          "How early AHJ engagement de-risks: pre-design applicability analysis for target jurisdiction; retrofit cost estimation if existing systems are non-compliant",
+          "Commissioning evidence required: BMS firmware, thermal design, discharge curve validation against NFPA 855 safety thresholds"
+        ],
+        "must_cite_items": [
+          "46"
+        ],
+        "missing_evidence_to_find": [
+          "Documented LA/NYC AHJ permit rejection for non-NFPA-855-compliant UPS systems",
+          "Survey of other major AHJs (SF, Boston, Chicago) showing planned NFPA 855 enforcement timelines",
+          "Case study of data center operator forced to retrofit existing battery installation in one jurisdiction"
+        ]
+      },
+      {
+        "working_title": "The 40kW Rack Redesign Wave: How GPU Densities Are Forcing Simultaneous Power/Cooling/UPS Overhauls Without Integrated Standards",
+        "thesis": "GPU-driven AI workloads are pushing individual rack densities from 8.2kW average to 20-40kW per rack, exceeding air cooling limits; data centers must simultaneously redesign electrical distribution, cooling infrastructure, and UPS/backup systems; AHJs lack precedent and integrated design standards for high-density configurations.",
+        "outline": [
+          "Density trend data: 8.2kW avg in 2020, now 20-40kW for AI/HPC, 5% of sites already >40kW per item 52",
+          "Why air cooling ceiling matters: rear-door heat exchangers max at 25-40kW; liquid cooling required for >40kW but introduces containment/drain complexity",
+          "The redesign coupling problem: circuit sizing depends on power load, feeder capacity depends on simultaneous demand, UPS capacity depends on runtime + load, cooling system depends on thermal rejection, all must be solved together",
+          "AHJ approval gaps: no standardized high-density design checklist; inspectors unfamiliar with liquid-cooled rack topologies; missing guidance on branch circuit de-rating with non-standard cooling",
+          "De-risking path: integrated load/cooling analysis (PE-stamped) + pre-design AHJ review for non-standard density + commissioning protocol proving power/cooling/UPS performance simultaneously",
+          "Cost impact: undersized design requires mid-life upgrades (high cost); oversized design wastes capital; getting it right upfront requires deep design investment and AHJ engagement"
+        ],
+        "must_cite_items": [
+          "98",
+          "52"
+        ],
+        "missing_evidence_to_find": [
+          "Documented AHJ permit delay or rejection for >20kW/rack density configuration",
+          "Cost comparison: integrated upfront design vs. mid-life upgrade cost for undersized facilities",
+          "Survey of data center operators planning GPU rack deployments in next 24 months"
+        ]
+      },
+      {
+        "working_title": "Distributed UPS Paradox: Why Hyperscaler Efficiency Gains Are Creating AHJ Approval Friction",
+        "thesis": "AWS and other hyperscalers are deploying distributed rack-level micro UPS units (item 44) claiming 35% energy efficiency gains and zero-downtime maintenance; this novel topology conflicts with AHJ inspection procedures built for centralized facility-level UPS; commissioning evidence and maintenance procedure approval will become critical path items.",
+        "outline": [
+          "Distributed UPS benefits: eliminates single point of failure, reduces AC/DC/voltage conversion steps, enables hot-swap battery replacement in seconds",
+          "Why AHJs struggle: traditional inspection relies on visual verification of centralized UPS and single facility shutdown; distributed topology requires proof of rack isolation logic and cascading failure prevention",
+          "Documentation gaps: no standardized commissioning protocol for distributed UPS; missing guidance on how to verify rack-isolation interlock function; no AHJ acceptance criteria for hot-swap maintenance procedures",
+          "Commissioning requirements: FAT proving each rack UPS can sustain nameplate load independently; field test of rack isolation (mains failure = rack operates on UPS alone); supervised maintenance procedure demonstrating seconds-long battery swap without load interruption",
+          "AHJ approval timeline risk: early adopters (hyperscalers in CA/VA/TX) will receive approvals first; conservative jurisdictions will default to traditional topology, creating competitive advantage for friendly AHJs",
+          "Standards gap: need NFPA/IEEE distributed UPS commissioning standard to accelerate approval beyond hyperscaler-specific designs"
+        ],
+        "must_cite_items": [
+          "44",
+          "46"
+        ],
+        "missing_evidence_to_find": [
+          "Documented AWS/Google/Meta distributed UPS approvals by jurisdiction and approval timeline",
+          "AHJ rejection or extended review of distributed UPS design citing lack of precedent",
+          "Commissioning procedure for rack isolation testing (standard protocol)"
+        ]
+      }
+    ],
+    "questions_for_owner": [
+      "Which data center AHJs are currently enforcing NFPA 855 battery compliance, and what documentation/testing is required for approval? (Item 46 shows LA/NYC enforcing; unclear what compliance audit process looks like or what acceptance criteria AHJs use.)",
+      "Have you observed instances where lithium-ion UPS BMS discharge thresholds caused actual shutdowns during failover events or commissioning tests in data centers? What was the operator's response? (Item 100 claims this happens but no documented case studies.)",
+      "What is the timeline and approval path for distributed micro-UPS architectures in major data center jurisdictions (CA, VA, TX, AZ, IL)? Are hyperscalers getting quick approvals while enterprise data centers face delays? (Item 44 shows AWS deploying; unclear if other operators can replicate approval easily.)",
+      "For the 6 MW FMP vs. AC comparison from Southland Industries (item 40), what was the total project cost including design, AHJ review, commissioning, and inspection labor? Did the multi-million dollar capex savings hold up post-commissioning or did AHJ unfamiliarity cause re-design costs? (Item 40 cites savings but no total project cost or AHJ friction detail.)",
+      "How many enterprise data center operators have experienced unexpected UPS capacity reduction (de-rating) due to undersized PDU branch circuits, cooling infrastructure, or BMS discharge limits in the past 24 months? (Items 98, 100, 76 suggest coupling risks; no survey data on actual operator pain.)"
+    ]
+  },
+  {
+    "agent": "installer_electrical_contractor",
+    "run_date": "2026-03-07",
+    "top_constraints": [
+      {
+        "constraint": "NFPA 855 retrofit compliance for existing >70kW battery installations creates immediate rework scope and AHJ friction in operational data centers",
+        "why_now": "Standard already enforced in LA/NYC; retroactive application forces compliance on live facilities without design-phase planning windows",
+        "who_feels_it": "Electrical contractors executing compliance retrofits; facilities managers managing code violations; data center operators facing shutdown risk during battery system modifications",
+        "implication_for_design": "New UPS designs must front-load NFPA 855 testing protocols and isolation requirements; retrofit scope expands from battery swap to system re-certification, disconnection sequencing, and potential rerouting of DC circuits if isolation distances change. Commissioning timeline extends; hot-swap assumptions may not apply.",
+        "levers": [
+          "Design for compliance pathways upfront (isolation distances, ventilation, testing clearances)",
+          "Sequence battery work when facility can tolerate UPS offline or accept single-string operation",
+          "Pre-wire isolation disconnects and monitoring points before retrofit trigger"
+        ],
+        "supporting_items": [
+          "46"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "GPU rack densities (40+kW) exceed air cooling + traditional power distribution limits, forcing simultaneous overhaul of cooling, electrical risers, and UPS architecture",
+        "why_now": "AI workloads pushing 5% of sites to >40kW/rack; air cooling caps at 25-40kW even with containment. GPU racks require rear-door heat exchangers and higher amperage distribution.",
+        "who_feels_it": "Electrical contractors routing new riser capacity; MEP coordinating cooling + power paths; facilities managers allocating floor space vs. revenue IT load; UPS sizing teams determining backup capacity",
+        "implication_for_design": "Cannot rely on historical 8kW-per-rack assumptions for circuit sizing, PDU amperage, or UPS discharge curves. High-density racks need dedicated 60A/100A circuits rather than shared branch distribution. Cooling infrastructure changes (liquid loops, pump power) add auxiliary electrical load to account for in UPS runtime calcs. Vertical pathways (cable tray, conduit, wireways) must be oversized or replaced; horizontal routing in ceiling must shift to accommodate larger conduit bundles.",
+        "levers": [
+          "Pre-survey facility for available riser capacity before committing to 40+kW rack density layouts",
+          "Specify PDU branch amperage at design stage; 60A/100A circuits vs. standard 20A/30A changes panel layout and disconnects",
+          "Account for cooling system auxiliary power (pumps, blowers) in UPS load calculations\u2014cannot be ignored as secondary load"
+        ],
+        "supporting_items": [
+          "98",
+          "52"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "Lithium-ion UPS BMS automatic shutdowns at high discharge rates cripple failover when needed most; single failed cell kills entire battery string, forcing oversized deployments",
+        "why_now": "Industry shift to <5-min UPS runtimes (targeting 3-min) creates high discharge-rate environment where lithium BMS thresholds trigger; generators now expected to start reliably within 180 seconds",
+        "who_feels_it": "UPS specification teams purchasing excess cabinet capacity (capex waste); electrical contractors installing/commissioning oversized battery strings in space-constrained facilities; facilities managers accepting reduced effective runtime if single cell fails",
+        "implication_for_design": "Cannot assume lithium-ion UPS will deliver rated kW during peak failover transient. Must specify BMS discharge-rate limits and verify they align with generator failover power requirement. Single-cell failure mode requires redundant strings (parallel battery packs) rather than single oversized string. This increases connection complexity (cell balancing, isolation breakers between strings), commissioning touch points, and maintenance risk. Lead-acid alternative requires larger footprint but more predictable discharge curve\u2014space trade-off becomes explicit design decision.",
+        "levers": [
+          "Require BMS discharge-rate spec from UPS vendor; test at commissioning under actual failover load (not nameplate capacity)",
+          "Design redundant battery strings with isolation breakers between them; increases rework risk if one string fails during operation",
+          "Right-size for observed peak failover draw, not nameplate\u2014account for 15-20% oversizing if lithium BMS creates safe-shutdown margin"
+        ],
+        "supporting_items": [
+          "100"
+        ],
+        "confidence": "High"
+      },
+      {
+        "constraint": "Distributed rack-level UPS architecture eliminates facility-scale battery footprint but shifts maintenance from hours-long events to seconds-long hot-swaps, changing commissioning and rework procedures",
+        "why_now": "AWS deployed micro UPS at rack level; 35% efficiency gain and seconds-long battery replacement reduce maintenance window risk and conversion loss",
+        "who_feels_it": "Electrical contractors commissioning rack-level UPS units (new touch points per rack, not one central system); facilities managers retraining maintenance on hot-swap procedures; data center operators accepting single-rack failure domain instead of hall-wide outage risk",
+        "implication_for_design": "Power distribution design must isolate rack UPS circuits from central UPS. Commissioning expands from one UPS acceptance test to N tests (one per high-value rack). Rework risk increases: if micro UPS battery fails, can swap in seconds, but misalignment of internal connectors or polarity errors affect single rack, not hall. Requires new monitoring/telemetry per rack to detect UPS state. Integration with central monitoring systems becomes mandatory (not optional). Voltage/frequency coordination between distributed UPS units and central AC bus must be verified.",
+        "levers": [
+          "Plan for per-rack commissioning and acceptance testing; budget time-on-ladder/time-in-rack for each unit, not amortized",
+          "Specify hot-swap battery connector polarity protection and visual labeling\u2014single misplug kills single rack vs. entire hall",
+          "Require rack-level monitoring integration into facility-wide DCIM/UPS management before cut-over; do not assume plug-and-play"
+        ],
+        "supporting_items": [
+          "44"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "constraint": "Rack PDU selection complexity (phases, voltage, amps, branch circuits, outlet/socket types, rack units) must lock in at design stage; field substitution risks incompatibility with server/UPS power input configurations",
+        "why_now": "High-density racks with 60A/100A distribution requirements force higher-amperage PDU choices; custom BTO/ETO PDU lead times and testing protocols extend project schedules",
+        "who_feels_it": "Electrical contractors installing PDUs in cabinets (orientation, mounting, cable routing constraints); procurement teams managing long lead times for intelligent/custom PDUs; commissioning teams verifying outlet load balance and phase configuration matches server requirements",
+        "implication_for_design": "PDU specification cannot be deferred to cabinet assembly phase. Must verify available socket/plug types match server power distribution units (PDU input vs. server PDU output compatibility). Single-phase vs. three-phase choice affects power density (3x advantage claimed in item 134 snippet, but detail unverifiable). Branch circuit count and amperage per circuit limit oversubscription ratios. Metered/switched/intelligent PDU levels require additional copper for monitoring/control circuits\u2014plan conduit/wireways accordingly.",
+        "levers": [
+          "Lock PDU spec (phases, voltage, amps, outlet count/type) before cabinet design approval; do not allow IT to change server power input config post-award",
+          "Specify monitoring/control requirements upfront (metered vs. intelligent); adds installation time for sensor cabling and panel connections",
+          "Verify BTO/ETO lead times early; may require 16-20 week procurement cycle if custom socket types or branch configs needed"
+        ],
+        "supporting_items": [
+          "76",
+          "134"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "tensions": [
+      {
+        "tension": "Distributed rack-level UPS (item 44) vs. centralized UPS with lithium-ion oversizing (item 100)",
+        "why_it_matters": "Item 44 claims 35% efficiency gain and eliminates facility-scale failure domain by moving UPS to rack level; Item 100 shows lithium-ion BMS discharge-rate limits force oversizing anyway. Tension: distributed UPS avoids oversizing penalty but increases commissioning touch points (per-rack testing, monitoring integration); centralized UPS simplifies one big test but requires purchasing excess capacity due to BMS shutdown risk. Space footprint, maintenance procedures, and capital cost diverge sharply. Which topology is actually lower total-cost-of-ownership for a 6MW facility?",
+        "levers": [
+          "Model total capex (UPS hardware + monitoring) for both architectures; add commissioning/rework labor hours",
+          "Specify discharge-rate requirements in lithium UPS contract and test at acceptance; if BMS shutdowns confirmed, delta cost to distributed UPS may justify retrofit",
+          "Pilot distributed UPS on non-critical rack row first; measure actual maintenance labor and failure rates before full deployment"
+        ],
+        "supporting_items": [
+          "44",
+          "100"
+        ]
+      },
+      {
+        "tension": "Lead-acid UPS footprint penalty (item 100) vs. lithium-ion discharge-rate shutdown risk (item 100) vs. distributed micro UPS (item 44) architecture",
+        "why_it_matters": "Item 100 says lead-acid requires oversizing due to low energy density, taking up more cabinet space in revenue-constrained data center; lithium-ion BMS can shut down at peak failover, also forcing oversizing; item 44 proposes distributed UPS at rack level as escape hatch. But distributed UPS increases commissioning complexity and per-rack monitoring cost. Facilities managers must choose between three bad options: (A) bloat lead-acid footprint, (B) accept lithium shutdown risk and oversizing, or (C) redesign entire UPS architecture and commissioning workflow. No clear winner.",
+        "levers": [
+          "Quantify actual BMS shutdown probability under your facility's failover load profile; model cost/risk of single-string lithium vs. redundant strings",
+          "Calculate per-rack capex for distributed UPS (hardware + monitoring + commissioning labor) vs. central lithium with oversizing; may show distributed cheaper at scale",
+          "Negotiate BMS firmware updates with lithium UPS vendor to relax discharge-rate thresholds; may unlock smaller, cheaper batteries"
+        ],
+        "supporting_items": [
+          "100",
+          "44"
+        ]
+      },
+      {
+        "tension": "AI/GPU rack densities 40+kW (item 98, 52) vs. existing electrical infrastructure designed for 8kW average (item 52)",
+        "why_it_matters": "Item 52 shows 68% of data centers experienced rack density increases; item 98 shows GPU racks are 5x+ higher than average 8.2kW baseline. Existing facilities face binary choice: (A) upgrade risers, panels, and UPS to handle 40kW racks (major capex, facility downtime, rework risk), or (B) segregate GPU workloads into new high-density pods with dedicated infrastructure (layout inflexibility, stranded capacity in old pods). Item 52 notes 26% of respondents called density increases 'significant'\u2014suggests not all facilities are prepared with riser headroom.",
+        "levers": [
+          "Audit available riser capacity (conduit size, tray fill %) before committing to GPU workload density; overcall capacity by 1.5x during initial design phase",
+          "Segregate high-density racks onto dedicated circuits/PDUs; do not share branch distribution with standard-density equipment",
+          "Phase GPU workload deployment in waves; use first wave to validate electrical infrastructure before full deployment"
+        ],
+        "supporting_items": [
+          "98",
+          "52"
+        ]
+      },
+      {
+        "tension": "NFPA 855 retrofit compliance (item 46) vs. distributed UPS architecture (item 44) in existing facilities",
+        "why_it_matters": "Item 46 says NFPA 855 retroactively applied to existing >70kW battery installations in LA/NYC. Item 44 proposes distributed micro UPS as forward-looking architecture. Existing data centers with centralized lithium-ion UPS may face two compliance paths: (A) retrofit existing UPS to meet NFPA 855 isolation/testing requirements (expensive, disrupts operations), or (B) parallel-deploy distributed rack UPS and decommission central UPS (capital heavy, long ramp-up). No retrofit-in-place path that avoids major work.",
+        "levers": [
+          "Early engagement with AHJ on NFPA 855 retrofit timeline; may negotiate phase-in period if retrofitting entire fleet",
+          "Model cost/schedule of central UPS retrofit vs. distributed UPS phased deployment; which meets compliance faster without facility shutdown",
+          "Require NFPA 855 compliance in all new UPS designs even if not yet mandated locally; avoid future retrofit pressure"
+        ],
+        "supporting_items": [
+          "46",
+          "44"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Electrical contractors currently underbidding data center PDU/UPS installation work because they do not account for per-rack commissioning time, BMS discharge-rate testing, and lithium-ion redundant-string complexity. Actual labor will exceed estimates by 20-40%.",
+        "what_would_change_my_mind": "Detailed time-tracking data from 5+ data center projects showing actual vs. estimated labor hours for UPS commissioning and lithium BMS testing. If actual <20% over estimate, hypothesis false.",
+        "supporting_items": [
+          "100",
+          "44"
+        ]
+      },
+      {
+        "hypothesis": "Data centers retrofitting to support GPU workloads (40+kW racks) will discover insufficient riser capacity in 60% of cases, forcing emergency upgrade projects mid-deployment.",
+        "what_would_change_my_mind": "Survey of 20+ data center facilities upgrading to GPU workloads, documenting pre-deployment riser audits and actual capacity constraints encountered. If <40% needed riser upgrades, hypothesis false.",
+        "supporting_items": [
+          "98",
+          "52"
+        ]
+      },
+      {
+        "hypothesis": "Lithium-ion UPS systems specified without verified BMS discharge-rate testing will experience unexpected shutdowns or reduced runtime during failover in 30% of deployments.",
+        "what_would_change_my_mind": "Commissioning acceptance test reports from 50+ data centers showing BMS behavior under actual failover transients (not vendor nameplate). If <15% show discharge-rate-induced shutdowns, hypothesis false.",
+        "supporting_items": [
+          "100"
+        ]
+      },
+      {
+        "hypothesis": "Facilities with NFPA 855-compliant new UPS installations will complete commissioning 15-25% faster than those retrofitting existing systems to compliance, because isolation pathways and disconnect sequencing are built-in.",
+        "what_would_change_my_mind": "Project timelines comparing new-build NFPA 855 UPS commissioning vs. retrofit NFPA 855 work on same facility type. If retrofit times are \u226410% longer, hypothesis false.",
+        "supporting_items": [
+          "46"
+        ]
+      },
+      {
+        "hypothesis": "Distributed rack-level UPS installations will require 3-5x more commissioning labor per watt than centralized UPS, offsetting 35% efficiency gain claimed in item 44.",
+        "what_would_change_my_mind": "Complete labor-hour breakdown from AWS or other operator deploying distributed UPS at scale, including per-rack commissioning, monitoring integration, and acceptance testing. If labor premium <50% over centralized, hypothesis false.",
+        "supporting_items": [
+          "44"
+        ]
+      }
+    ],
+    "original_angles": [
+      {
+        "working_title": "The NFPA 855 Retrofit Wave: Why Compliance Rework Will Dominate Data Center Electrical Work in 2026-2027",
+        "thesis": "NFPA 855 retroactive enforcement in major markets (LA, NYC) will force compliance retrofits on >500 existing data centers with >70kW battery systems. Electrical contractors underestimating retrofit scope (isolation pathway rewiring, testing protocols, AHJ coordination) face margin compression and schedule overruns. Facilities with poor battery room access will face 3-6 month outage windows or distributed UPS alternatives.",
+        "outline": [
+          "Retroactive enforcement scope: how many US data centers are in-scope (>70kW batteries, in LA/NYC or following their lead)",
+          "Retrofit scope inflation: isolation distance requirements, disconnect sequencing, testing protocols beyond initial UPS swap estimate",
+          "Facility access constraints: battery room pathways, ceiling/conduit routing, and outage windows forcing off-shift/weekend labor premiums",
+          "Distributed UPS as escape hatch: cost/schedule comparison for phased rack UPS deployment vs. central UPS retrofit"
+        ],
+        "must_cite_items": [
+          "46"
+        ],
+        "missing_evidence_to_find": [
+          "Estimated count of US data centers with >70kW lithium-ion UPS systems in NFPA 855 enforcement zones",
+          "Sample NFPA 855 retrofit scopes from 2-3 completed projects: isolation pathways added, rerouting required, testing protocols, labor hours",
+          "AHJ guidance documents from LA, NYC on retrofit timelines and phase-in provisions for existing facilities",
+          "Cost/schedule case study: retrofit existing centralized UPS to NFPA 855 vs. parallel deploy distributed UPS and decommission central system"
+        ]
+      },
+      {
+        "working_title": "GPU Workload Arrival Creates Electrical Riser Capacity Crisis: Why Pre-Deployment Audits Will Become Mandatory",
+        "thesis": "AI/GPU workloads are compressing deployment timelines and forcing 40+kW densities into facilities designed for 8kW average. Electrical contractors tasked with supporting GPU cabinet rollouts will discover insufficient riser capacity (conduit size, tray fill, panel amperage) in 50%+ of cases, triggering emergency rerouting projects. Pre-deployment riser audits will become non-negotiable change-order triggers.",
+        "outline": [
+          "Density jump quantified: baseline 8.2kW average (item 52) vs. 40+kW GPU racks; why standard riser designs fail",
+          "Riser capacity audit findings: what contractors are actually discovering when measuring available conduit/tray/panel capacity in existing facilities",
+          "Emergency rerouting cost/schedule: when conduit undersized, what paths contractors take (parallel conduit runs, wall routing, floor routing) and labor impact",
+          "Contractual implications: why riser audits must precede GPU workload SOWs; change-order friction"
+        ],
+        "must_cite_items": [
+          "98",
+          "52"
+        ],
+        "missing_evidence_to_find": [
+          "Sample riser capacity audit data: typical conduit sizes in 5-year-old data centers, actual fill percentages, available headroom",
+          "Case study from 2-3 facilities deploying GPU workloads: what riser constraints were discovered, what rerouting was required, labor hours and cost overruns",
+          "Technical specification for 40kW rack power distribution: total amperage, circuit sizing, conduit/tray requirements compared to baseline 8kW rack",
+          "Electrical contractor survey: what percentage encountered riser constraints during recent GPU workload deployments"
+        ]
+      },
+      {
+        "working_title": "Lithium BMS Discharge-Rate Traps: Why UPS Commissioning Acceptance Tests Must Include Failover Load Transient Verification",
+        "thesis": "Lithium-ion UPS systems are being specified without verified BMS discharge-rate limits, creating latent failure risk during generator failover. Item 100 documents BMS automatic shutdowns when discharge exceeds safe thresholds\u2014exactly when UPS is needed. Electrical contractors must add failover transient testing to acceptance procedures; vendors must disclose BMS limits upfront or face retrofit retrofits.",
+        "outline": [
+          "BMS physics and shutdown triggers: why lithium discharge-rate limits exist, what threshold values are typical, when they activate",
+          "Failover load profiles: typical peak transients during generator start, how quickly they exceed conservative BMS thresholds",
+          "Oversizing as stopgap: why purchasing excess capacity (smaller discharge rate per cell) compensates for BMS limits, wasting capex",
+          "Commissioning gap: standard UPS acceptance tests do not include BMS discharge-rate verification; recommend new procedure"
+        ],
+        "must_cite_items": [
+          "100"
+        ],
+        "missing_evidence_to_find": [
+          "Lithium UPS BMS discharge-rate specifications from 3-4 major vendors (Eaton, Schneider, Vertiv, etc.): actual safe thresholds, units, shutdown behavior",
+          "Measurement data from 2-3 data center failover events: actual peak discharge current during generator start transient, whether it exceeded BMS thresholds",
+          "UPS acceptance test procedures from 5+ facilities: do they include BMS discharge-rate verification, or only voltage/frequency/runtime tests",
+          "Cost data: capex delta for oversized lithium battery (smaller kW per string) vs. right-sized battery with BMS shutdown risk"
+        ]
+      },
+      {
+        "working_title": "Distributed Micro UPS Economics: When Per-Rack Architecture Beats Centralized Oversizing (And When It Doesn't)",
+        "thesis": "Distributed rack-level UPS (item 44) offers 35% efficiency gain and eliminates facility-scale failure domains, but increases commissioning labor and per-rack monitoring costs. For facilities facing lithium-ion oversizing penalties (item 100) or NFPA 855 retrofit scope (item 46), distributed UPS may be lower total-cost-of-ownership despite higher per-unit hardware costs. Break-even analysis depends on facility size, rack density, and retrofit vs. new-build context.",
+        "outline": [
+          "Architecture comparison: centralized UPS with lithium oversizing vs. distributed rack UPS, efficiency and failure domain implications",
+          "Cost model: upfront capex (hardware), commissioning labor (per-unit testing), ongoing monitoring/telemetry, rework risk",
+          "When distributed wins: retrofit scenarios where central UPS retrofit is disruptive; facilities with space constraints forcing oversizing penalties",
+          "When centralized wins: new builds with adequate space; lower rack density environments where oversizing penalty is acceptable"
+        ],
+        "must_cite_items": [
+          "44",
+          "100"
+        ],
+        "missing_evidence_to_find": [
+          "AWS distributed UPS cost/labor breakdown: hardware cost per unit, commissioning labor per rack, monitoring integration complexity",
+          "Commissioning labor comparison: centralized 6MW UPS one-time acceptance test vs. distributed UPS with N per-rack tests; actual hours",
+          "Facility case study: retrofit scenario comparing central UPS NFPA 855 retrofit cost/schedule vs. distributed UPS phased deployment cost/schedule",
+          "Lithium oversizing capex penalty: cost delta between right-sized battery and oversized battery forced by BMS discharge-rate limits"
+        ]
+      }
+    ],
+    "questions_for_owner": [
+      "What is your current data center's average rack density (kW/rack)? Have you experienced or planned GPU/AI workload deployments? If yes, what riser capacity audits have been completed, and what constraints were discovered?",
+      "If you have >70kW lithium-ion UPS systems in your facilities, have you been notified of NFPA 855 compliance requirements by your AHJ? What retrofit scope are you planning or currently executing\u2014isolation distances, testing protocols, commissioning timeline?",
+      "For existing UPS acceptance tests, are BMS discharge-rate limits verified under actual failover transients, or only under static load tests? Has your facility experienced unexpected UPS shutdowns or runtime reduction during generator failover events?",
+      "If you are considering distributed rack-level UPS architecture (micro UPS per rack vs. centralized), what trade-off analysis has been done on commissioning labor, per-rack monitoring costs, and failure domain risk vs. 35% efficiency gain claimed?",
+      "What electrical riser capacity headroom exists in your facility\u2014conduit sizes, tray fill percentages, panel amperage availability? If you deployed a 40kW GPU rack tomorrow, what rerouting or emergency upgrades would be required?"
+    ]
+  }
+]
