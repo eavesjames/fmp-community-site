@@ -2,22 +2,8 @@
 
 {{- $allPulse := where site.RegularPages "Section" "pulse" }}
 
-{{- /* Sort: source_date desc first, then undated by .Date desc */ -}}
-{{- $withDate := slice }}
-{{- $noDate   := slice }}
-{{- range $allPulse }}
-  {{- if isset .Params "source_date" }}
-    {{- $withDate = $withDate | append . }}
-  {{- else }}
-    {{- $noDate = $noDate | append . }}
-  {{- end }}
-{{- end }}
-{{- $withDateSorted := sort $withDate "Params.source_date" "desc" }}
-{{- $noDateSorted   := $noDate.ByDate.Reverse }}
-{{- $sorted := $withDateSorted }}
-{{- range $noDateSorted }}
-  {{- $sorted = $sorted | append . }}
-{{- end }}
+{{- /* Sort by discovery date (.Date from filename prefix) desc */ -}}
+{{- $sorted := $allPulse.ByDate.Reverse }}
 
 {{- $sections := slice
   (dict "key" "edge-power-ups"           "label" "Edge Infrastructure Power &amp; UPS")
@@ -25,8 +11,8 @@
   (dict "key" "building-electrification" "label" "Building Electrification / Decarbonization")
 }}
 
-{{- $cutoffDate := now.AddDate 0 0 -7 }}
-{{- $cutoffStr  := $cutoffDate.Format "2006-01-02" }}
+{{- /* Cutoff = 14 days ago based on discovery date, not source publish date */ -}}
+{{- $cutoffDate := now.AddDate 0 0 -14 }}
 
 <div class="rcp-home">
 
@@ -68,7 +54,7 @@
       {{- $key   := .key }}
       {{- $label := .label }}
       {{- $allItems    := where $sorted "Params.vertical" $key }}
-      {{- $recentItems := where $allItems "Params.source_date" "ge" $cutoffStr }}
+      {{- $recentItems := where $allItems ".Date" "ge" $cutoffDate }}
       {{- $items := first 6 $recentItems }}
       <div class="rcp-vertical-section">
         <h3 class="rcp-vertical-title">
@@ -80,7 +66,7 @@
           {{- end }}
         {{- else }}
           {{- if $allItems }}
-            <p class="rcp-empty">No updates in the last 7 days — <a href="/verticals/{{ $key }}/">see recent →</a></p>
+            <p class="rcp-empty">No updates in the last 14 days — <a href="/verticals/{{ $key }}/">see recent →</a></p>
           {{- else }}
             <p class="rcp-empty">Items coming soon.</p>
           {{- end }}
