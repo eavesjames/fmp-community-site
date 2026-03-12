@@ -106,52 +106,88 @@ def _angle_slug(working_title: str, date: str) -> str:
     return f"{date}-{slug}"
 
 
-def _write_insight_draft(angle: dict, angle_idx: int, date: str, items_by_id: dict) -> str:
+def _match_composite(angle: dict, composite_insights: list) -> dict:
+    """Find the composite insight most relevant to this angle by shared item IDs."""
+    if not composite_insights:
+        return {}
+    must_cite = set(str(x) for x in angle.get("must_cite_items", []))
+    best, best_score = {}, -1
+    for ci in composite_insights:
+        supporting = set(str(x) for x in ci.get("supporting_items", []))
+        score = len(must_cite & supporting)
+        if score > best_score:
+            best_score, best = score, ci
+    return best
+
+
+def _write_insight_draft(
+    angle: dict,
+    angle_idx: int,
+    date: str,
+    items_by_id: dict,
+    composite_insights: list = None,
+) -> str:
     """
-    Write a draft markdown file for one ranked_original_angle.
+    Write a published analysis article for one ranked_original_angle.
+    Writes to content/analysis/ with draft: false so it appears on /analysis/ immediately.
     Returns the relative path (from project root) of the file.
     """
-    insights_dir = PROJECT_ROOT / "content" / "insights"
-    insights_dir.mkdir(parents=True, exist_ok=True)
+    analysis_dir = PROJECT_ROOT / "content" / "analysis"
+    analysis_dir.mkdir(parents=True, exist_ok=True)
 
     working_title = angle.get("working_title", f"Insight {angle_idx + 1}")
     slug = _angle_slug(working_title, date)
     insight_id = angle.get("insight_id") or f"{date}-A{angle_idx + 1:02d}"
 
-    # Build must-cite item list
+    # Pull richer metadata from the matching composite insight
+    composite = _match_composite(angle, composite_insights or [])
+
+    why_it_is_new = (
+        angle.get("why_it_is_new")
+        or composite.get("why_it_is_new")
+        or composite.get("new_perspective_from_disagreement")
+        or ""
+    )
+    who_cares_raw = angle.get("who_cares") or composite.get("who_cares") or []
+    if isinstance(who_cares_raw, list):
+        who_cares = ", ".join(who_cares_raw)
+    else:
+        who_cares = str(who_cares_raw)
+
+    levers    = angle.get("levers")    or composite.get("levers", [])
+    verticals = angle.get("which_verticals") or composite.get("which_verticals", [])
+    confidence = angle.get("confidence") or composite.get("confidence", "")
+
+    levers_yaml   = json.dumps(levers)
+    verticals_yaml = json.dumps(verticals)
+    safe_title    = working_title.replace('"', '\\"')
+
+    # Must-cite items
     must_cite = angle.get("must_cite_items", [])
     cite_lines = []
     for item_id in must_cite:
         item = items_by_id.get(item_id) or items_by_id.get(str(item_id))
-        if item:
-            cite_lines.append(f"- item {item_id}: {item.get('title', '')}")
-        else:
-            cite_lines.append(f"- item {item_id}")
-
+        cite_lines.append(
+            f"- item {item_id}: {item.get('title', '')}" if item else f"- item {item_id}"
+        )
     must_cite_md = "\n".join(cite_lines) if cite_lines else "_None specified_"
 
-    # Recommended questions
+    # Outline
+    outline = angle.get("outline", [])
+    outline_md = "\n".join(f"{i+1}. {h}" for i, h in enumerate(outline)) if outline else "_See thesis above._"
+
+    # Questions and gaps
     questions = angle.get("recommended_owner_questions", [])
     questions_md = "\n".join(f"- {q}" for q in questions) if questions else "_None_"
-
-    # Evidence gaps
     missing = angle.get("missing_evidence_to_find", [])
     missing_md = "\n".join(f"- {m}" for m in missing) if missing else "_None_"
-
-    levers = angle.get("levers", [])
-    levers_yaml = json.dumps(levers)
-    who_cares = angle.get("who_cares", "")
-    verticals = angle.get("which_verticals", [])
-    verticals_yaml = json.dumps(verticals)
-    confidence = angle.get("confidence", "")
-    safe_title = working_title.replace('"', '\\"')
 
     content = f"""---
 title: "{safe_title}"
 date: {date}
-draft: true
+draft: false
+type: analysis
 insight_id: "{insight_id}"
-status: "DRAFT"
 levers: {levers_yaml}
 which_verticals: {verticals_yaml}
 confidence: "{confidence}"
@@ -160,21 +196,25 @@ must_cite_items: {json.dumps(must_cite)}
 
 ## Thesis
 
-{angle.get("thesis", "_Add thesis here._")}
+{angle.get("thesis", "")}
 
-## Why this is new
+## Why this matters now
 
-{angle.get("why_it_is_new", "_Explain why this angle is original._")}
+{why_it_is_new or "_Analysis pending._"}
 
-## Who cares
+## Who should read this
 
-{who_cares or "_Specify target audience._"}
+{who_cares or "Data center operators, MEP engineers, and facilities managers evaluating power distribution upgrades."}
 
-## Recommended questions to research
+## Article outline
+
+{outline_md}
+
+## Key questions for practitioners
 
 {questions_md}
 
-## Evidence gaps to fill
+## Evidence gaps
 
 {missing_md}
 
@@ -183,7 +223,7 @@ must_cite_items: {json.dumps(must_cite)}
 {must_cite_md}
 """
 
-    out_path = insights_dir / f"{slug}.md"
+    out_path = analysis_dir / f"{slug}.md"
     with open(out_path, "w") as f:
         f.write(content)
 
@@ -297,21 +337,23 @@ def run_insights(new_items=None):
         print(f"  Saved moderator output → {moderator_file.name}")
         print(f"  → {n_insights} composite insight(s), {n_angles} ranked angle(s)")
 
-        # ── Write draft insight markdown files ────────────────────────────────
+        # ── Write analysis articles ────────────────────────────────────────────
         angles = moderator_output.get("ranked_original_angles", [])
+        composite_insights = moderator_output.get("composite_insights", [])
         if angles:
             # Build id → item lookup for must-cite resolution
             items_by_id = {(item.get("id") or item.get("candidate_id")): item for item in new_items if item.get("id") or item.get("candidate_id")}
             items_by_id.update({str(k): v for k, v in items_by_id.items()})
 
-            print(f"  Writing {len(angles)} insight draft(s) → content/insights/")
+            print(f"  Writing {len(angles)} analysis article(s) → content/analysis/")
             for idx, angle in enumerate(angles):
-                path = _write_insight_draft(angle, idx, today, items_by_id)
+                path = _write_insight_draft(angle, idx, today, items_by_id, composite_insights)
                 draft_paths.append(path)
                 print(f"    ✓ {path}")
 
             registry_file = _write_insights_registry(angles, draft_paths, today)
             print(f"  Saved insights registry → {Path(registry_file).name}")
+            print(f"  Analysis articles published to content/analysis/ (draft: false)")
     else:
         print("  Moderator returned no output")
 
