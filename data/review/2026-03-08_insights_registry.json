@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-08",
+  "insights": [
+    {
+      "insight_id": "2026-03-08-A01",
+      "working_title": "The UPS Trilemma: How NFPA 855, Lithium BMS Physics, and Rack Density Converge Into One Architecture Decision",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-08-the-ups-trilemma-how-nfpa-855-lithium-bms-physics-.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-08-A02",
+      "working_title": "The Density Sequencing Problem: Why Cooling, Electrical, and UPS Must Be Designed as One System \u2014 and What Happens When They Are Not",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-08-the-density-sequencing-problem-why-cooling-electri.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-08-A03",
+      "working_title": "FMP's Invisible Cost: Why Multi-Million Dollar Infrastructure Savings Require an Uncounted Regulatory Friction Budget",
+      "status": "DRAFT",
+      "draft_path": "content/insights/2026-03-08-fmp-s-invisible-cost-why-multi-million-dollar-infr.md",
+      "confidence": "",
+      "levers": []
+    }
+  ]
+}
