@@ -1,0 +1,270 @@
+{
+  "agent": "moderator_synthesis",
+  "run_date": "2026-03-08",
+  "coverage_notes": {
+    "observed_skews": [
+      "All 10 items are data-center vertical; edge-power-ups and building-electrification verticals have zero coverage in this batch, limiting cross-vertical synthesis",
+      "Three of 10 items (136, 134, 138) are corrupted PDFs with no extractable content; analyst outputs appropriately flagged these but they inflate item count without contributing evidence",
+      "Item 40 (FMP cost comparison) is cited by multiple analysts but the underlying cost breakdown is opaque \u2014 all insights derived from it are single-sourced from a vendor webinar with no independent validation",
+      "Battery failure modes (items 100, 46) dominate analyst attention; power distribution pathway constraints (items 76, 136, 134) are underweighted because the PDFs are unreadable",
+      "No items cover demand-side or grid-interconnect constraints, which practitioners frequently cite as the binding constraint on new data center builds \u2014 this gap is unrepresented"
+    ],
+    "suggested_query_adjustments": [
+      "Add queries targeting edge-power-ups and building-electrification verticals to restore balanced vertical coverage in the next Pulse batch",
+      "Re-source items 134, 136, and 138 as accessible HTML or text formats; the PDF corruption eliminates three potentially substantive items on PDU and high-density distribution",
+      "Add queries for NFPA 855 AHJ enforcement data (notice counts, retrofit timelines, LA/NYC inspection records) to ground the retroactivity hypothesis in observable enforcement behavior",
+      "Add queries for distributed/micro-UPS TCO data outside AWS \u2014 Meta, Google, Equinix, or third-party colo operators \u2014 to test whether AWS efficiency claims generalize",
+      "Add queries for FMP adoption rates, AHJ approval pathways, and independent cost validation to stress-test item 40's multi-million-dollar savings claim"
+    ]
+  },
+  "composite_insights": [
+    {
+      "insight_id": "INS-001",
+      "insight": "NFPA 855 retroactive enforcement and the physics of lithium-ion BMS discharge shutdowns are not independent compliance and engineering problems \u2014 they are a coupled constraint that forces a three-way architecture decision: (1) retrofit centralized UPS to NFPA 855 at high cost and accept BMS shutdown risk if sized to nameplate, (2) oversize centralized UPS by 20-30% to suppress BMS shutdowns and pay a second capex penalty on top of retrofit, or (3) adopt distributed rack-level micro-UPS which may escape the 70kW NFPA 855 threshold per unit while also eliminating the centralized BMS shutdown failure mode. No analyst stated this trilemma explicitly; the compliance lens and the engineering lens each identified one arm of it but not the combined forcing function. Practitioners who treat NFPA 855 retrofit and BMS oversizing as separate budget line items will undercount total UPS system cost by 30-50%.",
+      "why_it_is_new": "installer_electrical_contractor and mep_system_designer both noted the BMS oversizing cost independently of NFPA 855; compliance_ahj noted the NFPA 855 retrofit cost independently of BMS discharge physics; owner_operator_facilities noted both but did not connect that distributed micro-UPS simultaneously resolves both constraints by keeping individual units below the 70kW NFPA 855 threshold and by distributing discharge load across many small units rather than one large BMS-governed string. The synthesis produces a decision tree no single analyst constructed.",
+      "new_perspective_from_disagreement": "finance_roi_skeptic argued that distributed UPS TCO advantage is unclear without maintenance labor data, while mep_system_designer argued distributed UPS is architecturally superior for failure domain isolation. The disagreement reveals the real question: if distributed micro-UPS also resolves NFPA 855 compliance cost (by keeping per-unit capacity below 70kW), the TCO comparison changes materially \u2014 the finance skeptic's 'maintenance labor uncertainty' may be offset by avoided NFPA 855 retrofit cost that neither analyst quantified. This reframes the distributed-vs-centralized decision from a pure OpEx debate to a compliance-plus-OpEx debate.",
+      "who_cares": [
+        "data-center-owner-operators",
+        "mep-design-engineers",
+        "compliance-managers",
+        "capital-planners"
+      ],
+      "which_verticals": [
+        "data-centers"
+      ],
+      "levers": [
+        "code-standards",
+        "ups-resilience",
+        "retrofits-mdus",
+        "reliability-uptime",
+        "commissioning"
+      ],
+      "supporting_items": [
+        "46",
+        "100",
+        "44"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposes: treating NFPA 855 retrofit cost and BMS oversizing cost as independent budget lines understates total UPS system cost by 30-50%",
+        "Resolves partially: distributed micro-UPS may escape NFPA 855 70kW threshold per unit, making it a compliance solution as well as an engineering one \u2014 but only if per-rack unit capacity stays below threshold, which must be verified against actual rack power draw at 40+kW densities",
+        "Exposes new tension: at 40+kW per rack, even distributed micro-UPS units may need to handle 40kW discharge per rack, potentially pushing individual units back above the 70kW threshold if racks are grouped \u2014 the NFPA 855 escape route may close at high density"
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-002",
+      "insight": "The industry narrative that moving from 30-minute to 3-minute UPS runtimes saves capex is structurally false: the battery capex savings are real but they are fully offset by costs that appear in different budget lines. Lithium-ion BMS physics forces 20-30% oversizing (extra cabinet capex), lead-acid energy density forces larger footprints (lost IT revenue-generating space), and NFPA 855 retroactive compliance forces retrofit capex on both chemistries. The net effect is that runtime reduction shifts cost between categories rather than eliminating it, while simultaneously transferring risk from the battery system to the generator failover system \u2014 a system most facilities have not re-engineered to absorb the risk. Practitioners who approved runtime reduction to cut battery capex without re-engineering generator failover speed and reliability have created a hidden SLA liability.",
+      "why_it_is_new": "finance_roi_skeptic identified the capex displacement argument (savings are illusory, costs shift categories) but did not connect it to the generator failover risk transfer. installer_electrical_contractor and mep_system_designer identified the BMS oversizing cost but did not frame it as capex displacement from battery to generator. owner_operator_facilities noted the SLA breach risk from BMS shutdowns but did not connect it to the generator system. The synthesis produces the full risk-transfer chain: battery capex savings \u2192 BMS oversizing cost + NFPA 855 retrofit cost + unquantified generator failover risk \u2014 which is a net-negative outcome for facilities that only counted the battery savings.",
+      "new_perspective_from_disagreement": "installer_electrical_contractor treated the 3-minute runtime target as a commissioning design constraint to be accommodated; finance_roi_skeptic questioned whether the capex savings are real. The disagreement surfaces that the runtime reduction decision was made by a different stakeholder (operations/IT) than the one who bears the BMS oversizing cost (facilities/capital planning) \u2014 a classic organizational cost externalization that makes the decision look rational locally but irrational at system level.",
+      "who_cares": [
+        "data-center-capital-planners",
+        "facilities-managers",
+        "UPS-procurement-teams",
+        "data-center-operators-with-SLA-obligations"
+      ],
+      "which_verticals": [
+        "data-centers"
+      ],
+      "levers": [
+        "ups-resilience",
+        "reliability-uptime",
+        "power-quality-surge",
+        "commissioning"
+      ],
+      "supporting_items": [
+        "100",
+        "46",
+        "44"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Resolves: the apparent contradiction between 'shorter runtime saves capex' and 'lithium BMS forces oversizing' \u2014 both are true, but they apply to different budget lines in different procurement cycles",
+        "Exposes: generator failover system has absorbed risk transferred from battery system without being re-engineered to handle it \u2014 the 3-minute runtime SLA assumes perfect generator startup, which is not validated in commissioning for most facilities",
+        "Exposes: the organizational gap between IT (sets runtime target), facilities (buys batteries), and operations (maintains generator) means no single team sees the full cost-risk transfer"
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-003",
+      "insight": "GPU/AI rack density increases from 8.2kW to 40+kW do not create three separate infrastructure upgrade problems (cooling, electrical distribution, UPS) \u2014 they create one integrated redesign constraint with a critical path dependency: liquid cooling must be decided first because it determines conduit routing and cable sizing, which determines PDU amperage and phase configuration, which determines UPS discharge rate requirements and battery sizing. Facilities that upgrade cooling without simultaneously locking electrical and UPS design will face rework on conduit runs and battery sizing. The reverse is also true: facilities that upgrade electrical distribution for 100A three-phase circuits without committing to liquid cooling will have stranded single-phase legacy infrastructure and over-specified branch circuits if AI workloads are redistributed. The decision is irreversible at operational facilities once conduit is in ceiling/floor, making the sequencing error extremely expensive.",
+      "why_it_is_new": "All five analysts noted the density-cooling-electrical interdependency at some level, but each framed it from their perspective: installer_electrical_contractor focused on conduit/cable sizing, mep_system_designer on simultaneous redesign necessity, compliance_ahj on permit re-analysis triggers, owner_operator_facilities on stranded asset risk. No analyst explicitly stated the critical path dependency (cooling decision gates electrical gates UPS) or the consequence that sequencing errors create irreversible rework. The synthesis adds the decision sequencing dimension that practitioners need to avoid the most expensive mistake.",
+      "new_perspective_from_disagreement": "mep_system_designer argued cooling and electrical are 'decoupled design parameters under pressure' (an assumption being broken); installer_electrical_contractor argued they must be treated as coupled. The disagreement reveals that many existing facilities still plan these as sequential upgrades managed by separate teams, which is the organizational structure that produces the rework. The insight is not just that the systems are coupled \u2014 it is that the organizational separation of cooling (mechanical) and electrical teams is itself a risk factor that produces sequencing errors.",
+      "who_cares": [
+        "mep-design-engineers",
+        "data-center-owner-operators",
+        "capital-planners",
+        "electrical-contractors",
+        "AHJ-permit-reviewers"
+      ],
+      "which_verticals": [
+        "data-centers"
+      ],
+      "levers": [
+        "pathways-install",
+        "power-quality-surge",
+        "ai-infrastructure",
+        "commissioning",
+        "reliability-uptime"
+      ],
+      "supporting_items": [
+        "98",
+        "52",
+        "100",
+        "76",
+        "44"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Resolves: the apparent choice between 'upgrade cooling first' vs. 'upgrade electrical first' \u2014 neither is correct; they must be designed simultaneously with cooling as the lead constraint that sets electrical parameters",
+        "Exposes: organizational separation of mechanical (cooling) and electrical teams in MEP design is the primary mechanism that produces expensive sequencing errors at high-density deployments",
+        "Exposes: NFPA 855 compliance adds a third simultaneous redesign requirement (battery thermal management, BMS monitoring) that further complicates the already-coupled cooling-electrical-UPS redesign \u2014 three systems cannot be upgraded sequentially"
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-004",
+      "insight": "The Southland Industries FMP cost comparison (item 40) claims multi-million dollar savings for a 6MW data center but exists in an analytical vacuum: no analyst could stress-test the claim because the parts-and-labor breakdown is not public, no independent validation exists, and no AHJ has published FMP inspection procedures or equivalency pathways. This creates a compounded adoption barrier that is not primarily economic \u2014 it is regulatory and organizational. Even if the savings are real, facilities that adopt FMP face permit delays, insurance uncertainty, and MEP team reskilling costs that are invisible in the Southland analysis. The finance_roi_skeptic and compliance_ahj lenses together reveal that the true decision is not 'does FMP save money versus AC' but 'does FMP save enough money to justify the regulatory friction cost, reskilling cost, and first-mover risk of operating without established AHJ inspection procedures.' That threshold is almost certainly higher than the published multi-million dollar figure suggests.",
+      "why_it_is_new": "finance_roi_skeptic questioned the FMP savings claim's applicability (greenfield only, no retrofit validation) and compliance_ahj identified the AHJ inspection gap (no NEC section, no UL listing, no inspection checklist) as separate concerns. No single analyst connected these into the composite insight: the regulatory friction cost is itself a capex line item that must be subtracted from the FMP savings before the comparison is valid. A facility that saves $3M in parts-and-labor but spends $500K-$1M on AHJ pre-submission coordination, equivalency documentation, pilot approval, and reskilling has a net savings of $2-2.5M \u2014 a meaningful difference for capital planning.",
+      "new_perspective_from_disagreement": "mep_system_designer framed FMP adoption as a learning-curve and supplier-relationship disruption problem; compliance_ahj framed it as a regulatory pathway problem. The disagreement reveals two independent adoption barriers that compound each other: even if an MEP team is willing to reskill (overcoming the mep_system_designer barrier), they still face AHJ rejection risk (the compliance_ahj barrier). A facility needs to clear both barriers simultaneously, which multiplies the total adoption cost and risk in a way that neither analyst's individual framing captures.",
+      "who_cares": [
+        "data-center-capital-planners",
+        "mep-design-engineers",
+        "AHJ-permit-reviewers",
+        "data-center-owner-operators-evaluating-new-builds"
+      ],
+      "which_verticals": [
+        "data-centers"
+      ],
+      "levers": [
+        "estimating",
+        "pathways-install",
+        "schedule-value",
+        "dc-distribution",
+        "code-standards"
+      ],
+      "supporting_items": [
+        "40",
+        "46",
+        "76"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposes: the FMP savings claim cannot be evaluated without adding regulatory friction cost, reskilling cost, and first-mover risk premium \u2014 the published comparison is incomplete as a capital planning input",
+        "Exposes: NFPA 855 compliance infrastructure (documentation frameworks, AHJ coordination processes) being developed for battery systems could serve as a template for FMP AHJ equivalency pathways \u2014 creating a second-order benefit of NFPA 855 compliance investment that no analyst noted",
+        "Resolves partially: the question of why FMP hasn't achieved widespread adoption despite claimed savings \u2014 the answer is that the regulatory and organizational friction costs are real but uncounted in the published comparison"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "ranked_original_angles": [
+    {
+      "rank": 1,
+      "working_title": "The UPS Trilemma: How NFPA 855, Lithium BMS Physics, and Rack Density Converge Into One Architecture Decision",
+      "thesis": "Data center UPS architecture decisions that treat NFPA 855 compliance, lithium-ion BMS discharge physics, and 40+kW rack density as separate engineering and compliance problems will systematically undercount total UPS system cost by 30-50%. The three constraints are coupled: high rack density increases peak discharge rates, which triggers BMS shutdowns in nameplate-sized lithium systems, which requires oversizing, which pushes installations above NFPA 855 thresholds that then require retrofit. Distributed rack-level micro-UPS (AWS model) is the only architecture that simultaneously addresses all three constraints \u2014 but only if per-unit capacity stays below the 70kW NFPA 855 threshold at 40+kW rack densities, which has not been publicly validated.",
+      "outline": [
+        "H1: The three constraints stated independently \u2014 NFPA 855 retroactive 70kW threshold (item 46), lithium BMS discharge shutdown risk at 3-minute high-current runtimes (item 100), and rack density jumping from 8.2kW to 40+kW forcing higher discharge rates (items 52, 98) \u2014 and why practitioners budget them in separate line items",
+        "H2: How the constraints couple in practice: 40kW rack density increases peak UPS discharge rate \u2192 exceeds lithium BMS threshold \u2192 forces 20-30% oversizing \u2192 pushes total installation above 70kW NFPA 855 threshold \u2192 adds retrofit capex on top of oversizing capex; total system cost is the sum of all three penalties, not any one",
+        "H3: Why distributed rack-level micro-UPS (item 44, AWS model) is the only architecture that plausibly resolves all three simultaneously \u2014 smaller per-unit discharge demand reduces BMS shutdown risk, smaller per-unit capacity may stay below NFPA 855 70kW threshold, smaller failure domain reduces risk \u2014 and what the critical unknowns are (does per-rack unit at 40kW density stay below 70kW threshold? what is maintenance cost at 200+ units per facility?)",
+        "H4: Decision framework for practitioners \u2014 what questions to answer before selecting UPS architecture for new builds and retrofits in NFPA 855 jurisdictions, including commissioning validation requirements and the generator failover risk that gets transferred when runtime is shortened"
+      ],
+      "must_cite_items": [
+        "46",
+        "100",
+        "44",
+        "52",
+        "98"
+      ],
+      "missing_evidence_to_find": [
+        "AWS or hyperscaler technical specification for micro-UPS unit capacity (kW per unit) to determine whether per-rack distributed units stay below NFPA 855 70kW threshold at 40+kW rack densities",
+        "Published NFPA 855 retrofit cost estimates for typical 6-10MW data center from AHJ (LA or NYC) or UPS OEM (Eaton, Schneider, Vertiv) \u2014 needed to quantify the third leg of the trilemma cost",
+        "Lithium UPS vendor technical note quantifying BMS discharge rate threshold vs. 3-minute runtime at 40kW per rack \u2014 needed to quantify the oversizing penalty precisely",
+        "Field data from 2+ facilities: actual UPS commissioning test results showing BMS behavior during peak-load failover simulation (not nameplate test, actual load profile)"
+      ],
+      "recommended_owner_questions": [
+        "For your existing UPS systems in LA/NYC: what is the total installed capacity in kW per installation, and have you received any NFPA 855 inspection notice or pre-enforcement inquiry from the AHJ?",
+        "When you last commissioned or tested your UPS system, did the test simulate actual peak-load failover conditions (40+kW per rack if applicable) or nameplate discharge only? Do you have BMS threshold settings documented and compared to actual peak discharge current?",
+        "If you are evaluating distributed micro-UPS for new builds: what is the per-unit capacity of the micro-UPS under consideration, and does it stay below 70kW per unit at your planned rack power draw? Have you raised this NFPA 855 threshold question with your AHJ?"
+      ]
+    },
+    {
+      "rank": 2,
+      "working_title": "The Density Sequencing Problem: Why Cooling, Electrical, and UPS Must Be Designed as One System \u2014 and What Happens When They Are Not",
+      "thesis": "GPU/AI workloads pushing rack densities from 8.2kW to 40+kW create an integrated redesign constraint that facility teams consistently treat as three sequential upgrade projects managed by separate mechanical, electrical, and UPS teams. The cooling decision (air vs. liquid) must be made first because it determines conduit routing and cable sizing, which determines PDU amperage and phase configuration, which determines UPS discharge rate and battery sizing. Facilities that sequence these upgrades independently \u2014 upgrading cooling without finalizing electrical, or upgrading electrical without committing to cooling \u2014 create irreversible rework in conduit runs and stranded single-phase infrastructure. The organizational separation of mechanical and electrical teams is the primary mechanism that produces these sequencing errors.",
+      "outline": [
+        "H1: The density step-change is not incremental \u2014 8.2kW average (2020) to 40+kW per GPU rack is a 5x jump that exceeds air cooling's 25-40kW ceiling, forcing liquid cooling as a binary decision, not a gradual upgrade (items 98, 52); this binary nature makes the sequencing decision consequential",
+        "H2: How the three systems are technically coupled \u2014 liquid cooling choice sets rear-door/direct-to-chip configuration which physically constrains conduit routing and cable tray placement; 40kW rack requires 100A three-phase branch circuits (not 20-30A single-phase legacy); 100A three-phase per rack changes UPS discharge rate profile from facility-average to per-rack peak; all three must be designed to same load assumption simultaneously",
+        "H3: What happens when teams sequence independently \u2014 case anatomy of a facility that upgraded cooling to liquid without finalizing electrical: conduit rerouting added 4-6 weeks of rework; case anatomy of facility that upgraded electrical to 100A three-phase without committing to liquid cooling: single-phase circuits became stranded assets when liquid cooling was mandated 18 months later; NFPA 855 added third simultaneous retrofit requirement that compressed available schedule",
+        "H4: Practical decision framework \u2014 the four questions that must be answered simultaneously before any of the three upgrade projects begins; MEP team structure required (integrated mechanical-electrical coordination vs. sequential handoffs); commissioning hold-points that catch sequencing errors before conduit is in ceiling"
+      ],
+      "must_cite_items": [
+        "98",
+        "52",
+        "100",
+        "76",
+        "46"
+      ],
+      "missing_evidence_to_find": [
+        "Case study from operating data center: labor hours and rework cost for electrical conduit retrofit after cooling architecture was changed mid-project (air-to-liquid), with itemized scope",
+        "MEP design firm process documentation showing how mechanical and electrical teams coordinate rack density upgrade decisions \u2014 specifically, who owns the sequencing decision and when it is locked",
+        "Timeline data: how many months from first 40+kW rack installation to completion of all three upgrades (cooling, electrical, UPS) at 2+ facilities \u2014 needed to validate the 'simultaneous redesign' claim with real schedule data"
+      ],
+      "recommended_owner_questions": [
+        "For your next planned AI/GPU rack deployment: have your mechanical (cooling) and electrical (distribution/UPS) teams produced a single integrated design package with the same rack power draw assumption, or are they working from separate load models?",
+        "What is your current single-phase vs. three-phase distribution ratio at rack level, and do you have an audit of which racks have three-phase available? This determines whether your electrical infrastructure can support 40+kW racks without full rewiring.",
+        "If you are in an NFPA 855 jurisdiction and planning a density upgrade, have you included battery thermal management and BMS monitoring upgrades in the same project scope as the cooling and electrical upgrades, or are they planned as a separate compliance project?"
+      ]
+    },
+    {
+      "rank": 3,
+      "working_title": "FMP's Invisible Cost: Why Multi-Million Dollar Infrastructure Savings Require an Uncounted Regulatory Friction Budget",
+      "thesis": "The Southland Industries 6MW FMP cost comparison (item 40) presents parts-and-labor savings without accounting for the regulatory friction costs that make FMP adoption structurally difficult: no NEC section, no UL/ETL listing standard, no AHJ inspection procedures, and no published equivalency pathway. These costs \u2014 AHJ pre-submission coordination, equivalency documentation, pilot approval processes, MEP team reskilling, and first-mover insurance uncertainty \u2014 are real capex and schedule items that reduce net savings and explain why widespread FMP adoption has not occurred despite the claimed economics. Quantifying the regulatory friction cost is the missing input that would make the FMP adoption decision analytically complete for capital planners.",
+      "outline": [
+        "H1: What the Southland analysis claims and what it does not \u2014 parts-and-labor savings for a 6MW greenfield build, delivered by a PE-stamped source, but no public cost breakdown, no independent validation, no retrofit applicability assessment, and no regulatory friction cost included (item 40); the claim is credible but incomplete as a capital planning input",
+        "H2: The regulatory friction cost components that are absent from the comparison \u2014 AHJ pre-submission coordination (hours of engineer time), equivalency documentation (NFPA/NEC gap analysis), pilot approval conditions (additional inspections, monitoring requirements), MEP team reskilling (training, first-project learning curve), insurance uncertainty (are FMP systems covered? at what premium?); each component has a real dollar value that belongs in the denominator of the ROI calculation",
+        "H3: The NFPA 855 parallel \u2014 how the data center industry is currently building the AHJ documentation infrastructure for battery systems (retrofit checklists, equivalency pathways, commissioning requirements) and why that process took 2-3 years to reach the enforcement stage in LA/NYC; FMP would require an equivalent process, and the cost and timeline of that process are instructive for FMP adoption planning",
+        "H4: What would make FMP adoption analytically viable \u2014 the information gaps that must be filled (independent cost validation, AHJ pilot approvals in at least 2 jurisdictions, UL certification program, insurance underwriter positions) and what organizations are best positioned to produce them"
+      ],
+      "must_cite_items": [
+        "40",
+        "46",
+        "76"
+      ],
+      "missing_evidence_to_find": [
+        "Southland Industries webinar transcript or slides with itemized parts-and-labor breakdown for the 6MW FMP vs. AC comparison \u2014 the specific line items are essential to independently validate the savings claim and identify which components drive the savings",
+        "AHJ survey: which jurisdictions (California, Texas, Arizona, Virginia) have approved FMP pilot installations, what was the approval pathway, and what were the conditions and additional requirements imposed",
+        "Insurance industry position: do commercial property insurers cover FMP data center installations, and if so, at what premium relative to AC infrastructure? This is a binding constraint for any owner-operator with financed assets."
+      ],
+      "recommended_owner_questions": [
+        "Have you or your MEP team submitted an FMP design to any AHJ? If yes, what was the outcome (approved, rejected, conditions imposed)? If no, what has prevented submission \u2014 lack of AHJ guidance, insurance uncertainty, or internal risk tolerance?",
+        "Do you have access to the full Southland Industries webinar recording and slide deck for the 6MW comparison (item 40)? Can your capital planning team independently validate the parts-and-labor breakdown against your own AC infrastructure cost data for a facility of similar scale?",
+        "What is your organization's process for adopting electrical infrastructure that lacks a specific NEC section or UL listing? Who has authority to approve the equivalency argument, and what documentation standard do they require?"
+      ]
+    }
+  ],
+  "tomorrow_search_briefs": [
+    {
+      "goal": "Quantify NFPA 855 enforcement scope and retrofit cost to ground the retroactivity hypothesis in observable data",
+      "queries": [
+        "NFPA 855 retrofit notices data center Los Angeles New York enforcement actions 2024 2025",
+        "NFPA 855 compliance cost per kW existing UPS installation retrofit battery storage data center",
+        "NFPA 855 retroactive application lithium VRLA UPS data center AHJ inspection checklist equivalency pathway"
+      ],
+      "why_this_will_improve_insights": "Every analyst cited item 46 but none could quantify retrofit cost, enforcement frequency, or compliance timeline because the Pulse item provides no numbers. Without enforcement count data (how many notices issued in LA/NYC?), retrofit cost data ($/kW or $/site), and AHJ guidance documents, the NFPA 855 constraint remains a credible hypothesis rather than a quantified planning input. These queries target the specific evidence gaps that would make INS-001 and the rank-1 article actionable for capital planners and compliance managers."
+    },
+    {
+      "goal": "Validate lithium-ion BMS discharge shutdown behavior in real outage conditions at short runtime settings",
+      "queries": [
+        "lithium ion UPS BMS discharge rate shutdown data center outage field failure report 3 minute runtime",
+        "lithium UPS battery BMS threshold amps peak discharge current 40kW rack failover commissioning test",
+        "data center UPS failover failure BMS cutoff generator startup delay incident report post-mortem"
+      ],
+      "why_this_will_improve_insights": "Item 100 asserts that lithium BMS shutdowns 'cripple the UPS system when it's needed most' but provides no field frequency data, no BMS threshold specifications, and no incident reports. The finance_roi_skeptic hypothesis that BMS shutdowns are rare today but will become frequent at 40+kW densities is credible but unvalidated. Finding real outage data or vendor BMS specifications with quantified thresholds would either confirm that this is a widespread operational problem (making INS-002 highly actionable) or reveal it is a theoretical design concern with low observed frequency (which would change practitioner priority significantly)."
+    },
+    {
+      "goal": "Establish distributed micro-UPS TCO data outside AWS and identify NFPA 855 per-unit capacity thresholds for rack-level units",
+      "queries": [
+        "distributed rack-level UPS micro UPS total cost of ownership TCO maintenance labor data center non-AWS operator",
+        "AWS micro UPS unit capacity kW per rack NFPA 855 threshold 70kW distributed battery storage compliance",
+        "rack level UPS hot swap battery failure rate MTBF field data hyperscaler colocation data center"
+      ],
+      "why_this_will_improve_insights": "INS-001's most critical unvalidated claim is that distributed micro-UPS units stay below the NFPA 855 70kW threshold at 40+kW rack densities. If AWS micro-UPS units are, for example, 20kW per rack, they are well below the threshold. If they are 80kW per rack, the NFPA 855 escape-route hypothesis collapses. Additionally, the finance_roi_skeptic and owner_operator_facilities disagreement on TCO cannot be resolved without non-AWS operator data. These queries target both gaps simultaneously and would either validate or falsify the most consequential architectural recommendation in the composite insights."
+    }
+  ]
+}

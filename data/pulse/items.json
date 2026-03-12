@@ -4828,5 +4828,35 @@
     "why_it_matters": "",
     "open_questions": [],
     "evidence": []
+  },
+  {
+    "id": 180,
+    "slug": "2026-03-08-other-youtube-video-on-data-center",
+    "title": "YouTube video on data center power density oversight",
+    "description": "YouTube video discussing power density challenges in AI-era data centers, but excerpt contains no content beyond platform boilerplate and footer links.",
+    "canonical_source": "https://www.youtube.com/watch?v=RLy_4EKZhH0",
+    "artifact_type": "other",
+    "publish_date": null,
+    "discovered_at": "2026-03-08T09:30:12.148316",
+    "players": [],
+    "topics": [
+      "ai-infrastructure"
+    ],
+    "value_levers": [],
+    "confidence": "low",
+    "summary": "The SERP snippet suggests a video about power density oversight in AI data centers and career reskilling, but the page excerpt contains only YouTube's standard footer links and copyright notices with no substantive content.",
+    "score": 11,
+    "query_vertical": "data-centers",
+    "vertical": "data-centers",
+    "source_name": "YouTube",
+    "source_date": null,
+    "persona": "facilities",
+    "so_what": "Cannot assess relevance: excerpt is only YouTube footer text with no video content, transcript, or technical details.",
+    "why_it_matters": "Unable to determine impact or relevance. The excerpt provides zero technical content, constraints, or concrete details about power distribution, density challenges, or infrastructure decisions.",
+    "open_questions": [
+      "What specific power density oversight does the video identify?",
+      "What distribution or cooling constraints are discussed for AI workloads?"
+    ],
+    "evidence": []
   }
 ]
