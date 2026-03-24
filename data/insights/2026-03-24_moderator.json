@@ -1,0 +1,275 @@
+{
+  "agent": "moderator_synthesis",
+  "run_date": "2026-03-24",
+  "coverage_notes": {
+    "observed_skews": [
+      "Building electrification items (4 of 10) are dominated by residential retrofit anecdotes (items 190, 192, 182, and a near-empty Instagram post), producing high analyst agreement on the panel-upgrade cost barrier but almost no evidence on commercial/MDU electrification, which is the more relevant scale for FMP practitioners.",
+      "Data center items (4 of 10) skew toward density and monitoring framing (items 122, 128, 184) with a 1995 taxonomy article (item 150) that added no analytical value; all five analysts effectively ignored item 150, suggesting the ingestion filter should weight source recency more heavily.",
+      "Edge items (2 of 10) are the thinnest vertical: item 194 is a Facebook post stub with no technical content, and item 126 is an estimating webinar that all analysts cross-applied to building electrification rather than treating as edge-specific. Edge-specific constraints (enclosure thermal design, UPS sizing for remote sites, edge-to-cloud power management) are structurally underrepresented.",
+      "Five analysts converged heavily on items 190 and 122, generating near-identical hypotheses about labor cost ceilings and cooling-first design. This convergence risks groupthink on thin evidence (item 190 is a single Reddit quote).",
+      "No Pulse items addressed microgrids, on-site generation, battery storage integration, or demand response in any vertical\u2014gaps that are material to all three coverage areas."
+    ],
+    "suggested_query_adjustments": [
+      "Add 2\u20133 edge-specific queries targeting enclosure thermal management, outdoor edge cabinet standards (NEMA 3R/4, IP55), and UPS sizing for 5\u201310 kW remote/telecom cabinets to balance vertical coverage.",
+      "Replace item 150 (1995 EC&M taxonomy) with current NEC 2023 or NFPA 70E change-impact articles; source recency filter should exclude items >5 years old unless explicitly flagged as foundational reference.",
+      "Add commercial and MDU building electrification sources (ASHRAE 90.1 compliance, multitenant panel upgrade programs, utility demand-response tariffs) to break residential-retrofit monoculture in building electrification vertical.",
+      "Seek data center commissioning timeline benchmarks and liquid cooling acceptance protocol sources to fill the commissioning evidence gap identified by compliance_ahj and mep_system_designer.",
+      "Add at least one item on DCIM/EPMS software procurement patterns or open API standards (ASHRAE SSPC 135, BACnet) to ground the monitoring-integration discussion in verifiable technical standards rather than vendor assertions."
+    ]
+  },
+  "composite_insights": [
+    {
+      "insight_id": "INS-001",
+      "insight": "Across both data-center and building-electrification verticals, the primary adoption bottleneck is not equipment cost or policy incentives but the cost and sequencing of enabling infrastructure: electrical service upgrades ($15\u201320K labor for residential panel upgrades, item 190) and cooling infrastructure redesign (direct-to-chip liquid cooling as prerequisite for AI rack density, item 122). In both cases, enabling infrastructure must be specified before the primary system can be sized, yet current procurement and permitting workflows treat enabling infrastructure as a downstream dependency. This inversion\u2014where the enabling system must be designed first but is funded and contracted last\u2014is a structural cause of cost overruns, commissioning delays, and adoption stalls across all three verticals.",
+      "why_it_is_new": "Individual analysts identified the panel-upgrade cost barrier (building electrification) and the cooling-first design requirement (data centers) as separate problems. The composite view reveals they share the same root cause: procurement and design workflows are sequenced with primary systems first and enabling infrastructure second, when thermal and electrical capacity constraints require the reverse. No single analyst stated this as a cross-vertical structural pattern.",
+      "new_perspective_from_disagreement": "finance_roi_skeptic argued that California operational electricity costs (item 182) may be a larger adoption barrier than installation labor costs (item 190), while mep_system_designer and installer_electrical_contractor treated labor as the primary constraint. This disagreement is unresolved by available evidence but reveals a measurable testable split: if operational cost is the binding constraint, adoption would correlate with utility rate levels across markets; if installation labor is binding, adoption would correlate with contractor labor market tightness and panel upgrade cost by region. These are different interventions (rate reform vs. labor productivity) and should not be conflated in program design. The synthesis position is that both are real constraints operating at different project stages\u2014labor at project initiation, operational cost at go/no-go decision\u2014and policy instruments targeting only one will produce incomplete results.",
+      "who_cares": [
+        "facilities_manager",
+        "electrical_contractor",
+        "data_center_operator",
+        "building_owner",
+        "utility_program_designer"
+      ],
+      "which_verticals": [
+        "data-centers",
+        "building-electrification"
+      ],
+      "levers": [
+        "thermal-first-design-sequencing",
+        "enabling-infrastructure-early-funding",
+        "pre-permit-utility-coordination",
+        "dcim-epms-at-design-phase"
+      ],
+      "supporting_items": [
+        "190",
+        "192",
+        "122",
+        "182",
+        "184"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposes: procurement workflows that fund and contract enabling infrastructure (cooling, panel upgrades) after primary system selection are structurally misaligned with technical design dependencies in both verticals.",
+        "Exposes: finance_roi_skeptic vs. mep_system_designer disagreement on whether operational cost or installation labor is the primary building electrification barrier remains unresolved and requires empirical regional data to arbitrate.",
+        "Partially resolves: the 'cooling-first vs. power-first' tension in data centers (raised by mep_system_designer) is a specific instance of this broader enabling-infrastructure sequencing problem, not a unique data-center phenomenon."
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-002",
+      "insight": "Rack PDU selection (item 128) and residential panel upgrade decisions (item 190) both embed long-duration architectural commitments that practitioners treat as point-in-time procurement decisions. PDU phase configuration, redundancy topology, and monitoring hardware integration pathways are interdependent choices that foreclose retrofit options for the life of the rack; similarly, a 200A panel upgrade either provisions or forecloses future EV charging and additional heat pump loads for the life of the building. In both cases, the decision is made under incomplete information (monitoring requirements unknown at PDU procurement; future EV/appliance loads unknown at panel sizing), and the cost of under-specification is paid years later as expensive retrofit or stranded capacity. Practitioners in both verticals need decision frameworks that force explicit future-load assumptions and lock-in documentation at the time of initial specification.",
+      "why_it_is_new": "No single analyst connected the PDU lock-in problem (data centers, item 128) to the panel upgrade under-specification problem (building electrification, item 190) as structurally identical decision errors. owner_operator_facilities came closest by identifying monitoring fragmentation as 'operational debt,' but did not map it to the residential panel analogy. The composite reveals that both are instances of the same failure: specification decisions made without explicit future-load modeling create architectural debt that compounds over time.",
+      "new_perspective_from_disagreement": "compliance_ahj and owner_operator_facilities disagreed on the urgency of open monitoring API requirements: compliance_ahj focused on AHJ-auditable documentation (what can be verified at inspection), while owner_operator_facilities focused on long-term TCO and vendor lock-in. This is a productive tension: AHJ acceptance criteria for monitoring integration do not currently exist (compliance_ahj confirms this gap), which means owner-operators cannot use AHJ approval as a proxy for monitoring adequacy. The insight for practitioners is that monitoring specification adequacy must be validated by the owner-operator's operational requirements, not by permit sign-off, because AHJ standards lag deployment practice by years in this domain.",
+      "who_cares": [
+        "facilities_manager",
+        "data_center_operator",
+        "electrical_contractor",
+        "building_owner",
+        "mep_designer"
+      ],
+      "which_verticals": [
+        "data-centers",
+        "building-electrification",
+        "edge-power-ups"
+      ],
+      "levers": [
+        "future-load-assumption-documentation",
+        "open-api-pdu-specification",
+        "panel-sizing-for-staged-loads",
+        "monitoring-requirements-at-procurement"
+      ],
+      "supporting_items": [
+        "128",
+        "190",
+        "192",
+        "122"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Resolves: the apparent contradiction between 'PDU redundancy vs. monitoring integration' (mep_system_designer) and 'monitoring as operational requirement, not AHJ requirement' (compliance_ahj + owner_operator_facilities) by establishing that monitoring specification must be owner-driven, not code-driven.",
+        "Exposes: no practitioner-facing framework currently exists that forces explicit future-load documentation at PDU selection or panel sizing decision points in either vertical.",
+        "Exposes: AHJ acceptance criteria for rack-level monitoring integration do not exist, creating a compliance vacuum that owner-operators must fill with internal standards."
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-003",
+      "insight": "The estimating and labor productivity constraint (item 126) surfaces across all three verticals but is being treated as a contractor-side efficiency problem when it is structurally a procurement and program design problem. In residential electrification, $15\u201320K labor quotes (item 190) reflect not just labor rates but estimating risk premiums for utility coordination uncertainty, site variability, and permit unpredictability\u2014costs that are born by the homeowner but created by fragmented pre-construction processes. In data centers, routing conflicts between power distribution and liquid cooling (item 122) discovered during rough-in represent estimating failures that systematic pre-construction coordination (3D CAD, DCIM modeling) would prevent. The common thread is that labor cost inflation in all three verticals is partly a risk premium for process fragmentation, not purely a labor market phenomenon. Owner-operators and GCs who own the pre-construction coordination process can reduce effective labor cost by 15\u201325% without changing wage rates, by eliminating the rework and uncertainty premium that contractors price into bids.",
+      "why_it_is_new": "All five analysts treated the estimating/labor constraint as a contractor capability problem (use better estimating methodology, use smarter products). No analyst framed it as a process fragmentation cost that owner-operators and GCs can capture by improving pre-construction coordination. The insight shifts the intervention target from contractor to owner-operator, which changes who needs to act and how.",
+      "new_perspective_from_disagreement": "installer_electrical_contractor emphasized field variability as the source of estimating risk (site conditions, conduit fill, accessibility), while finance_roi_skeptic argued that process standardization and systematic methodology (item 126) are the primary levers. The disagreement reveals a sequencing insight: process standardization reduces estimating variance for predictable scopes, but field variability risk premiums persist until pre-construction coordination (site surveys, 3D CAD, AHJ pre-submittals) eliminates the uncertainty that creates them. These are complementary, not competing, interventions\u2014but they require different actors. Contractors own estimating methodology; owner-operators and GCs own pre-construction coordination quality.",
+      "who_cares": [
+        "electrical_contractor",
+        "general_contractor",
+        "facilities_manager",
+        "program_manager",
+        "owner_operator"
+      ],
+      "which_verticals": [
+        "building-electrification",
+        "data-centers",
+        "edge-power-ups"
+      ],
+      "levers": [
+        "pre-construction-coordination-quality",
+        "systematic-estimating-methodology",
+        "site-survey-standardization",
+        "pre-permit-ahj-review"
+      ],
+      "supporting_items": [
+        "126",
+        "190",
+        "192",
+        "122"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Partially resolves: installer_electrical_contractor vs. finance_roi_skeptic disagreement on whether field variability or estimating methodology is the primary labor cost driver\u2014both are real but operate at different stages; methodology reduces variance for predictable scopes, coordination reduces the field variability itself.",
+        "Exposes: owner-operators who outsource pre-construction coordination to contractors implicitly pay the uncertainty risk premium in bid prices; internalizing coordination capture this value.",
+        "Exposes: for residential electrification at scale, no equivalent of a GC-level pre-construction coordinator exists, which is why utility coordination uncertainty flows directly to homeowner cost."
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "insight_id": "INS-004",
+      "insight": "The edge-power-ups vertical is structurally underserved by current Pulse coverage, but the two items that exist (194, 126) point to a convergence problem that will become acute: edge enclosures approaching 5\u201310 kW power density are hitting thermal limits designed for 2\u20133 kW telecom/networking loads, at the same time that AI inferencing workloads are being pushed to the edge to reduce latency. If the data center pattern holds (item 122: AI density escalation forces concurrent cooling and power redesign), edge deployments will face the same thermal-first design requirement\u2014but without the MEP coordination infrastructure, DCIM tooling, or commissioning resources available in purpose-built data centers. The edge thermal constraint (item 194) is not a standalone problem; it is the leading edge of the same AI density wave hitting data centers, arriving at sites with far less design and operational support.",
+      "why_it_is_new": "No analyst explicitly connected the edge thermal constraint (item 194) to the data center AI density escalation pattern (item 122) as the same phenomenon at different points on the deployment spectrum. mep_system_designer noted both in separate constraints but did not synthesize them. The composite view is that edge and data center are on the same trajectory, with edge sites being the least-prepared to handle it.",
+      "new_perspective_from_disagreement": "finance_roi_skeptic rated the edge thermal constraint (item 194) as Low confidence because the item lacked failure mode data, while compliance_ahj rated it Medium and called for thermal analysis documentation requirements. This disagreement is itself informative: the absence of failure mode data is not evidence that the constraint is soft\u2014it may reflect that edge deployments have not yet reached the density thresholds where failures occur at scale, or that failures are occurring but not being systematically documented. The practitioner implication is that edge integrators should instrument current deployments at 5\u201310 kW now, before the constraint becomes an emergency, rather than waiting for documented failures.",
+      "who_cares": [
+        "edge_deployment_integrator",
+        "network_engineer",
+        "facilities_manager",
+        "data_center_operator"
+      ],
+      "which_verticals": [
+        "edge-power-ups",
+        "data-centers"
+      ],
+      "levers": [
+        "thermal-co-design-at-edge",
+        "edge-enclosure-instrumentation",
+        "ai-workload-density-forecasting",
+        "modular-cooling-for-edge"
+      ],
+      "supporting_items": [
+        "194",
+        "122",
+        "128"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposes: edge deployments lack the DCIM/EPMS/BMS tooling and MEP coordination infrastructure to execute the thermal-first design approach that data centers are being forced toward, creating a capability gap that will widen as AI inferencing moves to the edge.",
+        "Exposes: finance_roi_skeptic vs. compliance_ahj disagreement on constraint severity reflects a data absence problem, not a genuine analytical disagreement\u2014the constraint is real but not yet documented at scale.",
+        "Resolves: the apparent disconnect between edge thermal constraint (item 194) and data center AI density escalation (item 122) is not a disconnect\u2014they are the same phenomenon at different deployment scales and maturity levels."
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "ranked_original_angles": [
+    {
+      "rank": 1,
+      "working_title": "The Enabling Infrastructure Inversion: Why Cooling and Panel Upgrades Must Be Designed First, Funded First, and Contracted First",
+      "thesis": "In both data centers and building electrification, the primary cause of cost overruns, commissioning delays, and adoption stalls is not equipment cost or policy gaps but a structural sequencing error: enabling infrastructure (cooling systems, electrical service upgrades) is designed after, funded after, and contracted after the primary system (AI racks, heat pumps), when technical design dependencies require the reverse. Data centers specifying direct-to-chip liquid cooling after rack procurement discover routing conflicts and thermal validation delays that extend commissioning by months. Residential retrofits pricing heat pump installation without resolved panel upgrade scope discover $15\u201320K labor costs that kill projects at bid stage. The intervention is not better equipment or more incentives\u2014it is a procurement and workflow redesign that makes enabling infrastructure the design-driving first step.",
+      "outline": [
+        "H1: The sequencing error defined \u2014 technical design dependency vs. procurement workflow in data centers (cooling must precede PDU placement, item 122) and building electrification (panel capacity must precede heat pump sizing, items 190, 192)",
+        "H2: Cost of inversion \u2014 commissioning delays from thermal/electrical conflicts discovered during rough-in (item 122); $15\u201320K labor surprise at bid stage (item 190); stranded UPS/PDU capacity from power sizing without cooling context (item 184)",
+        "H3: Where the inversion is created \u2014 procurement processes that separate cooling/panel budgets from primary system budgets; estimating workflows that treat enabling infrastructure as contingency rather than critical path (item 126); AHJ permit sequences that allow primary system permits without resolved service upgrade scope (items 190, 192)",
+        "H4: Intervention design \u2014 thermal-first design gate before PDU/rack procurement (item 122, 128); panel capacity resolution as permit pre-condition for heat pump installation (items 190, 192); DCIM/EPMS specified at design phase, not post-commissioning (items 122, 184); standardized load calculation templates submitted before bid acceptance (items 190, 126)"
+      ],
+      "must_cite_items": [
+        "122",
+        "190",
+        "192",
+        "184",
+        "128"
+      ],
+      "missing_evidence_to_find": [
+        "Quantified commissioning delay data for data centers where cooling was specified after rack procurement vs. concurrently \u2014 interview 10+ operators who deployed direct-to-chip liquid cooling in 2024\u20132025",
+        "Residential retrofit project data showing how often panel upgrade scope is unknown at time of heat pump installation bid vs. resolved upfront, and cost impact of late discovery",
+        "Procurement workflow documentation from 3\u20135 data center operators showing whether cooling and power distribution are in the same RFQ or separate procurement tracks",
+        "AHJ permit sequence analysis: do any jurisdictions require proof of service upgrade scope resolution before heat pump installation permit issuance?"
+      ],
+      "recommended_owner_questions": [
+        "In data center projects you have managed or observed, was cooling infrastructure (including direct-to-chip or in-row cooling) specified and contracted before or after rack and PDU procurement? What was the schedule or cost impact when cooling was specified after?",
+        "For residential heat pump retrofit projects, at what point in the project sequence is the panel upgrade scope confirmed \u2014 before bid acceptance, during permitting, or during construction? What is the average cost impact of late panel scope discovery?"
+      ]
+    },
+    {
+      "rank": 2,
+      "working_title": "Specification Lock-In at the Rack and the Panel: How Point-in-Time Procurement Decisions Create Decade-Long Architectural Debt",
+      "thesis": "PDU selection in data centers and electrical panel sizing in residential electrification are both treated as point-in-time procurement decisions, but both embed architectural commitments with 10\u201315 year implications. PDU phase configuration, redundancy topology, and monitoring hardware integration pathways are interdependent and difficult to retrofit; panel amperage and circuit layout constrain future EV charging, appliance electrification, and load management for the building's lifetime. In both cases, practitioners make these decisions under incomplete information about future loads and monitoring requirements, and the cost of under-specification is paid years later. A practitioner-facing decision framework that forces explicit future-load documentation and monitoring requirements at specification time\u2014before phase/redundancy/amperage is locked\u2014would reduce architectural debt across both verticals.",
+      "outline": [
+        "H1: The lock-in anatomy \u2014 PDU phase/redundancy/monitoring interdependency (item 128); panel amperage as constraint on future EV + heat pump + HPWH stacking (items 190, 192); why retrofit is expensive or infeasible in both cases",
+        "H2: Decision-under-incomplete-information \u2014 monitoring requirements unknown at PDU procurement time (item 128); future load profile unknown at panel sizing time (items 190, 192); DCIM/EPMS integration requirements emerge post-deployment (items 122, 184)",
+        "H3: AHJ acceptance criteria do not fill the gap \u2014 no current AHJ standard for rack monitoring integration adequacy (compliance_ahj); panel sizing code compliance (NEC 220) does not require future-load documentation; owner-operator operational requirements must drive specification, not permit sign-off",
+        "H4: Decision framework design \u2014 future-load assumption matrix required at PDU RFQ (monitoring requirements, density growth scenario, redundancy SLA); panel sizing worksheet requiring explicit EV/appliance electrification timeline at permit application; open-API monitoring interface as default specification to preserve flexibility (items 128, 126)"
+      ],
+      "must_cite_items": [
+        "128",
+        "190",
+        "192",
+        "122",
+        "184"
+      ],
+      "missing_evidence_to_find": [
+        "Case studies of PDU monitoring retrofit attempts \u2014 what was the cost, what was the trigger, and what monitoring capability was unavailable due to initial PDU selection?",
+        "Residential panel upgrade data showing what percentage of 150A or 200A panels installed in 2015\u20132020 are now undersized for combined heat pump + EV charging loads, and what retrofit cost is being incurred",
+        "Survey of PDU manufacturers: which currently offer open monitoring APIs, and what is the premium vs. integrated-monitoring proprietary units?"
+      ],
+      "recommended_owner_questions": [
+        "Have you encountered data center facilities where PDU monitoring integration requirements changed post-installation \u2014 what was the trigger and what did retrofit cost?",
+        "For residential electrification programs you track: what percentage of homes that upgraded to 200A panels for a heat pump are now needing additional work to add EV charging, and what is the incremental cost vs. having specified for both at panel upgrade time?"
+      ]
+    },
+    {
+      "rank": 3,
+      "working_title": "Labor Cost as Risk Premium: How Pre-Construction Coordination Captures 15\u201325% of Electrical Installation Cost Across All Three Verticals",
+      "thesis": "Electrical installation labor cost inflation in data centers, building electrification, and edge deployments is not purely a labor market phenomenon. A significant fraction\u2014estimated at 15\u201325%\u2014is a risk premium that contractors price into bids to cover uncertainty from fragmented pre-construction coordination: unresolved utility scope (items 190, 192), routing conflicts discovered during rough-in (item 122), and permit unpredictability (items 190, 192). Systematic estimating methodology (item 126) reduces variance for predictable scopes but does not eliminate field variability risk premiums. Owner-operators and GCs who internalize pre-construction coordination\u2014resolving utility scope, completing AHJ pre-submittals, and performing 3D CAD routing validation before bid issuance\u2014can capture this premium without changing wage rates. The intervention target is the owner/GC, not the contractor.",
+      "outline": [
+        "H1: Where the risk premium lives \u2014 utility coordination uncertainty in residential retrofits (items 190, 192); routing conflict discovery during data center rough-in (item 122); permit scope ambiguity at bid time (items 190, 192); each adds 5\u201310% contingency to contractor bid",
+        "H2: What systematic estimating addresses vs. what it does not \u2014 4-step methodology (item 126) reduces variance for predictable scopes; does not reduce the uncertainty premium for unresolved pre-construction dependencies",
+        "H3: Owner-operator coordination as cost capture \u2014 pre-permit AHJ load calculation submission eliminates permit uncertainty premium; batch utility pre-approval eliminates coordination timeline risk premium; 3D CAD routing validation before data center rough-in eliminates conflict discovery premium (item 122)",
+        "H4: Program design implications \u2014 owner-operators managing 10+ sites (building electrification programs, edge rollouts) have highest leverage because risk premiums are paid per project; standardized pre-construction coordination protocols amortize coordination investment across portfolio; contractor prequalification based on historical labor productivity data (not just licensing) selects for contractors who can deliver to tighter bids under resolved scope"
+      ],
+      "must_cite_items": [
+        "126",
+        "190",
+        "192",
+        "122"
+      ],
+      "missing_evidence_to_find": [
+        "Contractor bid data comparing projects with vs. without pre-construction utility coordination resolved: what is the actual bid premium for unresolved utility scope, and does it disappear when scope is resolved before bid issuance?",
+        "Data center case study comparing routing conflict incidence and rework cost in projects with pre-procurement 3D CAD coordination vs. those without",
+        "Portfolio-scale electrification program data (10+ buildings) showing per-building cost variance and whether buildings with pre-resolved utility scope had lower installation bids"
+      ],
+      "recommended_owner_questions": [
+        "When you issue RFQs for electrical installation, is utility coordination scope resolved before bid issuance or left as a contingency item? Have you compared bid prices for identical scopes with vs. without resolved utility pre-approval?",
+        "For data center retrofit projects with high AI rack density: do you perform 3D CAD routing coordination before issuing electrical installation RFQs? If not, what is your observed rework rate and cost during rough-in?"
+      ]
+    }
+  ],
+  "tomorrow_search_briefs": [
+    {
+      "goal": "Quantify the actual cost and schedule impact of the enabling-infrastructure sequencing error in data center high-density deployments \u2014 specifically, what happens when cooling specification follows rather than precedes rack and PDU procurement",
+      "queries": [
+        "direct-to-chip liquid cooling retrofit cost data center AI rack deployment 2024 2025 commissioning delay",
+        "high density AI data center cooling infrastructure lead time vs electrical procurement timeline case study",
+        "DCIM EPMS integration commissioning delay cost AI rack density >20kW per rack site report 2025"
+      ],
+      "why_this_will_improve_insights": "INS-001 and the rank-1 article candidate both rest on the hypothesis that cooling-first sequencing is currently violated in practice and that this causes measurable cost and schedule overruns. Without quantified delay and cost data from real deployments, the hypothesis is plausible but not actionable. This search would either validate the mechanism with evidence (enabling a prescriptive recommendation) or surface counterevidence (operators who have successfully co-designed cooling and power) that would require revising the thesis."
+    },
+    {
+      "goal": "Establish a regional benchmark for residential electrical service upgrade costs, separating labor from panel hardware from utility service upgrade fees, to test whether the $15\u201320K figure in item 190 is a California outlier or representative of national retrofit economics",
+      "queries": [
+        "residential electrical service upgrade 200A panel labor cost benchmark 2024 2025 by state contractor survey",
+        "heat pump retrofit electrical service upgrade cost breakdown labor vs equipment vs utility fee California vs national average",
+        "utility service upgrade residential approval timeline California PG&E SCE 2024 heat pump retrofit weeks to approval"
+      ],
+      "why_this_will_improve_insights": "The $15\u201320K figure (item 190) is a single Reddit anecdote that all five analysts treated as a reliable data point. INS-001, INS-002, and all three ranked article candidates depend on this figure being at least approximately representative. A regional benchmark would either confirm the order of magnitude (strengthening the labor-ceiling argument) or reveal that $15\u201320K is a high-cost California outlier (which would change the intervention design\u2014policy instruments work differently in markets where labor cost is $8\u201310K vs. $20K). It would also separate the labor component from the utility service upgrade fee, which is a different lever owned by a different actor."
+    },
+    {
+      "goal": "Determine whether edge enclosure deployments at 5\u201310 kW power density are currently experiencing documented thermal failures or throttling events at scale, and what cooling interventions are being deployed in practice",
+      "queries": [
+        "edge computing enclosure thermal failure 5kW 10kW power density active cooling retrofit 2024 2025 field report",
+        "outdoor edge cabinet thermal management >5kW NEMA enclosure active vs passive cooling cost comparison integrator",
+        "AI inferencing edge deployment power density thermal constraint enclosure upsizing external cooler case study"
+      ],
+      "why_this_will_improve_insights": "INS-004 identifies the edge thermal constraint (item 194) as the leading edge of the same AI density wave hitting data centers, but the evidence base is a single Facebook post stub with no technical content. finance_roi_skeptic rated this Low confidence; compliance_ahj rated it Medium. Without field evidence of actual thermal events or cooling interventions at edge sites, practitioners cannot distinguish between a real operational constraint and marketing language from an enclosure vendor. This search would either surface documented field failures (validating the constraint as real and imminent) or reveal that the 5\u201310 kW threshold is being managed within standard enclosure designs (downgrading the constraint's urgency and redirecting attention to higher-density edge scenarios driven by AI inferencing workloads)."
+    }
+  ]
+}

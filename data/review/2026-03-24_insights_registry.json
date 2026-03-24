@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-24",
+  "insights": [
+    {
+      "insight_id": "2026-03-24-A01",
+      "working_title": "The Enabling Infrastructure Inversion: Why Cooling and Panel Upgrades Must Be Designed First, Funded First, and Contracted First",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-24-the-enabling-infrastructure-inversion-why-cooling-.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-24-A02",
+      "working_title": "Specification Lock-In at the Rack and the Panel: How Point-in-Time Procurement Decisions Create Decade-Long Architectural Debt",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-24-specification-lock-in-at-the-rack-and-the-panel-ho.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-24-A03",
+      "working_title": "Labor Cost as Risk Premium: How Pre-Construction Coordination Captures 15\u201325% of Electrical Installation Cost Across All Three Verticals",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-24-labor-cost-as-risk-premium-how-pre-construction-co.md",
+      "confidence": "",
+      "levers": []
+    }
+  ]
+}
