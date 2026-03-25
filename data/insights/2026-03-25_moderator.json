@@ -1,0 +1,272 @@
+{
+  "agent": "moderator_synthesis",
+  "run_date": "2026-03-25",
+  "coverage_notes": {
+    "observed_skews": [
+      "Building-electrification items (4) generate disproportionate analyst agreement on panel-upgrade-as-bottleneck, but all four building items are thin on evidence: two have no usable transcript/content (192, 182 Instagram), one is a single Reddit anecdote (190), and one lacks rate-sensitivity data (182 California). High analyst confidence is built on weak empirical foundations.",
+      "Data-center vertical (4 items) produces the most actionable synthesis because items 122 and 128 have concrete evidence strings; items 184 and 150 are near-empty and effectively dead weight, skewing apparent coverage toward data centers without adding proportional insight.",
+      "Edge-power-ups is structurally underrepresented: item 194 is a near-empty Facebook post and item 126 is a webinar pitch. All edge conclusions are speculative. Analysts compensate with hypothesis generation, masking the evidence gap.",
+      "No items address utility-side distribution infrastructure, grid interconnection capacity, or transformer lead times\u2014factors that several analysts invoke as second-order effects without supporting evidence.",
+      "California electricity rate constraint (item 182) is cited by finance and compliance analysts as a major lever, but the item has zero usable content. Conclusions about rate sensitivity are analyst assumptions, not evidence."
+    ],
+    "suggested_query_adjustments": [
+      "Add Pulse queries targeting utility interconnection timelines and panel upgrade permitting cycle times by jurisdiction (CA, NY, TX) to replace thin items 192 and 182.",
+      "Source a technical white paper or ASHRAE guideline on edge enclosure thermal performance at 5\u201310 kW to replace the near-empty item 194.",
+      "Find a data center commissioning case study documenting DCIM/EPMS integration cost breakdown (hardware, licensing, commissioning labor) to fill the gap left by item 122's lack of cost data.",
+      "Source NEC Article 220 load calculation methodology resources or AHJ guidance documents for heat pump retrofits to ground the compliance analyst's recommendations in citable evidence.",
+      "Add a Pulse item on direct-to-chip liquid cooling co-routing standards or pre-fab power+cooling bundle availability to fill the gap between item 122's strategy claims and field installation reality."
+    ]
+  },
+  "composite_insights": [
+    {
+      "insight_id": "INS-001",
+      "insight": "The binding constraint in residential electrification retrofits is not equipment cost, electricity rates, or installer availability\u2014it is the irreversibility and upfront cost concentration of the service upgrade decision. At $15\u201320K for panel + wiring (item 190), the electrical infrastructure upgrade represents 50\u201370% of total project cost and must be sequenced before equipment procurement, yet utility pre-approval timelines and load calculation methodology are unstandardized. This creates a compound risk: owners cannot accurately budget, contractors cannot bid accurately, and AHJs cannot review without utility capacity confirmation. The result is that a single missing document (utility letter of non-availability) can block a project that is otherwise code-compliant and fully permitted. None of the analysts fully resolved whether this is primarily a financing problem, a process problem, or a code/documentation problem\u2014but the synthesis suggests it is all three simultaneously, and solving only one lever will not unblock adoption at scale.",
+      "why_it_is_new": "Individual analysts each identified one dimension: finance saw it as a CapEx-ROI break, installer saw it as a scheduling bottleneck, compliance saw it as a documentation gap, MEP saw it as a sequencing inversion. No single analyst integrated the financing, permitting, and load-calculation failures as a mutually reinforcing system that requires simultaneous intervention on all three fronts.",
+      "new_perspective_from_disagreement": "Finance analyst (finance_roi_skeptic) argues California electricity rates (item 182) are a co-equal barrier alongside panel costs. Compliance analyst (compliance_ahj) argues the rate problem is downstream of the capital/permitting problem\u2014owners never get to the operational cost question because they stall at the service upgrade stage. The disagreement reveals a sequencing dependency: rate-sensitivity analysis is irrelevant until the upfront cost barrier is solved, making rate reform a second-order lever, not a first-order one. This inverts the Building Decarbonization Coalition framing (item 182) which prioritizes operational economics.",
+      "who_cares": [
+        "residential-electrical-contractor",
+        "GC-MEP-designer",
+        "AHJ-plan-reviewer",
+        "utility-interconnection-coordinator",
+        "homeowner-building-owner"
+      ],
+      "which_verticals": [
+        "building-electrification"
+      ],
+      "levers": [
+        "pre-permitting utility capacity confirmation",
+        "standardized NEC-220 load calc templates",
+        "phased service upgrade design (Phase 1 right-size + Phase 2 sub-feed footprint)",
+        "bundled financing treating panel upgrade as single line item"
+      ],
+      "supporting_items": [
+        "190",
+        "192",
+        "182",
+        "126"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposed: Finance analyst and compliance analyst disagree on whether rate volatility (item 182) or capital cost (item 190) is the primary adoption barrier\u2014synthesis finds capital/permitting is first-order, rate is second-order, but both must be addressed for market clearing.",
+        "Exposed: Installer analyst sees phased service upgrade as an immediate field tactic; compliance analyst requires full SPOF and load calc documentation regardless of phasing\u2014the two approaches are not yet reconciled into a standard practice.",
+        "Resolved: All analysts agree utility coordination is on the critical path; synthesis confirms this is both a process failure (no standard utility pre-approval workflow) and a documentation failure (no standard load calc template), not just a cost problem."
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "insight_id": "INS-002",
+      "insight": "In AI data centers, the PDU selection decision and the DCIM/EPMS integration decision are architecturally coupled and mutually irreversible, but they are made by different buyers (IT procurement for PDUs, facilities/software teams for DCIM) on different procurement timelines. Item 128 shows phase configuration, redundancy topology, and monitoring hardware integration are locked at PDU purchase. Item 122 shows DCIM/EPMS/BMS must manage rack-level power and thermal conditions for safe AI rack operation. The gap: PDU monitoring output format, alarm thresholds, and data API must match DCIM/EPMS requirements\u2014but these requirements are not defined until the software platform is selected, which typically occurs after rack procurement. This creates a systematic mismatch that manifests as commissioning rework: field teams discover that PDU telemetry does not flow into the DCIM platform without custom integration, adding unbudgeted cost and extending power-on timelines. The composite insight is that PDU procurement must be gated by a prior DCIM/EPMS platform decision, inverting current industry sequencing.",
+      "why_it_is_new": "MEP analyst identified the PDU lock-in problem (item 128) and the DCIM integration requirement (item 122) as separate constraints. Owner-operator analyst identified the monitoring fragmentation problem. Installer analyst identified the commissioning rework caused by mismatched PDU specs. No single analyst connected all three into the root cause: the procurement sequencing inversion (PDUs bought before DCIM platform is selected) is the systemic failure that generates all downstream symptoms.",
+      "new_perspective_from_disagreement": "Owner-operator analyst recommends standardizing on a single PDU vendor with native monitoring as the solution. Compliance analyst recommends a functional acceptance test (FAT) for EPMS integration as the gate. These are not contradictory but address different phases: vendor standardization reduces the probability of mismatch at procurement; FAT catches mismatches before occupancy. The disagreement reveals that neither procurement discipline nor commissioning rigor alone solves the problem\u2014both are required, and the industry currently has neither standardized.",
+      "who_cares": [
+        "data-center-facilities-manager",
+        "IT-procurement",
+        "commissioning-agent",
+        "DCIM-software-vendor",
+        "electrical-contractor-commissioning"
+      ],
+      "which_verticals": [
+        "data-centers",
+        "edge-power-ups"
+      ],
+      "levers": [
+        "DCIM/EPMS platform selection before PDU procurement",
+        "PDU-DCIM interface requirements document as procurement gate",
+        "EPMS functional acceptance test (FAT) before occupancy",
+        "standardized PDU monitoring output format (SNMP/API)"
+      ],
+      "supporting_items": [
+        "122",
+        "128",
+        "184"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Resolved: MEP, owner-operator, installer, and compliance analysts all independently identified the PDU-monitoring integration as a source of commissioning friction\u2014synthesis confirms this is a systemic procurement sequencing failure, not a site-specific installation error.",
+        "Exposed: Owner-operator favors single-vendor PDU standardization; finance analyst warns this creates vendor lock-in with long-term OpEx risk. Neither has cost data to resolve the tradeoff. Missing evidence: 5-year TCO comparison of single-vendor integrated monitoring vs. multi-vendor best-of-breed.",
+        "Exposed: Compliance analyst raises whether EPMS software is a safety-critical system requiring IEC 61508 SIL rating if used for load shedding\u2014no other analyst addressed this, and no Pulse item covers it. This is an unresolved regulatory risk."
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-003",
+      "insight": "The thermal constraint at edge enclosures (5\u201310 kW, item 194) and the AI rack density escalation (30\u201350+ kW, item 122) are structurally analogous problems at different scales, but they are being addressed with entirely different design philosophies: data centers are moving toward integrated software (DCIM/EPMS) and pre-engineered liquid cooling; edge deployments are still treated as field-assembled, ad-hoc problems. This divergence creates a widening gap in commissioning rigor: data center operators are being pushed toward formal thermal design packages and software integration testing, while edge enclosure deployments have no equivalent standard\u2014thermal verification is left to IT/network teams post-energization, with no electrical permit requirement for cooling validation. The composite insight is that edge deployments are approximately 3\u20135 years behind data centers in thermal design discipline, and the thermal failure rate at edge sites will increase as power density climbs into the 5\u201310 kW range without corresponding commissioning rigor. Practitioners deploying edge enclosures above 5 kW should voluntarily adopt data-center-grade thermal commissioning protocols before AHJs mandate them reactively.",
+      "why_it_is_new": "No single analyst made the cross-vertical comparison between edge thermal management and data center thermal management as analogous problems at different maturity levels. MEP analyst treated them as separate constraints. Compliance analyst proposed thermal design packages for both but did not connect them as a maturity gap. The cross-vertical synthesis reveals that data center commissioning practice is a leading indicator for where edge commissioning requirements will go.",
+      "new_perspective_from_disagreement": "MEP analyst hypothesizes edge thermal constraints will force distributed lower-density nodes (2\u20133 kW each) as the architectural response. Finance analyst argues cooling augmentation cost must be compared to distributed topology cost before a decision is justified\u2014and that data is missing. The disagreement is productive: it identifies that the architectural decision (consolidated high-density vs. distributed low-density) cannot be made without a comparative cost model that does not yet exist in the Pulse evidence base. Practitioners making this decision today are doing so without an economic framework.",
+      "who_cares": [
+        "edge-deployment-engineer",
+        "data-center-facilities-manager",
+        "commissioning-agent",
+        "AHJ-plan-reviewer",
+        "network-infrastructure-owner"
+      ],
+      "which_verticals": [
+        "edge-power-ups",
+        "data-centers"
+      ],
+      "levers": [
+        "thermal design package (TDP) requirement before rough electrical inspection",
+        "8-hour soak test commissioning protocol for enclosures above 5 kW",
+        "ASHRAE 2024 CFM/delta-T calculation requirement",
+        "architectural decision gate: consolidated vs. distributed node topology with cost model"
+      ],
+      "supporting_items": [
+        "194",
+        "122",
+        "128"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposed: MEP analyst (architectural response: distribute nodes) and finance analyst (need cost model before deciding) are in direct tension\u2014synthesis finds the decision cannot be responsibly made with current evidence, and that the absence of a comparative cost model is itself a practitioner risk.",
+        "Exposed: Compliance analyst proposes thermal design packages as an AHJ requirement, but no current NEC or UL standard mandates this for edge enclosures. This is a regulatory gap that forward-looking practitioners should fill voluntarily.",
+        "Resolved: All analysts agree thermal verification is orphaned between electrician, IT team, and equipment vendor at edge sites. Synthesis confirms this is a scope-of-work gap, not a technical impossibility."
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "insight_id": "INS-004",
+      "insight": "Across all three verticals, labor cost estimation and commissioning labor in particular are systematically underfunded because estimating frameworks (item 126) are designed to win bids, not to budget commissioning and documentation overhead. The ABB/ReliaGear framework reduces installation labor variance but does not include commissioning labor (functional testing, monitoring integration validation, thermal log signing, AHJ documentation preparation) as a line item. This creates a structural cost leak: contractors bid and win on installation labor, then absorb commissioning labor as margin erosion or scope creep. The effect is amplified in high-complexity projects\u2014AI data center PDU commissioning (item 128), heat pump service upgrade permitting (item 190), edge enclosure thermal validation (item 194)\u2014where commissioning scope is large and poorly defined. The composite insight is that the next generation of estimating frameworks must treat commissioning labor as a first-class cost category, not an afterthought, and that smart distribution products (ReliaGear) provide labor savings that are currently captured as contractor margin rather than passed through as owner cost reduction or reinvested in commissioning rigor.",
+      "why_it_is_new": "Installer analyst identified estimating as a margin lever but focused on installation bid accuracy. Compliance analyst identified commissioning documentation gaps as an AHJ friction source. Finance analyst noted contractor margin optimization does not align with owner cost reduction. No analyst integrated these three observations: the estimating framework produces installation savings that go to margin, while commissioning costs are unbudgeted, creating a systematic underfunding of the activities that determine whether projects pass inspection and operate correctly.",
+      "new_perspective_from_disagreement": "Finance analyst argues ReliaGear smart products (item 126) reduce contractor costs without reducing owner costs\u2014savings are retained as profit. Installer analyst argues systematic estimating improves bid accuracy and reduces change orders, which benefits owners through schedule certainty. The disagreement reveals a distribution-of-savings question: who captures the labor savings from smart products and systematic estimating? The synthesis finds that without explicit commissioning line items in estimates, the answer is contractors\u2014and commissioning quality suffers as a result.",
+      "who_cares": [
+        "electrical-contractor",
+        "GC-MEP-designer",
+        "commissioning-agent",
+        "data-center-facilities-manager",
+        "AHJ-plan-reviewer"
+      ],
+      "which_verticals": [
+        "edge-power-ups",
+        "data-centers",
+        "building-electrification"
+      ],
+      "levers": [
+        "commissioning labor as explicit estimate line item",
+        "product-specific commissioning checklists bundled with smart distribution products",
+        "AHJ documentation package as deliverable in project scope",
+        "owner requirement for commissioning budget as % of installation cost"
+      ],
+      "supporting_items": [
+        "126",
+        "128",
+        "122",
+        "190",
+        "194"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Resolved: Finance and installer analysts disagreed on who benefits from smart product labor savings\u2014synthesis finds contractors currently capture the benefit, and commissioning quality is the casualty. This is an owner-contractor alignment problem solvable by making commissioning a named deliverable in the scope.",
+        "Exposed: No Pulse item provides labor hour data for commissioning vs. installation across any of the three verticals. Without this data, the magnitude of commissioning underfunding cannot be quantified. This is the most important missing evidence across the entire Pulse batch.",
+        "Exposed: ABB estimating framework (item 126) is a webinar pitch with no post-deployment validation data. All analyst conclusions about its effectiveness are speculative."
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "ranked_original_angles": [
+    {
+      "rank": 1,
+      "working_title": "The Three-Lock Problem: Why Residential Electrification Stalls Before the First Wire Is Pulled",
+      "thesis": "Residential heat pump retrofits face three simultaneous lock conditions\u2014capital cost concentration in the service upgrade ($15\u201320K, item 190), absence of utility pre-approval workflows that creates permitting uncertainty (item 192), and electricity rate volatility that undermines operational ROI (item 182)\u2014that must be unlocked in sequence, not in parallel. Current policy and contractor practice attempts to address each lock independently, which is why adoption plateaus persist even in markets with strong incentive programs. The article argues that service upgrade standardization (load calc templates, utility pre-approval letters) is the first-order unlock, without which rate reform and incentives cannot clear the market.",
+      "outline": [
+        "H1: Service upgrade is the binding constraint, not equipment cost or rates\u2014$15\u201320K labor (item 190) must be committed before owner knows if operational economics work; sequence matters.",
+        "H2: Utility pre-approval gap creates soft cost inflation and project cancellation risk\u2014no standardized intake form, response SLA, or capacity confirmation letter template exists in most jurisdictions (items 190, 192).",
+        "H3: Rate volatility (item 182) is a second-order problem that becomes relevant only after the capital/permitting lock is cleared\u2014current Building Decarbonization Coalition framing conflates first- and second-order barriers.",
+        "H4: Phased service upgrade design (right-size Phase 1, pre-sleeve Phase 2 sub-feed) combined with standardized NEC 220 load calc templates and parallel utility pre-approval can reduce total soft cost by 20\u201330% and compress project timeline\u2014enabling adoption within incentive windows."
+      ],
+      "must_cite_items": [
+        "190",
+        "192",
+        "182",
+        "126"
+      ],
+      "missing_evidence_to_find": [
+        "Utility pre-approval timeline data by jurisdiction: average days from application to capacity confirmation letter, variance across CA, NY, TX utilities.",
+        "Distribution of panel upgrade costs across US housing stock vintage (pre-1980, 1980\u20132000, post-2000): what % of homes require 200A upgrade, 150A upgrade, or no upgrade for heat pump + HPWH + Level 2 EV?",
+        "Project cancellation data: at what panel upgrade cost threshold (absolute and as % of total project) do homeowners abandon electrification retrofits? Survey of contractors or rebate program administrators.",
+        "Payback period sensitivity model: $15\u201320K retrofit at 10\u00a2, 15\u00a2, 20\u00a2, 25\u00a2/kWh\u2014at what rate does payback exceed loan term?"
+      ],
+      "recommended_owner_questions": [
+        "Do you have permit records or rebate program data showing what % of heat pump retrofit applicants require a service upgrade, and what % of those projects stall or cancel after receiving the upgrade quote?",
+        "Have any jurisdictions in your coverage area implemented utility pre-approval fast-track programs for residential electrification? What was the measured impact on permitting timeline and project completion rate?"
+      ]
+    },
+    {
+      "rank": 2,
+      "working_title": "PDU First, DCIM Never: How Procurement Sequencing Creates a Monitoring Blindspot in AI Data Centers",
+      "thesis": "AI data center operators are deploying high-density racks (item 122) with PDUs selected for phase and redundancy before DCIM/EPMS platforms are chosen (item 128). Because PDU monitoring output format, alarm threshold architecture, and hardware integration points are locked at purchase, a subsequent DCIM platform selection that requires different telemetry creates custom integration cost and commissioning rework that is never in the original project budget. The article argues that DCIM/EPMS platform selection must gate PDU procurement\u2014inverting current industry sequencing\u2014and that functional acceptance testing (FAT) for monitoring integration must become a mandatory commissioning deliverable before occupancy.",
+      "outline": [
+        "H1: PDU selection locks monitoring architecture irreversibly at purchase\u2014phase config, redundancy topology, and hardware monitoring integration points cannot be retrofitted (item 128).",
+        "H2: AI rack density growth (item 122) makes DCIM/EPMS/BMS non-optional for safe operation\u2014thermal and power events at 30\u201350+ kW/rack cannot be managed manually.",
+        "H3: Current procurement sequencing (IT buys PDUs; facilities buys DCIM later) guarantees mismatch\u2014the interface requirements document that would prevent this does not exist as a standard deliverable in any of the Pulse items.",
+        "H4: FAT for EPMS integration (verifying telemetry accuracy \u00b12%, alarm propagation, EPMS-to-BMS handshake) must be a commissioning gate before occupancy\u2014not a post-deployment O&M activity."
+      ],
+      "must_cite_items": [
+        "122",
+        "128",
+        "184"
+      ],
+      "missing_evidence_to_find": [
+        "Case study documentation of a data center deployment where PDU-DCIM integration mismatch was discovered at commissioning: what was the rework cost, schedule impact, and root cause?",
+        "Survey of major DCIM platforms (Schneider EcoStruxure, Vertiv Trellis, nlyte, Sunbird): what PDU telemetry formats and protocols do they natively support vs. require custom integration?",
+        "Cost breakdown of DCIM/EPMS integration: hardware (sensors, gateways), software licensing (per rack/per site), commissioning labor (hours to validate telemetry flow), and ongoing support\u2014disaggregated from total data center infrastructure cost.",
+        "Whether EPMS software used for automated load shedding triggers IEC 61508 SIL rating requirements or equivalent safety-critical software validation obligations under NEC or local AHJ interpretation."
+      ],
+      "recommended_owner_questions": [
+        "In your data center portfolio, how many projects have required post-procurement PDU replacement or custom DCIM integration middleware because the PDU monitoring output did not match the DCIM platform's native protocol? What was the average cost impact?",
+        "Is EPMS functional acceptance testing currently a named deliverable in your commissioning scope of work, or is monitoring integration treated as a post-handoff O&M activity?"
+      ]
+    },
+    {
+      "rank": 3,
+      "working_title": "Commissioning Is Not in the Estimate: The Hidden Cost Leak Across All Three Verticals",
+      "thesis": "Electrical estimating frameworks (item 126) optimize for installation labor\u2014the cost category contractors can measure and control\u2014while commissioning labor (functional testing, monitoring integration validation, thermal logging, AHJ documentation preparation) is either omitted from estimates or absorbed as margin erosion. This is not a minor oversight: in high-complexity projects across all three verticals (AI data center PDU commissioning, heat pump service upgrade permitting, edge enclosure thermal validation), commissioning scope is large, poorly defined, and increasingly mandatory. Smart distribution products like ReliaGear reduce installation labor, but those savings accrue to contractor margin rather than owner cost reduction or commissioning quality investment. The article argues that commissioning labor must become a first-class, explicitly line-itemed cost category in every power distribution project estimate.",
+      "outline": [
+        "H1: Current estimating frameworks (item 126) are installation-centric\u2014labor libraries are built for wire pulls, panel swaps, and cabinet mounting, not for functional testing, telemetry validation, or AHJ documentation preparation.",
+        "H2: Commissioning scope is expanding in all three verticals\u2014EPMS FAT for data centers (item 122), thermal soak tests for edge enclosures (item 194), utility pre-approval letters and load calc sign-offs for building electrification (item 190)\u2014but estimating practice has not caught up.",
+        "H3: Smart product labor savings (ReliaGear, item 126) are captured as contractor margin, not reinvested in commissioning quality\u2014creating an inverse relationship between installation efficiency and commissioning rigor.",
+        "H4: Standardized commissioning labor libraries (hours per deliverable: EPMS telemetry validation, AHJ documentation package, thermal soak test, PDU circuit verification) tied to project type and complexity would allow contractors to bid commissioning accurately and owners to require it as a named deliverable."
+      ],
+      "must_cite_items": [
+        "126",
+        "128",
+        "122",
+        "190",
+        "194"
+      ],
+      "missing_evidence_to_find": [
+        "Labor hour data for commissioning activities by project type: how many hours does EPMS telemetry validation take per rack, thermal soak test per edge enclosure, AHJ documentation package per heat pump retrofit? No Pulse item contains this data.",
+        "Contractor survey: what % of electrical project estimates include a named commissioning labor line item vs. burying it in overhead or omitting it entirely? What is the average commissioning cost as % of installation cost by project type?",
+        "Post-project audit data: on projects using smart distribution products (ReliaGear or equivalent), what % of installation labor savings were reinvested in commissioning vs. retained as margin? What was the correlation with AHJ inspection pass rate on first submission?"
+      ],
+      "recommended_owner_questions": [
+        "Do any of your contractor partners explicitly line-item commissioning labor (functional testing, documentation, thermal validation) separately from installation labor in their bids? If so, what is the typical ratio of commissioning-to-installation labor cost by project type?",
+        "Have you observed a correlation between contractors using systematic estimating frameworks (like item 126) and first-submission AHJ inspection pass rates, or does better estimation discipline appear to be uncorrelated with commissioning quality?"
+      ]
+    }
+  ],
+  "tomorrow_search_briefs": [
+    {
+      "goal": "Quantify the service upgrade permitting and utility coordination bottleneck to replace thin building-electrification items with actionable data",
+      "queries": [
+        "residential heat pump retrofit electrical service upgrade permitting timeline by jurisdiction California New York Texas 2024 2025",
+        "utility pre-approval process residential panel upgrade heat pump interconnection average approval days variance",
+        "NEC Article 220 load calculation template heat pump heat pump water heater EV charging combined load residential retrofit"
+      ],
+      "why_this_will_improve_insights": "INS-001 and the rank-1 article candidate are built on a single Reddit anecdote (item 190) and a content-empty YouTube short (item 192). Permitting timeline variance data and utility pre-approval process documentation would transform speculative analyst conclusions into evidence-based practitioner guidance. Specifically, it would allow quantification of the soft cost impact of utility coordination delays and enable jurisdiction-specific recommendations that practitioners could act on immediately."
+    },
+    {
+      "goal": "Establish the cost and protocol for DCIM/EPMS integration at PDU-level to validate INS-002 and rank-2 article candidate",
+      "queries": [
+        "DCIM EPMS PDU integration cost per rack commissioning labor hours functional acceptance test protocol 2024 2025",
+        "Schneider EcoStruxure Vertiv Trellis Sunbird DCIM PDU native protocol support SNMP Modbus custom integration cost comparison",
+        "data center high density AI rack PDU replacement mid-lifecycle cost monitoring mismatch commissioning rework case study"
+      ],
+      "why_this_will_improve_insights": "INS-002 identifies PDU procurement sequencing as the root cause of monitoring blindspots, but item 128 provides no cost data for integration or rework, and item 122 provides no commissioning protocol details. These queries would fill the two most critical missing evidence gaps: (1) what DCIM platforms natively support vs. require custom integration, and (2) what the actual cost of a PDU-DCIM mismatch discovered at commissioning looks like. This would allow the rank-2 article to move from hypothesis to documented case."
+    },
+    {
+      "goal": "Find comparative thermal performance and cost data for edge enclosures at 5\u201310 kW to resolve the consolidated-vs-distributed architectural decision exposed in INS-003",
+      "queries": [
+        "edge computing enclosure thermal performance 5kW 10kW ASHRAE 2024 cooling requirement CFM delta-T rack density",
+        "edge enclosure 5kW 10kW deployment cost comparison single enclosure vs distributed nodes wiring monitoring commissioning labor",
+        "edge data center thermal failure rate post-installation cooling retrofit frequency 2023 2024 2025 case study"
+      ],
+      "why_this_will_improve_insights": "INS-003 exposes a practitioner decision\u2014consolidated high-density vs. distributed low-density edge topology\u2014that cannot currently be made on economic grounds because no cost model exists in the Pulse evidence base. Item 194 is a near-empty Facebook post. These queries would provide the thermal performance data (ASHRAE or vendor testing) and deployment cost comparison needed to build the economic framework that MEP and finance analysts both identified as missing. This directly affects site layout decisions for every edge deployment above 5 kW."
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "run_date": "2026-03-25",
+  "drafts": [
+    {
+      "draft_id": "SOC-001",
+      "channel": "linkedin",
+      "text": "Residential heat pump retrofits aren't stalling because of equipment cost or electricity rates. They're stalling at the service upgrade decision\u2014a $15\u201320K commitment that must be made before owners know whether the operational economics work. That sequencing problem is compounded by two structural gaps: no standardized utility pre-approval workflow and no consistent NEC Article 220 load calculation template across jurisdictions. The result is a compound lock: contractors can't bid accurately, AHJs can't review without utility capacity confirmation, and owners can't budget without a contractor number. Rate reform and incentive programs can't clear this market until the capital and permitting lock is solved first\u2014that's the first-order lever. What approaches have you seen work for pre-permitting utility coordination in your jurisdiction?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-the-hidden-cost-of-going/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "190",
+          "192"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "pre-permitting utility capacity confirmation",
+          "standardized NEC-220 load calc templates"
+        ],
+        "target_persona": "residential-electrical-contractor"
+      }
+    },
+    {
+      "draft_id": "SOC-002",
+      "channel": "linkedin",
+      "text": "In AI data centers, the PDU purchase and the DCIM/EPMS platform selection are made by different teams on different timelines\u2014and that sequencing mismatch is generating real commissioning rework. Phase configuration, redundancy topology, and monitoring hardware integration points lock at PDU procurement. But DCIM telemetry requirements, alarm threshold architecture, and API compatibility aren't defined until the software platform is chosen\u2014which typically happens after rack procurement is complete. The result: field teams discover PDU telemetry doesn't flow into the DCIM platform without custom integration, adding unbudgeted cost and extending power-on timelines. The fix is structural, not technical: DCIM/EPMS platform selection must gate PDU procurement, not follow it. A functional acceptance test verifying telemetry accuracy, alarm propagation, and EPMS-to-BMS handshake should be a named commissioning deliverable before occupancy\u2014not a post-handoff O&M activity. Is your organization's commissioning scope of work currently explicit on EPMS integration testing?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": [
+          "184"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "DCIM/EPMS platform selection before PDU procurement",
+          "EPMS functional acceptance test (FAT) before occupancy"
+        ],
+        "target_persona": "data-center-facilities-manager"
+      }
+    },
+    {
+      "draft_id": "SOC-003",
+      "channel": "linkedin",
+      "text": "Commissioning labor is missing from electrical project estimates\u2014and the absence is systematic, not accidental. Estimating frameworks are built around installation labor: wire pulls, panel swaps, cabinet mounting. Commissioning activities\u2014EPMS telemetry validation, thermal soak tests, AHJ documentation packages, PDU circuit verification\u2014are either buried in overhead or omitted entirely. Smart distribution products reduce installation labor, but those savings accrue to contractor margin rather than being reinvested in commissioning quality or passed through to owners. This gap shows up in every vertical: AI data center PDU commissioning, edge enclosure thermal validation, residential heat pump service upgrade permitting. The practical fix isn't complicated: commissioning labor needs to be a named, explicitly line-itemed cost category in every power distribution project estimate\u2014with hours tied to specific deliverables, not absorbed into overhead. Does your current estimating practice include a separate commissioning labor line item? If not, where does that cost end up?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "190",
+          "184"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "commissioning labor as explicit estimate line item",
+          "AHJ documentation package as deliverable in project scope"
+        ],
+        "target_persona": "electrical-contractor"
+      }
+    },
+    {
+      "draft_id": "SOC-004",
+      "channel": "x",
+      "text": "Heat pump retrofit economics don't fail on rates\u2014they fail before that. The $15\u201320K service upgrade must be committed before owners can evaluate operational ROI. Rate reform is a second-order lever. Utility pre-approval standardization is first. faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/ What's your jurisdiction's utility pre-approval timeline?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "190",
+          "182"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "pre-permitting utility capacity confirmation",
+          "bundled financing treating panel upgrade as single line item"
+        ],
+        "target_persona": "GC-MEP-designer"
+      }
+    },
+    {
+      "draft_id": "SOC-005",
+      "channel": "x",
+      "text": "Edge enclosures above 5 kW have no commissioning standard for thermal validation. Data centers require thermal design packages + soak tests. Edge deployments get field-assembled guesswork. That gap will close\u2014voluntarily or reactively. faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/ Are you running 8-hr soak tests on edge sites?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "194"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "8-hour soak test commissioning protocol for enclosures above 5 kW",
+          "thermal design package (TDP) requirement before rough electrical inspection"
+        ],
+        "target_persona": "edge-deployment-engineer"
+      }
+    },
+    {
+      "draft_id": "SOC-006",
+      "channel": "x",
+      "text": "PDU bought before DCIM platform is selected = commissioning rework. Monitoring format, alarm thresholds, API compatibility all lock at procurement. The fix: DCIM/EPMS selection gates PDU purchase, not the reverse. FAT before occupancy, not after. faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/ Does your SOW name EPMS FAT as a deliverable?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": [
+          "184"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "DCIM/EPMS platform selection before PDU procurement",
+          "standardized PDU monitoring output format (SNMP/API)"
+        ],
+        "target_persona": "commissioning-agent"
+      }
+    },
+    {
+      "draft_id": "SOC-007",
+      "channel": "prompt",
+      "text": "Across residential electrification, AI data centers, and edge deployments, commissioning labor appears to be the cost category most consistently missing from project estimates\u2014absorbed into overhead, treated as margin erosion, or discovered as scope creep after contract execution. If that's accurate, it suggests a structural misalignment: estimating frameworks optimize for the cost categories that are easiest to measure (installation labor, material takeoffs), while the activities that determine whether a project passes inspection and operates correctly (functional testing, telemetry validation, thermal logging, AHJ documentation) are systematically underfunded. Question for practitioners: In your current estimating practice, does commissioning labor appear as an explicit line item\u2014with hours tied to specific deliverables\u2014or is it buried somewhere else in the bid? And if you've seen a project where commissioning scope was well-defined upfront, did it correlate with better first-submission AHJ outcomes or fewer post-handoff monitoring issues? See the related Pulse items on residential service upgrade costs and data center power efficiency gaps for context: https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/ and https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "190",
+          "184"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "commissioning labor as explicit estimate line item",
+          "product-specific commissioning checklists bundled with smart distribution products",
+          "owner requirement for commissioning budget as % of installation cost"
+        ],
+        "target_persona": "electrical-contractor"
+      }
+    }
+  ]
+}

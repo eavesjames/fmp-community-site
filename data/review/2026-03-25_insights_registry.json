@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-25",
+  "insights": [
+    {
+      "insight_id": "2026-03-25-A01",
+      "working_title": "The Three-Lock Problem: Why Residential Electrification Stalls Before the First Wire Is Pulled",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-25-the-three-lock-problem-why-residential-electrifica.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-25-A02",
+      "working_title": "PDU First, DCIM Never: How Procurement Sequencing Creates a Monitoring Blindspot in AI Data Centers",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-25-pdu-first-dcim-never-how-procurement-sequencing-cr.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-25-A03",
+      "working_title": "Commissioning Is Not in the Estimate: The Hidden Cost Leak Across All Three Verticals",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-25-commissioning-is-not-in-the-estimate-the-hidden-co.md",
+      "confidence": "",
+      "levers": []
+    }
+  ]
+}
