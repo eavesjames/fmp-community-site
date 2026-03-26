@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-26",
+  "insights": [
+    {
+      "insight_id": "2026-03-26-A01",
+      "working_title": "The Four-Way Adoption Gate: Why Residential Electrification Stalls Even When Every Problem Looks Solved",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-26-the-four-way-adoption-gate-why-residential-electri.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-26-A02",
+      "working_title": "The Three-Way Lock: Why Cooling, Distribution, and Monitoring Must Be Co-Specified or the AI Data Center Pays Twice",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-26-the-three-way-lock-why-cooling-distribution-and-mo.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-26-A03",
+      "working_title": "Scope Before Process: Why Estimation Standardization Fails Without Vertical-Specific Scope Discovery",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-26-scope-before-process-why-estimation-standardizatio.md",
+      "confidence": "",
+      "levers": []
+    }
+  ]
+}

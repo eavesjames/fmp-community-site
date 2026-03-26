@@ -1,0 +1,171 @@
+{
+  "run_date": "2026-03-26",
+  "drafts": [
+    {
+      "draft_id": "SOC-001",
+      "channel": "linkedin",
+      "text": "Residential electrification projects are stalling\u2014not because any single problem is unsolvable, but because four constraints must clear simultaneously: financing affordability, utility coordination timeline, AHJ load-calculation approval, and long-run operating cost economics. A homeowner in California can secure PACE financing, pass an NEC 220.82 load calc review, and have a contractor ready to schedule\u2014and still wait 8\u201312 weeks for a utility service upgrade queue to move. That queue doesn't shorten because the financing closed. The slowest constraint governs throughput, and most policy interventions are targeting only one constraint at a time. If you work in residential electrification\u2014as a contractor, utility program manager, or policy designer\u2014which of these four gates is actually the longest pole in your projects right now?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-california-heat-pump-adoption-hindered/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "190",
+          "182",
+          "192"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L_utility_prenotification_as_project_gate",
+          "L_standardized_load_calc_methodology",
+          "L_rate_structure_TOU_design"
+        ],
+        "target_persona": "residential_electrical_contractor, utility_program_manager, state_energy_policy_team"
+      }
+    },
+    {
+      "draft_id": "SOC-002",
+      "channel": "linkedin",
+      "text": "In high-density AI data center deployments, cooling architecture, PDU selection, and DCIM/monitoring integration are being procured in separate phases\u2014often in separate RFPs. Each domain assumes the other two are fixed inputs. When AI rack density escalates from 5 kW to 15\u201320 kW, none of those assumptions hold, and the sequential procurement model collapses. The PDU spec is the irreversibility anchor: once cabling is installed, phase configuration and monitoring integration are essentially locked for the life of the rack deployment. Retrofitting sensor visibility post-installation costs substantially more than integrating it at design time. The fix is not a better PDU or a smarter DCIM platform\u2014it is co-specifying cooling architecture, PDU telemetry requirements, and DCIM integration in the same phase gate, before the 6-week contractor lock-in window closes. Is your current RFP process structured to enforce that co-specification, or does it treat these three domains as sequential deliverables?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": [
+          "184",
+          "194"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L_concurrent_RFP_for_cooling_PDU_DCIM",
+          "L_PDU_telemetry_API_requirement_at_procurement",
+          "L_6week_PDU_spec_lock_in_before_cabling"
+        ],
+        "target_persona": "data_center_facilities_manager, mep_designer, electrical_contractor_data_center"
+      }
+    },
+    {
+      "draft_id": "SOC-003",
+      "channel": "linkedin",
+      "text": "Electrical estimating process improvements matter\u2014but across building electrification, data centers, and edge deployments, the evidence points to the same upstream failure: scope is unknown before the estimating process begins. In residential electrification, unknown panel upgrade scope discovered post-bid drives the majority of cost overruns\u2014a mandatory pre-bid electrical audit addresses this before any estimating tool is applied. In AI data center work, legacy labor unit tables calibrated for 5 kW per rack systematically underbid 15\u201320 kW deployments; density-specific multipliers are the missing input, not process discipline. In edge enclosure work, confined-space and thermal co-design penalties have no published labor unit table at all. Standardizing the estimating process without first standardizing scope discovery produces accurate estimates of the wrong scope. What scope-discovery step does your team complete before opening an estimating template\u2014and is it vertical-specific?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "190",
+          "194"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L_mandatory_pre_bid_electrical_audit_building_electrification",
+          "L_AI_density_labor_multipliers_data_center",
+          "L_site_survey_adjustment_factors_edge",
+          "L_scope_discovery_before_estimating_process"
+        ],
+        "target_persona": "electrical_contractor_all_verticals, mep_designer, project_owner_GC"
+      }
+    },
+    {
+      "draft_id": "SOC-004",
+      "channel": "x",
+      "text": "Residential electrification stalls when ANY of 4 constraints stays stuck: financing, utility queue, AHJ load calc, operating cost. Solving one doesn't unblock the others. Which is the real bottleneck in your market? faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "190",
+          "192"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L_utility_prenotification_as_project_gate",
+          "L_financing_for_service_upgrade_separate_from_equipment"
+        ],
+        "target_persona": "residential_electrical_contractor, utility_program_manager"
+      }
+    },
+    {
+      "draft_id": "SOC-005",
+      "channel": "x",
+      "text": "Cooling, PDU spec, and DCIM integration are one design object\u2014not three sequential RFPs. Treating them separately in AI data center builds creates monitoring debt that compounds at scale. Are you co-specifying all three? faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": [
+          "184"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L_concurrent_RFP_for_cooling_PDU_DCIM",
+          "L_PDU_telemetry_API_requirement_at_procurement"
+        ],
+        "target_persona": "data_center_facilities_manager, electrical_contractor_data_center"
+      }
+    },
+    {
+      "draft_id": "SOC-006",
+      "channel": "x",
+      "text": "PDU phase config, service panel size, edge enclosure thermal ceiling\u2014all three lock in for 7\u201310 years at procurement. Yet capex pressure pushes against the decisions that preserve long-term optionality. Is lifecycle cost methodology actually in your RFP? faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "194",
+          "184"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L_lifecycle_cost_methodology_in_PDU_RFP",
+          "L_service_upgrade_future_proofing_load_reserve",
+          "L_minimum_monitoring_spec_in_procurement_standards"
+        ],
+        "target_persona": "facilities_manager, procurement_team, data_center_operator"
+      }
+    },
+    {
+      "draft_id": "SOC-007",
+      "channel": "prompt",
+      "text": "Across building electrification, AI data centers, and edge deployments, infrastructure design decisions made at procurement time\u2014panel upgrade size, PDU phase and monitoring configuration, enclosure thermal budget\u2014are functionally irreversible for 7\u201310 years. Yet procurement incentives consistently push toward minimizing upfront capex, which systematically produces the most expensive long-term outcomes: stranded UPS and PDU capacity, undetected failures from monitoring gaps, and electrification headroom that runs out before the next major appliance replacement cycle. Lifecycle cost arguments alone don't appear to shift this behavior\u2014the gap between what facilities teams say they want and what procurement processes actually optimize for is well-documented. Here's the question for practitioners: **What structural mechanism\u2014a procurement standard, a code minimum, a commissioning gate requirement, or something else\u2014has actually changed the outcome in your organization or market, and what made it stick where lifecycle cost arguments didn't?** References: service panel sizing for electrification headroom (faultmanagedpower.org/pulse/2026-03-10-other-the-hidden-cost-of-going/), UPS and PDU stranded capacity in AI data centers (faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/), edge enclosure thermal constraints at 5\u201310 kW (faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/).",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-the-hidden-cost-of-going/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "192",
+          "184",
+          "194"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L_minimum_monitoring_spec_in_procurement_standards",
+          "L_lifecycle_cost_methodology_in_PDU_RFP",
+          "L_service_upgrade_future_proofing_load_reserve",
+          "L_commissioning_gate_requiring_design_optionality_validation"
+        ],
+        "target_persona": "facilities_manager, data_center_operator, electrical_contractor, building_owner, procurement_team"
+      }
+    }
+  ]
+}
