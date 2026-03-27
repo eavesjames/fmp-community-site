@@ -1,0 +1,283 @@
+{
+  "agent": "moderator_synthesis",
+  "run_date": "2026-03-27",
+  "coverage_notes": {
+    "observed_skews": [
+      "Building electrification items are dominated by anecdotal/social media sources (Reddit, Instagram, YouTube Shorts) with low evidentiary quality; analysts compensated by projecting patterns onto thin evidence, increasing hypothesis confidence inflation risk.",
+      "Data-center vertical has the deepest analyst agreement and the most actionable evidence (items 122, 128, 184), producing redundant insights across agents; marginal synthesis value is lower here unless a cross-vertical angle is introduced.",
+      "Edge-power-ups has only two items (194, 126), one of which (126) is an estimating webinar with weak vertical alignment; analysts were forced to share item 126 across verticals, diluting its signal.",
+      "No items cover utility-side infrastructure constraints (transformer capacity, service entrance ratings, interconnection queues) despite multiple analysts flagging utility coordination as a critical path bottleneck in building electrification.",
+      "Medium-voltage distribution (item 150, 1995 vintage) added no contemporary constraint signal; its inclusion aged the dataset without adding decision-critical content.",
+      "Finance/ROI lens (agent: finance_roi_skeptic) introduced the only dual CapEx-OpEx framing for building electrification, which no other agent replicated; this perspective was under-weighted in other outputs."
+    ],
+    "suggested_query_adjustments": [
+      "Add query targeting utility service upgrade lead times and interconnection queue data by state (CA, MA, TX) to ground the utility coordination bottleneck hypothesis with empirical timelines.",
+      "Add query for residential electrical panel vintage distribution by US census region to size the addressable market for panel upgrades vs. panel-avoiding retrofit strategies.",
+      "Add query for AI data center cooling procurement lead times (direct-to-chip liquid cooling systems, CDUs) vs. UPS/PDU lead times to validate the 'cooling-first sequential design' constraint.",
+      "Replace or supplement item 150 (1995 EC&M article) with a contemporary medium-voltage architecture source covering 15kV-class switchgear relevant to hyperscale data center service entrances.",
+      "Add query for DCIM/EPMS commissioning labor benchmarks (hours per rack) to quantify the monitoring integration cost claim that appeared across three analyst outputs without data support.",
+      "Add query for NEC 220 load calculation template adoption rates and AHJ pre-approval program existence across top-10 heat pump deployment jurisdictions."
+    ]
+  },
+  "composite_insights": [
+    {
+      "insight_id": "INS-001",
+      "insight": "Across all three verticals, the dominant cost and schedule bottleneck is not equipment or power availability\u2014it is the integration of monitoring, commissioning, and permitting workflows that were designed for lower-complexity, lower-density, single-discipline environments. In building electrification, NEC 220 load calculation disputes and utility permitting cycles drive $15\u201320K labor costs (item 190, 192) that dwarf equipment costs. In data centers, DCIM/EPMS/BMS integration testing slips to late-stage commissioning, creating re-inspection risk for high-density AI racks (items 122, 128). In edge, thermal validation is deferred or absent entirely at the 5\u201310 kW threshold (item 194). The common root cause: no vertical has a standardized, cross-discipline pre-commissioning protocol that couples power, thermal, and permitting gates into a single sequential workflow.",
+      "why_it_is_new": "Each individual analyst identified integration gaps within their vertical. No single analyst connected the pattern across all three verticals as a structural absence of cross-discipline pre-commissioning standards. The composite insight reframes the problem from 'cost overrun' (contractor/finance framing) or 'documentation gap' (AHJ framing) to 'missing workflow gate architecture' that applies universally.",
+      "new_perspective_from_disagreement": "The compliance_ahj agent framed the problem as missing documentation templates and AHJ pre-approval processes. The installer_electrical_contractor agent framed it as commissioning sequencing failures (thermal before power, monitoring before punch list). These two framings appear to conflict\u2014one is pre-permit, one is post-permit\u2014but they are actually sequential gates of the same missing workflow. The composite insight emerges: the absence of a mandatory pre-permit thermal-and-load design review gate (upstream) and a mandatory cross-discipline FAT/SAT protocol (downstream) creates the same rework loops at different project phases. Neither gate exists in current standard practice across any vertical.",
+      "who_cares": [
+        "MEP system designer",
+        "owner-operator facilities manager",
+        "AHJ building official",
+        "electrical contractor project manager"
+      ],
+      "which_verticals": [
+        "edge-power-ups",
+        "data-centers",
+        "building-electrification"
+      ],
+      "levers": [
+        "mandatory_thermal_load_design_review_pre-permit",
+        "cross-discipline_FAT_SAT_protocol",
+        "AHJ_pre-approval_coordination",
+        "DCIM_commissioning_scope_inclusion"
+      ],
+      "supporting_items": [
+        "190",
+        "192",
+        "122",
+        "128",
+        "194"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposes: AHJ pre-approval (compliance framing) and commissioning sequencing (contractor framing) are not alternative solutions\u2014they are sequential gates that must both exist to prevent rework loops.",
+        "Exposes: The 'documentation gap' identified by compliance_ahj and the 'scope lock-in' identified by installer_electrical_contractor are manifestations of the same missing workflow gate, not independent problems.",
+        "Resolves: The apparent contradiction between 'standardize early' (AHJ) and 'validate late' (commissioning) is resolved by recognizing they operate at different project phases and must be coupled, not substituted for each other."
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-002",
+      "insight": "Residential building electrification faces a dual cost shock that policy interventions are structurally misaligned to address: (1) panel upgrade CapEx ($15\u201320K labor, item 190) hits at project initiation and is driven by electrical infrastructure complexity, not equipment cost; (2) elevated operational electricity cost (item 182) hits post-installation and erodes ROI continuously. Equipment rebates and tax credits\u2014the dominant policy tool\u2014target neither shock. The result is a sequential abandonment pattern: homeowners encounter the panel upgrade quote first and abandon before reaching OpEx analysis, or they complete installation and then discover OpEx economics are worse than projected. Neither shock is addressed by equipment-focused incentives alone. The practitioner-actionable implication is that pre-project panel capacity audits (to stratify homes that can avoid the CapEx shock) and time-of-use rate modeling (to quantify the OpEx shock before commitment) must precede equipment selection, not follow it.",
+      "why_it_is_new": "finance_roi_skeptic introduced the dual CapEx-OpEx framing. Other agents treated these as independent problems (installer focused on CapEx, mep_system_designer on CapEx sequencing, compliance_ahj on permitting). No other agent connected them as a sequential abandonment mechanism that explains why equipment-focused policy fails. The composite insight adds the abandonment sequencing logic and the pre-project audit implication.",
+      "new_perspective_from_disagreement": "mep_system_designer argued that panel upgrade is a 'mandatory staged gate' that forces sequential project design. finance_roi_skeptic argued that OpEx (electricity rates) is potentially a larger adoption barrier than CapEx. These appear to conflict on which shock dominates. The resolution: they operate in sequence, not in parallel. The CapEx shock causes abandonment before OpEx is ever calculated in a significant fraction of projects. This means that if CapEx is pre-qualified and resolved (through panel audit + phased approach), OpEx becomes the residual barrier\u2014and the relative magnitude of each barrier is project-stage-dependent, not fixed. Policy that addresses only one shock without the other will plateau adoption at the point where the remaining shock becomes visible.",
+      "who_cares": [
+        "building owner / homeowner",
+        "utility program manager",
+        "state energy policy designer",
+        "electrical contractor (residential)",
+        "MEP system designer"
+      ],
+      "which_verticals": [
+        "building-electrification"
+      ],
+      "levers": [
+        "pre-project_panel_capacity_audit",
+        "TOU_rate_modeling_pre-commitment",
+        "incentive_program_redesign_to_cover_panel_upgrade_labor",
+        "phased_retrofit_strategy_heat-pump-first"
+      ],
+      "supporting_items": [
+        "190",
+        "192",
+        "182",
+        "126"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Resolves: The apparent conflict between 'CapEx is the main barrier' (installer framing) and 'OpEx is the main barrier' (finance framing) by showing they are sequential, stage-dependent shocks, not competing explanations.",
+        "Exposes: Equipment rebate programs are structurally misaligned because they address neither the panel upgrade labor cost (largest CapEx component) nor the operational electricity cost (ongoing OpEx barrier).",
+        "Exposes: Contractor estimating standardization (item 126) improves bid accuracy for the CapEx shock but has no mechanism to surface the OpEx shock to the homeowner at decision time."
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-003",
+      "insight": "In data centers, PDU selection, UPS sizing, and DCIM/EPMS integration are being treated as three independent procurement decisions when they are structurally coupled through the AI workload thermal dependency chain. The correct decision sequence is: (1) lock AI workload thermal model and cooling architecture, (2) derive UPS sizing from confirmed thermal load (not nameplate), (3) select PDU phase configuration and redundancy topology based on finalized rack layout and confirmed service entrance capacity, (4) specify DCIM/EPMS monitoring integration as part of PDU procurement, not as a post-deployment software project. Any deviation from this sequence\u2014most commonly, UPS and PDU procurement running in parallel with or ahead of thermal design\u2014creates stranded energy (item 184), monitoring blind spots (item 128), and commissioning re-inspection risk (item 122). The practitioner decision that changes: thermal design review must be a hard procurement gate for UPS and PDU, not a parallel workstream.",
+      "why_it_is_new": "mep_system_designer identified the thermal-first sequencing constraint. owner_operator_facilities identified the monitoring integration as a procurement decision. finance_roi_skeptic identified stranded energy from oversized UPS. No single analyst produced the full four-step procurement dependency chain or named thermal design review as the specific procurement gate that controls all downstream decisions. The composite insight collapses three separate observations into a single actionable decision sequence.",
+      "new_perspective_from_disagreement": "installer_electrical_contractor argued that PDU monitoring integration testing 'slips to late-stage commissioning' as a scheduling problem. owner_operator_facilities argued it is a 'monitoring debt' problem driven by procurement decisions. These framings disagree on where the failure originates (schedule vs. procurement). The resolution: both are correct but at different project phases\u2014the root cause is procurement (monitoring not specified in PDU RFP), which then manifests as a schedule problem (late-stage integration testing). Fixing the schedule problem without fixing the procurement specification reproduces the same gap on the next project.",
+      "who_cares": [
+        "data center facilities manager",
+        "MEP system designer",
+        "data center owner-operator",
+        "PDU/UPS procurement manager",
+        "DCIM software vendor"
+      ],
+      "which_verticals": [
+        "data-centers"
+      ],
+      "levers": [
+        "thermal_design_review_as_hard_procurement_gate",
+        "UPS_sizing_coupled_to_cooling_delivery_milestones",
+        "PDU_spec_includes_monitoring_hardware_requirements",
+        "DCIM_EPMS_commissioned_in_FAT_not_post-deployment"
+      ],
+      "supporting_items": [
+        "122",
+        "128",
+        "184"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Resolves: The conflict between 'right-size PDUs to reduce stranded energy' (finance framing) and 'redundant PDUs for reliability' (owner-operator framing) by showing both are suboptimal without a confirmed thermal load model\u2014over-provisioning and under-provisioning are both consequences of the same missing gate.",
+        "Exposes: DCIM/EPMS software is positioned by vendors as an operational tool, but its actual leverage point is in the PDU procurement specification phase\u2014late deployment of monitoring software is a procurement failure, not an operational one.",
+        "Exposes: Direct-to-chip liquid cooling lead times (item 122) create a procurement sequencing problem that currently has no industry-standard resolution\u2014facilities teams have no formal protocol for coupling cooling delivery milestones to UPS/PDU procurement triggers."
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-004",
+      "insight": "Edge enclosure thermal constraints at 5\u201310 kW (item 194) and residential electrification panel upgrade costs (item 190) share an underappreciated structural similarity: both are site-specific physical constraints that are systematically discovered too late in the project workflow because the scope definition process treats them as installation details rather than design gates. In edge, thermal validation is deferred to commissioning or skipped. In residential electrification, panel capacity is discovered at contractor quote stage after equipment has been selected. The common failure mode is a design workflow that sequences site-specific constraint discovery after equipment or project commitment, not before. The practitioner decision that changes in both verticals: mandatory site constraint audit (thermal capacity for edge; panel capacity and utility service availability for residential) must be the first deliverable in the project workflow, preceding equipment selection, procurement, and contractor bidding.",
+      "why_it_is_new": "No single analyst connected the edge thermal discovery failure to the residential panel discovery failure as instances of the same workflow sequencing error. compliance_ahj and mep_system_designer addressed them in separate sections without cross-vertical linkage. The composite insight creates a transferable design principle: 'site constraint audit before equipment commitment' applies across edge and building electrification verticals and could be operationalized as a standard pre-project checklist format applicable to both.",
+      "new_perspective_from_disagreement": "installer_electrical_contractor argued that residential panel upgrades should be addressed through 'phased retrofit strategies' that defer scope. mep_system_designer argued they require a 'mandatory staged gate' in project sequencing. These framings agree on timing but disagree on mechanism: deferral (installer) vs. explicit gate (MEP). The edge thermal analog clarifies which is correct: deferral of thermal validation in edge deployments produces post-deployment failures (overtemp shutdowns, derating), while a pre-deployment gate prevents them. The same logic applies to residential: deferring panel capacity discovery to the contractor quote stage is equivalent to deferring edge thermal validation to commissioning\u2014both produce late-stage surprises. The gate mechanism is correct; deferral is not a strategy, it is a deferred failure.",
+      "who_cares": [
+        "electrical contractor (edge and residential)",
+        "MEP system designer",
+        "edge site acquisition manager",
+        "residential electrification program manager",
+        "AHJ building official"
+      ],
+      "which_verticals": [
+        "edge-power-ups",
+        "building-electrification"
+      ],
+      "levers": [
+        "mandatory_site_constraint_audit_before_equipment_commitment",
+        "thermal_capacity_assessment_as_edge_site_selection_gate",
+        "panel_capacity_audit_as_residential_retrofit_first_deliverable",
+        "standardized_pre-project_constraint_checklist"
+      ],
+      "supporting_items": [
+        "194",
+        "190",
+        "192"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Resolves: The 'phased deferral' vs. 'mandatory gate' debate by showing that deferral of site constraint discovery is structurally equivalent to a deferred failure, not a valid project management strategy.",
+        "Exposes: Both verticals lack a standardized pre-project site constraint audit format. The absence is not a knowledge gap (engineers know what to check) but a workflow and contract scope gap (no one is paid to do it as a first deliverable before equipment is committed).",
+        "Exposes: Edge enclosure OEMs and residential HVAC equipment vendors both benefit economically from late discovery of site constraints (equipment is already committed), creating a structural incentive misalignment against early-stage site audits."
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "ranked_original_angles": [
+    {
+      "rank": 1,
+      "working_title": "The Pre-Commitment Audit Gap: Why Site Constraints Are Discovered Too Late Across Edge, Data Center, and Building Electrification Projects",
+      "thesis": "Across all three FMP verticals, the dominant source of project cost overruns and schedule failures is not equipment complexity or power availability\u2014it is systematic late discovery of site-specific physical constraints that were knowable before equipment commitment but were structurally excluded from pre-project workflows. In residential electrification, panel capacity is discovered at contractor quote stage after the homeowner has selected equipment (items 190, 192). In edge, thermal capacity is discovered at commissioning or post-deployment after enclosures are installed (item 194). In data centers, thermal load is finalized after UPS and PDU procurement has begun, producing stranded energy and monitoring blind spots (items 122, 128, 184). The solution is not project-type-specific\u2014it is a universal design principle: mandatory site constraint audit (thermal, electrical service, permitting pathway) must be the first contracted deliverable, preceding equipment selection and procurement in all three verticals.",
+      "outline": [
+        "H1: Define the pattern\u2014late constraint discovery as a structural workflow failure, not a contractor knowledge gap, with evidence from all three verticals (190, 192, 194, 122)",
+        "H2: Residential electrification case\u2014panel capacity audit must precede equipment selection; current workflow inverts this sequence, producing the $15\u201320K surprise quote that triggers abandonment (190, 192, 182)",
+        "H3: Edge deployment case\u2014enclosure thermal capacity audit must precede site power design; current practice defers thermal validation to commissioning, producing post-deployment derating and cooling retrofits (194)",
+        "H4: Data center case\u2014AI workload thermal model must precede UPS and PDU procurement; parallel procurement produces stranded energy and late-stage DCIM integration failures (122, 128, 184)",
+        "H5: Common workflow fix\u2014standardized pre-project site constraint checklist (thermal, electrical service, permitting pathway) as first contracted deliverable across all three verticals; contractual and procurement implications"
+      ],
+      "must_cite_items": [
+        "190",
+        "192",
+        "194",
+        "122",
+        "128",
+        "184"
+      ],
+      "missing_evidence_to_find": [
+        "Frequency data: percentage of residential electrification projects where panel upgrade was not scoped until contractor quote stage vs. pre-assessed (survey of CA/MA electrical contractors)",
+        "Edge deployment failure data: frequency and cost of post-deployment thermal derating or enclosure cooling retrofits at 5\u201310 kW density (operator incident reports or insurance claims)",
+        "Data center project post-mortems: frequency of UPS/PDU change orders driven by late thermal design finalization; quantify cost and schedule impact (5\u201310 case studies from facilities managers)",
+        "Existing pre-project audit tools: do any utilities, AHJs, or program administrators currently require a site constraint audit as a first deliverable? If so, what does it include and what is the labor cost?",
+        "Contractual mechanism: how do MEP contracts currently allocate responsibility for pre-project site assessment? Who pays if constraint is discovered late?"
+      ],
+      "recommended_owner_questions": [
+        "Across your active residential electrification projects, at what project stage is panel capacity first formally assessed\u2014before or after equipment selection? What percentage of projects require panel upgrades that were not anticipated at project initiation?",
+        "For edge deployments in your portfolio, is enclosure thermal capacity part of the site selection checklist, or is it evaluated during installation? Have you experienced post-deployment thermal derating that required cooling retrofits or density reduction?",
+        "For data center projects, is thermal design review a formal procurement gate for UPS and PDU ordering, or do those procurement cycles run in parallel? How often do thermal design changes require PDU or UPS change orders after procurement has begun?"
+      ]
+    },
+    {
+      "rank": 2,
+      "working_title": "The Sequential Abandonment Problem in Residential Electrification: Why Equipment Rebates Fail the Dual CapEx-OpEx Cost Shock",
+      "thesis": "California residential heat pump adoption stalls not because of a single cost barrier but because homeowners encounter two sequential cost shocks that current policy tools address neither in order nor in full. The first shock\u2014panel upgrade labor ($15\u201320K, item 190)\u2014triggers abandonment before OpEx analysis occurs, making the second shock\u2014elevated electricity operating costs (item 182)\u2014irrelevant for a large fraction of would-be adopters. Equipment rebates and tax credits address neither shock. Unlocking adoption requires a two-stage intervention: pre-project panel capacity stratification (to identify homes that avoid the CapEx shock) combined with time-of-use rate modeling at point of sale (to make the OpEx shock visible and quantifiable before commitment). Without both, adoption plateaus at the intersection of two cost barriers that compound rather than average.",
+      "outline": [
+        "H1: Map the sequential abandonment mechanism\u2014panel quote shock causes abandonment before OpEx calculation in a measurable fraction of projects; OpEx shock causes post-installation regret in the remaining fraction (190, 182, 192)",
+        "H2: Why current policy fails\u2014equipment rebates target neither panel upgrade labor (largest CapEx component) nor electricity rate impact (OpEx barrier); incentive design is misaligned with actual cost structure (182, 190)",
+        "H3: Panel capacity stratification as CapEx shock intervention\u2014pre-project audit identifies homes with headroom on existing 150A service (heat-pump-only retrofit, <$8K install) vs. homes requiring 200A upgrade ($15\u201320K); separates addressable fast-adoption market from infrastructure-constrained market (190, 126)",
+        "H4: TOU rate modeling as OpEx shock intervention\u2014at point of equipment selection, model actual electricity cost under available TOU rates vs. incumbent gas HVAC; make NPV visible before commitment (182)",
+        "H5: Policy and contractor workflow implications\u2014incentive programs must fund panel audits as first deliverable, not equipment purchases; contractors must bundle OpEx modeling into sales process (126, 182)"
+      ],
+      "must_cite_items": [
+        "190",
+        "192",
+        "182",
+        "126"
+      ],
+      "missing_evidence_to_find": [
+        "Abandonment rate data: percentage of residential heat pump inquiries that are abandoned after receiving panel upgrade quote vs. after OpEx calculation (utility program data, contractor CRM data)",
+        "Panel vintage distribution: percentage of California single-family homes with 100A, 150A, and 200A service by construction decade (Census/utility data) to size the fast-adoption vs. infrastructure-constrained market segments",
+        "TOU rate NPV modeling: actual first-year electricity cost for heat pump vs. gas HVAC by California IOU service territory under available TOU rates; quantify the OpEx penalty or advantage by rate schedule",
+        "Incentive program audit: current CA/federal incentive coverage of panel upgrade labor costs (HEEHRA, IRA residential credits) vs. equipment costs\u2014what fraction of panel upgrade labor is currently reimbursable?",
+        "Contractor process data: what percentage of CA residential electrification contractors include panel capacity pre-assessment and TOU rate modeling in their initial customer consultation vs. treating these as scope items discovered later?"
+      ],
+      "recommended_owner_questions": [
+        "Do you have data on the fraction of residential heat pump project inquiries that are abandoned after receiving an installation quote that includes panel upgrade costs? Is panel upgrade discovery the primary abandonment trigger?",
+        "Are any California utilities or program administrators currently offering pre-project panel capacity assessments as a funded program benefit, separate from equipment rebates? If so, what is the uptake rate and cost?",
+        "For contractors in your network, is TOU rate cost modeling part of the standard sales process for residential heat pump retrofits, or is it treated as outside contractor scope?"
+      ]
+    },
+    {
+      "rank": 3,
+      "working_title": "PDU Procurement as the Hidden Dependency: Why AI Data Center UPS Sizing, Phase Configuration, and Monitoring Integration Must Be Decided in Sequence, Not in Parallel",
+      "thesis": "AI data center facilities teams are treating UPS sizing, PDU procurement, and DCIM/EPMS integration as three parallel procurement tracks when they are structurally sequential decisions governed by a single upstream gate: the confirmed AI workload thermal model. UPS sized before thermal design is locked produces stranded energy (item 184). PDU phase configuration selected before rack layout is confirmed produces monitoring blind spots and phase imbalance (item 128). DCIM/EPMS integration specified as a post-deployment software project\u2014rather than as a PDU procurement requirement\u2014produces late-stage commissioning failures and re-inspection risk (item 122). The practitioner decision that changes: facilities must treat thermal design review as a formal procurement gate that releases UPS, then PDU, then DCIM/EPMS as sequential rather than parallel workstreams, with each stage depending on outputs of the prior stage.",
+      "outline": [
+        "H1: Establish the dependency chain\u2014thermal model \u2192 UPS sizing \u2192 PDU phase/redundancy \u2192 DCIM monitoring spec; show how each decision is constrained by the prior one (122, 184, 128)",
+        "H2: Stranded energy as a UPS sequencing failure\u2014UPS oversizing in AI data centers is not a design conservatism choice, it is a consequence of committing UPS procurement before thermal load is confirmed; right-sizing requires confirmed thermal load, not IT load estimate (184, 122)",
+        "H3: PDU phase and redundancy as a rack layout dependency\u2014phase configuration and redundancy topology must be finalized before rack cabling design; procurement that precedes rack layout produces change orders and monitoring gaps (128)",
+        "H4: DCIM/EPMS as a PDU procurement specification, not a software project\u2014monitoring hardware ports, IP metering, and API compatibility must appear in the PDU RFP; late specification produces retrofit commissioning cost and operational visibility gaps (128, 122)",
+        "H5: Proposed procurement gate protocol\u2014thermal design review as formal release trigger for each subsequent procurement stage; commissioning implications and FAT/SAT checklist requirements (122, 128)"
+      ],
+      "must_cite_items": [
+        "122",
+        "128",
+        "184"
+      ],
+      "missing_evidence_to_find": [
+        "Procurement sequencing survey: among data center operators who commissioned AI racks in 2024\u20132025, what percentage finalized thermal design before issuing UPS RFP? What was the change order rate for those who did not?",
+        "Stranded energy quantification: what percentage of installed UPS capacity at AI data centers is unutilized at peak IT load, and how does this correlate with thermal solution deployment timeline relative to UPS procurement date?",
+        "PDU change order data: frequency and cost of PDU phase reconfiguration or monitoring integration retrofits required post-installation in high-density AI rack environments (facilities manager interviews)",
+        "DCIM commissioning labor benchmarks: hours required for full DCIM/EPMS integration and baseline validation when monitoring hardware is specified in PDU procurement vs. retrofitted post-deployment",
+        "Direct-to-chip cooling procurement lead times by vendor (2025\u20132026) vs. UPS and PDU lead times\u2014quantify the sequencing gap between cooling delivery and electrical procurement cycles"
+      ],
+      "recommended_owner_questions": [
+        "For data center projects in your portfolio that deployed AI racks, was UPS sizing finalized before or after thermal design and cooling solution selection were locked? What change orders resulted from premature UPS procurement?",
+        "Are PDU RFPs in your current projects specifying monitoring hardware requirements (port types, IP metering, API compatibility) at procurement, or is DCIM integration being scoped as a separate post-deployment project?",
+        "Do you have post-commissioning data on DCIM/EPMS integration labor hours for AI rack deployments? Is there a measurable difference between monitoring-ready PDU deployments and retrofit telemetry deployments?"
+      ]
+    }
+  ],
+  "tomorrow_search_briefs": [
+    {
+      "goal": "Quantify residential electrical panel upgrade timing and abandonment rates to validate the sequential dual cost-shock hypothesis for building electrification",
+      "queries": [
+        "California residential heat pump installation project abandonment rate panel upgrade cost 2024 2025",
+        "NEC 220 load calculation residential heat pump water heater 200A panel upgrade permitting AHJ pre-approval program",
+        "California single family home electrical service amperage distribution 100A 150A 200A census utility data 2023 2024"
+      ],
+      "why_this_will_improve_insights": "INS-002 and ranked article #2 rest on the hypothesis that panel upgrade discovery causes abandonment before OpEx analysis occurs, and that a large fraction of homes could avoid panel upgrades on a heat-pump-only retrofit. Neither claim has supporting data in the current item set (items 190, 192, 182 are anecdotal or high-level). Quantifying abandonment rates and panel vintage distribution would either confirm the fast-adoption market segment thesis or reveal that panel upgrade avoidance is impractical at scale\u2014changing the practitioner recommendation entirely."
+    },
+    {
+      "goal": "Establish actual procurement sequencing failures and change order costs in AI data center UPS and PDU deployments to validate INS-003 and ranked article #3",
+      "queries": [
+        "AI data center UPS oversizing stranded capacity thermal design sequencing change order cost 2024 2025",
+        "direct-to-chip liquid cooling procurement lead time CDU delivery timeline vs UPS PDU lead time data center 2025",
+        "DCIM EPMS commissioning labor hours monitoring-ready PDU vs retrofit telemetry integration cost benchmark"
+      ],
+      "why_this_will_improve_insights": "INS-003 claims that thermal design review must be a hard procurement gate for UPS and PDU, and that parallel procurement produces stranded energy and monitoring blind spots. Items 122, 128, and 184 establish the mechanisms but provide no quantification of how frequently this sequencing failure occurs, what it costs, or whether cooling lead times actually exceed electrical procurement cycles. These queries would supply the empirical backbone needed to make the procurement gate recommendation actionable and defensible to facilities procurement teams."
+    },
+    {
+      "goal": "Identify whether any jurisdiction, program, or OEM currently mandates pre-project site constraint audits as a first deliverable in edge or residential electrification workflows, to test whether the INS-004 workflow gap is a genuine absence or an undiscovered existing practice",
+      "queries": [
+        "edge computing enclosure thermal site assessment pre-deployment audit protocol 5kW 10kW density requirement 2024 2025",
+        "residential electrification pre-project electrical panel audit program utility incentive pre-approval protocol California Massachusetts",
+        "heat pump installation pre-assessment panel capacity load calculation first deliverable contractor requirement AHJ program 2024 2025"
+      ],
+      "why_this_will_improve_insights": "INS-004 and ranked article #1 argue that mandatory pre-project site constraint audits are absent across all three verticals. If existing programs or OEM protocols already mandate this (e.g., utility pre-qualification programs, edge OEM site certification requirements), the insight shifts from 'gap to fill' to 'best practice to scale'\u2014a significantly different editorial angle and practitioner recommendation. Finding existing examples would also provide citation-ready evidence for the article and identify which actors (utilities, OEMs, AHJs) are best positioned to enforce the audit requirement."
+    }
+  ]
+}

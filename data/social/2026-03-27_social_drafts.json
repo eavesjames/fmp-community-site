@@ -1,0 +1,173 @@
+{
+  "run_date": "2026-03-27",
+  "drafts": [
+    {
+      "draft_id": "SOC-001",
+      "channel": "linkedin",
+      "text": "Across building electrification, edge deployments, and data centers, the dominant source of cost overruns isn't equipment or power availability\u2014it's discovering site-specific constraints after equipment has already been committed. In residential retrofits, panel capacity shows up as a $15\u201320K surprise at the contractor quote stage, after the homeowner has already selected a heat pump. In edge deployments, thermal limits at 5\u201310 kW density surface at commissioning or post-deployment. In data centers, thermal load gets finalized after UPS and PDU procurement has started. These aren't three separate problems. They're the same workflow sequencing error: site constraint discovery is treated as an installation detail rather than a design gate. The practitioner fix is the same across all three verticals: a mandatory site constraint audit\u2014covering thermal capacity, electrical service, and permitting pathway\u2014must be the first contracted deliverable, before equipment selection and before procurement begins. Is pre-project site assessment currently a funded, contracted scope item in your project workflows, or does it happen informally during bidding?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "190",
+          "194",
+          "184"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "mandatory_site_constraint_audit_before_equipment_commitment",
+          "thermal_capacity_assessment_as_edge_site_selection_gate",
+          "panel_capacity_audit_as_residential_retrofit_first_deliverable",
+          "standardized_pre-project_constraint_checklist"
+        ],
+        "target_persona": "MEP system designer, electrical contractor project manager, edge site acquisition manager"
+      }
+    },
+    {
+      "draft_id": "SOC-002",
+      "channel": "linkedin",
+      "text": "California heat pump adoption faces two sequential cost shocks\u2014and current incentive programs address neither one. The first shock is the panel upgrade labor bill: $15\u201320K at the contractor quote stage, before the homeowner has done any OpEx analysis. That quote triggers abandonment in a significant fraction of projects, meaning the second shock\u2014elevated operational electricity costs\u2014never even gets evaluated. Equipment rebates and tax credits land after both shocks have already done their damage. The structural fix requires two interventions in the right order: (1) a pre-project panel capacity audit that identifies homes with existing service headroom, separating the fast-adoption segment from the infrastructure-constrained segment; and (2) time-of-use rate modeling at point of equipment selection, so the OpEx picture is visible before commitment, not after installation. Without both, policy plateaus at the intersection of two cost barriers that compound rather than average. For utility program managers and state energy policy designers: does your current program fund panel capacity audits as a first deliverable, independent of equipment rebates? And does your contractor channel include TOU rate modeling in the initial customer consultation?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-california-heat-pump-adoption-hindered/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-the-hidden-cost-of-going/"
+      ],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": [
+          "190",
+          "182",
+          "192"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "pre-project_panel_capacity_audit",
+          "TOU_rate_modeling_pre-commitment",
+          "incentive_program_redesign_to_cover_panel_upgrade_labor",
+          "phased_retrofit_strategy_heat-pump-first"
+        ],
+        "target_persona": "utility program manager, state energy policy designer, residential electrical contractor"
+      }
+    },
+    {
+      "draft_id": "SOC-003",
+      "channel": "linkedin",
+      "text": "In AI data center buildouts, UPS sizing, PDU procurement, and DCIM/EPMS integration are routinely run as parallel workstreams. They shouldn't be\u2014they're structurally sequential decisions, each constrained by the output of the prior step. The correct order: lock the AI workload thermal model first, derive UPS sizing from confirmed thermal load rather than nameplate IT load, select PDU phase configuration and redundancy topology after rack layout and service entrance capacity are confirmed, then specify DCIM and EPMS monitoring requirements in the PDU procurement documents\u2014not as a separate post-deployment software project. When UPS procurement starts before thermal design is locked, you get stranded energy capacity that doesn't match actual workload. When PDU phase configuration is selected before rack layout is confirmed, you get monitoring blind spots and phase imbalance. When DCIM integration is scoped as a software project after deployment, you get late-stage commissioning failures and re-inspection risk. The thermal design review is the single upstream gate that controls all three downstream decisions. Until it is formalized as a hard procurement release trigger\u2014not a parallel workstream\u2014these failures will keep reproducing on the next project. For facilities procurement teams: is thermal design sign-off currently a formal gate in your UPS and PDU RFP release process?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "184"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "thermal_design_review_as_hard_procurement_gate",
+          "UPS_sizing_coupled_to_cooling_delivery_milestones",
+          "PDU_spec_includes_monitoring_hardware_requirements",
+          "DCIM_EPMS_commissioned_in_FAT_not_post-deployment"
+        ],
+        "target_persona": "data center facilities manager, PDU/UPS procurement manager, MEP system designer"
+      }
+    },
+    {
+      "draft_id": "SOC-004",
+      "channel": "x",
+      "text": "Residential heat pump projects fail in sequence, not all at once: panel upgrade quote ($15\u201320K) causes abandonment before OpEx is ever calculated. Equipment rebates fix neither shock. Pre-project panel audit + TOU modeling must come first. faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/ \u2014 Does your program fund the audit before the rebate?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/"
+      ],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": [
+          "190",
+          "182"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "pre-project_panel_capacity_audit",
+          "TOU_rate_modeling_pre-commitment"
+        ],
+        "target_persona": "utility program manager, residential electrical contractor"
+      }
+    },
+    {
+      "draft_id": "SOC-005",
+      "channel": "x",
+      "text": "Edge enclosures, residential panels, AI data center UPS: all three verticals discover physical site constraints too late\u2014after equipment is committed. Same workflow error, three contexts. Mandatory site constraint audit before procurement isn't vertical-specific, it's a universal design gate. faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/ \u2014 When does your workflow surface site limits?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "194",
+          "190"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "mandatory_site_constraint_audit_before_equipment_commitment",
+          "standardized_pre-project_constraint_checklist"
+        ],
+        "target_persona": "MEP system designer, edge site acquisition manager, electrical contractor project manager"
+      }
+    },
+    {
+      "draft_id": "SOC-006",
+      "channel": "x",
+      "text": "AI data center UPS stranded energy isn't a design conservatism choice\u2014it's what happens when UPS procurement runs before thermal design is locked. Thermal review must be a hard gate, not a parallel track. faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/ \u2014 Is thermal sign-off a formal release trigger in your PDU/UPS RFP process?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "184"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "thermal_design_review_as_hard_procurement_gate",
+          "UPS_sizing_coupled_to_cooling_delivery_milestones"
+        ],
+        "target_persona": "data center facilities manager, PDU/UPS procurement manager"
+      }
+    },
+    {
+      "draft_id": "SOC-007",
+      "channel": "prompt",
+      "text": "Across residential electrification, edge deployments, and AI data centers, a pattern keeps appearing: the physical constraint that stops or reshapes the project\u2014panel capacity, enclosure thermal limits, thermal load for UPS sizing\u2014is discovered after equipment has been selected or procurement has started, not before. The case for mandatory pre-project site constraint audits as the first contracted deliverable rests on stopping that late-discovery loop. But there's a real friction here: someone has to pay for the audit before any equipment is sold, and there's no obvious party who currently holds that scope or contract. \n\nTwo questions for practitioners across these verticals:\n\n1. In your current project workflows, at what stage is the critical site constraint (panel capacity, thermal headroom, or load model) formally assessed\u2014before equipment selection, during bidding, or during commissioning? Who in the project is contractually responsible for that assessment?\n\n2. If a mandatory pre-project site constraint audit were required as the first deliverable\u2014funded separately from equipment rebates or installation contracts\u2014who is the right party to perform it and who should pay: the utility, the AHJ, the equipment vendor, or the owner?\n\nRelevant context: residential panel upgrade costs ($15\u201320K labor) documented at faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/ and edge enclosure thermal constraints at faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "190",
+          "194",
+          "192"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "mandatory_site_constraint_audit_before_equipment_commitment",
+          "panel_capacity_audit_as_residential_retrofit_first_deliverable",
+          "thermal_capacity_assessment_as_edge_site_selection_gate",
+          "standardized_pre-project_constraint_checklist"
+        ],
+        "target_persona": "MEP system designer, AHJ building official, owner-operator facilities manager, electrical contractor project manager, utility program manager"
+      }
+    }
+  ]
+}

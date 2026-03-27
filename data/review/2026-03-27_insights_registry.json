@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-27",
+  "insights": [
+    {
+      "insight_id": "2026-03-27-A01",
+      "working_title": "The Pre-Commitment Audit Gap: Why Site Constraints Are Discovered Too Late Across Edge, Data Center, and Building Electrification Projects",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-27-the-pre-commitment-audit-gap-why-site-constraints-.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-27-A02",
+      "working_title": "The Sequential Abandonment Problem in Residential Electrification: Why Equipment Rebates Fail the Dual CapEx-OpEx Cost Shock",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-27-the-sequential-abandonment-problem-in-residential-.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-27-A03",
+      "working_title": "PDU Procurement as the Hidden Dependency: Why AI Data Center UPS Sizing, Phase Configuration, and Monitoring Integration Must Be Decided in Sequence, Not in Parallel",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-27-pdu-procurement-as-the-hidden-dependency-why-ai-da.md",
+      "confidence": "",
+      "levers": []
+    }
+  ]
+}
