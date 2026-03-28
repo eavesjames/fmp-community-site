@@ -1,0 +1,171 @@
+{
+  "run_date": "2026-03-28",
+  "drafts": [
+    {
+      "draft_id": "SOC-001",
+      "channel": "linkedin",
+      "text": "Heat pump panel upgrade financing is being designed around a cost assumption that doesn't hold. The widely cited $15\u201320K service upgrade figure isn't a floor\u2014it's a variable, and AHJ inspection rework loops are a significant driver of that variance. When there are no standardized NEC load calculation templates or feeder-sizing guidance documents, inspectors push back, contractors revise, and labor hours accumulate in ways that no fixed-allowance financing product can anticipate. Decoupled panel upgrade financing (separating the service upgrade cost from equipment purchase) is the right structural idea\u2014but if AHJ documentation standardization doesn't come first, the financing product is pricing a moving target. The correct sequence: stabilize the cost distribution through AHJ pre-conference protocols and standardized load calc templates, then calibrate financing allowances to that stable distribution. Inverting this sequence produces a wave of underfunded projects. What data do you have on how many revision cycles a typical residential heat pump permit requires in your jurisdiction?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-the-hidden-cost-of-going/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "190",
+          "192",
+          "182"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L_ahj_preconference_protocol",
+          "L_panel_upgrade_financing_decoupled",
+          "L_standardize_load_calc_template"
+        ],
+        "target_persona": "incentive_program_designer"
+      }
+    },
+    {
+      "draft_id": "SOC-002",
+      "channel": "linkedin",
+      "text": "There is a sequencing problem at the center of AI data center electrical design that the industry hasn't fully named. In legacy air-cooled facilities, cooling design followed electrical layout. In high-density AI deployments\u201420 to 50+ kW per rack\u2014that sequence is inverted: cooling topology must be locked first, because direct-to-chip liquid cooling pathways compete for the same riser space and floor penetrations as power and signal cables. The downstream consequence is that PDU selection and UPS sizing decisions are routinely being finalized before the variable that most determines their required specs\u2014cooling topology and its physical footprint\u2014is resolved. UPS loads can differ by 15\u201330% between air-cooled and direct-to-chip configurations at equivalent rack density. Getting the sequence wrong doesn't produce a minor adjustment; it produces a rework event. For MEP engineers and data center project managers: at what project milestone are you currently locking cooling topology relative to electrical rough-in design? https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/ https://faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/"
+      ],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": [
+          "184",
+          "194"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L_cooling_first_design_sequence",
+          "L_pdu_selection_post_cooling_lock",
+          "L_dcim_integration_at_cooling_freeze"
+        ],
+        "target_persona": "mep_design_engineer"
+      }
+    },
+    {
+      "draft_id": "SOC-003",
+      "channel": "linkedin",
+      "text": "Edge enclosures at 5\u201310 kW and AI data center racks at 20\u201350+ kW look like separate problems in separate verticals. They share a common condition: both were approved under inspection standards calibrated for lower-density predecessors, both are now operating above those standards' thermal assumptions, and neither has a standard re-inspection trigger when workloads increase post-commissioning. The result is a class of installations that are legally approved, operationally out-of-spec, and without a documented remediation pathway. AHJs default to equipment listing verification\u2014but UL listings for enclosures and PDUs are calibrated to manufacturer-specified ambient and load conditions that field deployments routinely exceed. A density-tiered thermal documentation framework, tied to UL listing verification and NEC branch circuit coordination, would serve both verticals and resolve an inspection gap that neither AHJs nor equipment vendors have fully closed. Who in your organization owns the documentation when a deployed workload exceeds the thermal assumptions of the original permit? https://faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/ https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "194",
+          "122",
+          "128"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L_ul_listing_verification_by_density_tier",
+          "L_unified_density_inspection_standard",
+          "L_thermal_analysis_report_at_plan_review"
+        ],
+        "target_persona": "ahj_building_official"
+      }
+    },
+    {
+      "draft_id": "SOC-004",
+      "channel": "x",
+      "text": "The $15\u201320K heat pump panel upgrade cost isn't a fixed floor\u2014AHJ inspection rework loops make it a variable. Financing programs priced to a fixed allowance will underfund real projects until load calc templates are standardized first. L_ahj_preconference_protocol L_panel_upgrade_financing_decoupled faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/ What revision cycle count does your jurisdiction average per permit?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "190",
+          "192"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L_ahj_preconference_protocol",
+          "L_panel_upgrade_financing_decoupled"
+        ],
+        "target_persona": "electrical_contractor"
+      }
+    },
+    {
+      "draft_id": "SOC-005",
+      "channel": "x",
+      "text": "AI data centers: cooling topology must lock before electrical rough-in, PDU selection, and UPS sizing\u2014not after. Direct-to-chip liquid cooling competes for the same riser space as power cables. Legacy design sequence = systematic rework. L_cooling_first_design_sequence faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/ At what milestone does your project lock cooling topology?",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": [
+          "184",
+          "194"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L_cooling_first_design_sequence",
+          "L_pdu_selection_post_cooling_lock"
+        ],
+        "target_persona": "data_center_facility_manager"
+      }
+    },
+    {
+      "draft_id": "SOC-006",
+      "channel": "x",
+      "text": "Edge enclosures at 5\u201310 kW and AI racks at 20\u201350+ kW: both approved under lower-density standards, both operating above original thermal assumptions, neither with a re-inspection trigger. L_unified_density_inspection_standard Who owns the liability gap? faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "194",
+          "128"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L_unified_density_inspection_standard",
+          "L_ul_listing_verification_by_density_tier"
+        ],
+        "target_persona": "edge_network_operator"
+      }
+    },
+    {
+      "draft_id": "SOC-007",
+      "channel": "prompt",
+      "text": "Estimating standardization for residential panel upgrades is usually discussed as a contractor-margin problem. But bid variance of 40\u201360% for identical scope has a second-order effect that policy designers often miss: fixed-allowance financing products (PACE, on-bill, green bank programs), AHJ cost-reasonableness reviews, and incentive program calibrations are all operating on cost inputs that don't reflect actual cost distribution. If the underlying cost data is unreliable, the financing product is structurally inaccurate from day one. The four-step estimating process in item 126 and the service upgrade cost discussion in item 190 point toward labor unit standardization as a prerequisite\u2014not just a contractor efficiency gain\u2014for both effective AHJ streamlining and accurate financing design. Here's the question for practitioners across all three roles: **If you were designing a panel upgrade financing product, an incentive program allowance, or an AHJ cost-reasonableness standard today, what cost data source would you use as your baseline\u2014and do you trust it?** Relevant context: https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/ and https://faultmanagedpower.org/pulse/2026-03-10-other-california-heat-pump-adoption-hindered/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-california-heat-pump-adoption-hindered/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "190",
+          "182",
+          "126"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L_labor_unit_standardization",
+          "L_incentive_program_cost_baseline",
+          "L_ahj_cost_reasonableness_standard",
+          "L_financing_product_calibration"
+        ],
+        "target_persona": "incentive_program_designer"
+      }
+    }
+  ]
+}

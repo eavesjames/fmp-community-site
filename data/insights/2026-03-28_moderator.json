@@ -1,0 +1,275 @@
+{
+  "agent": "moderator_synthesis",
+  "run_date": "2026-03-28",
+  "coverage_notes": {
+    "observed_skews": [
+      "Building electrification items (4) skew heavily toward residential single-family retrofit economics; no commercial or MDU panel upgrade data present despite item 182's Instagram reference to 'retrofits-mdus' topic tag.",
+      "Data center items (4) are split between AI density strategy (122, 184) and PDU selection fundamentals (128, 150); item 150 (1995 EC&M article) adds no contemporary constraint value and dilutes analyst signal-to-noise ratio.",
+      "Edge power items (2) are thin: item 194 is a Facebook post with near-zero technical detail, and item 126 is an estimating webinar with indirect edge applicability. No edge-specific power distribution or UPS data was captured.",
+      "All five analysts converged heavily on items 190, 122, and 128 while item 150 and item 182 received minimal substantive treatment beyond surface-level citations.",
+      "No items address medium-voltage distribution, switchgear selection, or utility-scale interconnection constraints, leaving a gap for the data-centers vertical at the facility entrance level.",
+      "Operational cost modeling (item 182: California electricity rates) was treated shallowly across all analysts; no analyst modeled multi-year TCO with rate escalation scenarios."
+    ],
+    "suggested_query_adjustments": [
+      "Add queries targeting commercial and MDU building electrification panel upgrade constraints, not just single-family residential, to balance item 182's MDU tag.",
+      "Source edge-power items from telecom/carrier-neutral facility operators (e.g., Equinix Edge, Crown Castle, Tillman Infrastructure) rather than enclosure manufacturer social media to get install-constraint data.",
+      "Pull 2025-2026 utility service upgrade wait-time data by territory (PG&E, ConEd, ComEd) to ground the coordination bottleneck hypothesis with quantified timelines.",
+      "Seek data center commissioning post-mortems or AHJ inspection punch-list aggregates for high-density AI deployments to validate the DCIM/EPMS acceptance gap hypothesis.",
+      "Add a query specifically on PACE financing and green bank programs for panel upgrade decoupling from equipment purchase to fill the financing mechanism evidence gap.",
+      "Replace or supplement item 150 (1995 EC&M) with a current medium-voltage distribution case study relevant to hyperscale or campus data center entrance architecture."
+    ]
+  },
+  "composite_insights": [
+    {
+      "insight_id": "INS-001",
+      "insight": "The installation labor bottleneck and the AHJ inspection bottleneck in residential heat pump retrofits are treated as separate problems by different analyst lenses, but they are structurally coupled: without standardized NEC load calculation templates and pre-approved feeder-sizing guidance, the AHJ inspection cycle generates rework loops that inflate the very labor hours contractors are trying to estimate. The $15-20K quoted in item 190 is therefore not a stable floor\u2014it is a variable cost driven partly by AHJ iteration count, and any financing mechanism that treats it as a fixed cost will under-serve real projects. Practitioners who decouple panel upgrade financing from equipment purchase (finance_roi_skeptic, owner_operator_facilities) without also resolving the AHJ documentation gap (compliance_ahj) will fund a process that still produces unpredictable costs.",
+      "why_it_is_new": "Individual analysts flagged either the financing gap (finance_roi_skeptic, owner_operator_facilities) or the AHJ documentation gap (compliance_ahj) but none modeled them as a coupled feedback loop. The installer/contractor lens focused on utility coordination as the external bottleneck without connecting it to inspector-driven rework as an internal cost driver. This coupling changes the priority ordering: AHJ process standardization must precede or accompany financing program design, or the financing program will be pricing a moving target.",
+      "new_perspective_from_disagreement": "finance_roi_skeptic argued that the $15-20K service upgrade cost is a 'hard floor' driven by labor economics; compliance_ahj argued it is a variable driven by inspection iteration. These are contradictory framings. The synthesis is that the floor is labor-hours-times-loaded-rate, and inspection rework directly adds to hours. A financing product that bundles a fixed panel upgrade allowance will be structurally inaccurate in high-inspection-friction jurisdictions, making the financing solution itself a source of project shortfalls.",
+      "who_cares": [
+        "electrical_contractor",
+        "incentive_program_designer",
+        "ahj_building_official",
+        "facilities_manager_residential_portfolio"
+      ],
+      "which_verticals": [
+        "building-electrification"
+      ],
+      "levers": [
+        "L_standardize_load_calc_template",
+        "L_ahj_preconference_protocol",
+        "L_panel_upgrade_financing_decoupled",
+        "L_utility_coordination_checklist"
+      ],
+      "supporting_items": [
+        "190",
+        "192",
+        "182",
+        "126"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposes: Financing solutions designed around a fixed cost assumption will fail when AHJ rework loops inflate labor hours unpredictably.",
+        "Exposes: Contractor estimating standardization (item 126 four-step process) cannot fully stabilize bids if downstream AHJ friction is uncontrolled.",
+        "Resolves partially: The apparent contradiction between 'labor is the bottleneck' (installer lens) and 'AHJ is the bottleneck' (compliance lens) collapses into a single coupled system where both must be addressed simultaneously."
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-002",
+      "insight": "Across all five analyst outputs, the AI data center power density problem (item 122) is treated as a cooling and monitoring design challenge. But the deeper constraint is a sequencing inversion that no single analyst fully articulated: in legacy data centers, cooling design follows electrical layout; in high-density AI deployments, electrical layout must follow cooling design because direct-to-chip liquid cooling pathways (coolant headers, manifolds, leak detection conduit) compete for the same riser and floor space as power and signal cables. This means PDU selection (item 128) and UPS sizing (item 184) cannot be finalized until the cooling topology is locked\u2014but cooling topology decisions are currently made after electrical rough-in design in most project sequences. The result is a systematic design-sequence mismatch that produces rework, not just oversight.",
+      "why_it_is_new": "installer_electrical_contractor partially identified this ('cooling now gates electrical layout') but did not connect it to the PDU selection criteria in item 128 or the UPS right-sizing problem in item 184. mep_system_designer identified the software integration timing problem but not the physical riser-space competition. compliance_ahj identified commissioning documentation gaps but did not address the design-sequence root cause. The composite insight is that PDU and UPS procurement decisions are being made before the variable that most determines their required specs (cooling topology and its physical footprint) is resolved.",
+      "new_perspective_from_disagreement": "owner_operator_facilities argued that PDU procurement should shift to 'API-first, decoupled monitoring' to reduce vendor lock-in. compliance_ahj argued that DCIM/EPMS must be integrated earlier to create AHJ-recognizable commissioning evidence. These appear to be complementary but they conflict on timing: decoupled monitoring (owner preference) defers integration decisions, while AHJ-mandated commissioning (compliance preference) requires integration to be resolved before final inspection. The resolution is that decoupling hardware from software is correct, but the software integration decision timeline cannot be deferred\u2014it must be locked at cooling topology freeze, not at commissioning.",
+      "who_cares": [
+        "data_center_facility_manager",
+        "mep_design_engineer",
+        "electrical_contractor_data_center",
+        "dcim_epms_integrator",
+        "ahj_building_official"
+      ],
+      "which_verticals": [
+        "data-centers",
+        "edge-power-ups"
+      ],
+      "levers": [
+        "L_cooling_first_design_sequence",
+        "L_pdu_selection_post_cooling_lock",
+        "L_riser_space_allocation_protocol",
+        "L_dcim_integration_at_cooling_freeze"
+      ],
+      "supporting_items": [
+        "122",
+        "128",
+        "184",
+        "194"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Resolves: The apparent conflict between 'decouple PDU monitoring' (owner) and 'integrate DCIM early' (compliance/MEP) is resolved by distinguishing hardware decoupling (correct, reduces lock-in) from software integration timing (cannot be deferred past cooling topology lock).",
+        "Exposes: Current data center project sequences that freeze electrical rough-in before cooling topology is resolved will systematically generate rework in high-density AI deployments.",
+        "Exposes: UPS right-sizing decisions (item 184) made before cooling load is quantified will produce either stranded capacity or inadequate headroom, since cooling system power draw is a significant and variable fraction of total facility load."
+      ],
+      "confidence": "High"
+    },
+    {
+      "insight_id": "INS-003",
+      "insight": "The edge enclosure thermal constraint at 5-10 kW (item 194) and the AI data center rack density problem (item 122) are treated by all analysts as separate verticals with separate solutions. But the underlying dynamic is the same: both represent deployments where passive thermal design assumptions inherited from lower-density predecessors are being invalidated by workload growth, and both lack AHJ-recognized inspection standards for the new density regime. The composite implication for practitioners is that the industry is generating a class of 'thermal orphan' deployments\u2014installed under legacy design assumptions, operating above legacy thermal limits, without a standard remediation or re-inspection pathway. Edge operators and data center operators face the same regulatory gap, and a unified thermal design documentation framework (tiered by density, tied to UL listing and NEC branch circuit coordination) would serve both verticals.",
+      "why_it_is_new": "No analyst drew this cross-vertical parallel. compliance_ahj addressed each vertical's AHJ gap separately. finance_roi_skeptic noted the edge thermal cost was 'Low confidence' due to data absence but did not connect it to the data center density problem. The insight that both verticals are producing the same class of inspection gap\u2014density exceeding the assumptions of the approval that was granted\u2014is absent from all five outputs and has direct implications for product strategy (thermal documentation kits) and policy strategy (unified density-tier inspection standard).",
+      "new_perspective_from_disagreement": "installer_electrical_contractor argued that edge enclosure thermal constraints 'will not materially impact electrical design pathways unless site HVAC is deficient' (low-urgency framing). owner_operator_facilities argued that passive cooling assumptions 'will force reactive infrastructure retrofits across multi-site deployments' (high-urgency framing). The disagreement is about probability of field failure. The resolution: the installer lens reflects current practice (most sites haven't failed yet); the owner lens reflects forward-looking risk (as duty cycles increase with AI-adjacent edge workloads, failure rates will rise). Practitioners who adopt the installer's current-practice framing will be unprepared for the failure cohort that the owner correctly anticipates.",
+      "who_cares": [
+        "edge_network_operator",
+        "data_center_facility_manager",
+        "ahj_building_official",
+        "enclosure_manufacturer",
+        "electrical_contractor_edge"
+      ],
+      "which_verticals": [
+        "edge-power-ups",
+        "data-centers"
+      ],
+      "levers": [
+        "L_thermal_analysis_report_at_plan_review",
+        "L_ul_listing_verification_by_density_tier",
+        "L_predictive_thermal_telemetry",
+        "L_unified_density_inspection_standard"
+      ],
+      "supporting_items": [
+        "194",
+        "122",
+        "128"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Resolves: The disagreement between installer (low urgency) and owner (high urgency) on edge thermal risk is resolved by distinguishing current failure rate (low, installer is correct) from forward failure rate as workloads intensify (high, owner is correct).",
+        "Exposes: The absence of a density-tiered thermal inspection standard creates a legal and operational gap: deployments approved under legacy standards are operating outside those standards' assumptions with no re-inspection trigger.",
+        "Exposes: Equipment vendors (Chatsworth Products, item 194) have commercial incentive to surface thermal constraints but not to create the inspection documentation framework that would make their solutions AHJ-approvable\u2014this is a market gap for a third-party standards or documentation product."
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "insight_id": "INS-004",
+      "insight": "Contractor estimating standardization (item 126) was analyzed by all five analysts primarily as a profitability and bid-accuracy tool for contractors. But the second-order effect\u2014which no analyst fully developed\u2014is that estimating variance is a direct input into financing product design, incentive program calibration, and AHJ cost-reasonableness determinations. When bids for identical residential panel upgrade scope vary 40-60% (owner_operator_facilities), it is not only a contractor problem: it means that incentive programs setting fixed panel upgrade allowances, AHJs evaluating cost-reasonableness of permitted work, and financing products setting loan amounts are all operating on inputs that do not reflect actual cost distribution. Standardizing labor unit methodology (item 126) therefore has an upstream policy effect that none of the analyst lenses\u2014each treating estimating as a contractor-internal process\u2014captured.",
+      "why_it_is_new": "All five analysts treated estimating standardization as a contractor-side efficiency gain. None traced the causal path from bid variance to incentive program miscalibration to adoption plateau. finance_roi_skeptic came closest by noting that 'adoption will remain stuck' without financing reform, but attributed the financing problem to product design, not to the cost data quality problem that makes any fixed-allowance financing product structurally inaccurate.",
+      "new_perspective_from_disagreement": "compliance_ahj argued that standardized load calc templates and feeder-sizing guidance would reduce AHJ inspection iterations. finance_roi_skeptic argued that bundled financing is the unlock for adoption. These are not in conflict, but neither analyst recognized that both solutions depend on a reliable cost baseline that does not currently exist due to estimating variance. The composite view: estimating standardization is not just a contractor-margin tool\u2014it is a prerequisite for both effective AHJ streamlining and accurate financing product design.",
+      "who_cares": [
+        "incentive_program_designer",
+        "ahj_building_official",
+        "electrical_contractor",
+        "green_bank_financing_product_manager",
+        "state_energy_office"
+      ],
+      "which_verticals": [
+        "building-electrification",
+        "edge-power-ups"
+      ],
+      "levers": [
+        "L_labor_unit_standardization",
+        "L_incentive_program_cost_baseline",
+        "L_ahj_cost_reasonableness_standard",
+        "L_financing_product_calibration"
+      ],
+      "supporting_items": [
+        "126",
+        "190",
+        "192",
+        "182"
+      ],
+      "tensions_resolved_or_exposed": [
+        "Exposes: Fixed-allowance panel upgrade financing products (e.g., PACE-style) will be structurally under- or over-funded unless calibrated to a standardized labor unit cost baseline that does not currently exist.",
+        "Exposes: AHJ cost-reasonableness review of permitted electrical work relies implicitly on market cost norms that are currently too variable (40-60% bid spread) to serve as reliable reference points.",
+        "Resolves: The apparent tension between 'contractor-side efficiency' (installer lens) and 'policy-side financing reform' (finance lens) dissolves when estimating standardization is recognized as a shared prerequisite for both."
+      ],
+      "confidence": "High"
+    }
+  ],
+  "ranked_original_angles": [
+    {
+      "rank": 1,
+      "working_title": "The Coupled Bottleneck: Why Heat Pump Panel Upgrade Financing Will Fail Without AHJ Process Standardization First",
+      "thesis": "Residential heat pump adoption is blocked by a $15-20K service upgrade cost (item 190) that every analyst acknowledges, but the proposed solution\u2014decoupled panel upgrade financing\u2014is being designed around a cost assumption that is itself unstable. AHJ inspection rework loops (absence of standardized NEC load calc templates, feeder-sizing guidance, and conduit-reuse matrices) inflate labor hours unpredictably, making the panel upgrade cost a moving target that fixed-allowance financing products will systematically misfund. The correct intervention sequence is: (1) standardize AHJ load calc documentation and feeder-sizing guidance to stabilize the cost distribution, (2) use that stable distribution to calibrate financing allowances, then (3) deploy financing products. Inverting this sequence\u2014financing first, documentation later\u2014will produce a wave of underfunded projects that damage the credibility of the financing program and slow adoption further.",
+      "outline": [
+        "H1: The $15-20K panel upgrade cost (item 190) is not a stable floor but a variable driven by AHJ inspection iteration count, feeder-sizing methodology disputes, and conduit-reuse decisions\u2014all of which lack standardized documentation (items 190, 192, compliance_ahj analysis).",
+        "H2: Existing incentive and financing programs (California context, item 182) are calibrated to equipment cost, not total installed cost including service upgrade labor, creating a structural funding gap that compounds as AHJ friction increases labor hours.",
+        "H3: Contractor estimating variance (40-60% bid spread, owner_operator_facilities; item 126 four-step process as partial remedy) means that no financing product can set an accurate fixed allowance without a reliable cost baseline\u2014and that baseline requires AHJ documentation standardization as a prerequisite.",
+        "H4: The intervention sequence that unlocks adoption: (a) AHJ pre-conference protocols and standardized load calc templates reduce inspection iterations, (b) reduced iteration count stabilizes labor cost distribution, (c) stable distribution enables accurate financing product calibration, (d) financing product deployment accelerates adoption. Proposed policy path (financing first) skips steps a-c."
+      ],
+      "must_cite_items": [
+        "190",
+        "192",
+        "182",
+        "126"
+      ],
+      "missing_evidence_to_find": [
+        "AHJ inspection iteration counts for residential heat pump panel upgrade permits across 5+ California and Northeast jurisdictions\u2014how many revision cycles per project on average, and what are the most common objection categories (feeder sizing, conduit reuse, load calc methodology)?",
+        "Labor hour breakdown by task category (utility coordination, permitting, panel installation, feeder run, terminations, inspection support) for 50+ completed heat pump retrofits to quantify the AHJ-driven fraction of total labor hours.",
+        "Existing fixed-allowance panel upgrade financing products (PACE, green bank programs, utility on-bill financing): what cost assumption is built into the allowance, and what is the rate of project shortfall or cost overrun against that allowance?",
+        "California Building Decarbonization Coalition (item 182) policy position on sequencing of AHJ streamlining vs. financing reform\u2014has the coalition modeled the cost instability problem?",
+        "NRECA or NECA published labor unit tables for 200A residential panel upgrade by region\u2014do standardized tables exist, and are they adopted by AHJs for cost-reasonableness review?"
+      ],
+      "recommended_owner_questions": [
+        "Do you have data on how many AHJ revision cycles residential heat pump panel upgrade permits require on average in California vs. other states, and what objection categories drive those revisions? This would quantify the AHJ-driven labor cost variability.",
+        "Have any of the financing programs you track (PACE, utility on-bill, green bank) disclosed their panel upgrade cost assumption and their rate of project shortfall? If shortfalls are common, it validates the structural miscalibration hypothesis."
+      ]
+    },
+    {
+      "rank": 2,
+      "working_title": "Cooling-First: The Design Sequence Inversion That AI Rack Density Demands\u2014and Why PDU and UPS Decisions Cannot Precede It",
+      "thesis": "High-density AI data center deployments (item 122) have inverted the traditional design sequence: cooling topology must now be locked before electrical rough-in design, PDU selection, and UPS sizing\u2014not after. Direct-to-chip liquid cooling pathways compete for riser and floor space with power and signal cables; coolant header sizing determines available conduit routes; and leak detection system power requirements add load that UPS sizing must account for. Practitioners who follow the legacy sequence (electrical design first, cooling added later) will generate systematic rework. Additionally, PDU monitoring integration decisions (item 128) and UPS right-sizing (item 184) both require the cooling load to be quantified before they can be finalized. The article documents this inversion, provides a revised design sequence with decision gates, and quantifies the rework cost of getting the sequence wrong.",
+      "outline": [
+        "H1: Traditional data center design sequence (site \u2192 electrical distribution \u2192 cooling \u2192 DCIM/BMS) was calibrated for air-cooled, 5-10 kW/rack environments; AI workloads at 20-50+ kW/rack invalidate this sequence because liquid cooling physical footprint consumes resources (riser space, floor penetrations, structural load) that electrical design assumes are available (items 122, 128).",
+        "H2: PDU selection criteria (item 128: phase, redundancy, monitoring integration) cannot be finalized without knowing whether the rack will be air- or liquid-cooled, because cooling topology determines available rack U-space for monitoring hardware, power feed routing options, and the thermal load profile that drives phase balancing requirements.",
+        "H3: UPS right-sizing (item 184: preventing stranded energy) depends on total facility load, which includes cooling system power draw\u2014a variable that differs by 15-30% between air-cooled and direct-to-chip liquid-cooled configurations. UPS sizing decisions made before cooling topology is locked will be wrong by this margin.",
+        "H4: The revised design sequence gate model: (Gate 1) Cooling topology decision locks riser/floor allocation \u2192 (Gate 2) Electrical rough-in design within locked spatial constraints \u2192 (Gate 3) PDU selection with cooling-informed phase and monitoring requirements \u2192 (Gate 4) UPS sizing with cooling load included \u2192 (Gate 5) DCIM/EPMS integration validated against as-designed cooling and electrical topology before AHJ final inspection."
+      ],
+      "must_cite_items": [
+        "122",
+        "128",
+        "184"
+      ],
+      "missing_evidence_to_find": [
+        "Riser space consumption data for direct-to-chip liquid cooling systems (coolant supply/return headers, leak detection conduit, manifold access) compared to equivalent air-cooled rack infrastructure\u2014quantified in linear feet of riser or square inches of floor penetration per 10-rack row.",
+        "Post-construction rework data from 5+ high-density AI data center projects showing which design decisions were revised after cooling topology was determined\u2014specifically PDU selection changes and UPS resizing incidents.",
+        "Cooling system power draw as a percentage of IT load for direct-to-chip liquid cooling vs. air-cooled configurations at equivalent rack density\u2014needed to quantify the UPS sizing error introduced by pre-cooling-decision UPS specification.",
+        "DCIM/EPMS vendor documentation on integration timeline and prerequisites: does integration require cooling topology to be finalized before software configuration, or is it topology-agnostic?"
+      ],
+      "recommended_owner_questions": [
+        "Do your data center contractor partners report that PDU or UPS specifications are being revised after cooling topology decisions are made in AI rack deployments? If so, how frequently, and what is the typical cost of those revisions?",
+        "Has any DCIM or EPMS vendor you work with documented a gate-based commissioning sequence that explicitly requires cooling topology lock before software integration begins? If not, is there appetite to co-develop one?"
+      ]
+    },
+    {
+      "rank": 3,
+      "working_title": "Thermal Orphans: How Density-Exceeding Deployments in Edge and Data Centers Are Creating a Class of Installations Without Valid Inspection Precedent",
+      "thesis": "Edge enclosures at 5-10 kW (item 194) and AI data center racks at 20-50+ kW (item 122) share a common legal and operational condition: they were approved under inspection standards calibrated for lower-density predecessors, they are now operating above those standards' thermal and electrical assumptions, and no re-inspection trigger exists. This creates 'thermal orphan' deployments\u2014legally approved, operationally out-of-spec, with no standard remediation pathway. The article documents the gap, proposes a density-tiered thermal design documentation framework (tied to UL listing validation and NEC branch circuit coordination), and argues that equipment vendors, not AHJs, are best positioned to create the inspection-ready documentation that would resolve this gap because AHJs lack the technical precedent to develop it independently.",
+      "outline": [
+        "H1: Edge enclosures at 5-10 kW (item 194) were designed and approved under thermal assumptions calibrated for 1-3 kW passive-cooled enclosures; no AHJ re-inspection is triggered when deployed workloads push enclosures above original thermal design limits (compliance_ahj, owner_operator_facilities analyses).",
+        "H2: AI data center racks at 20-50+ kW (item 122) received facility electrical permits when designed for 5-10 kW baselines; as workloads intensify post-commissioning, the as-operated condition diverges from the as-permitted condition without triggering permit revision in most jurisdictions.",
+        "H3: AHJs lack technical precedent for density-tiered thermal inspection standards in both verticals\u2014they default to equipment listing (UL) verification, but UL listings for enclosures and PDUs are calibrated to manufacturer-specified ambient and load conditions that field deployments routinely exceed.",
+        "H4: Equipment vendors (Chatsworth Products for edge, Schneider Electric for data center) have both the technical data and the commercial incentive to create density-tiered thermal design documentation kits (thermal analysis templates, de-rating tables, cooling upgrade specs, UL listing cross-references) that would make their products AHJ-approvable at higher densities\u2014and this is a faster path to inspection standardization than waiting for NEC or UL code cycles."
+      ],
+      "must_cite_items": [
+        "194",
+        "122",
+        "128"
+      ],
+      "missing_evidence_to_find": [
+        "Survey of 15+ AHJs in California, Texas, and New York on whether they require thermal analysis documentation for enclosures operating above 5 kW, and whether they have a re-inspection trigger for workload increases post-commissioning.",
+        "UL 60950-1 and NEMA enclosure standard thermal rating methodologies: at what ambient temperature and load profile are ratings established, and how far do typical field conditions deviate from those assumptions?",
+        "Incident data from edge enclosure deployments showing thermal violations: percentage of deployments affected, months post-install when violations occurred, and remediation actions taken (fans, ducting, relocation, workload throttling).",
+        "Chatsworth Products full white paper referenced in item 194\u2014the Facebook post excerpt contains no technical detail; the white paper likely contains enclosure thermal design data that would ground the inspection gap analysis."
+      ],
+      "recommended_owner_questions": [
+        "Do you have relationships with Chatsworth Products or similar edge enclosure vendors who could share field thermal performance data across deployed units? Specifically: what percentage of 5-10 kW deployments have exceeded thermal ratings, and in what timeframe post-deployment?",
+        "Has FMP engaged with any AHJs who have been asked to inspect or re-inspect high-density edge or data center installations after workload increases post-original-permit? What was their determination\u2014does the original permit cover increased density, or is a new permit required?"
+      ]
+    }
+  ],
+  "tomorrow_search_briefs": [
+    {
+      "goal": "Quantify AHJ inspection iteration counts and objection categories for residential heat pump panel upgrade permits to validate the coupled bottleneck hypothesis (INS-001) and calibrate the financing product miscalibration claim.",
+      "queries": [
+        "residential heat pump panel upgrade permit revision cycles AHJ inspection objections California 2024 2025",
+        "NEC 220 load calculation methodology variance heat pump service upgrade permit rejection rate",
+        "PACE green bank on-bill financing panel upgrade allowance project shortfall cost overrun survey",
+        "electrical permit processing time heat pump retrofit 200A service upgrade utility coordination delay by jurisdiction"
+      ],
+      "why_this_will_improve_insights": "INS-001 and the rank-1 article candidate depend on the claim that AHJ inspection rework loops inflate labor costs unpredictably, making fixed-allowance financing products structurally inaccurate. Without data on actual revision cycle counts, objection categories, and financing shortfall rates, this remains a structural argument without empirical grounding. These queries would either validate the mechanism or reveal that AHJ friction is low and the financing gap is primarily a product design problem rather than a cost instability problem."
+    },
+    {
+      "goal": "Establish the design sequence dependency between liquid cooling topology lock and PDU/UPS specification in high-density AI data center projects to validate INS-002 and the rank-2 article thesis.",
+      "queries": [
+        "direct-to-chip liquid cooling riser space conduit allocation data center design sequence 2024 2025",
+        "AI data center PDU specification revision after cooling topology decision rework cost case study",
+        "UPS sizing error cooling load fraction direct liquid cooling versus air cooling 20kW+ rack density",
+        "DCIM EPMS integration gate commissioning sequence cooling topology prerequisite data center AI workload"
+      ],
+      "why_this_will_improve_insights": "INS-002 proposes a cooling-first design gate model but currently lacks quantified evidence on riser space consumption differentials, PDU revision frequency post-cooling-decision, and UPS sizing error magnitude. These queries would surface case studies or vendor documentation that either confirm the inversion hypothesis or reveal that the design dependencies are handled through parallel workstreams rather than sequential gates\u2014which would change the practitioner recommendation from 'sequential gating' to 'parallel constraint management with defined interface points.'"
+    },
+    {
+      "goal": "Identify whether density-tiered thermal inspection standards exist or are in development for edge enclosures and high-density data center racks, and whether any equipment vendors have published AHJ-ready thermal documentation kits that would serve the 'thermal orphan' gap identified in INS-003.",
+      "queries": [
+        "UL 60950-1 edge enclosure thermal rating field deviation 5kW 10kW density AHJ inspection standard",
+        "NEMA enclosure thermal design guide high density edge computing power 2024 2025",
+        "Chatsworth Products edge enclosure thermal white paper 5kW 10kW installation design guide",
+        "NEC code cycle 2026 high density rack thermal inspection requirement data center AHJ precedent liquid cooling"
+      ],
+      "why_this_will_improve_insights": "INS-003 and the rank-3 article candidate claim that a unified density-tiered thermal inspection framework does not exist. These queries would either confirm the gap (strengthening the article angle) or reveal that UL, NEMA, or a major vendor has already published relevant documentation\u2014in which case the article angle shifts from 'gap exists' to 'existing documentation is not being adopted by AHJs' and the recommended intervention changes from framework creation to adoption facilitation."
+    }
+  ]
+}
