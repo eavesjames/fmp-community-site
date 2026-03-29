@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-29",
+  "insights": [
+    {
+      "insight_id": "2026-03-29-A01",
+      "working_title": "The Three-Clock Problem: Why Sequential Approval Timelines\u2014Not Installation Cost\u2014Are Killing Residential Electrification",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-29-the-three-clock-problem-why-sequential-approval-ti.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-29-A02",
+      "working_title": "Co-Design or Rework: Why Sequential Procurement of Cooling, Electrical, and Monitoring in AI Data Centers Produces Predictable Commissioning Failures",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-29-co-design-or-rework-why-sequential-procurement-of-.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-29-A03",
+      "working_title": "The DER-Ready Retrofit: Why Minimum-Viable Electrification Proposals Are Creating the Next Wave of Adoption Failure in High-Electricity-Cost Markets",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-29-the-der-ready-retrofit-why-minimum-viable-electrif.md",
+      "confidence": "",
+      "levers": []
+    }
+  ]
+}

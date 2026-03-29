@@ -1,0 +1,159 @@
+{
+  "run_date": "2026-03-29",
+  "drafts": [
+    {
+      "draft_id": "SOC-001",
+      "channel": "linkedin",
+      "text": "The $15\u201320K price tag on a residential heat pump retrofit isn't mainly a labor problem\u2014it's a three-clock problem. AHJ plan review, utility service upgrade scheduling, and contractor availability each run 4\u201312 weeks independently, and none are designed to run in parallel. Extended timelines add financing carrying cost that compounds the upfront sticker shock. Pre-permit load calculation templates (NEC 220.82) and utility pre-approval workflows are process tools that already exist\u2014they just aren't being used systematically. Compressing those three approval timelines by 30\u201340% would do more for adoption than shaving another dollar off equipment cost. What does your permitting experience look like\u2014is AHJ review or utility coordination the longer clock in your territory? https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/ https://faultmanagedpower.org/pulse/2026-03-10-other-the-hidden-cost-of-going/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-the-hidden-cost-of-going/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "190",
+          "192"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L1_pre-permit_load_calc_template",
+          "L2_utility_coordination_checklist"
+        ],
+        "target_persona": "electrical_contractor"
+      }
+    },
+    {
+      "draft_id": "SOC-002",
+      "channel": "linkedin",
+      "text": "In AI data centers, electrical distribution, cooling architecture, and monitoring integration are being procured as three separate scopes by three separate teams. At rack densities above 30 kW/rack, these systems are thermally and operationally interdependent\u2014and commissioning failures from sequential procurement are predictable before the first cable is pulled. Coolant pump circuits, manifold heat rejection loads, and in-row unit power draws all need to be in the electrical model before PDU sizing is locked. Treating DCIM commissioning baseline as an AHJ pre-inspection deliverable\u2014rather than a post-occupancy afterthought\u2014is one structural change that reduces inspection visits and catches integration gaps before they become schedule problems. The monitoring ROI question also looks different at different density tiers: native PDU monitoring may not be justifiable at 8 kW/rack but is hard to argue against above 30 kW/rack. Does your facility specify monitoring requirements as a function of rack density, or is it a single standard applied across the floor? https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-beyond-capex-closing-the-power/"
+      ],
+      "based_on": {
+        "insight_id": "INS-002",
+        "pulse_item_ids": [
+          "184"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L4_ai_rack_commissioning_checklist",
+          "L5_dcim_ahj_data_handoff",
+          "L6_cooling_electrical_integration_test"
+        ],
+        "target_persona": "data_center_operator"
+      }
+    },
+    {
+      "draft_id": "SOC-003",
+      "channel": "linkedin",
+      "text": "Contractors proposing minimum-viable heat pump retrofits\u2014heat pump plus panel upgrade, nothing else\u2014are winning bids today and creating adoption problems in two to three years. In California's high-rate utility territories, a heat pump retrofit that doesn't include submetering, smart controls, or battery storage pre-wiring can produce an electricity bill increase that erases the expected savings, and that customer becomes a negative reference. The design choices that fix the operational cost problem (DER integration, demand response hardware) also increase installation scope and cost\u2014there's no clean solution unless financing structures absorb the expanded scope. A bundled retrofit package financed on total-cost-of-ownership over ten years, where operational savings service the debt, is a structurally different proposal than the standard panel upgrade bid. L15 electrification ROI checklists and demand-side management integration from the design phase are the levers that make this scalable. Are you pricing DER-ready retrofit packages as a standard option, or only when a customer asks? https://faultmanagedpower.org/pulse/2026-03-10-other-california-heat-pump-adoption-hindered/ https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-california-heat-pump-adoption-hindered/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "182",
+          "190"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L15_residential_electrification_roi_checklist",
+          "integrate_dsr_into_design",
+          "mandate_submetering_controls"
+        ],
+        "target_persona": "electrical_contractor"
+      }
+    },
+    {
+      "draft_id": "SOC-004",
+      "channel": "x",
+      "text": "The $15\u201320K heat pump retrofit cost isn't mainly a labor problem\u2014it's three uncoordinated approval timelines each running 4\u201312 weeks. Pre-permit load calc templates (L1) can compress the critical path. Is AHJ review or utility scheduling the longer clock in your area? https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "190"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L1_pre-permit_load_calc_template"
+        ],
+        "target_persona": "electrical_contractor"
+      }
+    },
+    {
+      "draft_id": "SOC-005",
+      "channel": "x",
+      "text": "Edge enclosures (5\u201310 kW) and AI racks (30\u201350+ kW) look like the same thermal problem at different scales. They're not\u2014they need opposite architectural responses. Applying data center co-design logic (L6) to edge will over-engineer cooling and miss distributed feed complexity. https://faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-edge-enclosure-thermal-constraints-at/"
+      ],
+      "based_on": {
+        "insight_id": "INS-003",
+        "pulse_item_ids": [
+          "194"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L6_cooling_electrical_integration_test",
+          "L7_edge_thermal_design_form"
+        ],
+        "target_persona": "MEP_designer"
+      }
+    },
+    {
+      "draft_id": "SOC-006",
+      "channel": "x",
+      "text": "California heat pump retrofits: operational electricity cost and $15\u201320K install cost aren't independent problems\u2014DER integration (L15) fixes the first but raises the second. Neither alone closes the gap. Bundled design + financing is the lever. What's blocking it where you work? https://faultmanagedpower.org/pulse/2026-03-10-other-california-heat-pump-adoption-hindered/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-california-heat-pump-adoption-hindered/"
+      ],
+      "based_on": {
+        "insight_id": "INS-004",
+        "pulse_item_ids": [
+          "182"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L15_residential_electrification_roi_checklist",
+          "integrate_dsr_into_design"
+        ],
+        "target_persona": "building_owner"
+      }
+    },
+    {
+      "draft_id": "SOC-007",
+      "channel": "prompt",
+      "text": "Three sequential approval processes\u2014AHJ load calculation review, utility service upgrade scheduling, and electrical contractor availability\u2014each run 4\u201312 weeks independently in a typical residential heat pump retrofit. None are designed to run in parallel, and the combined timeline drives a significant share of the $15\u201320K installation cost through financing carrying cost and rework. Pre-permit load calculation templates (L1) and utility pre-approval workflows (L2) are existing tools that could compress these timelines without requiring regulatory changes. Here's the discussion question: In your experience, which of the three clocks\u2014AHJ plan review, utility coordination, or contractor scheduling\u2014has the longest and most variable cycle time, and have you seen any local pre-approval or fast-track process that made a measurable difference? https://faultmanagedpower.org/pulse/2026-03-10-other-the-hidden-cost-of-going/ https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/",
+      "links": [
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-the-hidden-cost-of-going/",
+        "https://faultmanagedpower.org/pulse/2026-03-10-other-reddit-post-1520k-installation-cost/"
+      ],
+      "based_on": {
+        "insight_id": "INS-001",
+        "pulse_item_ids": [
+          "192",
+          "190"
+        ]
+      },
+      "notes": {
+        "levers": [
+          "L1_pre-permit_load_calc_template",
+          "L2_utility_coordination_checklist"
+        ],
+        "target_persona": "AHJ_inspector"
+      }
+    }
+  ]
+}
