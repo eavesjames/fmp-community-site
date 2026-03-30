@@ -1,6 +1,6 @@
 baseURL = "https://faultmanagedpower.org/"
 languageCode = "en-us"
-title = "FMP Community Knowledge Base"
+title = "FaultManagedPower.org"
 theme = "PaperMod"
 
 enableRobotsTXT = true
@@ -22,24 +22,27 @@ buildExpired = false
   players = "/players/:slug/"
   glossary = "/glossary/:slug/"
   library = "/library/:slug/"
+  tools = "/tools/:slug/"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
   section = ["HTML", "RSS"]
 
 [params]
-  author = "FMP Community"
-  description = "Continuously updated knowledge base for Fault Managed Power"
+  author = "FaultManagedPower.org"
+  description = "The definitive reference for fault managed power — NEC Class 4, installation, estimating, and tools for electricians and integrators."
 
   colorScheme = "auto"
   defaultAppearance = "light"
-  enableSearch = true
+  enableSearch = false
   enableCodeCopy = true
+
+  [params.label]
+    text = "FaultManagedPower.org"
 
   [params.homepage]
     layout = "page"
-    showRecent = true
-    recentLimit = 10
+    showRecent = false
 
   [params.article]
     showDate = true
@@ -67,28 +70,22 @@ buildExpired = false
 
 [menu]
   [[menu.main]]
-    identifier = "pulse"
-    name = "Pulse"
-    url = "/"
+    identifier = "learn"
+    name = "Learn"
+    url = "/guides/"
     weight = 10
 
   [[menu.main]]
-    identifier = "codes-standards"
-    name = "Codes & Standards"
-    url = "/topics/code-standards/"
+    identifier = "tools"
+    name = "Tools"
+    url = "/tools/"
     weight = 20
 
   [[menu.main]]
-    identifier = "players"
-    name = "Players"
-    url = "/players/"
+    identifier = "standards"
+    name = "Standards"
+    url = "/topics/code-standards/"
     weight = 30
-
-  [[menu.main]]
-    identifier = "analysis"
-    name = "Analysis"
-    url = "/analysis/"
-    weight = 35
 
   [[menu.main]]
     identifier = "about"

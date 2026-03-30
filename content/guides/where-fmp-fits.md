@@ -1,10 +1,10 @@
 ---
 title: "Where FMP Fits: Verticals, Use Cases, and Fit Conditions"
 description: "FMP is not a universal replacement for conventional electrical distribution. It is strongest in constrained retrofits, long distributed runs, and projects where the conventional path is blocked by cost or schedule. Here's how to identify good candidates quickly."
-summary: "FMP wins when the conventional wiring path is expensive, constrained, or blocked by a service upgrade. It does not win on commodity wiring cost. Here's the fit framework, the quick qualification checklist, and the three verticals where it creates the most value."
+summary: "FMP wins when the conventional wiring path is expensive, constrained, or blocked by a service upgrade. Here's the fit framework."
 slug: where-fmp-fits
 type: guides
-weight: 30
+weight: 3
 
 knowledge_sources:
   - RULESET_FMP_FIT_CONDITIONS

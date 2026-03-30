@@ -1,10 +1,10 @@
 ---
 title: "What Is Fault Managed Power (Digital Electricity)?"
 description: "A clear, grounded explanation of how FMP works, what problem it solves, how it differs from PoE and conventional wiring, and where it fits — for practitioners and informed newcomers."
-summary: "FMP makes power safe through continuous monitoring, not through insulation or power limiting. The result: safe delivery of kilowatts through standard structured cable, without conduit or service upgrades."
+summary: "FMP makes power safe through continuous monitoring, not insulation or power limiting — kilowatts over standard structured cable, without conduit."
 slug: what-is-fmp
 type: guides
-weight: 10
+weight: 1
 
 knowledge_sources:
   - CLAIM_FMP_DEFINITION

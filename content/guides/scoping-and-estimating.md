@@ -1,10 +1,10 @@
 ---
 title: "Scoping and Estimating an FMP Project"
 description: "How to qualify an FMP project, build a reliable ROM estimate, and identify the cost drivers that determine whether FMP wins against conventional AC. Covers the seven-step ROM workflow, pre-bid data requirements, and AHJ timeline planning."
-summary: "FMP project cost is driven by endpoint count, run length, and pathway access — not by conduit or service upgrades. Here's how to qualify a project quickly, build a ROM estimate, and know when AC will likely win."
+summary: "Cost driven by endpoint count, run length, and pathway access — not conduit. How to qualify a project fast and build a ROM estimate."
 slug: scoping-and-estimating
 type: guides
-weight: 50
+weight: 5
 
 knowledge_sources:
   - PROC_FMP_ESTIMATING_ROM

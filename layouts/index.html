@@ -1,120 +1,173 @@
 {{- define "main" }}
 
-{{- $allPulse := where site.RegularPages "Section" "pulse" }}
+{{- $guides := where site.RegularPages "Section" "guides" }}
+{{- $guides   = sort $guides "Params.weight" "asc" }}
 
-{{- /* Sort by discovery date (.Date from filename prefix) desc */ -}}
-{{- $sorted := $allPulse.ByDate.Reverse }}
+<div class="fmp-home">
 
-{{- $sections := slice
-  (dict "key" "edge-power-ups"           "label" "Edge Infrastructure Power &amp; UPS")
-  (dict "key" "data-centers"             "label" "Data Centers")
-  (dict "key" "building-electrification" "label" "Building Electrification / Decarbonization")
-}}
+  {{/* ── HERO ── */}}
+  <section class="fmp-hero">
+    <div class="fmp-hero-eyebrow">
+      <span class="fmp-hero-dot"></span>
+      NEC Class 4 &middot; Article 726 &middot; Independent reference
+    </div>
+    <h1 class="fmp-hero-h1">The definitive reference<br>for fault managed power.</h1>
+    <p class="fmp-hero-sub">Everything a low-voltage electrician, contractor, or integrator needs to learn, price, and install FMP &mdash; in one place.</p>
+    <div class="fmp-hero-actions">
+      <a href="/guides/" class="fmp-btn-primary">Start learning &rarr;</a>
+      <a href="/tools/" class="fmp-btn-secondary">Access the tools</a>
+    </div>
+    <div class="fmp-hero-facts">
+      <div class="fmp-fact">
+        <span class="fmp-fact-n">&le;4ms</span>
+        <span class="fmp-fact-l">Fault isolation</span>
+      </div>
+      <div class="fmp-fact">
+        <span class="fmp-fact-n">1 kW</span>
+        <span class="fmp-fact-l">Over standard cable</span>
+      </div>
+      <div class="fmp-fact">
+        <span class="fmp-fact-n">Art.&nbsp;726</span>
+        <span class="fmp-fact-l">2026 NEC &middot; Class 4</span>
+      </div>
+      <div class="fmp-fact">
+        <span class="fmp-fact-n">No conduit</span>
+        <span class="fmp-fact-l">Class 2 wiring methods</span>
+      </div>
+    </div>
+  </section>
 
-{{- /* Cutoff = 14 days ago based on discovery date, not source publish date */ -}}
-{{- $cutoffDate := now.AddDate 0 0 -14 }}
+  {{/* ── TOOLS ── */}}
+  <section class="fmp-section">
+    <div class="fmp-section-header">
+      <span class="fmp-section-label">Pro tools</span>
+      <h2 class="fmp-section-h2">Calculate. Compare. Scope.</h2>
+    </div>
 
-<div class="rcp-home">
+    <div class="fmp-gate-banner">
+      <div class="fmp-gate-text">
+        <strong>Free access &mdash; one step.</strong>
+        Enter your email to unlock all tools. No spam, unsubscribe anytime.
+      </div>
+      <form class="fmp-gate-form" onsubmit="fmpGateSubmit(event)">
+        <select class="fmp-gate-select" name="role">
+          <option value="">Your role</option>
+          <option value="lv-electrician">Low-voltage electrician / installer</option>
+          <option value="contractor">Electrical contractor / PM</option>
+          <option value="integrator">Systems integrator (AV/IT/BMS)</option>
+          <option value="engineer">Electrical engineer / specifier</option>
+        </select>
+        <input class="fmp-gate-input" type="email" name="email" placeholder="you@company.com" required />
+        <button class="fmp-gate-btn" type="submit">Unlock &rarr;</button>
+      </form>
+    </div>
 
-  {{/* ── Start Here CTA ── */}}
-  <div class="rcp-start-cta">
-    <strong>New to FMP?</strong>
-    <a href="/start/">Start here →</a>
-    &ensp;·&ensp;
-    <a href="/guides/what-is-fmp/">What is FMP</a>
-    &ensp;·&ensp;
-    <a href="/guides/nec-class-4-article-726/">NEC Class 4</a>
-    &ensp;·&ensp;
-    <a href="/guides/how-fmp-is-installed/">How it's installed</a>
-  </div>
+    <div class="fmp-tools-grid">
+      <div class="fmp-tool-card">
+        <span class="fmp-tool-badge fmp-badge-calc">Calculator</span>
+        <h3 class="fmp-tool-name">Cable sizing</h3>
+        <p class="fmp-tool-desc">Enter run distance, voltage, and load. Get the right cable spec in seconds &mdash; sized correctly, no guesswork.</p>
+        <a href="/tools/cable-calculator/" class="fmp-tool-link">Open tool &rarr;</a>
+      </div>
+      <div class="fmp-tool-card">
+        <span class="fmp-tool-badge fmp-badge-ai">AI&ndash;powered</span>
+        <h3 class="fmp-tool-name">AC vs FMP &mdash; project fit</h3>
+        <p class="fmp-tool-desc">Describe your job. The AI evaluates whether FMP wins, flags the gotchas, and explains the cost tradeoffs.</p>
+        <a href="/tools/ac-vs-fmp/" class="fmp-tool-link">Open tool &rarr;</a>
+      </div>
+      <div class="fmp-tool-card">
+        <span class="fmp-tool-badge fmp-badge-doc">Generator</span>
+        <h3 class="fmp-tool-name">Scope of work builder</h3>
+        <p class="fmp-tool-desc">Answer a few project details. Get a structured, estimator-ready SOW &mdash; ready for design-engineering hand-off.</p>
+        <a href="/tools/sow-generator/" class="fmp-tool-link">Open tool &rarr;</a>
+      </div>
+    </div>
+  </section>
 
-  {{/* ── Learn FMP: guide tiles ── */}}
-  {{- $guides := where site.RegularPages "Section" "guides" }}
-  {{- $guides  = sort $guides "Params.weight" "asc" }}
+  {{/* ── LEARN ── */}}
   {{- if $guides }}
-  <section class="rcp-learn-section">
-    <h2 class="rcp-section-title">Learn FMP</h2>
-    <div class="rcp-guides">
-      {{- range $guides }}
-      <div class="rcp-guide-card">
-        <a href="{{ .Permalink }}" class="rcp-title">{{ .Title }}</a>
-        {{- if .Params.summary }}
-        <p class="rcp-thesis">{{ .Params.summary }}</p>
-        {{- end }}
-      </div>
-      {{- end }}
+  <section class="fmp-section">
+    <div class="fmp-section-header">
+      <span class="fmp-section-label">Learn FMP</span>
+      <h2 class="fmp-section-h2">Structured guides for the trade.</h2>
     </div>
-  </section>
-  {{- end }}
-
-  {{/* ── Latest by Topic Area: stacked verticals ── */}}
-  <section class="rcp-verticals-section">
-    <h2 class="rcp-section-title">Latest by Topic Area</h2>
-    {{- range $sections }}
-      {{- $key   := .key }}
-      {{- $label := .label }}
-      {{- $allItems    := where $sorted "Params.vertical" $key }}
-      {{- $recentItems := where $allItems ".Date" "ge" $cutoffDate }}
-      {{- $items := first 6 $recentItems }}
-      <div class="rcp-vertical-section">
-        <h3 class="rcp-vertical-title">
-          <a href="/verticals/{{ $key }}/" class="rcp-vertical-link">{{ $label | safeHTML }}</a>
-        </h3>
-        {{- if $items }}
-          {{- range $items }}
-            {{- partial "rcp_row.html" . }}
+    <div class="fmp-guide-list">
+      {{- range $i, $g := $guides }}
+      <a href="{{ $g.Permalink }}" class="fmp-guide-row">
+        <span class="fmp-guide-num">{{ printf "%02d" (add $i 1) }}</span>
+        <span class="fmp-guide-body">
+          <span class="fmp-guide-title">{{ $g.Title }}</span>
+          {{- if $g.Params.summary }}
+          <span class="fmp-guide-summary">{{ $g.Params.summary }}</span>
           {{- end }}
-        {{- else }}
-          {{- if $allItems }}
-            <p class="rcp-empty">No updates in the last 14 days — <a href="/verticals/{{ $key }}/">see recent →</a></p>
-          {{- else }}
-            <p class="rcp-empty">Items coming soon.</p>
-          {{- end }}
-        {{- end }}
-      </div>
-    {{- end }}
-  </section>
-
-  {{/* ── Originals strip ── */}}
-  {{- $originals := where site.RegularPages "Section" "originals" }}
-  {{- $originals  = $originals.ByDate.Reverse }}
-  {{- if $originals }}
-  <section class="rcp-originals-section">
-    <h2 class="rcp-section-title">Originals</h2>
-    <div class="rcp-originals-strip">
-      {{- range first 3 $originals }}
-      <div class="rcp-original-card">
-        <span class="rcp-date">{{ .Date.Format "2006-01-02" }}</span>
-        <a href="{{ .Permalink }}" class="rcp-title">{{ .Title }}</a>
-        {{- if .Params.thesis }}
-        <p class="rcp-thesis">{{ .Params.thesis }}</p>
-        {{- end }}
-      </div>
+        </span>
+        <span class="fmp-guide-arrow">&rarr;</span>
+      </a>
       {{- end }}
     </div>
   </section>
   {{- end }}
 
-  {{/* ── Main stream: recent pulse items with archive link ── */}}
-  <section class="rcp-stream-section">
-    <h2 class="rcp-section-title">
-      All Updates
-      <a href="/pulse/archive/" class="rcp-archive-link">browse the archive →</a>
-    </h2>
-    <div class="rcp-stream">
-      {{- range first 20 $sorted }}
-        {{- partial "rcp_row.html" . }}
-      {{- end }}
+  {{/* ── STANDARDS ── */}}
+  <section class="fmp-section">
+    <div class="fmp-section-header">
+      <span class="fmp-section-label">Codes &amp; standards</span>
+      <h2 class="fmp-section-h2">The regulatory landscape.</h2>
+    </div>
+    <div class="fmp-standards-grid">
+      <div class="fmp-std-card">
+        <span class="fmp-std-tag">NEC 2026</span>
+        <h4 class="fmp-std-name">Article 726 &mdash; Class 4</h4>
+        <p class="fmp-std-desc">The dedicated article for FMP systems. What changed, what stayed, and how to read it for permits and inspections.</p>
+        <a href="/topics/code-standards/" class="fmp-std-link">Explore &rarr;</a>
+      </div>
+      <div class="fmp-std-card">
+        <span class="fmp-std-tag">UL certification</span>
+        <h4 class="fmp-std-name">UL-listed FMP systems</h4>
+        <p class="fmp-std-desc">Panduit&rsquo;s UL-certified Class 4 system and what listing means for AHJ approvals and installation compliance.</p>
+        <a href="/players/panduit/" class="fmp-std-link">See players &rarr;</a>
+      </div>
+      <div class="fmp-std-card">
+        <span class="fmp-std-tag">AHJ guidance</span>
+        <h4 class="fmp-std-name">Permitting &amp; inspection</h4>
+        <p class="fmp-std-desc">How to approach AHJs unfamiliar with Class 4, and what documentation to bring to the job site.</p>
+        <a href="/guides/nec-class-4-article-726/" class="fmp-std-link">Read the guide &rarr;</a>
+      </div>
+      <div class="fmp-std-card">
+        <span class="fmp-std-tag">Class 2 vs Class 4</span>
+        <h4 class="fmp-std-name">Safety model comparison</h4>
+        <p class="fmp-std-desc">Class 4 is not a higher-power Class 2. The fault isolation model is fundamentally different &mdash; here&rsquo;s why it matters.</p>
+        <a href="/guides/what-is-fmp/" class="fmp-std-link">Read the guide &rarr;</a>
+      </div>
     </div>
   </section>
 
-  {{/* ── About this site ── */}}
-  {{- with .Content }}
-  <section class="rcp-about-section">
-    {{ . }}
+  {{/* ── ABOUT ── */}}
+  <section class="fmp-about-strip">
+    <p>FaultManagedPower.org is an independent technical reference for the trade &mdash; not a vendor site. Content is maintained using a multi-agent research system that monitors codes, standards, industry publications, and manufacturer releases.</p>
+    <a href="/about/" class="fmp-about-link">About the project &rarr;</a>
   </section>
-  {{- end }}
 
 </div>
+
+<script>
+function fmpGateSubmit(e) {
+  e.preventDefault();
+  var form = e.target;
+  var email = form.querySelector('input[type="email"]').value;
+  var role  = form.querySelector('select[name="role"]').value;
+  var btn   = form.querySelector('button');
+  btn.textContent = 'Unlocking...';
+  btn.disabled = true;
+  fetch('/api/subscribe', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({email: email, role: role})
+  }).finally(function() {
+    document.cookie = 'fmp_tools_access=1; path=/; max-age=31536000; SameSite=Lax';
+    window.location.href = '/tools/';
+  });
+}
+</script>
 
 {{- end }}

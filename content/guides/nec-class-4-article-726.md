@@ -1,10 +1,10 @@
 ---
 title: "NEC Class 4 / Article 726: What Electricians and AHJs Need to Know"
 description: "NEC Class 4 (Article 726 in the 2023 NEC; Article 722 in the 2026 NEC) is the code pathway for fault managed power systems. It is separate from Class 2 and Class 3 — different safety model, different wiring rules, same installation methods."
-summary: "Class 4 is a distinct NEC wiring category, not a variant of Class 2. The safety model is different, the article number is different, and the power ceiling is different. Here's what installers and inspectors need to know about permits, article numbers, and the 2026 NEC transition."
+summary: "Class 4 is a distinct NEC wiring category, not a variant of Class 2. The safety model, article number, and power ceiling are all different."
 slug: nec-class-4-article-726
 type: guides
-weight: 20
+weight: 2
 
 knowledge_sources:
   - CLAIM_CLASS4_VS_CLASS2_CLASS3

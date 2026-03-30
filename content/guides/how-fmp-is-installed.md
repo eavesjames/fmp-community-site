@@ -1,10 +1,10 @@
 ---
 title: "How FMP Is Installed: A Contractor's Overview"
 description: "FMP installations follow Class 2 wiring methods — no conduit required — but the transmitter and receiver introduce commissioning steps and an AHJ documentation requirement that differ from conventional electrical work. Here's what to expect from rough-in through inspection."
-summary: "FMP uses Class 2 wiring methods: route cable through existing pathways, terminate at receivers, commission the transmitter. The licensed electrician scope is limited to the panel connection. The main new steps are AHJ documentation and transmitter commissioning."
+summary: "Class 2 wiring methods throughout. Licensed electrician scope limited to the panel connection. Here's the full installation sequence."
 slug: how-fmp-is-installed
 type: guides
-weight: 40
+weight: 4
 
 knowledge_sources:
   - EXPL_FMP_ARCHITECTURE
