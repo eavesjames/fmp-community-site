@@ -36,10 +36,18 @@ An automation-first public knowledge base for Fault Managed Power (FMP / NEC Cla
 
 ---
 
-## Current Status (2026-02-26)
+## Current Status (2026-03-30)
 
-### Overall Completion: ~65%
-Phase 2 RCP-style layout is fully built and deployed. Foundation, daily automation pipeline, and all key layout templates are working. Weekly features (digest, evergreen, glossary, social) are stubbed but not implemented.
+### Overall Completion: ~70%
+Phase 1 site redesign complete (homepage layout rewrite). New FMP-branded homepage is live locally: Hero → Tools (email gate) → Learn (5 guides) → Standards (4 cards) → About strip. Phase 2 RCP layout preserved on /pulse/ and archive pages. Foundation, daily automation pipeline, and all key layout templates working.
+
+### Phase 1 Homepage Redesign ✅ (2026-03-30)
+- `layouts/index.html` — fully rewritten: Hero / Tools / Learn / Standards / About
+- `assets/css/extended/rcp.css` — `.fmp-*` classes appended; original `.rcp-*` classes intact
+- `content/tools/_index.md` — created (title: "FMP Tools")
+- All 5 guide front matters updated: weight 1–5 and spec-matched summaries
+- `hugo --minify` → 341 pages, zero errors, zero warnings
+- Homepage confirmed rendering all sections at http://localhost:1313/
 
 ### What's Working ✅
 - Hugo site builds and deploys to Cloudflare Pages
