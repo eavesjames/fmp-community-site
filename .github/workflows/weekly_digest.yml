@@ -1,8 +1,8 @@
 name: Weekly Digest
 
 on:
-  schedule:
-    - cron: '0 10 * * 1'  # 10 AM UTC every Monday
+  # schedule:              # PAUSED — re-enable after site rebuild is complete
+  #   - cron: '0 10 * * 1'  # 10 AM UTC every Monday
   workflow_dispatch:
 
 jobs:

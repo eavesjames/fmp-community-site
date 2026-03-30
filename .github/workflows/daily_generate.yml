@@ -1,8 +1,8 @@
 name: Daily Generate (Phase 1)
 
 on:
-  schedule:
-    - cron: '0 9 * * *'   # 9 AM UTC daily
+  # schedule:              # PAUSED — re-enable after site rebuild is complete
+  #   - cron: '0 9 * * *'   # 9 AM UTC daily
   workflow_dispatch:        # Manual trigger for testing
 
 jobs:
