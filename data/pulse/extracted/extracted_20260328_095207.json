@@ -1,0 +1,2636 @@
+[
+  {
+    "query_name": "FMP / Class 4 general news",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "California heat pump adoption constrained by high electricity rates",
+    "link": "https://faultmanagedpower.org/pulse/california-heat-pump-adoption-constrained-by-high-electricity-rates/",
+    "snippet": "What it is. Article discusses California's goal to deploy millions of heat pumps but identifies high power bills as a barrier.",
+    "discovered_at": "2026-03-28T09:37:41.984933",
+    "artifact_type": "other",
+    "publish_date": "2026-03-10",
+    "description": "California's 6M heat pump by 2030 goal faces barrier from high electricity bills vs. gas costs, affecting retrofit project economics and deployment decisions.",
+    "source_name": "KVUE / Associated Press",
+    "source_date": "2026-03-10",
+    "confidence": "medium",
+    "vertical": "building-electrification",
+    "persona": "owner-operator",
+    "topics": [
+      "incentives-policy",
+      "retrofits-mdus"
+    ],
+    "players": [],
+    "so_what": "Operating cost barriers affect retrofit approval economics; time-of-use rates and service upgrade requirements create uncertainty in heat pump deployment planning.",
+    "summary": "Article examines California's goal to deploy millions of heat pumps but identifies high electricity bills as a significant adoption barrier. The Building Decarbonization Coalition is mentioned as a stakeholder. Related coverage indicates a 6M unit by 2030 target is stalling on electricity rate vs. gas cost tradeoffs.",
+    "why_it_matters": "Owner-operators evaluating heat pump retrofits must account for operating cost barriers alongside upfront capital. Policy and rate structure uncertainty affects deployment economics and project approval decisions, particularly when electrical service upgrades may also be required.",
+    "open_questions": [
+      "What electrical service upgrades are required for heat pump installations in existing buildings?",
+      "How do time-of-use rates affect heat pump operating strategies and panel/circuit design?"
+    ],
+    "evidence": [
+      "California 6M heat pump by 2030 target identified",
+      "Electricity rate vs. gas cost tradeoffs creating policy-equipment economics misalignment",
+      "Building Decarbonization Coalition mentioned as stakeholder"
+    ],
+    "extracted_at": "2026-03-28T09:38:10.565117"
+  },
+  {
+    "query_name": "FMP / Class 4 general news",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "NEC 2026 Retires 'Low Voltage' for 'Limited Energy,' Affects PoE & Class 4 Systems",
+    "link": "https://winnieindustries.com/resources/knowledge_center/frequently-asked-questions/limited_energy_faq/",
+    "snippet": "High-power PoE and Class 4 fault-managed power are now clearly situated within the limited energy framework. Installers must treat these systems as part of the ...",
+    "discovered_at": "2026-03-28T09:37:41.984964",
+    "artifact_type": "doc",
+    "publish_date": null,
+    "description": "NFPA 70 (NEC 2026) replaces 'low voltage' terminology with 'limited energy,' removes Chapter 8 independence, and formally defines high-power PoE and Class 4 systems.",
+    "source_name": "Winnie Industries",
+    "source_date": null,
+    "confidence": "high",
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards",
+      "safety-model",
+      "pathways-install"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Electrical contractors and AHJs must now apply Chapters 1-7 to ICT/PoE systems previously exempt; affects permitting, labeling, and mixed-system pathways.",
+    "summary": "NEC 2026 eliminates the ambiguous term 'low voltage' in favor of 'limited energy,' ending Chapter 8's historical code independence for communications systems. High-power PoE and Class 4 fault-managed power are now formally defined within the limited energy framework and subject to the full code structure.",
+    "why_it_matters": "Electrical contractors and designers must now treat PoE, high-power PoE, and Class 4 fault-managed power systems under unified code requirements (Chapters 1-7), eliminating the previous exemption for communications systems. This affects plan review, AHJ permitting, labeling requirements, and how mixed-system spaces and pathways are designed and inspected.",
+    "open_questions": [
+      "How will AHJs phase in enforcement of unified code requirements for existing ICT installations?",
+      "What specific labeling and documentation changes are required for Class 4 fault-managed power under the new limited energy framework?"
+    ],
+    "evidence": [
+      "NEC 2026 introduces formal definition for Limited Energy Cable in Article 100, replacing 'low voltage' terminology",
+      "Chapter 8's historical independence removed; communications systems no longer exempt from Chapters 1\u20137",
+      "High-power PoE and Class 4 fault-managed power explicitly situated within limited energy framework"
+    ],
+    "extracted_at": "2026-03-28T09:38:20.142662"
+  },
+  {
+    "query_name": "FMP / Class 4 general news",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "LinkedIn post by VoltServer promoting Digital Electricity education series on YouTube",
+    "link": "https://www.linkedin.com/posts/voltserver_digitalelectricity-faultmanagedpower-powerinfrastructure-activity-7440396882268475393-dGyn",
+    "snippet": "A great place to start on your Fault Managed Power learning journey is our Edication Series on YouTube! Free and self paced, all knowledge levels welcome ...",
+    "discovered_at": "2026-03-28T09:37:41.984966",
+    "artifact_type": "linkedin-post",
+    "publish_date": null,
+    "description": "VoltServer announces YouTube education series on fault-managed power covering enterprise, office, retail, campus, commercial, and education use cases.",
+    "source_name": "LinkedIn",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "edge-power-ups",
+    "persona": "facilities",
+    "topics": [
+      "safety-model"
+    ],
+    "players": [
+      "voltserver"
+    ],
+    "so_what": "Educational resource for learning fault-managed power basics, but excerpt contains no technical details, constraints, or deployment specifics.",
+    "summary": "VoltServer posted on LinkedIn promoting their Digital Electricity Education Series now on YouTube. The series covers an introduction to fault-managed power and use cases across enterprise, office, retail, campus, commercial, and education environments. The post is promotional in nature, encouraging viewers to start their learning journey.",
+    "why_it_matters": "This is purely a marketing announcement for an educational video series with no technical content, constraints, or deployment details in the excerpt. Without access to the actual video content or specific details about what constraints or tradeoffs are covered, there is insufficient information to assess relevance for practitioners making design, install, or operational decisions.",
+    "open_questions": [
+      "What specific technical constraints or deployment challenges does the video series address?",
+      "Are there case studies with concrete project details (facility size, power requirements, installation timeline)?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:38:28.952959"
+  },
+  {
+    "query_name": "FMP / Class 4 general news",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "Tii Technologies Facebook post promoting Class 4 Power for network deployment",
+    "link": "https://www.facebook.com/100066580671517/posts/accelerate-deployment-reduce-costs-extend-your-network-reach-with-class-4-power-/1262870142608996/",
+    "snippet": "Accelerate Deployment. Reduce Costs. Extend Your Network Reach with Class 4 Power https://conta.cc/4sH7lFG.",
+    "discovered_at": "2026-03-28T09:37:41.984968",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "Social media promotional post linking to Class 4 Power marketing content with claims about accelerating deployment and reducing costs for network reach.",
+    "source_name": "Facebook",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "edge-power-ups",
+    "persona": "it-network",
+    "topics": [
+      "pathways-install",
+      "schedule-value"
+    ],
+    "players": [],
+    "so_what": "Insufficient detail to evaluate specific deployment constraints or technical mechanisms.",
+    "summary": "A Facebook post by Tii Technologies linking to external content about Class 4 Power with general marketing claims around deployment acceleration, cost reduction, and network reach extension. The excerpt contains only the post title with no technical details, constraints, or implementation context.",
+    "why_it_matters": "Without access to the linked content or concrete details in the excerpt, it is impossible to determine specific power distribution constraints, deployment mechanisms, or trade-offs that would inform practitioner decisions around pathways, installation methods, or system design.",
+    "open_questions": [
+      "What specific Class 4 Power deployment constraints or installation advantages are detailed in the linked content?",
+      "What network applications or facility types are being targeted?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:38:37.421829"
+  },
+  {
+    "query_name": "FMP / Class 4 general news",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "ATIS Protection Engineers Group 2026 Conference \u2013 Class 4 FMPS & NFPA 855",
+    "link": "https://peg.atis.org/",
+    "snippet": "Fault Managed Power Systems (FMPS), codified under NEC Article 726 and UL 1400 standards, represent a transformative approach to high-power distribution by ...",
+    "discovered_at": "2026-03-28T09:37:41.984970",
+    "artifact_type": "event",
+    "publish_date": "2026-03-17",
+    "description": "Annual PEG conference focusing on protection engineering, fault-managed power systems under NEC Article 726/UL 1400, and evolving battery/fire code standards.",
+    "source_name": "ATIS PEG",
+    "source_date": "2026-03-17",
+    "confidence": "high",
+    "vertical": "edge-power-ups",
+    "persona": "it-network",
+    "topics": [
+      "code-standards",
+      "safety-model",
+      "pathways-install",
+      "ups-resilience",
+      "commissioning"
+    ],
+    "players": [
+      "voltserver"
+    ],
+    "so_what": "Conference addresses Class 4 FMPS under NEC 726/UL 1400 and NFPA 855 battery fire code changes\u2014critical for telecom/edge power design and AHJ approval.",
+    "summary": "The 2026 ATIS Protection Engineers Group conference convenes network power and protection professionals to address Class 4 Fault Managed Power Systems (NEC Article 726, UL 1400), evolving NFPA 855 battery fire codes, and telecommunications infrastructure design. Recent webinars covered FMPS deployment and battery safety strategies; VoltServer's Luke Getto won 2025 Best Presenter for FMPS installation/maintenance content.",
+    "why_it_matters": "Telecom and edge facility designers must navigate new Class 4 FMPS standards (NEC 726/UL 1400) and changing NFPA 855 battery deployment rules, directly impacting AHJ approval, installation pathways, and safety protocols. The conference aggregates technical guidance on grounding, fault-managed systems, and battery fire code compliance\u2014critical constraints for network power engineering. Content targets protection engineers responsible for designing code-compliant, resilient power distribution in critical communications infrastructure.",
+    "open_questions": [
+      "What specific NEC Article 726 installation requirements differ from traditional branch circuits for edge telecom facilities?",
+      "How do NFPA 855 changes affect UPS battery placement and commissioning timelines in existing telecom sites?"
+    ],
+    "evidence": [
+      "Class 4 Fault Managed Power Systems codified under NEC Article 726 and UL 1400 standards",
+      "Webinar on 'Upcoming Changes to NFPA 855' focusing on battery deployment strategies and evolving fire code requirements",
+      "Luke Getto presentation on 'Fault Managed Power Systems \u2013 Discussion on Technology, Installation, & Maintenance'"
+    ],
+    "extracted_at": "2026-03-28T09:38:53.439741"
+  },
+  {
+    "query_name": "FMP / Class 4 general news",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "Resilient power design for K-12 schools: emergency requirements and tech loads",
+    "link": "https://faultmanagedpower.org/pulse/resilient-power-design-for-k-12-schools-emergency-requirements-and-tech-loads/",
+    "snippet": "Engineers discuss K-12 electrical challenges: ICC 500 shelter power, NFPA 70 emergency requirements, Class 4 Fault Managed Power, futureproofing for evolving",
+    "discovered_at": "2026-03-28T09:37:41.984972",
+    "artifact_type": "case-study",
+    "publish_date": "2026-03-10",
+    "description": "MEP engineers discuss K-12 electrical challenges: ICC 500 shelter power, NFPA 70 emergency requirements, Class 4 Fault Managed Power, and futureproofing for tech loads.",
+    "source_name": "Consulting-Specifying Engineer",
+    "source_date": "2026-03-10",
+    "confidence": "high",
+    "vertical": "edge-power-ups",
+    "persona": "gc-mep",
+    "topics": [
+      "code-standards",
+      "ups-resilience",
+      "safety-model",
+      "pathways-install"
+    ],
+    "players": [
+      "fmp-alliance"
+    ],
+    "so_what": "ICC 500 shelters constrain generator placement and force oversized battery inverters; FMP cited as code-compliant resilience option for high-occupancy facilities.",
+    "summary": "Multi-engineer roundtable addresses electrical and power design for K-12 schools, focusing on life safety requirements under NFPA 70, ICC 500 shelter constraints requiring protected generators or oversized battery inverters, and Class 4 Fault Managed Power as a resilience technology. Engineers emphasize diverse load profiles, redundant critical circuits, surge protection, and spare capacity/conduit for future tech upgrades.",
+    "why_it_matters": "K-12 projects must reconcile strict emergency power and life-safety codes (ICC 500 shelters, NFPA 70) with rising tech loads and future flexibility. MEP engineers face design decisions on central battery inverter sizing, generator placement constraints within shelter envelopes, and pathways for AV/IT upgrades without disruptive retrofits. Explicit mention of Class 4 FMP signals adoption in regulated, high-occupancy environments where traditional solutions face physical or code constraints.",
+    "open_questions": [
+      "What sizing and runtime tradeoffs drive central battery inverter vs. generator choices for ICC 500 shelters?",
+      "How are spare conduit/panel capacity strategies affecting upfront cost vs. long-term retrofit savings in K-12 projects?"
+    ],
+    "evidence": [
+      "NFPA 70 National Electrical Code emergency power requirements and Class 4 Fault Managed Power explicitly cited as resilience technologies",
+      "ICC 500-rated shelters require emergency power within shelter; generators/fuel/openings must be protected; central battery inverters need oversizing and long-duration batteries for ventilation",
+      "K-12 facilities need redundant circuits for critical systems (fire alarms, security), surge protection for unreliable grid, spare capacity in panelboards and conduit for tech upgrades"
+    ],
+    "extracted_at": "2026-03-28T09:39:10.995848"
+  },
+  {
+    "query_name": "FMP / Class 4 general news",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "NECA Connectivity Podcast series on Fault Managed Power and PoE",
+    "link": "https://www.necanet.org/topics/systems-integration/connectivity-podcast",
+    "snippet": "... Fault Managed Power 40:37 Episode Artwork #2: The Business of Smart: Why PoE Is More Than Just Power 39:35 Episode Artwork #1: Touch-Safe, Data-Smart: The ...",
+    "discovered_at": "2026-03-28T09:37:41.984973",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "NECA podcast episodes covering Fault Managed Power technology and PoE power distribution for systems integration practitioners.",
+    "source_name": "NECA",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "topics": [
+      "safety-model",
+      "code-standards"
+    ],
+    "players": [],
+    "so_what": "Audio content on FMP technology for electrical contractors, but no concrete details available in excerpt to assess technical depth.",
+    "summary": "NECA's Connectivity Podcast includes episodes on Fault Managed Power and PoE business/technical topics. Episode titles reference touch-safe and data-smart characteristics, suggesting coverage of safety and monitoring aspects of power distribution.",
+    "why_it_matters": "Educational content from a national electrical contractor association could help accelerate FMP adoption by addressing installer knowledge gaps, but without access to episode content, cannot confirm presence of actionable constraints, code guidance, or deployment details that would inform design or installation decisions.",
+    "open_questions": [
+      "Do the episodes cover specific NEC article interpretations or AHJ approval strategies for FMP deployments?",
+      "What concrete installation constraints or commissioning workflows are discussed in the episodes?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:39:19.982316"
+  },
+  {
+    "query_name": "FMP / Class 4 general news",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "Instagram post discussing Class 4 / Fault-Managed Power Systems for power distribution",
+    "link": "https://www.instagram.com/p/DWEY_-plCcS/",
+    "snippet": "Is Class 4 Power the future of your next project? \u26a1 Fault-Managed Power Systems (FMPS) are changing the game for power distribution. By delivering high ...",
+    "discovered_at": "2026-03-28T09:37:41.984979",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "Social media post promoting Class 4 Power and Fault-Managed Power Systems as a solution for power distribution challenges. No technical details or project context visible.",
+    "source_name": "Instagram",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards",
+      "pathways-install"
+    ],
+    "players": [],
+    "so_what": "Cannot assess impact\u2014excerpt contains only marketing language without concrete constraints, standards, or deployment details.",
+    "summary": "An Instagram post referencing a Digital Electricity Education Series and promoting Class 4 Power and Fault-Managed Power Systems as changing power distribution. The excerpt provides no substantive content beyond login prompts and promotional snippet.",
+    "why_it_matters": "Without access to the actual content, cannot determine constraints, persona impact, or decision context. The SERP snippet mentions Class 4 Power and FMPS but the page excerpt shows only Instagram login interface.",
+    "open_questions": [
+      "What specific Class 4 Power applications or constraints are covered in the Education Series?",
+      "What code or installation advantages does the content claim for Fault-Managed Power Systems?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:39:28.373451"
+  },
+  {
+    "query_name": "NEC / NFPA / UL Class 4 code updates",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "NEC 2026 Code Book Changes Including New Article 726 for Fault-Managed Power",
+    "link": "https://www.facebook.com/groups/157862257678915/posts/4045294172269018/",
+    "snippet": "\u2022 Article 726 \u2014 Class 4 Fault-Managed Power Systems. This new Article covers ... NFPA 70, National Electrical Code (NEC), 2023 edition. The NEC is the ...",
+    "discovered_at": "2026-03-28T09:37:44.177219",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "Facebook group post discussing NEC 2026 code book updates, specifically highlighting new Article 726 covering Class 4 Fault-Managed Power Systems and changes to Article 220.",
+    "source_name": "Facebook Electricians Group",
+    "source_date": null,
+    "confidence": "high",
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards",
+      "safety-model"
+    ],
+    "players": [],
+    "so_what": "New NEC Article 726 for Class 4 FMP systems creates formal compliance pathway, affecting design, install, and AHJ approval for fault-managed deployments.",
+    "summary": "A Facebook post in an electricians' group announces the NEC 2026 code book release, specifically calling out new Article 726 covering Class 4 Fault-Managed Power Systems. The post also mentions changes to Article 220 for branch circuits, feeders, and service calculations.",
+    "why_it_matters": "The introduction of Article 726 in NEC 2026 establishes the first formal code framework for Class 4 Fault-Managed Power Systems, directly impacting electrical contractors and AHJs who must navigate compliance for FMP installations. Changes to foundational articles like 220 may also affect how branch circuits and feeders are calculated for FMP deployments.",
+    "open_questions": [
+      "What specific requirements does Article 726 impose on Class 4 FMP installations compared to traditional Article 725 Class 2 systems?",
+      "How do the Article 220 changes affect feeder and service sizing calculations for buildings using FMP?"
+    ],
+    "evidence": [
+      "New Article 726 \u2014 Class 4 Fault-Managed Power Systems added to NEC 2026",
+      "Changes to Article 220 covering branch circuits, feeders, and service calculations",
+      "Reference to NFPA 70, National Electrical Code (NEC), 2023 edition as baseline"
+    ],
+    "extracted_at": "2026-03-28T09:39:39.119667"
+  },
+  {
+    "query_name": "NEC / NFPA / UL Class 4 code updates",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "Utah HB0065: Construction Code Amendments Referencing NFPA 70",
+    "link": "https://faultmanagedpower.org/pulse/utah-hb0065-construction-code-amendments-referencing-nfpa-70/",
+    "snippet": "State code amendments may affect AHJ interpretation of NFPA 70 compliance for electrical installations. New to FMP? Start here \u2192 \u00b7 What is FMP \u00b7 NEC Class 4 \u00b7 ...",
+    "discovered_at": "2026-03-28T09:37:44.177227",
+    "artifact_type": "standard",
+    "publish_date": "2026-03-10",
+    "description": "Utah bill proposes construction code amendments affecting NFPA 70 references and alarm notification section 915.7.3, creating potential jurisdiction-specific interpretations.",
+    "source_name": "Utah Legislature",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards"
+    ],
+    "players": [],
+    "so_what": "State amendments to NFPA 70 references may create AHJ interpretation variance, but excerpt lacks actual technical amendment language.",
+    "summary": "Utah House Bill 65 proposes construction code amendments with language additions after NFPA 70 references and includes section 915.7.3 on alarm notification. The excerpt shows bill structure and procedural text but does not contain the substantive technical content or actual amendment language.",
+    "why_it_matters": "State-level code amendments can create jurisdiction-specific interpretations of NEC requirements, affecting electrical contractors and AHJ inspectors during permitting and approval. However, without the actual amendment language or technical changes, practitioners cannot assess compliance impact or design decisions.",
+    "open_questions": [
+      "What specific NFPA 70 articles or requirements are being modified by the 'accessory' language addition?",
+      "Does the alarm notification section relate to fire alarm systems or electrical monitoring requirements?"
+    ],
+    "evidence": [
+      "References NFPA 70 with added language about 'accessory'",
+      "Includes section 915.7.3 on notification and local alarm requirements"
+    ],
+    "extracted_at": "2026-03-28T09:39:45.558891"
+  },
+  {
+    "query_name": "NEC / NFPA / UL Class 4 code updates",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "Utah HB0065: Construction Code Amendments (2026 Session)",
+    "link": "https://le.utah.gov/~2026/bills/static/HB0065.html",
+    "snippet": "726. activation. 727. (F) 915.7.3 Notification. 728. (F) 915.7.3.1 Local alarm ... \"accessory\" and the following is added after \"NFPA 70\", \"such as, but not ...",
+    "discovered_at": "2026-03-28T09:37:44.177229",
+    "artifact_type": "standard",
+    "publish_date": null,
+    "description": "Utah legislative bill amending construction codes with references to NFPA 70 and notification/alarm requirements for electrical systems.",
+    "source_name": "Utah State Legislature",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards",
+      "safety-model"
+    ],
+    "players": [],
+    "so_what": "State code amendments referencing NFPA 70 may affect electrical installation compliance, but excerpt lacks detail on what changes.",
+    "summary": "Utah House Bill 65 proposes construction code amendments for the 2026 session. The excerpt shows fragments referencing notification/alarm systems (915.7.3), local alarms, and additions after NFPA 70 mentions, but provides insufficient context to determine specific electrical code changes.",
+    "why_it_matters": "Construction code amendments can affect electrical contractors and AHJ approval processes by changing compliance requirements. Without visibility into the actual amendments\u2014only line numbers and partial references\u2014practitioners cannot assess impact on design, permitting, or installation workflows.",
+    "open_questions": [
+      "What specific NFPA 70 articles or sections are being amended and how do they affect power distribution?",
+      "Does this bill introduce new notification/monitoring requirements for electrical systems or UPS installations?"
+    ],
+    "evidence": [
+      "References NFPA 70 with language 'such as, but not...' suggesting expanded or clarified scope",
+      "Mentions notification (915.7.3) and local alarm requirements, possibly related to fire/electrical safety systems"
+    ],
+    "extracted_at": "2026-03-28T09:39:56.040314"
+  },
+  {
+    "query_name": "NEC / NFPA / UL Class 4 code updates",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "DGS construction spec addendum referencing NEC, CEC, and UL 1479 fire tests",
+    "link": "https://www.dgs.ca.gov/-/media/Divisions/OBAS/Plans-and-Specs/25-275795/Addendum-6.pdf",
+    "snippet": "NFPA 70 \u2013 National Electrical Code (NEC).] [Part 3, Title 24, - California Electrical Code (CEC). C. Underwriters Laboratories Inc.: 1. UL 1479 - Fire Tests ...",
+    "discovered_at": "2026-03-28T09:37:44.177230",
+    "artifact_type": "doc",
+    "publish_date": null,
+    "description": "California DGS addendum to construction specifications citing NFPA 70 (NEC), California Electrical Code (Title 24), and UL 1479 fire test standards.",
+    "source_name": "California DGS",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "building-electrification",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards"
+    ],
+    "players": [],
+    "so_what": "References electrical codes and fire test standards but excerpt lacks project context, specific requirements, or constraint details.",
+    "summary": "This is an addendum document from California's Department of General Services that references NFPA 70 (National Electrical Code), California Electrical Code (Title 24, Part 3), and UL 1479 fire test standards. The excerpt is mostly PDF binary data with minimal readable content.",
+    "why_it_matters": "While the document cites relevant electrical codes and fire safety standards that govern installation and compliance decisions for electrical contractors and AHJs, the excerpt provides insufficient context about what requirements changed, what project scope is affected, or what specific constraints practitioners face.",
+    "open_questions": [
+      "What specific electrical systems or components does this addendum modify in the project specifications?",
+      "What triggered this addendum and how does it change scope, compliance, or installation approach?"
+    ],
+    "evidence": [
+      "References NFPA 70 (National Electrical Code)",
+      "Cites California Electrical Code Title 24 Part 3",
+      "Mentions UL 1479 fire test standard"
+    ],
+    "extracted_at": "2026-03-28T09:40:11.677581"
+  },
+  {
+    "query_name": "NEC / NFPA / UL Class 4 code updates",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "ESFI urges adoption of NEC 2023 including new Article 726 on fault-managed power",
+    "link": "https://www.facebook.com/ESFI.org/posts/the-national-electrical-code-ensures-that-the-electrical-systems-behind-our-wall/1399999972169647/",
+    "snippet": "\u2022 Article 726 \u2014 Class 4 Fault-Managed Power Systems. This new Article covers ... NFPA 70, National Electrical Code (NEC), 2023 edition. The NEC is the ...",
+    "discovered_at": "2026-03-28T09:37:44.177232",
+    "artifact_type": "linkedin-post",
+    "publish_date": null,
+    "description": "Electrical Safety Foundation International promotes NEC 2023 adoption, which includes new Article 726 covering Class 4 Fault-Managed Power Systems for safety compliance.",
+    "source_name": "Facebook / ESFI",
+    "source_date": null,
+    "confidence": "high",
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards",
+      "safety-model"
+    ],
+    "players": [],
+    "so_what": "NEC 2023 Article 726 formalizes FMP code compliance pathway; jurisdictions on older codes create AHJ friction and delay FMP deployments.",
+    "summary": "The Electrical Safety Foundation International encourages states to adopt NEC 2023, which includes new Article 726 covering Class 4 Fault-Managed Power Systems. ESFI cites that jurisdictions with outdated codes face higher workplace deaths and fire risks.",
+    "why_it_matters": "Article 726's inclusion in NEC 2023 establishes the first formal code framework for fault-managed power systems, directly affecting AHJ approval processes for electrical contractors and integrators deploying FMP solutions. Jurisdictions still on older NEC editions lack this article, creating code-compliance friction and delaying installations until local adoption occurs.",
+    "open_questions": [
+      "Which states or major jurisdictions have already adopted NEC 2023 with Article 726?",
+      "What specific installation or design requirements does Article 726 impose on Class 4 FMP systems?"
+    ],
+    "evidence": [
+      "Article 726 \u2014 Class 4 Fault-Managed Power Systems is a new Article in NFPA 70, National Electrical Code (NEC), 2023 edition",
+      "ESFI states that jurisdictions with older code versions 'endanger their communities and increase the likelihood of workplace deaths and home fires'"
+    ],
+    "extracted_at": "2026-03-28T09:40:23.479138"
+  },
+  {
+    "query_name": "NEC / NFPA / UL Class 4 code updates",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "NFPA Instagram post on 2026 NEC edition for electrical safety and compliance",
+    "link": "https://www.instagram.com/p/DV0i8V3js83/",
+    "snippet": "Apply the code. The 2026 Edition of the NEC is the industry standard for electrical safety, compliance, inspections, and certification exams.",
+    "discovered_at": "2026-03-28T09:37:44.177233",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "Instagram post by NFPA referencing the 2026 Edition of the NEC as the industry standard for electrical safety, compliance, inspections, and certification exams.",
+    "source_name": "Instagram",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards",
+      "safety-model"
+    ],
+    "players": [],
+    "so_what": "NEC edition updates drive compliance requirements but excerpt lacks specifics on changes or distribution impacts.",
+    "summary": "An Instagram post from NFPA promoting the 2026 Edition of the NEC (National Electrical Code). The post mentions it as the industry standard for electrical safety, compliance, inspections, and certification exams. No additional content is visible beyond the login prompt.",
+    "why_it_matters": "NEC updates affect electrical contractors, inspectors, and facility operators by changing compliance requirements and inspection criteria. However, the excerpt provides no concrete details on what changed in the 2026 edition or how it impacts power distribution design, installation, or operations.",
+    "open_questions": [
+      "What specific articles or requirements changed in the 2026 NEC edition that affect power distribution systems?",
+      "How does the 2026 NEC address emerging topics like DC distribution, battery storage, or AI infrastructure power demands?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:40:32.454954"
+  },
+  {
+    "query_name": "NEC / NFPA / UL Class 4 code updates",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "Electrical Contractor Magazine articles archive page 546",
+    "link": "https://www.ecmag.com/magazine/articles?pg=546&magazines=Electrical+Contractor",
+    "snippet": "... Class 4 Power Systems (3); Classified Area (3); Clean Energy (72); Clean Energy ... (NEC) (874); National Electrical Contractors Association (3); National ...",
+    "discovered_at": "2026-03-28T09:37:44.177235",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "Archive page listing articles from Electrical Contractor Magazine, includes categories for NEC (874 articles), Clean Energy (72 articles), and Class 4 Power Systems.",
+    "source_name": "EC&M / Electrical Contractor",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "building-electrification",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards"
+    ],
+    "players": [],
+    "so_what": "Archive page with no accessible content; cannot evaluate relevance without article text.",
+    "summary": "This is a paginated archive page (page 546) from Electrical Contractor Magazine showing article category filters including NEC, Clean Energy, and Class 4 Power Systems. The page excerpt is unavailable, providing only category metadata from the navigation/filtering interface.",
+    "why_it_matters": "Without access to actual article content, this cannot be evaluated for specific power distribution constraints, code details, or deployment insights. The category tags suggest relevant topics (NEC with 874 articles, Class 4 Power with 3 articles) but no concrete details are extractable to inform FMP practitioner decisions.",
+    "open_questions": [
+      "What specific NEC or Class 4 Power articles are listed on this page?",
+      "Is there a direct link to high-value content bypassing the archive pagination?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:40:40.603325"
+  },
+  {
+    "query_name": "NEC / NFPA / UL Class 4 code updates",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "Heat pump installation costs and electrical complexity [2026 data]",
+    "link": "https://faultmanagedpower.org/pulse/heat-pump-costs-and-installation-costs-2026-data/",
+    "snippet": "Start here \u2192 \u00b7 What is FMP \u00b7 NEC Class 4 \u00b7 How it's installed. What it is. Consumer-facing article on heat pump costs, indicating $800\u2013$1,400 premium over ...",
+    "discovered_at": "2026-03-28T09:37:44.177236",
+    "artifact_type": "doc",
+    "publish_date": "2026-03-10",
+    "description": "Consumer-facing data on heat pump costs showing $800\u2013$1,400 premium over furnaces, with wiring complexity cited as installation factor affecting contractors.",
+    "source_name": "Angi",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "building-electrification",
+    "persona": "electrical-contractor",
+    "topics": [
+      "pathways-install",
+      "estimating"
+    ],
+    "players": [],
+    "so_what": "Installation wiring complexity noted but no concrete electrical constraints (panel capacity, service upgrades, circuit sizing) provided.",
+    "summary": "Consumer guide reports $800\u2013$1,400 cost premium for heat pumps vs. furnaces and mentions wiring complexity during installation. Full page excerpt unavailable, preventing validation of specific electrical constraints or scope details.",
+    "why_it_matters": "Installation complexity and wiring are flagged as factors affecting electrical contractors and MEP scope, but without circuit sizing, panel capacity requirements, or service upgrade thresholds, practitioners cannot act on cost or design implications.",
+    "open_questions": [
+      "What specific wiring or electrical service constraints drive heat pump installation complexity?",
+      "Do typical residential heat pump retrofits require panel or service upgrades?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:40:46.684558"
+  },
+  {
+    "query_name": "Building electrification policy and electrical barriers",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "NYC Local Law 97 case study: prewar residential building compliance pathway",
+    "link": "https://www.facebook.com/cunybpl/posts/our-fourth-local-law-97-case-study-features-a-prewar-residential-building-that-w/976128488073655/",
+    "snippet": "Our fourth Local Law 97 case study features a prewar residential building that was able to connect with a service provider through the NYC Accelerator to...",
+    "discovered_at": "2026-03-28T09:37:45.723345",
+    "artifact_type": "case-study",
+    "publish_date": null,
+    "description": "CUNY Building Performance Lab shares fourth Local Law 97 case study featuring a prewar residential building connecting with service provider via NYC Accelerator program.",
+    "source_name": "CUNY Building Performance Lab",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "building-electrification",
+    "persona": "facilities",
+    "topics": [
+      "code-standards",
+      "retrofits-mdus"
+    ],
+    "players": [],
+    "so_what": "Local Law 97 compliance pathway for prewar residential, but excerpt lacks technical detail on electrical service upgrades or distribution constraints.",
+    "summary": "CUNY Building Performance Lab posts fourth case study in a Local Law 97 series, featuring a prewar residential building that connected with a service provider through NYC Accelerator. The excerpt is truncated and provides no technical details about the scope, constraints, or outcomes of the compliance pathway.",
+    "why_it_matters": "Local Law 97 drives building decarbonization and often requires electrification retrofits that trigger panel, service, and distribution upgrades in prewar MDUs. Facilities managers and owners need to understand compliance pathways and service provider coordination. However, this excerpt provides no concrete technical or constraint information to inform design or implementation decisions.",
+    "open_questions": [
+      "What electrical service or panel upgrades were required for this building's LL97 compliance?",
+      "What specific decarbonization measures were implemented and how did they affect power distribution?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:40:55.139370"
+  },
+  {
+    "query_name": "Building electrification policy and electrical barriers",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "California 2026 governor's race: building decarbonization & energy efficiency policy brief",
+    "link": "https://legal-planet.org/2026/03/23/climate-issues-in-the-2026-governors-race-building-decarbonization-and-energy-efficiency/",
+    "snippet": "You can read more about Building Decarbonization & Energy Efficiency issues facing California's next governor and access all of CLEE's climate issue briefs at ...",
+    "discovered_at": "2026-03-28T09:37:45.723353",
+    "artifact_type": "doc",
+    "publish_date": "2026-03-23",
+    "description": "Policy brief on building decarbonization challenges for California's next governor, covering electrification retrofits, utility costs, and aging gas infrastructure.",
+    "source_name": "Legal Planet (CLEE)",
+    "source_date": "2026-03-23",
+    "confidence": "low",
+    "vertical": "building-electrification",
+    "persona": "owner-operator",
+    "topics": [
+      "incentives-policy",
+      "retrofits-mdus"
+    ],
+    "players": [],
+    "so_what": "Policy brief frames state-level building electrification priorities but excerpt contains no distribution constraints, panel/service details, or retrofit implementation specifics.",
+    "summary": "Fourth in a series of climate issue briefs for California's 2026 gubernatorial race, authored by Building Decarbonization Coalition and Caliber Strategies. Addresses building energy consumption as emissions driver, rising utility bills from aging fossil gas infrastructure, and need to accelerate energy efficiency and electrification retrofits.",
+    "why_it_matters": "The brief identifies policy direction for building electrification and infrastructure modernization affecting owners and facilities managers. However, the excerpt provides no concrete constraints around electrical service upgrades, panel capacity, labor bottlenecks, or specific retrofit implementation challenges that would inform design or installation decisions.",
+    "open_questions": [
+      "What specific electrical infrastructure upgrades does the policy brief recommend to support building electrification?",
+      "Does the full brief address panel capacity, service entrance, or distribution constraints in retrofit scenarios?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:41:05.212422"
+  },
+  {
+    "query_name": "Building electrification policy and electrical barriers",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "NYC energy code enforcement begins, operators face heat pump compliance decisions",
+    "link": "https://www.facilitiesdive.com/news/as-nyc-energy-code-enforcement-begins-operators-face-decision-on-pathway/815214/",
+    "snippet": "... building decarbonization, electrification and energy efficiency technologies in New York City. ... Now, any benefits from using a heat pump system over ...",
+    "discovered_at": "2026-03-28T09:37:45.723356",
+    "artifact_type": "press",
+    "publish_date": null,
+    "description": "NYC energy code enforcement starts, requiring building operators to evaluate heat pump systems and compliance pathways for decarbonization and electrification.",
+    "source_name": "Facilities Dive",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "building-electrification",
+    "persona": "facilities",
+    "topics": [
+      "code-standards",
+      "retrofits-mdus"
+    ],
+    "players": [],
+    "so_what": "NYC code enforcement may trigger service/panel upgrades for heat pump electrification, but excerpt lacks detail on power distribution constraints.",
+    "summary": "NYC has begun enforcement of an updated energy code affecting building decarbonization and electrification requirements. Operators now face decisions about heat pump systems versus alternative compliance pathways. The excerpt mentions benefits of heat pump systems but provides no specifics.",
+    "why_it_matters": "New energy code enforcement could require building operators to electrify heating systems, potentially triggering electrical service upgrades, panel replacements, and feeder/riser modifications. However, the excerpt provides no concrete details on electrical infrastructure constraints, timelines, or specific code requirements.",
+    "open_questions": [
+      "What electrical service/panel upgrades are typically required to support heat pump installations under the new NYC code?",
+      "What are the alternative compliance pathways mentioned, and how do they differ in electrical infrastructure requirements?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:41:13.317629"
+  },
+  {
+    "query_name": "Building electrification policy and electrical barriers",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "DC Government Residential Electrification Incentives and Mandates",
+    "link": "https://doee.dc.gov/service/electrification",
+    "snippet": "DCSEU offers incentives to help offset the cost of electrifying: Up to $1,600 for heat pump water heaters; Up to $5,000 for air source or mini-split heat pumps ...",
+    "discovered_at": "2026-03-28T09:37:45.723358",
+    "artifact_type": "doc",
+    "publish_date": null,
+    "description": "DC offers up to $5,000 rebates for residential electrification; new laws mandate all-electric building code by 2026 and 30,000 low-income retrofits by 2040.",
+    "source_name": "DC Department of Energy & Environment",
+    "source_date": null,
+    "confidence": "medium",
+    "vertical": "building-electrification",
+    "persona": "electrical-contractor",
+    "topics": [
+      "incentives-policy",
+      "code-standards",
+      "retrofits-mdus"
+    ],
+    "players": [],
+    "so_what": "DC's 2026 all-electric code and 30k retrofit mandate will drive panel/service upgrades and contractor labor demand in existing housing stock.",
+    "summary": "DC government page outlines residential electrification incentives (up to $5,000 for heat pumps) and legislative mandates including 100% clean grid by 2032, all-electric net-zero building code adoption in 2026, and no-cost electrification retrofits for 30,000 low-income households by 2040. Programs include free home energy coaching and full electrification for income-qualifying households via DCSEU.",
+    "why_it_matters": "The 2026 all-electric building code and 30,000-unit retrofit mandate will force service panel upgrades, electrical capacity increases, and workforce scaling in DC's existing housing stock. Electrical contractors and MEP designers must prepare for code transitions affecting new construction and substantial renovations. The no-cost retrofit program for low-income households creates a pipeline of publicly-funded electrification work requiring quality monitoring and contractor certification.",
+    "open_questions": [
+      "What electrical service upgrade standards will DC adopt for the 2026 all-electric code, and how will panel capacity requirements change?",
+      "How will DCSEU qualify and scale contractors to deliver 30,000 retrofits by 2040 while ensuring installation quality?"
+    ],
+    "evidence": [
+      "DC must adopt an all-electric, net-zero energy code in 2026 (Clean Energy DC Building Code Amendment Act of 2022)",
+      "DC must provide residential electrification retrofits at no cost to 30,000 low-income residents by 2040",
+      "DCSEU offers rebates of up to $5,000 to make the switch from gas to electric, available regardless of income level"
+    ],
+    "extracted_at": "2026-03-28T09:41:30.929161"
+  },
+  {
+    "query_name": "Building electrification policy and electrical barriers",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "California Energy Smart Homes whole building electrification alterations program",
+    "link": "https://caenergysmarthomes.com/alterations/",
+    "snippet": "Complete whole building electrification alterations on an existing single family dwelling unit or multifamily low-rise building including: Heat pump space ...",
+    "discovered_at": "2026-03-28T09:37:45.723359",
+    "artifact_type": "doc",
+    "publish_date": "2026-03-17",
+    "description": "California program incentivizing residential all-electric retrofits with heat pumps, induction cooking, and electric infrastructure upgrades for single/multifamily buildings.",
+    "source_name": "California Energy Smart Homes",
+    "source_date": "2026-03-17",
+    "confidence": "medium",
+    "vertical": "building-electrification",
+    "persona": "owner-operator",
+    "topics": [
+      "incentives-policy",
+      "retrofits-mdus",
+      "pathways-install"
+    ],
+    "players": [],
+    "so_what": "Electric infrastructure upgrade bonus up to $1,000 signals panel/service capacity as recognized retrofit bottleneck in residential electrification projects.",
+    "summary": "California's Energy-Smart Homes program offers incentives for whole building electrification alterations in existing single family and multifamily low-rise buildings. Projects must convert all gas appliances to electric systems including heat pump HVAC, heat pump water heating, induction cooking, and electric dryers, with bonus incentives for infrastructure upgrades.",
+    "why_it_matters": "The program explicitly includes an 'Electric Infrastructure Upgrade Bonus (per unit served)' capped at $1,000 per unit and tied to actual upgrade costs, recognizing that panel and service capacity upgrades are a material cost and constraint in residential electrification retrofits. This signals to owner-operators, GC/MEP, and electrical contractors that infrastructure capacity is a tracked bottleneck in California's decarbonization trajectory, affecting project economics and feasibility.",
+    "open_questions": [
+      "What specific electric infrastructure upgrades qualify for the bonus (panel size, service amperage, circuit additions)?",
+      "Are there documented installation bottlenecks or timelines for service upgrades that delay whole-building electrification projects?"
+    ],
+    "evidence": [
+      "Electric Infrastructure Upgrade Bonus (per unit served) up to $1,000 cannot exceed total costs associated with the upgrade",
+      "Aligns with California's 2022 code and state efficiency decarbonization goals, affecting single family, duplex, townhome, ADU, or multifamily low-rise projects",
+      "Required conversion: heat pump space heating, heat pump water heating, induction cooking, electric/HP dryers"
+    ],
+    "extracted_at": "2026-03-28T09:41:42.080283"
+  },
+  {
+    "query_name": "Building electrification policy and electrical barriers",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "Los Altos launches $75k residential electrification rebate program via SVCE",
+    "link": "https://cal-cca.org/electrification-rebates-live-for-los-altos-residents/",
+    "snippet": "... building electrification and reach the city's environmental goals. Rebates ... heat pump heating, ventilation and air conditioning (HVAC) units to ...",
+    "discovered_at": "2026-03-28T09:37:45.723360",
+    "artifact_type": "press",
+    "publish_date": "2026-03-18",
+    "description": "Los Altos City Council approved $75,000 rebate program for residential gas-to-electric conversions (water heaters, HVAC), administered by Silicon Valley Clean Energy.",
+    "source_name": "Los Altos Town Crier",
+    "source_date": "2026-03-18",
+    "confidence": "medium",
+    "vertical": "building-electrification",
+    "persona": "gc-mep",
+    "topics": [
+      "incentives-policy",
+      "retrofits-mdus"
+    ],
+    "players": [],
+    "so_what": "Municipal rebate stacks atop CCA programs for HVAC/water-heater swaps during renovations; signals growing local funding for electrification conversions.",
+    "summary": "Los Altos launched a $75,000 city-funded rebate program administered by Silicon Valley Clean Energy to incentivize residential conversion from gas to electric water heaters and heat-pump HVAC units during home renovations. The program aims to advance building electrification and municipal environmental goals.",
+    "why_it_matters": "Contractors and homeowners renovating homes face coordination between city rebates, CCA incentives, and electrification timelines. For MEP contractors, stacked incentive programs can influence equipment sizing, panel upgrade decisions, and project economics during residential retrofit windows.",
+    "open_questions": [
+      "Does the $75k cap limit the number of conversions, and are panel upgrades eligible for rebate stacking?",
+      "How does SVCE's administration affect approval timelines versus direct city rebate processing?"
+    ],
+    "evidence": [
+      "$75,000 city allocation for residential electrification rebates, targeting gas-to-electric water heaters and heat-pump HVAC conversions during renovations",
+      "Administered by Silicon Valley Clean Energy (SVCE), which already offers its own rebates and serves 96% of local residents/businesses",
+      "Program unanimously approved by City Council in December, went live March 2026"
+    ],
+    "extracted_at": "2026-03-28T09:41:53.436036"
+  },
+  {
+    "query_name": "Building electrification policy and electrical barriers",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "New York City Local Law 97 compliance case study for co-op building",
+    "link": "https://www.instagram.com/p/DVwOIPHkike/",
+    "snippet": "To stay compliant with Local Law 97 (LL97) in New York City, building owners need to understand the emissions limits, reporting requirements, and deadlines ...",
+    "discovered_at": "2026-03-28T09:37:45.723362",
+    "artifact_type": "case-study",
+    "publish_date": null,
+    "description": "Instagram post references Local Law 97 emissions compliance case study for NYC co-op, but excerpt contains no project details or constraints.",
+    "source_name": "Instagram",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "building-electrification",
+    "persona": "owner-operator",
+    "topics": [
+      "code-standards",
+      "retrofits-mdus"
+    ],
+    "players": [],
+    "so_what": "Insufficient detail to assess relevance to power distribution constraints or electrification pathways.",
+    "summary": "Instagram post mentions a Local Law 97 compliance case study for a NYC co-op building. The SERP snippet references emissions limits, reporting requirements, and deadlines, but the page excerpt contains only Instagram login prompts with no actual content.",
+    "why_it_matters": "Cannot determine impact. The excerpt provides zero project details, no constraints, no technical scope, and no information about electrical upgrades, panel capacity, or retrofit challenges that would inform building electrification decisions.",
+    "open_questions": [
+      "What specific electrical or HVAC upgrades were required for LL97 compliance?",
+      "Did panel capacity or service upgrades create retrofit bottlenecks?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:42:01.531975"
+  },
+  {
+    "query_name": "Building electrification policy and electrical barriers",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "NY PSC Staff Testimony on CLCPA and Building Decarbonization",
+    "link": "https://documents.dps.ny.gov/public/Common/ViewDoc.aspx?DocRefId=%7BE058309D-0000-C04F-9274-22E9873E8120%7D&DocTitle=Staff%20CLCPA%20and%20Decarbonization%20Panel%20Direct%20Testimony",
+    "snippet": "What is Local Law 97? 8. A. Local Law 97 of 2019, or LL97, requires most. 9 buildings over 25,000 square feet in New York. 10. City to meet GHG emissions limits ...",
+    "discovered_at": "2026-03-28T09:37:45.723363",
+    "artifact_type": "doc",
+    "publish_date": null,
+    "description": "New York Public Service Commission staff testimony on Climate Leadership and Community Protection Act implementation and Local Law 97 building emissions limits.",
+    "source_name": "NY Department of Public Service",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "building-electrification",
+    "persona": "owner-operator",
+    "topics": [
+      "code-standards",
+      "incentives-policy"
+    ],
+    "players": [],
+    "so_what": "NY Local Law 97 emissions limits for buildings >25k sqft may drive electrification retrofit decisions, but excerpt lacks implementation details.",
+    "summary": "Staff testimony document filed with the New York Public Service Commission discussing the Climate Leadership and Community Protection Act (CLCPA) and building decarbonization. References Local Law 97 of 2019, which requires buildings over 25,000 square feet in New York City to meet greenhouse gas emissions limits.",
+    "why_it_matters": "Local Law 97 creates compliance pressure for building owners and operators to reduce emissions, potentially accelerating electrification and HVAC replacement projects. However, the PDF excerpt contains no concrete implementation pathways, electrical infrastructure constraints, panel upgrade requirements, or timeline details that would inform design or retrofit decisions.",
+    "open_questions": [
+      "What electrical service and distribution upgrades are typical for NYC buildings meeting LL97 compliance?",
+      "How are utility interconnection timelines affecting LL97 retrofit schedules?"
+    ],
+    "evidence": [
+      "Local Law 97 of 2019 (LL97) requires most buildings over 25,000 square feet in New York City to meet GHG emissions limits"
+    ],
+    "extracted_at": "2026-03-28T09:42:10.852480"
+  },
+  {
+    "query_name": "Building electrification policy and electrical barriers",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "California Heat Pump Permitting and Gas-to-Electric Incentive Bills 2026",
+    "link": "https://buildingdecarb.org/california-policy-updates",
+    "snippet": "April 2025 Updates. BDC Co-Sponsored Heat Pump Permitting and Building Electrification Planning Bills Make Their Way through the Legislature. BDC has ...",
+    "discovered_at": "2026-03-28T09:37:45.723364",
+    "artifact_type": "doc",
+    "publish_date": "2026-03-11",
+    "description": "CA Legislature advances SB 222 heat pump permitting streamlining, AB 2313 gas line replacement electrification incentives, and AB 2088 thermal energy networks.",
+    "source_name": "Building Decarbonization Coalition",
+    "source_date": "2026-03-11",
+    "confidence": "medium",
+    "vertical": "building-electrification",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards",
+      "pathways-install",
+      "incentives-policy",
+      "retrofits-mdus"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Heat pump permitting reform (SB 222) targets install friction at AHJ level; gas-line replacement incentive (AB 2313) creates new retrofit trigger point.",
+    "summary": "California's 2026 legislative session includes SB 222 (Heat Pump Access Act) to streamline and modernize heat pump permitting statewide, making it more transparent and affordable. AB 2313 would give customers electrification incentives when gas service lines need replacement. AB 2088 would authorize utilities to build thermal energy network systems for neighborhood-scale heating/cooling.",
+    "why_it_matters": "SB 222 directly addresses permitting bottlenecks that slow heat pump deployment\u2014making processes 'more transparent, navigable, and affordable for contractors and customers.' AB 2313 creates a new conversion pathway at gas infrastructure end-of-life, potentially concentrating panel upgrade and service work. Electrical contractors and MEP firms face shifting compliance requirements and new scope triggered by utility infrastructure replacement cycles.",
+    "open_questions": [
+      "What specific permitting requirements does SB 222 eliminate or standardize across California AHJs?",
+      "How will AB 2313 electrification incentives compare to cost of panel/service upgrades required for heat pump loads?"
+    ],
+    "evidence": [
+      "SB 222 (Heat Pump Access Act) aims to 'modernize and streamline heat pump permitting statewide, making the process more transparent, navigable, and affordable for contractors and customers'",
+      "AB 2313 would require gas utilities to offer customers 'a financial incentive to electrify their home' when gas service lines are due for replacement",
+      "AB 2088 would establish thermal energy network systems (TENs) as 'neighborhood-scale systems use shared underground water pipes to efficiently heat and cool buildings'"
+    ],
+    "extracted_at": "2026-03-28T09:42:23.623917"
+  },
+  {
+    "query_name": "Building electrification policy and electrical barriers",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "JCP&L offers up to $5,500/ton for commercial heat pump installs plus $6,500 wiring upgrades",
+    "link": "https://www.linkedin.com/posts/business-energy-solutions-new-jersey_jcpl-buildingdecarbonization-energyefficiency-activity-7437165377224273920-KIuO",
+    "snippet": "Up to $5500/ton for qualifying heat pump installations Up to $6500 for necessary wiring upgrades JCP&L's Building Decarbonization Program helps commercial ...",
+    "discovered_at": "2026-03-28T09:37:45.723366",
+    "artifact_type": "linkedin-post",
+    "publish_date": "2025-01-20",
+    "description": "JCP&L Building Decarbonization Program provides incentives for commercial/industrial heat pump conversions including air source, VRF, ground source systems and necessary wiring upgrades.",
+    "source_name": "LinkedIn",
+    "source_date": "2025-01-20",
+    "confidence": "medium",
+    "vertical": "building-electrification",
+    "persona": "facilities",
+    "topics": [
+      "incentives-policy",
+      "pathways-install",
+      "retrofits-mdus"
+    ],
+    "players": [],
+    "so_what": "Utility rebate explicitly covers wiring upgrades ($6,500), acknowledging electrical infrastructure as a conversion bottleneck for commercial electrification.",
+    "summary": "JCP&L's Building Decarbonization Program offers commercial and industrial customers up to $5,500/ton for qualifying heat pump installations and up to $6,500 for necessary wiring upgrades. The program supports replacement of fossil-fueled equipment with electric systems including air source, VRF, water/ground source heat pumps, electric water heating, and associated electrical infrastructure.",
+    "why_it_matters": "Wiring upgrade incentives directly address electrical service and panel capacity constraints that often block commercial electrification retrofits. Facilities managers evaluating heat pump conversions can now factor substantial rebates for both equipment and infrastructure into project economics, potentially unlocking projects stalled by panel upgrade costs or service entrance limitations.",
+    "open_questions": [
+      "What specific wiring upgrades qualify (service entrance, panel upgrades, branch circuits) and what documentation does JCP&L require?",
+      "Are there capacity thresholds or project minimums that trigger the full $6,500 wiring incentive versus partial rebates?"
+    ],
+    "evidence": [
+      "Up to $6,500 for necessary wiring upgrades explicitly listed alongside equipment incentives",
+      "Program targets commercial and industrial customers replacing fossil-fueled equipment",
+      "Covers multiple heat pump types (air source, VRF, water/ground source) plus electric water heating"
+    ],
+    "extracted_at": "2026-03-28T09:42:34.635289"
+  },
+  {
+    "query_name": "Heat pump retrofit electrical constraints",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "Video: Electrical infrastructure upgrades often the costliest part of heat pump retrofits",
+    "link": "https://www.facebook.com/ServiceBusinessMastery/videos/in-this-conversation-with-tersh-matt-schlegel-explains-a-cost-factor-that-often-/26525576900369535/",
+    "snippet": "... heat pumps ... In many buildings, switching from gas heat to electric backup heat means upgrading electrical service, running new wiring, and working with the ...",
+    "discovered_at": "2026-03-28T09:37:50.208121",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "Matt Schlegel discusses how electrical service upgrades, new wiring, and utility coordination often become the most expensive part of building electrification projects.",
+    "source_name": "Service Business Mastery Podcast",
+    "source_date": null,
+    "confidence": "medium",
+    "vertical": "building-electrification",
+    "persona": "facilities",
+    "topics": [
+      "retrofits-mdus",
+      "estimating",
+      "pathways-install"
+    ],
+    "players": [],
+    "so_what": "Electrical service/distribution upgrades can eclipse equipment costs in heat pump conversions, making dual-fuel a practical alternative for constrained sites.",
+    "summary": "HVAC contractor Matt Schlegel explains that switching from gas to electric heat pumps requires electrical infrastructure upgrades that are often overlooked in project planning. Upgrading electrical service, running new wiring, and coordinating with utilities can become the most expensive component, leading some projects to choose dual-fuel systems as a middle ground.",
+    "why_it_matters": "Building owners and MEP contractors face hidden cost and schedule impacts when existing electrical service cannot support new electric heating loads. This service upgrade constraint directly affects retrofit feasibility decisions and technology selection between full electrification versus hybrid approaches.",
+    "open_questions": [
+      "What threshold of electrical service capacity typically triggers a utility service upgrade versus panel-level solutions?",
+      "How are contractors pricing the risk of utility coordination delays in electrification bids?"
+    ],
+    "evidence": [
+      "Switching from gas to electric backup heat requires 'upgrading electrical service, running new wiring, and working with the utility company'",
+      "Electrical infrastructure upgrades are 'often the most expensive part of the entire project'",
+      "Dual fuel systems presented as 'practical middle ground' when electrical upgrades become cost-prohibitive"
+    ],
+    "extracted_at": "2026-03-28T09:42:45.605008"
+  },
+  {
+    "query_name": "Heat pump retrofit electrical constraints",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "LinkedIn post by Service Business Mastery discussing heat pump electrical upgrade costs",
+    "link": "https://www.linkedin.com/posts/service-business-mastery_servicebusinessmastery-hvacindustry-heatpumps-activity-7436826347148165122-g0OT",
+    "snippet": "... electrical service, running new wiring, and working with the utility company. ... The industry talks a lot about heat pumps, but this part of the equation often ...",
+    "discovered_at": "2026-03-28T09:37:50.208129",
+    "artifact_type": "linkedin-post",
+    "publish_date": null,
+    "description": "HVAC podcast discussion highlights electrical service upgrades as hidden cost in heat pump conversions: panel upgrades, new circuits, utility coordination often most expensive.",
+    "source_name": "LinkedIn",
+    "source_date": null,
+    "confidence": "medium",
+    "vertical": "building-electrification",
+    "persona": "facilities",
+    "topics": [
+      "pathways-install",
+      "estimating",
+      "code-standards",
+      "retrofits-mdus"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Service upgrades, panel expansions, and utility coordination for heat pump electrification frequently exceed equipment costs\u2014changes retrofit planning and budgets.",
+    "summary": "Matthew Schlegel from Bosch explains that building owners converting from gas to electric heat pumps face surprising costs in electrical infrastructure. Panel upgrades, new wiring circuits, and utility company coordination often become the most expensive project component, making dual-fuel systems a practical compromise.",
+    "why_it_matters": "Facilities managers and building owners planning electrification retrofits must scope electrical distribution upgrades\u2014not just HVAC equipment\u2014to avoid budget surprises. The constraint of existing panel capacity and service sizing directly affects project feasibility, timelines (utility involvement), and the design choice between full electric vs. dual-fuel configurations.",
+    "open_questions": [
+      "What typical service amperage upgrades are required for different building sizes when switching to electric heat pumps?",
+      "How do dual-fuel configurations reduce electrical infrastructure scope and what is the cost-benefit tradeoff?"
+    ],
+    "evidence": [
+      "Switching from gas to electric backup heat requires 'upgrading electrical service, running new wiring, and working with the utility company'",
+      "Electrical upgrades include 'Panel upgrades, New circuits, And sometimes even utility coordination' and 'ends up being the most expensive part of the entire project'",
+      "Dual fuel positioned as 'practical middle ground' and 'realistic compromise' to avoid full electrical infrastructure overhaul"
+    ],
+    "extracted_at": "2026-03-28T09:42:57.703710"
+  },
+  {
+    "query_name": "Heat pump retrofit electrical constraints",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "Reddit discussion: Electric panel upgrade for heat pump retrofit",
+    "link": "https://www.reddit.com/r/HomeImprovement/comments/1s1izkc/electric_panel_upgrade/",
+    "snippet": "... heat pumps all in a house with 150 amp service. Unless you have something ... Cost of new electrical Panel. 5 upvotes \u00b7 7 comments. Electrical Rough-In ...",
+    "discovered_at": "2026-03-28T09:37:50.208132",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "HomeImprovement subreddit thread discussing panel upgrade requirements for heat pump installation in home with 150 amp service, including cost questions.",
+    "source_name": "Reddit r/HomeImprovement",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "building-electrification",
+    "persona": "electrical-contractor",
+    "topics": [
+      "retrofits-mdus",
+      "code-standards"
+    ],
+    "players": [],
+    "so_what": "Panel upgrade requirements create cost/schedule barriers for heat pump retrofits in existing 150A service homes.",
+    "summary": "A Reddit thread in the HomeImprovement community discusses electric panel upgrades related to installing heat pumps in a residence with 150 amp service. The snippet references questions about panel upgrade costs and electrical rough-in work.",
+    "why_it_matters": "Service capacity constraints (150A) force panel upgrades during heat pump retrofits, adding cost and complexity that affects homeowner adoption decisions and contractor scope. However, without access to the full thread content, specific constraints, costs, timelines, or technical details cannot be verified.",
+    "open_questions": [
+      "What specific panel capacity is required for the heat pump load in question?",
+      "What are the typical cost deltas between 150A to 200A upgrades in residential retrofits?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:43:05.945531"
+  },
+  {
+    "query_name": "Heat pump retrofit electrical constraints",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "Instagram reel discussing electrical panel and service upgrade decisions for AC installs",
+    "link": "https://www.instagram.com/reel/DVrTwHDACJ3/",
+    "snippet": "... electrical panel or do a service upgrade? And the answer is always it ... #Electrician #sparky #union #ibew #wiring #commercial #electrical #nec. more.",
+    "discovered_at": "2026-03-28T09:37:50.208133",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "Short social media video addressing whether new AC installations require electrical panel upgrades or full service upgrades, targeting electricians.",
+    "source_name": "Instagram",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "building-electrification",
+    "persona": "electrical-contractor",
+    "topics": [
+      "pathways-install",
+      "code-standards"
+    ],
+    "players": [],
+    "so_what": "Panel capacity evaluation for new AC loads is a common decision point, but excerpt provides no concrete details on sizing, constraints, or methods.",
+    "summary": "An Instagram reel that mentions questions about whether adding AC equipment requires electrical panel work or service upgrades. The excerpt contains only social media interface elements and hashtags (#Electrician #sparky #union #ibew #wiring #commercial #electrical #nec) with no actual content visible.",
+    "why_it_matters": "Electrical contractors and building electrification projects frequently encounter load calculations and panel capacity decisions when adding HVAC equipment. However, the excerpt provides no concrete guidance, numbers, or case specifics that would inform actual decision-making around service sizing or upgrade triggers.",
+    "open_questions": [
+      "What load thresholds or panel utilization percentages trigger service upgrades versus panel replacements?",
+      "What are the cost and schedule implications of AC-driven service upgrades in residential versus commercial contexts?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:43:15.634710"
+  },
+  {
+    "query_name": "Heat pump retrofit electrical constraints",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "Heat pump installation costs and incentive landscape in 2025",
+    "link": "https://www.energysage.com/heat-pumps/costs-and-benefits-air-source-heat-pumps/",
+    "snippet": "What impacts heat pump cost? Heat pump costs by state; Rebates and incentives can considerably cut heat pump costs; Are heat pumps worth it?",
+    "discovered_at": "2026-03-28T09:37:50.208135",
+    "artifact_type": "doc",
+    "publish_date": "2026-03-19",
+    "description": "EnergySage reports national average heat pump installation cost of $15,393 before incentives, with system type, home size, and regional factors driving variability.",
+    "source_name": "EnergySage",
+    "source_date": "2026-03-19",
+    "confidence": "medium",
+    "vertical": "building-electrification",
+    "persona": "facilities",
+    "topics": [
+      "estimating",
+      "incentives-policy",
+      "schedule-value"
+    ],
+    "players": [],
+    "so_what": "Installation cost spread ($8K\u2013$33K) and multi-zone ductless complexity signal planning and service upgrade scope variance for electrification projects.",
+    "summary": "EnergySage provides 2025 heat pump installation cost benchmarks from real marketplace quotes: national average $15,393, ranging from $8,000 (New Mexico) to $33,000 (New York). Ducted systems average $14,529, ductless multi-zone $25,957, and hybrid heat-pump-plus-furnace $14,353 before incentives. Federal 30% tax credit expired after 2025, shifting focus to state/local programs.",
+    "why_it_matters": "For facilities managers and contractors scoping building electrification retrofits, the wide cost variance ($8K\u2013$33K) and the ductless premium (multi-zone systems cost more with no economies of scale per added head) directly affect service panel upgrade sizing, electrical capacity planning, and project budgeting. The expiration of the federal tax credit and shift to fragmented state incentives adds estimating complexity and regional variability to electrical load and distribution planning.",
+    "open_questions": [
+      "What portion of the cost spread is driven by electrical service upgrades vs. HVAC equipment and labor?",
+      "How do ductless multi-zone installations stress existing panel capacity compared to ducted systems?"
+    ],
+    "evidence": [
+      "National average heat pump cost $15,393 before incentives, ranging from $8,000 (New Mexico) to $33,000 (New York) based on EnergySage Marketplace real quotes.",
+      "Ductless mini-splits average $25,957 vs. ducted $14,529; multi-zone ductless offers no significant per-zone discount, driving higher labor and equipment costs.",
+      "Federal 30% tax credit expired for installations after 2025; state and local incentives now primary cost reduction mechanism."
+    ],
+    "extracted_at": "2026-03-28T09:43:29.313790"
+  },
+  {
+    "query_name": "Heat pump retrofit electrical constraints",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "The Hidden Cost of Going All Electric",
+    "link": "https://www.youtube.com/shorts/YIlnRWy1Bwo",
+    "snippet": "Everyone talks about switching to electric heat pumps, but what often ... electrical service, running new wiring, and working with the utility company ...",
+    "discovered_at": "2026-03-28T09:37:50.208136",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "YouTube short discussing electrical service upgrades, new wiring, and utility coordination requirements when switching to electric heat pumps.",
+    "source_name": "YouTube",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "building-electrification",
+    "persona": "owner-operator",
+    "topics": [
+      "pathways-install",
+      "retrofits-mdus"
+    ],
+    "players": [],
+    "so_what": "Service upgrades and utility coordination create electrification retrofit bottlenecks.",
+    "summary": "A YouTube short video discussing the often-overlooked costs of switching to electric heat pumps, including electrical service upgrades, new wiring installation, and utility company coordination.",
+    "why_it_matters": "Building electrification requires electrical service and wiring upgrades that create cost and coordination constraints. Homeowners and building owners face unexpected utility coordination and infrastructure costs beyond equipment replacement.",
+    "open_questions": [
+      "What typical service upgrade sizes are required for heat pump conversions?",
+      "How long do utility coordination processes typically delay electrification projects?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:43:37.112750"
+  },
+  {
+    "query_name": "Heat pump retrofit electrical constraints",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "Heat Pump Costs and Installation Costs [2026 Data]",
+    "link": "https://www.angi.com/articles/how-much-does-heat-pump-cost.htm",
+    "snippet": "The eco-conscious potential of heat pumps can lower energy costs by up ... Installation is a complex process, and a heat pump's complicated wiring and ...",
+    "discovered_at": "2026-03-28T09:37:50.208137",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "Consumer-focused cost guide for heat pump installation covering pricing and complexity of wiring, targeting residential homeowners planning upgrades.",
+    "source_name": "Angi",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "building-electrification",
+    "persona": "owner-operator",
+    "topics": [
+      "pathways-install"
+    ],
+    "players": [],
+    "so_what": "Installation complexity and wiring noted but no concrete constraints, panel upgrades, load calculations, or service sizing detail provided.",
+    "summary": "Consumer guide on heat pump costs from Angi (formerly Angie's List) highlighting potential energy savings and noting that installation involves complex wiring processes. The excerpt provides only high-level claims without technical detail.",
+    "why_it_matters": "Heat pump adoption requires understanding electrical service and panel capacity constraints, but this consumer-oriented cost guide lacks specifics on service upgrades, circuit requirements, or installation bottlenecks that would inform GC/MEP or electrical contractor scoping decisions.",
+    "open_questions": [
+      "What percentage of residential heat pump installs require panel or service upgrades?",
+      "What are typical circuit and breaker sizing requirements for residential heat pumps?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:43:45.922523"
+  },
+  {
+    "query_name": "Heat pump retrofit electrical constraints",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "Instagram post: Electrical service upgrades required for gas-to-electric heat conversion",
+    "link": "https://www.instagram.com/reel/DVrBORdDHAK/",
+    "snippet": "In many buildings, switching from gas heat to electric backup heat means upgrading electrical service, running new wiring, and working with the utility company.",
+    "discovered_at": "2026-03-28T09:37:50.208139",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "Matt Schlegel explains cost and complexity of electrical service upgrades, new wiring, and utility coordination when switching buildings from gas to electric backup heat.",
+    "source_name": "Instagram",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "building-electrification",
+    "persona": "facilities",
+    "topics": [
+      "pathways-install",
+      "schedule-value",
+      "retrofits-mdus"
+    ],
+    "players": [],
+    "so_what": "Gas-to-electric heat conversions trigger service upgrades, new wiring runs, and utility coordination\u2014install pathway constraints that affect retrofit timelines.",
+    "summary": "Instagram video post by Matt Schlegel discussing the electrical infrastructure requirements for converting buildings from gas to electric backup heat. The snippet mentions service upgrades, new wiring installation, and utility company coordination as key cost and complexity factors.",
+    "why_it_matters": "Building electrification projects face electrical service and distribution upgrade requirements that drive cost and schedule. Facilities managers and contractors planning heat pump retrofits must account for panel capacity, new circuit runs, and utility interconnection lead times when scoping gas-to-electric conversions.",
+    "open_questions": [
+      "What service amperage upgrades are typically required for residential vs. commercial heat pump installations?",
+      "How do utility interconnection timelines vary by region for service upgrade requests?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:43:54.675376"
+  },
+  {
+    "query_name": "Heat pump retrofit electrical constraints",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "Electrical Panel Upgrade Guide: Houston Residential Service Upgrades for EV & Heat Pumps",
+    "link": "https://kirchnerelectricpro.com/blogpost/electrical-panel-upgrade-cost-houston/",
+    "snippet": "Electrical Panel Upgrade: Cost, Process & When Houston Homes Need One ... Plans to install 240-volt appliances (EV charger, 2024+ heat pump, induction range, pool ...",
+    "discovered_at": "2026-03-28T09:37:50.208140",
+    "artifact_type": "doc",
+    "publish_date": null,
+    "description": "Houston electrical contractor guide covers panel upgrade costs ($1,600\u2013$4,000), permitting requirements, and capacity needs for EV chargers and heat pumps.",
+    "source_name": "Kirchner Electric",
+    "source_date": null,
+    "confidence": "medium",
+    "vertical": "building-electrification",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards",
+      "pathways-install",
+      "estimating",
+      "retrofits-mdus"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Panel upgrades (100-200A service) are primary install bottleneck for residential electrification requiring City of Houston permits and licensed labor.",
+    "summary": "Houston electrical contractor guide addresses residential panel upgrade decision criteria, costs, and process. Covers when homeowners need service upgrades (adding EV chargers, heat pumps, induction ranges), typical 100-200 amp upgrade costs ($1,600-$4,000+), and City of Houston permitting requirements.",
+    "why_it_matters": "Service panel capacity is the primary electrical infrastructure constraint for residential electrification retrofits. Electrical contractors face permit requirements, customer pricing expectations ($1,600-$4,000 typical range), and must scope upgrades triggered by 240V loads like Level 2 EV chargers and 2024+ heat pumps. Panel age (25-30 years) and existing capacity determine whether adding high-power appliances requires full service upgrade or panel relocation.",
+    "open_questions": [
+      "What percentage of Houston residential panel upgrade projects require service relocation vs. in-place replacement?",
+      "How do permit timelines through City of Houston affect project schedules for electrification retrofits?"
+    ],
+    "evidence": [
+      "Typical Houston panel upgrades in 2026 run approximately $1,600\u2013$4,000 for 100\u2013200 amp service; projects requiring relocation or major rewiring can exceed $5,000",
+      "Plans to install 240-volt appliances (EV charger, 2024+ heat pump, induction range, pool equipment) trigger upgrade need",
+      "All panel work must be performed by a licensed electricator and permitted through the City of Houston Permitting Center"
+    ],
+    "extracted_at": "2026-03-28T09:44:12.594542"
+  },
+  {
+    "query_name": "Heat pump retrofit electrical constraints",
+    "query_vertical": "building-electrification",
+    "player": "other",
+    "title": "Instagram post by BANN Home Electrical showing panel upgrade for homeowner",
+    "link": "https://www.instagram.com/p/DVog7zcjiQn/",
+    "snippet": "Need an electrical service upgrade or new installation? Send us a message or give us a call. 207-406-3918. BANN Home Electrical & Heat Pump Services",
+    "discovered_at": "2026-03-28T09:37:50.208142",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "Social media post from electrical contractor BANN Home Electrical & Heat Pump Services advertising panel upgrade service with contact information.",
+    "source_name": "Instagram",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "building-electrification",
+    "persona": "electrical-contractor",
+    "topics": [],
+    "players": [],
+    "so_what": "",
+    "summary": "Instagram post from BANN Home Electrical & Heat Pump Services promoting electrical service upgrades and new installations with a photo of a completed panel upgrade for a homeowner.",
+    "why_it_matters": "",
+    "open_questions": [],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:44:17.250643"
+  },
+  {
+    "query_name": "Data center power density and AI infrastructure",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "High-Density Colocation for AI & GPU Infrastructure: Power & Cooling",
+    "link": "https://netrality.com/blog/high-density-colocation-for-ai-and-gpu-infrastructure-what-it-takes-to-support-the-next-generation-of-computing/",
+    "snippet": "A 10 MW facility that can only deliver 10 kW per rack is useless for AI deployments. ... Tags: data-center-colocation, hybrid-cloud, edge-ai, high-performance ...",
+    "discovered_at": "2026-03-28T09:37:51.263634",
+    "artifact_type": "other",
+    "publish_date": "2026-03-19",
+    "description": "Analysis of power density evolution from 5-10 kW traditional racks to 40-132 kW AI/GPU racks, thermal challenges, and implications for colocation facility design.",
+    "source_name": "Netrality",
+    "source_date": "2026-03-19",
+    "confidence": "high",
+    "vertical": "data-centers",
+    "persona": "owner-operator",
+    "topics": [
+      "ai-infrastructure",
+      "reliability-uptime",
+      "power-quality-surge",
+      "pathways-install"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "AI rack densities reaching 132 kW today and projected 250-600 kW by 2027 force fundamental data center power distribution redesign beyond traditional models.",
+    "summary": "Netrality examines infrastructure requirements for AI/GPU colocation, documenting the progression from 5-10 kW traditional racks to current 40-80 kW AI deployments and NVIDIA's 132 kW Blackwell systems. Projects 250-600 kW per rack by 2027 with roadmap showing 576 GPUs per enclosure, while industry average remains 5-9 kW.",
+    "why_it_matters": "Data center owner-operators face a power density gap where most facilities designed for 5-9 kW racks cannot support AI workloads now demanding 40-132 kW per rack, with projections to 600 kW by 2027. This drives fundamental redesign of electrical distribution, thermal management, and capacity planning for any facility pursuing AI tenants or workloads.",
+    "open_questions": [
+      "What electrical distribution architectures (busway, PDU topology, breaker sizing) are capable facilities deploying to support 100+ kW racks today and scale to 600 kW?",
+      "How do hyperscalers at 36 kW average rack density manage the mix of traditional and high-density loads on shared infrastructure?"
+    ],
+    "evidence": [
+      "NVIDIA Blackwell GB200NVL72 rack requires ~132 kW; roadmap shows 250-600 kW per rack by 2027 with up to 576 GPUs per enclosure",
+      "Traditional racks: 5-10 kW. AI racks: 40-80 kW routine, approaching 100 kW. Uptime Institute survey shows industry average remains 5-9 kW over past 5 years",
+      "Single AI server with eight 1,200W+ accelerators consumes ~10 kW just for GPUs before CPUs, memory, storage; ten servers = ~100 kW per rack"
+    ],
+    "extracted_at": "2026-03-28T09:44:32.156921"
+  },
+  {
+    "query_name": "Data center power density and AI infrastructure",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "Why AI rack densities make liquid cooling nonnegotiable",
+    "link": "https://www.networkworld.com/article/4149069/why-ai-rack-densities-make-liquid-cooling-nonnegotiable.html",
+    "snippet": "Direct-to-chip (DTC) cold plate cooling commands roughly 47% of the AI data center liquid cooling segment, according to ... power distribution, ancillary ...",
+    "discovered_at": "2026-03-28T09:37:51.263644",
+    "artifact_type": "press",
+    "publish_date": "2026-03-25",
+    "description": "AI GPU racks now hitting 120-130kW force shift from air to liquid cooling; air viable only to ~20kW, rear-door exchangers to ~100kW, liquid required above 175kW.",
+    "source_name": "Network World",
+    "source_date": "2026-03-25",
+    "confidence": "medium",
+    "vertical": "data-centers",
+    "persona": "facilities",
+    "topics": [
+      "power-quality-surge",
+      "reliability-uptime",
+      "ai-infrastructure"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Power density thresholds (20kW air, 100kW hybrid, 175kW+ liquid) define cooling infrastructure choices and cascade into electrical distribution capacity planning.",
+    "summary": "Article explains physical limits of air cooling for AI GPU racks now reaching 120-130kW, compared to legacy 8-12kW designs. Establishes three density thresholds: air adequate to ~20kW, rear-door heat exchangers extend to ~100kW, liquid required above ~175kW. Market for liquid cooling approaches $3B in 2025, forecast to $7B by 2029.",
+    "why_it_matters": "Facilities managers planning AI deployments face hard thresholds where cooling architecture must change, driving electrical infrastructure decisions around power distribution capacity, circuit design, and backup systems. Average rack density jumped from 8kW to 17kW in two years and is projected to hit 30kW by 2027, with AI training racks already exceeding that. DOE estimates cooling accounts for up to 40% of data center energy use, meaning power distribution must accommodate both compute load and the cooling infrastructure required to support it.",
+    "open_questions": [
+      "How do liquid cooling infrastructure requirements (pumps, CDUs, plumbing) change electrical service sizing and redundancy design?",
+      "What are the UPS runtime implications when cooling systems consume 40% of total facility power?"
+    ],
+    "evidence": [
+      "JLL research establishes three density thresholds: up to ~20kW air adequate, up to ~100kW rear-door heat exchangers viable, above ~175kW liquid required",
+      "GB200 NVL72 rack pulls 120-130kW total; average rack density projected to reach 30kW by 2027 per October 2024 McKinsey report",
+      "DOE estimates cooling accounts for up to 40% of data center energy use"
+    ],
+    "extracted_at": "2026-03-28T09:44:44.777526"
+  },
+  {
+    "query_name": "Data center power density and AI infrastructure",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "LinkedIn post by Rob Zelinka discussing AI data center power density constraints",
+    "link": "https://www.linkedin.com/posts/robzelinka_datacenter-aiinfrastructure-cio-activity-7439338427822710784-U_Cq",
+    "snippet": "Data Center Bottleneck in AI Strategy: Power Density and Efficiency. View ... Investor Relations The Gigawatt Gap: Sizing the $650B Hyperscale AI ...",
+    "discovered_at": "2026-03-28T09:37:51.263646",
+    "artifact_type": "linkedin-post",
+    "publish_date": "2025-01-20",
+    "description": "Financial services CIO examines data center power density surge from 10kW to 50-100kW per rack for AI workloads, thermal management shift, and brownfield retrofit costs.",
+    "source_name": "LinkedIn",
+    "source_date": "2025-01-20",
+    "confidence": "medium",
+    "vertical": "data-centers",
+    "persona": "facilities",
+    "topics": [
+      "ai-infrastructure",
+      "power-quality-surge",
+      "retrofits-mdus",
+      "reliability-uptime",
+      "schedule-value"
+    ],
+    "players": [],
+    "so_what": "AI workload power density jumping 5-10x forces facilities to answer whether existing distribution can support H100 clusters and justify liquid cooling retrofits.",
+    "summary": "Rob Zelinka, a technology leader in financial services, discusses data center infrastructure bottlenecks created by AI workloads. He highlights the jump from traditional 10kW per rack to 50-100kW baselines for AI, forcing facility assessments of electrical capacity, thermal management transitions from air to liquid cooling, and escalating brownfield retrofit costs.",
+    "why_it_matters": "The 5-10x increase in rack power density (10kW to 50-100kW) for AI workloads forces facilities teams to validate whether existing electrical distribution can support new GPU clusters before deployment. Brownfield sites face a 'retrofit tax' of upgraded power delivery and cooling infrastructure, turning AI adoption into an industrial engineering project that affects capital budgets, timelines, and site selection decisions.",
+    "open_questions": [
+      "At what power density threshold do existing electrical services and panel capacity become blockers versus cooling constraints?",
+      "What are typical lead times and cost multiples for upgrading brownfield data center power distribution to support 50-100kW racks?"
+    ],
+    "evidence": [
+      "Power density moving from traditional 10kW per rack to 50-100kW baseline for AI workloads",
+      "Question posed: 'can our current facility even pull the juice required for a new H100 cluster?'",
+      "Brownfield retrofit costs 'skyrocketing' with explicit mention of 'Retrofit tax' for upgrading existing sites"
+    ],
+    "extracted_at": "2026-03-28T09:44:57.599244"
+  },
+  {
+    "query_name": "Data center power density and AI infrastructure",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "Data Centers Transition from AC to DC Power at 800V",
+    "link": "https://spectrum.ieee.org/data-center-dc",
+    "snippet": "... UPS and a DC power distribution layer. But much of the industry is far ... Data Center Glossary | Sunbird DCIM \u203a \u00b7 data centerspower electronicsai \u00b7 Drew Robb.",
+    "discovered_at": "2026-03-28T09:37:51.263647",
+    "artifact_type": "press",
+    "publish_date": null,
+    "description": "IEEE Spectrum reports on data center shift to 800V DC power distribution, replacing traditional AC/UPS architecture with direct DC power systems.",
+    "source_name": "IEEE Spectrum",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "data-centers",
+    "persona": "facilities",
+    "topics": [
+      "dc-distribution",
+      "power-quality-surge",
+      "ups-resilience"
+    ],
+    "players": [],
+    "so_what": "DC power shift at 800V may eliminate traditional UPS layers but excerpt lacks specifics on distribution constraints, safety standards, or deployment barriers.",
+    "summary": "IEEE Spectrum article discusses data center industry transition from AC to DC power distribution at 800V levels. The piece mentions UPS and DC power distribution layers but excerpt is truncated before substantive technical content.",
+    "why_it_matters": "The AC-to-DC transition at 800V could fundamentally change data center power distribution architecture and UPS requirements. However, the excerpt provides no concrete details on voltage standards, safety implications, equipment compatibility, installation constraints, or deployment timelines that would inform design or operations decisions.",
+    "open_questions": [
+      "What are the specific safety and code requirements for 800V DC distribution in data centers?",
+      "How does the transition impact existing UPS infrastructure and commissioning practices?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:45:05.842440"
+  },
+  {
+    "query_name": "Data center power density and AI infrastructure",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "NLR Tests ON.energy Medium-Voltage AI UPS for Hyperscale Data Center Grid Integration",
+    "link": "https://www.nlr.gov/news/detail/program/2026/could-a-new-kind-of-power-supply-help-make-data-centers-grid-friendly",
+    "snippet": "\u201cAI UPS is designed to help hyperscale data centers be good grid citizens ... As of 2025, NLR's ARIES platform can simulate those hyperscale data center clusters.",
+    "discovered_at": "2026-03-28T09:37:51.263649",
+    "artifact_type": "press",
+    "publish_date": "2026-03-11",
+    "description": "National Laboratory of the Rockies validates novel medium-voltage AI UPS design on ARIES platform to test grid-interactive load management for hyperscale facilities.",
+    "source_name": "NLR News",
+    "source_date": "2026-03-11",
+    "confidence": "high",
+    "vertical": "data-centers",
+    "persona": "facilities",
+    "topics": [
+      "ups-resilience",
+      "power-quality-surge",
+      "ai-infrastructure",
+      "reliability-uptime",
+      "monitoring-telemetry"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Medium-voltage UPS architecture addresses sub-second power spikes and ping-pong load swings in hyperscale facilities, reshaping grid interconnect and resilience design.",
+    "summary": "ON.energy is testing a medium-voltage AI UPS at NLR's ARIES platform, which simulates both data centers and grids. The technology aims to manage sub-second power spikes, voltage anomalies, and blackout ride-through for hyperscale data centers consuming city-scale energy (e.g., Boulder, CO equivalent).",
+    "why_it_matters": "Hyperscale data centers create sub-second load swings that can spike or plummet multiple times per minute, stressing grid interconnects and traditional UPS architectures. Facilities and utility engineers must evaluate medium-voltage UPS topologies to manage these transients, balance grid-interactive capabilities, and meet resilience requirements without overbuilding infrastructure. The ARIES testing validates design assumptions before live deployment.",
+    "open_questions": [
+      "What medium-voltage UPS topology does ON.energy use, and how does it differ from traditional low-voltage battery or flywheel systems?",
+      "What are the commissioning and monitoring requirements for medium-voltage AI UPS integration with existing utility interconnects?"
+    ],
+    "evidence": [
+      "AI UPS described as 'medium-voltage' design, explicitly novel architecture requiring isolated testing before grid deployment.",
+      "Data center power can 'spike or plummet in less than a second, ping-pong from one extreme to another multiple times in under a minute, or zero-out without warning.'",
+      "Single data center consumes energy equivalent to Boulder, CO; 70% of future demand will be hyperscale (hyper-massive) facilities."
+    ],
+    "extracted_at": "2026-03-28T09:45:21.383649"
+  },
+  {
+    "query_name": "Data center power density and AI infrastructure",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "Redundant Data Center Power for AI: Why It's Non-Negotiable",
+    "link": "https://www.hanwhadatacenters.com/blog/redundant-data-center-power-for-ai-why-its-non-negotiable/",
+    "snippet": "For AI workloads, modern lithium-ion UPS systems offer faster response times and higher power density than traditional lead-acid alternatives. Behind the ...",
+    "discovered_at": "2026-03-28T09:37:51.263650",
+    "artifact_type": "other",
+    "publish_date": "2026-03-20",
+    "description": "Hanwha analysis of AI workload power requirements: 84% cite power availability as top-3 site selection factor; 27% expect full onsite generation by 2030.",
+    "source_name": "Hanwha Data Centers Blog",
+    "source_date": "2026-03-20",
+    "confidence": "high",
+    "vertical": "data-centers",
+    "persona": "owner-operator",
+    "topics": [
+      "ups-resilience",
+      "reliability-uptime",
+      "ai-infrastructure",
+      "power-quality-surge"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Grid alone cannot support 80kW+ AI racks; 27x jump in onsite generation plans signals shift from grid-tied UPS to integrated energy campuses.",
+    "summary": "Hanwha Data Centers argues redundant power has become baseline for AI workloads, citing 84% of operators ranking power availability in top-3 site selection criteria and 27% planning full onsite generation by 2030. AI GPU clusters (700-1200W per chip, 80kW+ racks) require synchronized 24/7 power; single disruptions can erase weeks of training runs costing millions.",
+    "why_it_matters": "AI training's sustained high-density loads (80kW+ racks, 700-1200W/GPU) eliminate traditional maintenance windows and demand zero-interruption power. Owner-operators must shift from grid-tied UPS retrofits to integrated energy campuses with multi-source failover, fundamentally changing site selection, UPS topology choices, and capital planning for GPU-dense facilities.",
+    "open_questions": [
+      "What UPS topologies and runtime specs are emerging as standard for 80kW+ AI racks vs. traditional 10-15kW enterprise loads?",
+      "How are integrated energy campuses (grid + renewables + storage) being commissioned to ensure seamless failover during AI training runs?"
+    ],
+    "evidence": [
+      "84% of data center decision-makers rank power availability in top-3 site selection priorities; 27% expect full onsite generation by 2030 (27x increase from 1% one year prior)",
+      "AI GPU clusters consume 700-1200 watts per chip across racks exceeding 80 kilowatts each; interruptions can erase weeks of synchronized training runs costing millions",
+      "Modern lithium-ion UPS systems offer faster response times and higher power density than traditional lead-acid for AI workloads"
+    ],
+    "extracted_at": "2026-03-28T09:45:33.856590"
+  },
+  {
+    "query_name": "Data center power density and AI infrastructure",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "Gigawatt Data Center Campuses Are Becoming the New Hyperscale Standard",
+    "link": "https://www.datacenters.com/news/gigawatt-data-center-campuses-are-becoming-the-new-hyperscale-standard",
+    "snippet": "Gigawatt-scale data center campuses are emerging as the new standard for hyperscale infrastructure, driven by AI workloads, cloud demand, and massive power ...",
+    "discovered_at": "2026-03-28T09:37:51.263652",
+    "artifact_type": "press",
+    "publish_date": null,
+    "description": "Gigawatt-scale data center campuses emerging as new standard for hyperscale infrastructure, driven by AI workloads, cloud demand, and massive power requirements.",
+    "source_name": "datacenters.com",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "data-centers",
+    "persona": "owner-operator",
+    "topics": [
+      "ai-infrastructure",
+      "power-quality-surge"
+    ],
+    "players": [],
+    "so_what": "Insufficient detail on power distribution constraints, utility interconnect, or design tradeoffs at gigawatt scale.",
+    "summary": "Article discusses the emergence of gigawatt-scale data center campuses as the new hyperscale standard, motivated by AI workloads and cloud computing demand. No page content available beyond SERP snippet.",
+    "why_it_matters": "Gigawatt campuses represent order-of-magnitude scaling challenges for power distribution, but without concrete details on utility coordination, phasing strategies, substation constraints, or distribution topology, this appears to be a trend piece. Owner-operators need specifics on power delivery bottlenecks, not just scale metrics.",
+    "open_questions": [
+      "What are the utility interconnect timelines and substation upgrade requirements for gigawatt campuses?",
+      "How are these projects phasing power delivery and medium-voltage distribution to manage construction schedules?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:45:45.624866"
+  },
+  {
+    "query_name": "Data center power density and AI infrastructure",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "Vertiv white paper: Adapting colocation power & cooling for AI workloads",
+    "link": "https://www.vertiv.com/en-cn/about/news-and-insights/articles/white-papers/transforming-colocation-for-ai-optimization-strategies-for-ai-ready-infrastructure/",
+    "snippet": "AI-ready data center guide for colocation providers: Transform your facility ... Overview Uninterruptible Power Supplies (UPS) DC Power Systems Power Distribution ...",
+    "discovered_at": "2026-03-28T09:37:51.263653",
+    "artifact_type": "doc",
+    "publish_date": null,
+    "description": "White paper on power distribution and cooling challenges for AI-ready colocation: 100-250 kW pod densities, GPU power variability, modular UPS/thermal systems.",
+    "source_name": "Vertiv",
+    "source_date": null,
+    "confidence": "high",
+    "vertical": "data-centers",
+    "persona": "owner-operator",
+    "topics": [
+      "ai-infrastructure",
+      "ups-resilience",
+      "power-quality-surge",
+      "reliability-uptime",
+      "pathways-install"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "AI pods scaling from 40-100 kW to 100-250 kW with GPU power variability forces adaptive UPS, power delivery, and modular thermal systems to meet SLAs.",
+    "summary": "Vertiv white paper addresses infrastructure challenges colocation providers face deploying AI workloads. Covers power density growth (40-100 kW to 100-250 kW pods), GPU variable power demands vs. stable CPU loads, and the need for adaptive power/cooling systems to maintain service level agreements.",
+    "why_it_matters": "Colocation operators must adapt power distribution and UPS architectures to handle GPU clusters with rapidly fluctuating loads (not stable CPU patterns) and densities reaching 250 kW per pod. This affects design decisions around modular power delivery, cooling scalability, and SLA-compliant resilience as AI workloads compress deployment timelines and introduce new skillset gaps.",
+    "open_questions": [
+      "What specific UPS topologies or power distribution unit configurations best handle GPU power variability at 100-250 kW pod scale?",
+      "How are modular power systems being sized and staged to meet fast AI scalability while preserving efficiency and reliability?"
+    ],
+    "evidence": [
+      "AI pods projected to grow from 40-100 kW to over 100-250 kW in coming years",
+      "GPUs exhibit rapidly fluctuating power usage patterns unlike stable CPU loads",
+      "Paper provides guidance on adapting power systems for AI's unique requirements including adaptive UPS and power delivery"
+    ],
+    "extracted_at": "2026-03-28T09:45:58.403082"
+  },
+  {
+    "query_name": "Data center power density and AI infrastructure",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "SolarEdge and hyperscalers push solid-state transformers for 800V DC data center racks",
+    "link": "https://pv-magazine-usa.com/2026/03/26/ai-data-center-developers-eye-solid-state-transformers-for-ai-power-density/",
+    "snippet": "AI data center developers eye solid-state transformers for AI power density ... AI data centers is maybe around 100 kW per rack. The generation after that ...",
+    "discovered_at": "2026-03-28T09:37:51.263654",
+    "artifact_type": "press",
+    "publish_date": "2026-03-26",
+    "description": "AI rack density jumping from 10 kW to 1 MW drives shift to medium-voltage DC architecture via solid-state transformers; SolarEdge targets 800V DC delivery at 99% efficiency.",
+    "source_name": "pv magazine USA",
+    "source_date": "2026-03-26",
+    "confidence": "high",
+    "vertical": "data-centers",
+    "persona": "facilities",
+    "topics": [
+      "dc-distribution",
+      "power-quality-surge",
+      "ai-infrastructure",
+      "reliability-uptime",
+      "code-standards"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "1 MW/rack density forces full-DC infrastructure redesign; SSTs enable medium-voltage-to-800VDC conversion, collapsing AC distribution stages that can't scale.",
+    "summary": "AI data center developers are adopting solid-state transformers to enable direct medium-voltage to 800V DC conversion as rack densities scale from 10 kW to 1 MW per rack. Current AC distribution infrastructure cannot sustain next-generation GPU loads; Nvidia and hyperscalers are driving full-DC architectures that eliminate multiple conversion stages.",
+    "why_it_matters": "Current data center electrical infrastructure physically cannot sustain the jump from ~100 kW to 1 MW per rack on the same footprint. Facilities managers and electrical designers must evaluate medium-voltage DC distribution and solid-state transformers to replace multi-stage AC conversion paths that bottleneck at high density. This drives fundamental changes in service entrance design, distribution topology, and coordination with utility MV feeds.",
+    "open_questions": [
+      "What code/NEC changes are required to permit medium-voltage DC distribution direct to rack-level equipment?",
+      "How do SST failure modes and arc-flash hazards compare to traditional transformer + rectifier chains at 800V DC?"
+    ],
+    "evidence": [
+      "Current AI data centers: ~10 kW/rack; next generation: ~100 kW/rack; target generation: 1 MW/rack on same footprint.",
+      "Nvidia and hyperscalers pushing 800V DC direct to rack; current AC infrastructure 'physically cannot sustain that.'",
+      "SolarEdge SST targets medium-voltage to DC conversion at 99% efficiency, eliminating multi-stage AC conversion."
+    ],
+    "extracted_at": "2026-03-28T09:46:12.556977"
+  },
+  {
+    "query_name": "Edge infrastructure power and UPS resilience",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "Edge Computing: Keeping the 'Edge' Powered and Protected",
+    "link": "https://acerts.com/blogs/ups-systems/edge-computing-keeping-the-edge-powered-and-protected?srsltid=AfmBOopk-eNDBXv9HZO6BHekFyJJECgebTZ3odqIaSeDGw0aJBgbth4m",
+    "snippet": "... remote power monitoring on a tablet for managing edge computing and server site. Edge Power Protection FAQ. What is the best UPS topology for edge computing?",
+    "discovered_at": "2026-03-28T09:37:54.547909",
+    "artifact_type": "doc",
+    "publish_date": null,
+    "description": "Ace Real Time Solutions analyzes power protection challenges for edge computing deployments, covering UPS topology, thermal constraints, and remote monitoring needs.",
+    "source_name": "Ace Real Time Solutions",
+    "source_date": null,
+    "confidence": "medium",
+    "vertical": "edge-power-ups",
+    "persona": "facilities|it-network",
+    "topics": [
+      "ups-resilience",
+      "monitoring-telemetry",
+      "reliability-uptime",
+      "power-quality-surge"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Edge sites require UPS solutions hardened for dirty power, high ambient temps, and remote monitoring\u2014traditional standby units fail in hostile edge environments.",
+    "summary": "Article examines power protection requirements for edge computing deployments in remote, unstaffed locations. Highlights failures of traditional UPS approaches when faced with grid instability, thermal stress, and lack of on-site staff. Discusses shift toward lithium-ion batteries and remote-monitored enclosures for edge resilience.",
+    "why_it_matters": "Edge deployments face hostile power environments (dirty rural grids, high ambient temps degrading VRLA batteries, no HVAC) that cause catastrophic failures when latency-critical applications experience even 30-second power interruptions. Facilities and IT managers must select UPS topologies and battery chemistries (LiFePO4 vs VRLA) that survive thermal extremes and communicate health status remotely, directly impacting uptime SLAs and hardware lifecycle costs.",
+    "open_questions": [
+      "What specific UPS runtime and topology requirements differentiate edge sites by application latency tolerance?",
+      "How does remote monitoring integration affect total cost of ownership for distributed edge UPS deployments?"
+    ],
+    "evidence": [
+      "High ambient temps in edge closets 'degrade Lead-Acid (VRLA) batteries at an accelerated rate,' driving pivot to Lithium-Ion (LiFePO4) solutions",
+      "Edge sites target 99.999% uptime despite 'dirty power' from rural grids and lack of dedicated HVAC for thermal management",
+      "Power flicker causing 30-second reboot in latency-critical factory floor edge nodes characterized as 'catastrophic failure' vs inconvenience"
+    ],
+    "extracted_at": "2026-03-28T09:46:27.424882"
+  },
+  {
+    "query_name": "Edge infrastructure power and UPS resilience",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "Xtreme Power P91 vs APC Smart-UPS Online 5\u201310 kVA comparison",
+    "link": "https://xpcc.com/p91-vs-apc-smart-ups-online-5-10kva/",
+    "snippet": "Enterprise online UPS platforms in the 5\u201310 kVA range are commonly deployed in: Distributed IT infrastructure environments; Edge computing and network closets ...",
+    "discovered_at": "2026-03-28T09:37:54.547918",
+    "artifact_type": "product",
+    "publish_date": null,
+    "description": "Enterprise UPS platform comparison for distributed IT infrastructure, edge computing, and network closets in the 5\u201310 kVA range with VRLA battery configurations.",
+    "source_name": "Xtreme Power Conversion",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "edge-power-ups",
+    "persona": "it-network",
+    "topics": [
+      "ups-resilience"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Comparison targets edge/distributed deployments but lacks concrete constraints, runtime numbers, or deployment tradeoffs that inform selection.",
+    "summary": "Vendor comparison document between Xtreme Power P91 and APC Smart-UPS Online systems in the 5\u201310 kVA range for distributed IT, edge computing, and network closets. Both offer online double-conversion topology with VRLA batteries for 208/220/230/240V single-phase applications.",
+    "why_it_matters": "Engineers standardizing UPS platforms for distributed infrastructure need to evaluate density, footprint, and external runtime scalability. However, the excerpt provides only generic feature parity claims without concrete runtime numbers, rack-unit dimensions, battery expansion constraints, or deployment cost deltas that would inform actual selection decisions.",
+    "open_questions": [
+      "What are the actual rack-unit dimensions and weight constraints for comparing installation footprint?",
+      "What runtime extension options and cabinet counts are required for specific load profiles?"
+    ],
+    "evidence": [
+      "Both platforms support 208/220/230/240V single-phase with online double-conversion topology and VRLA batteries",
+      "P91 described as 'high-density rack/tower design' vs 'larger footprint' for APC, but no dimensions provided",
+      "Both support scalable external battery expansion and optional 240/120V transformers"
+    ],
+    "extracted_at": "2026-03-28T09:46:38.495928"
+  },
+  {
+    "query_name": "Edge infrastructure power and UPS resilience",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "Tycon Systems showcasing remote power and solar for surveillance at ISC West",
+    "link": "https://www.tyconsystems.com/blogs/post/tycon-systems-isc-west-las-vegas?srsltid=AfmBOoqJhZBdBlbbt76GWU1NGvXVPGmPhv9_e_ZA-O7qhtL9xwp_WoXT",
+    "snippet": "edge computing infrastructure; smart transportation monitoring; industrial ... remote power solutions can transform your surveillance deployments. Tycon ...",
+    "discovered_at": "2026-03-28T09:37:54.547920",
+    "artifact_type": "event",
+    "publish_date": "2026-03-18",
+    "description": "Tycon Systems attending ISC West (March 25-27) to showcase remote power and solar solutions for surveillance networks where traditional power is unavailable.",
+    "source_name": "Tycon Systems",
+    "source_date": "2026-03-18",
+    "confidence": "low",
+    "vertical": "edge-power-ups",
+    "persona": "security-integrator",
+    "topics": [
+      "ups-resilience",
+      "physical-security"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Event announcement for remote power solutions targeting surveillance deployments, but excerpt lacks concrete constraints or deployment details.",
+    "summary": "Tycon Systems will exhibit at ISC West Las Vegas (March 25-27), showcasing remote power and solar solutions for surveillance networks. The event targets security integrators deploying cameras in remote areas, construction sites, industrial facilities, and smart city environments where traditional power is unavailable or unreliable.",
+    "why_it_matters": "Security integrators deploying distributed surveillance systems face power availability challenges in remote locations. The excerpt identifies the problem space (powering cameras where grid is unavailable) but provides no concrete deployment constraints, technical specifications, or case study details that would inform design or installation decisions.",
+    "open_questions": [
+      "What specific runtime, voltage, or PoE power budgets do these solar+UPS systems provide for typical surveillance deployments?",
+      "What are the installation constraints or failure modes when deploying solar-powered surveillance in different climates or site conditions?"
+    ],
+    "evidence": [
+      "Event targets 'remote areas, construction sites, industrial facilities, or smart city environments' where power availability is a challenge",
+      "Solutions described as 'remote power and solar energy solutions designed for surveillance networks'"
+    ],
+    "extracted_at": "2026-03-28T09:46:48.489124"
+  },
+  {
+    "query_name": "Edge infrastructure power and UPS resilience",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "LinkedIn post by VoltServer discussing Digital Electricity for edge computing power",
+    "link": "https://www.linkedin.com/posts/voltserver_edgecomputing-digitalelectricity-networkinfrastructure-activity-7439672182730805248-z630",
+    "snippet": "... edge infrastructure grows, organizations are starting to rethink how power ... UPS and critical loads \u2022 Helping facilities achieve time-to-power ...",
+    "discovered_at": "2026-03-28T09:37:54.547921",
+    "artifact_type": "linkedin-post",
+    "publish_date": null,
+    "description": "VoltServer promotes Digital Electricity\u00ae as alternative to legacy power distribution for edge deployments, claiming simplified installation and reduced hardware.",
+    "source_name": "LinkedIn",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "edge-power-ups",
+    "persona": "it-network",
+    "topics": [
+      "pathways-install"
+    ],
+    "players": [
+      "voltserver"
+    ],
+    "so_what": "Claims power-over-comms-cabling simplifies edge installs but excerpt lacks concrete deployment details, constraints, or tradeoffs.",
+    "summary": "VoltServer LinkedIn post positioning their Digital Electricity product as modernizing power distribution for edge computing environments. Claims include delivering power over communications cabling to simplify installation and reduce hardware, contrasting with 130-year-old legacy approaches.",
+    "why_it_matters": "Edge deployments face power distribution complexity, but this excerpt provides only marketing claims ('simplify installation,' 'reduce hardware') without concrete numbers, project context, or specific constraints that would inform design decisions for IT or facilities teams.",
+    "open_questions": [
+      "What are the actual install time or hardware cost comparisons versus traditional edge power?",
+      "What code compliance requirements or UPS integration constraints exist for power-over-comms at edge?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:46:57.773091"
+  },
+  {
+    "query_name": "Edge infrastructure power and UPS resilience",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "SEL Technology power monitoring and remote management systems",
+    "link": "https://www.facebook.com/SchweitzerEngineeringLabs/posts/for-decades-industries-worldwide-have-trusted-us-to-protect-monitor-control-and-/1609136844549342/",
+    "snippet": "... deploy, and manage customized power monitoring systems tailored to their unique needs. ... remote power recycling, manage power-up or power-down sequencing ...",
+    "discovered_at": "2026-03-28T09:37:54.547923",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "Facebook post highlighting SEL's power monitoring, remote recycling, and sequencing capabilities for industrial and infrastructure applications.",
+    "source_name": "Facebook",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "edge-power-ups",
+    "persona": "facilities",
+    "topics": [
+      "monitoring-telemetry",
+      "ups-resilience"
+    ],
+    "players": [],
+    "so_what": "Remote power management and sequencing reduce manual intervention for distributed edge/industrial sites.",
+    "summary": "Facebook post from Schweitzer Engineering Laboratories promoting their decades-long track record in power protection, monitoring, control, and automation. Mentions customized power monitoring systems, remote power recycling, and power-up/power-down sequencing capabilities.",
+    "why_it_matters": "Remote sequencing and monitoring reduce truck rolls for facilities teams managing distributed edge or industrial sites. However, the excerpt provides no concrete constraints, project details, or technical specifications to assess deployment tradeoffs or integration requirements.",
+    "open_questions": [
+      "What communication protocols and integration requirements exist for SEL monitoring in existing BMS/DCIM ecosystems?",
+      "What are the actual sequencing constraints or failure modes addressed by remote power recycling?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:47:05.880115"
+  },
+  {
+    "query_name": "Edge infrastructure power and UPS resilience",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "Premio Inc blog on SoC architecture shift in edge computing",
+    "link": "https://premioinc.com/blogs/blog/system-on-chip-soc-edge-computing",
+    "snippet": "... UPS EnergyPack: ECO-1000 Supercapacitor. ECO-1000 Series Supercapacitor ... Edge Computing. Industrial Touch Panel PCs and Monitors. IP Rated Touchscreen ...",
+    "discovered_at": "2026-03-28T09:37:54.547924",
+    "artifact_type": "blog",
+    "publish_date": "2026-03-22",
+    "description": "Vendor blog discussing System-on-Chip (SoC) advantages for edge computing, emphasizing power efficiency and compact design over traditional discrete architectures.",
+    "source_name": "Premio Inc Blog",
+    "source_date": "2026-03-22",
+    "confidence": "low",
+    "vertical": "edge-power-ups",
+    "persona": "it-network",
+    "topics": [
+      "power-quality-surge",
+      "ai-infrastructure"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "SoC integration reduces power consumption vs discrete architectures, but no power distribution constraints or UPS sizing details provided.",
+    "summary": "Premio Inc blog post argues System-on-Chip architectures are replacing traditional discrete CPU/GPU/memory designs in edge computing due to power efficiency and compact form factors. Cites edge AI market growth (25-35% CAGR) and data processing shift (75% at edge). Mentions supercapacitor UPS products but provides no technical specifications.",
+    "why_it_matters": "The excerpt claims SoCs offer better power efficiency than discrete components for edge deployments, which could affect electrical sizing decisions. However, no power consumption numbers, thermal budgets, UPS runtime impacts, or distribution constraints are provided to inform system integrator or electrical contractor planning.",
+    "open_questions": [
+      "What are the actual power draw differences between SoC and discrete architectures in comparable edge deployments?",
+      "How does the ECO-1000 supercapacitor UPS integrate with SoC-based edge systems in terms of runtime and distribution requirements?"
+    ],
+    "evidence": [
+      "Mentions 'ECO-1000 Series Supercapacitor' for UPS but provides no capacity, runtime, or integration specifications",
+      "States SoCs offer 'lower latency and improved power efficiency' vs traditional architectures but no quantitative comparison"
+    ],
+    "extracted_at": "2026-03-28T09:47:17.289274"
+  },
+  {
+    "query_name": "Edge infrastructure power and UPS resilience",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "Rugged Edge Computing for Emergency Response Vehicles",
+    "link": "https://metromatics.com.au/rugged-edge-computing-for-emergency-response/",
+    "snippet": "Rugged edge computing platforms from RuggON, Shuttle, and Compulab support these deployments ... Rugged UPS Systems \u00b7 Telemetry Measurement Systems \u00b7 Telemetry ...",
+    "discovered_at": "2026-03-28T09:37:54.547925",
+    "artifact_type": "other",
+    "publish_date": null,
+    "description": "Metromatics overview of rugged edge computing platforms for mobile command vehicles and UAV ground control, highlighting unstable power conditions in field deployments.",
+    "source_name": "Metromatics",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "edge-power-ups",
+    "persona": "it-network",
+    "topics": [
+      "ups-resilience",
+      "power-quality-surge"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Emergency vehicle edge computing faces unstable power conditions, but excerpt lacks specifics on power distribution solutions or UPS design constraints.",
+    "summary": "Metromatics article describing rugged edge computing needs for emergency response vehicles and UAV ground control platforms. Mentions that vehicle-mounted systems face vibration, temperature variation, and unstable power conditions. Lists hardware vendors (RuggON, Shuttle, Compulab, Crystal Group) but provides no detail on power infrastructure.",
+    "why_it_matters": "Mobile edge deployments in emergency vehicles face unstable power conditions that require robust power delivery, but the excerpt focuses on computing platforms rather than power distribution architecture. Without specifics on voltage requirements, UPS runtime, power budgets, or installation constraints, practitioners cannot extract actionable design guidance.",
+    "open_questions": [
+      "What are the typical power budgets and voltage requirements for rugged edge systems in mobile command vehicles?",
+      "How are UPS systems sized and configured to handle vehicle power instability during emergency operations?"
+    ],
+    "evidence": [
+      "Vehicle-mounted computing platforms operate in environments with 'unstable power conditions'",
+      "Excerpt mentions RuggON, Shuttle, Compulab, and Crystal Group as rugged computing vendors"
+    ],
+    "extracted_at": "2026-03-28T09:47:27.718136"
+  },
+  {
+    "query_name": "Edge infrastructure power and UPS resilience",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "IoT Gateway 4G Upload and Edge Computing for Pollution Source Monitoring",
+    "link": "https://www.pusr.com/blog/The-Breakthrough-Solution-with-IoT-Gateway-4G-Upload-and-Edge-Computing-Data-Preprocessing?sw-lang=Enns",
+    "snippet": "Edge Computing: Redefining Pollution Source Monitoring Technology. 2.1 Local ... UPS backup battery. Scenario Adaptation: In an oil field monitoring ...",
+    "discovered_at": "2026-03-28T09:37:54.547927",
+    "artifact_type": "other",
+    "publish_date": "2026-02-24",
+    "description": "Technical blog on edge computing gateways with UPS backup for environmental monitoring in industrial settings, addressing transmission delays and network outages.",
+    "source_name": "PUSR Blog",
+    "source_date": "2026-02-24",
+    "confidence": "low",
+    "vertical": "edge-power-ups",
+    "persona": "ot-controls",
+    "topics": [
+      "ups-resilience",
+      "monitoring-telemetry",
+      "reliability-uptime"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Edge gateway UPS backup for remote industrial monitoring addresses network outage risks, but excerpt lacks power distribution or UPS sizing details.",
+    "summary": "Marketing-focused blog describing IoT gateway solutions with 4G connectivity and edge computing for environmental pollution monitoring in industrial facilities. Mentions UPS backup battery for oil field monitoring scenarios and discusses network outage challenges (3 outages weekly, 2-8 hours each) in remote industrial parks with <60% 4G coverage.",
+    "why_it_matters": "OT/controls engineers deploying remote monitoring face network outage risks that can trigger regulatory fines (example: 3-hour data loss = 2M yuan fine). UPS-backed edge gateways could address this, but excerpt provides no power specifications, runtime requirements, or distribution constraints to inform deployment decisions.",
+    "open_questions": [
+      "What UPS runtime and power capacity is required for the IoT gateway during typical 2-8 hour network outages?",
+      "How are these edge gateways powered and what are the installation constraints in remote industrial parks?"
+    ],
+    "evidence": [
+      "Remote industrial parks have <60% 4G signal coverage with network outages averaging 3x weekly, lasting 2-8 hours each",
+      "Mentions 'UPS backup battery' for oil field monitoring scenario adaptation",
+      "Pesticide plant example: 3 hours of lost monitoring data due to network failure resulted in 2M yuan fine"
+    ],
+    "extracted_at": "2026-03-28T09:47:41.092238"
+  },
+  {
+    "query_name": "Edge infrastructure power and UPS resilience",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "Oracle Roving Edge Infrastructure FAQ: Edge compute devices with embedded UPS",
+    "link": "https://www.oracle.com/anz/cloud/roving-edge-infrastructure/faq/",
+    "snippet": "... UPS, fire suppression, and embedded security monitoring. What is the Roving ... With Roving Edge Infrastructure, data and applications can be developed, ...",
+    "discovered_at": "2026-03-28T09:37:54.547929",
+    "artifact_type": "doc",
+    "publish_date": null,
+    "description": "Oracle's ruggedized edge compute devices (RED and Ultra) ship with embedded UPS, fire suppression, and security monitoring for disconnected edge workloads.",
+    "source_name": "Oracle Australia/New Zealand",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "edge-power-ups",
+    "persona": "it-network",
+    "topics": [
+      "ups-resilience"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Ruggedized edge servers with embedded UPS/fire suppression, but no details on power distribution constraints, runtime, or integration tradeoffs.",
+    "summary": "Oracle Roving Edge Infrastructure provides ruggedized edge compute devices (RED at <35 lb., Ultra at <5 lb.) designed for remote/tactical environments. Devices include embedded UPS, fire suppression, and security monitoring, and can operate disconnected from the internet while syncing workloads to/from Oracle Cloud.",
+    "why_it_matters": "For IT/network teams deploying edge compute in remote or tactical environments, understanding UPS runtime, power input requirements, and failure modes would inform site prep and resilience planning. However, the excerpt provides only product features without power distribution constraints, battery runtime specs, or installation tradeoffs.",
+    "open_questions": [
+      "What are the UPS runtime specs, input power requirements (voltage/amperage), and failure modes for RED and Ultra devices?",
+      "How do fire suppression and embedded security systems affect power distribution design and AHJ approval for edge deployments?"
+    ],
+    "evidence": [
+      "Snippet mentions 'UPS, fire suppression, and embedded security monitoring' as embedded features",
+      "RED device is <35 lb., 2U form factor; Ultra is <5 lb. with hot-swappable DC batteries or AC power",
+      "Devices designed for 'remote and austere environments' and 'tactical environments' with wider operational temperature range"
+    ],
+    "extracted_at": "2026-03-28T09:47:53.880735"
+  },
+  {
+    "query_name": "Edge infrastructure power and UPS resilience",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "Eaton 9PX G2 UPS with Lithium-ion batteries for rack infrastructure",
+    "link": "https://videos.eaton.com/detail/videos/rack-infrastructure/video/6391085308112/eaton-9px-g2-ups-with-lithium-ion-batteries?autoStart=true&page=0",
+    "snippet": "UPS backup power and monitoring \u00b7 Wiring devices \u00b7 eMobility \u00b7 Filtration \u00b7 Vehicle ... edge computing setup with its all-in-one cooling solution. Eaton.com ...",
+    "discovered_at": "2026-03-28T09:37:54.547930",
+    "artifact_type": "product",
+    "publish_date": null,
+    "description": "Video introducing Eaton 9PX G2 UPS systems with lithium-ion batteries offering longer runtimes, longer battery lifespan, and 3x faster charging vs lead acid.",
+    "source_name": "Eaton videos",
+    "source_date": null,
+    "confidence": "low",
+    "vertical": "edge-power-ups",
+    "persona": "it-network",
+    "topics": [
+      "ups-resilience"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Lithium-ion UPS reduces recharge time and extends runtime, potentially reducing downtime windows in edge/rack deployments.",
+    "summary": "Short promotional video showcasing Eaton's 9PX G2 UPS system with lithium-ion battery technology. Claims include longer runtimes, extended battery lifespan, and 3x faster charging compared to traditional lead acid batteries for rack-mounted infrastructure.",
+    "why_it_matters": "Faster recharge cycles (3x vs lead acid) could reduce vulnerability windows during sequential outages in edge sites with limited generator backup. IT/facilities teams spec'ing rack UPS must evaluate lithium-ion TCO tradeoffs against upfront cost and thermal management constraints in small IT closets.",
+    "open_questions": [
+      "What are the thermal dissipation requirements for lithium-ion UPS in confined rack spaces compared to lead acid?",
+      "How does the 3x faster charge rate affect circuit breaker sizing and upstream power distribution design?"
+    ],
+    "evidence": [
+      "9PX G2 systems feature 'longer runtimes and battery lifespans while charging 3x faster than lead acid batteries'",
+      "Product positioned for 'rack infrastructure' and 'edge computing setup' applications"
+    ],
+    "extracted_at": "2026-03-28T09:48:04.111286"
+  },
+  {
+    "query_name": "Trade media: electrical press",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "NEC Article 300 Wiring Methods: Installation Requirements (Part 1 of 3)",
+    "link": "https://www.ecmweb.com/national-electrical-code/code-basics/article/20888019/wiring-methods-part-1-of-3",
+    "snippet": "How to correctly install the wiring methods of Chapter 3 with the help of NEC Article 300.",
+    "discovered_at": "2026-03-28T09:37:59.561441",
+    "artifact_type": "doc",
+    "publish_date": "2010-03-01",
+    "description": "Technical guide to NEC Chapter 3 Article 300 requirements for routing, splicing, securing conductors in raceways and cables; includes physical damage protection rules.",
+    "source_name": "EC&M",
+    "source_date": "2010-03-01",
+    "confidence": "high",
+    "vertical": "building-electrification",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards",
+      "pathways-install",
+      "safety-model"
+    ],
+    "players": [],
+    "so_what": "NEC Art. 300 governs all Ch. 3 wiring/raceway installs; violation causes AHJ rejection. Specific rules on conductor grouping, paralleling, and damage protection.",
+    "summary": "Educational article explaining NEC Article 300 general requirements for wiring methods in Chapter 3. Covers conductor routing rules (all circuits in same raceway unless exceptions apply), parallel conductor installation per 310.4, equipment grounding conductor placement, and physical damage protection including minimum clearances (1\u00bc in. from front of wooden framing members) and required metal plate protection.",
+    "why_it_matters": "Article 300 establishes baseline install requirements that electrical contractors must follow for all Chapter 3 wiring methods to pass inspection. Violations like improper conductor grouping, inadequate physical protection (missing 1\u00bc-in. clearance or metal plates), or incorrect parallel run configuration trigger AHJ rejections and rework. The rules directly affect labor sequencing, material choices (nonferrous raceways for inductive heating reduction), and schedule when framing/drilling doesn't accommodate code minimums.",
+    "open_questions": [
+      "How often do 300.4(A) physical damage violations (missing plates, inadequate clearance) cause inspection failures in typical commercial projects?",
+      "What are the most common misapplications of the 300.3(B) exceptions allowing circuit conductors in separate raceways?"
+    ],
+    "evidence": [
+      "NEC 300.4(A): holes through wooden framing must be \u22651\u00bc in. from front edge or require metal plate protection from nails",
+      "NEC 300.3: all conductors of a circuit must be in same raceway/cable/trench unless one of four exceptions in 300.3(B)(1)-(4) applies",
+      "Parallel conductors per 310.4 must have all circuit conductors in same raceway, cable tray, trench, or cable"
+    ],
+    "extracted_at": "2026-03-28T09:48:18.751388"
+  },
+  {
+    "query_name": "Trade media: electrical press",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "Wiring Methods for Industrial Machinery per NFPA 79 vs NEC",
+    "link": "https://www.ecmweb.com/content/article/20889040/wiring-methods-for-industrial-machinery",
+    "snippet": "Because every type of machine has unique requirements for wiring methods, operator safety depends on your understanding the differences between rules in the ...",
+    "discovered_at": "2026-03-28T09:37:59.561449",
+    "artifact_type": "doc",
+    "publish_date": "2000-12-01",
+    "description": "Explains differences between NEC and NFPA 79 wiring methods for industrial machinery, including conductor identification, grounding, and color-coding requirements.",
+    "source_name": "EC&M",
+    "source_date": "2000-12-01",
+    "confidence": "low",
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards",
+      "safety-model"
+    ],
+    "players": [],
+    "so_what": "NFPA 79 prescribes different wiring methods than NEC for industrial machinery, affecting termination marking and grounding practices.",
+    "summary": "Article discusses NFPA 79 requirements for industrial machinery wiring, contrasting them with NEC rules. Covers conductor identification at terminations, equipment-grounding conductor color coding (green/yellow), and voltage-specific color conventions for control circuits.",
+    "why_it_matters": "Electrical contractors and machine installers must reconcile NFPA 79 requirements with NEC rules when wiring industrial equipment. The color-coding differences (e.g., yellow for circuits energized when main disconnect is OFF) affect safety labeling and field wiring practices, potentially impacting inspection/approval cycles.",
+    "open_questions": [
+      "How do AHJs resolve conflicts when both NEC and NFPA 79 apply to the same installation?",
+      "What are the most common field violations when contractors unfamiliar with NFPA 79 wire industrial machinery?"
+    ],
+    "evidence": [
+      "NFPA 79 Sec. 16.1.3 requires yellow conductors for control circuits that remain energized when main disconnect is OFF",
+      "Equipment-grounding conductors must be green with/without yellow stripes per NFPA 79 Sec. 16.1.2",
+      "Color conventions differ by voltage: black for line voltage, red for AC control <line voltage, blue for DC control"
+    ],
+    "extracted_at": "2026-03-28T09:48:28.482418"
+  },
+  {
+    "query_name": "Trade media: electrical press",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "NEC Article 501/502: Wiring Methods for Hazardous Locations",
+    "link": "https://www.ecmweb.com/construction/article/20891626/wiring-methods-for-hazardous-locations",
+    "snippet": "NEC guidelines for electrical contractors working in hazardous locations.",
+    "discovered_at": "2026-03-28T09:37:59.561451",
+    "artifact_type": "doc",
+    "publish_date": "2011-08-19",
+    "description": "NEC Chapter 5 guidance on electrical wiring methods and materials for Class I (flammable gas/vapor) and Class II (combustible dust) hazardous locations.",
+    "source_name": "EC&M",
+    "source_date": "2011-08-19",
+    "confidence": "medium",
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards",
+      "safety-model",
+      "pathways-install"
+    ],
+    "players": [],
+    "so_what": "Class I/II hazardous areas require specialized wiring methods per NEC 501/502, directly constraining pathway choices, materials, and labor for edge sites in industrial facilities.",
+    "summary": "EC&M article reviewing NEC Chapter 5 requirements for wiring in hazardous locations. Covers Class I (flammable gases/vapors) and Class II (combustible dust) area designations, each requiring distinct wiring techniques per Articles 501 and 502 to prevent ignition sources.",
+    "why_it_matters": "Electrical contractors working in industrial edge environments (refineries, grain facilities, chemical plants) face pathway and material constraints driven by hazardous area classification. NEC Articles 501/502 mandate specialized conduit, fittings, and devices that increase install complexity and cost. Understanding the delineation between Class I and Class II helps scope labor, materials, and AHJ approval timelines for edge power and UPS deployments in these constrained occupancies.",
+    "open_questions": [
+      "What are the incremental material and labor costs for Class I versus Class II wiring methods in typical edge deployments?",
+      "How do AHJs interpret boundaries between hazardous and non-hazardous zones when reviewing submittals for edge UPS installations?"
+    ],
+    "evidence": [
+      "NEC Chapter 5 covers 28 Articles on special occupancies; Class I locations require specialized wiring per Article 501, Class II per Article 502.",
+      "Class I areas involve flammable gases/vapors; Class II involves combustible dust (grain, flour, aluminum, magnesium) with explosion risk.",
+      "Conductive dusts can bridge circuit board traces causing short circuits; dusts on motor housings create additional hazards in Class II locations."
+    ],
+    "extracted_at": "2026-03-28T09:48:40.391655"
+  },
+  {
+    "query_name": "Trade media: electrical press",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "NEC Article 502: LFMC bonding jumper requirement in Class II hazardous locations",
+    "link": "https://www.ecmweb.com/code-quiz-of-day/article/20899907/lfmc-wiring-methods",
+    "snippet": "Article 502 covers the requirements for electrical and electronic equipment and wiring for all voltages in Class II, Division 1 and 2 locations where fire ...",
+    "discovered_at": "2026-03-28T09:37:59.561452",
+    "artifact_type": "doc",
+    "publish_date": "2015-02-20",
+    "description": "Code quiz clarifying NEC 502.30(B) requirement for wire-type equipment bonding jumpers when using liquidtight flexible metal conduit in Class II, Division 1 locations.",
+    "source_name": "EC&M",
+    "source_date": "2015-02-20",
+    "confidence": "high",
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards",
+      "safety-model",
+      "pathways-install"
+    ],
+    "players": [],
+    "so_what": "Class II hazardous location wiring requires specific bonding jumper compliance per NEC 502.30(B), affecting conduit selection and installation labor.",
+    "summary": "EC&M code quiz covers NEC Article 502 requirements for liquidtight flexible metal conduit (LFMC) in Class II, Division 1 and 2 locations where combustible dust creates fire/explosion hazards. The quiz clarifies that LFMC must include a wire-type equipment bonding jumper per Section 502.30(B) referencing 250.102.",
+    "why_it_matters": "Electrical contractors and inspectors working in environments with combustible dust (grain elevators, coal facilities, some manufacturing) must install wire-type bonding jumpers with LFMC runs\u2014a specific constraint that affects material cost, labor, and code compliance. Failure to include the bonding jumper creates safety risk and AHJ rejection. This impacts conduit pathway design decisions in hazardous classified edge locations.",
+    "open_questions": [
+      "What are the most common Class II locations in edge/telecom infrastructure where this bonding requirement applies?",
+      "Does the bonding jumper requirement affect LFMC use in data center raised-floor environments classified as Class II?"
+    ],
+    "evidence": [
+      "NEC Article 502 covers Class II, Division 1 and 2 locations where fire or explosion hazards exist due to combustible dust",
+      "Section 502.30(B) mandates liquidtight flexible metal conduit include equipment bonding jumper of wire type per 250.102",
+      "Quiz format indicates common field misunderstanding of LFMC bonding requirements in hazardous locations"
+    ],
+    "extracted_at": "2026-03-28T09:48:53.851458"
+  },
+  {
+    "query_name": "Trade media: electrical press",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "NEC Article 300 Wiring Methods: Underground Conductors and Raceway Requirements",
+    "link": "https://www.ecmweb.com/basics/article/21255527/wiring-methods-part-1-of-2",
+    "snippet": "Do you know the rules for installing cables, conductors, and raceways?",
+    "discovered_at": "2026-03-28T09:37:59.561454",
+    "artifact_type": "doc",
+    "publish_date": "2022-12-16",
+    "description": "Educational overview of NEC Article 300 general requirements for cables, conductors, and raceways including underground installations and circuit grouping rules.",
+    "source_name": "EC&M",
+    "source_date": "2022-12-16",
+    "confidence": "high",
+    "vertical": "building-electrification",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards",
+      "pathways-install",
+      "safety-model"
+    ],
+    "players": [],
+    "so_what": "NEC Art. 300 governs conductor grouping, underground cover depths (Table 300.5), and physical protection\u2014core compliance rules affecting install time and AHJ approval.",
+    "summary": "EC&M's educational article explains NEC Article 300 general wiring requirements, covering conductor installation in Chapter 3 methods, circuit grouping rules (all conductors in same raceway/cable), parallel conductor provisions, underground burial depths per Table 300.5, and physical damage protection requirements.",
+    "why_it_matters": "Electrical contractors and MEP engineers must comply with Sec. 300.3 circuit grouping rules and Table 300.5 burial depths to pass inspection and avoid rework. The article clarifies parallel conductor exceptions (Sec. 300.5(I) Exception No. 2 for underground nonmetallic raceways) and physical damage protection (Sec. 300.4) that directly affect pathway design, labor hours, and schedule in commercial and building electrification projects.",
+    "open_questions": [
+      "What are the specific minimum cover depths in Table 300.5 for typical data center or edge facility underground feeders?",
+      "How do parallel conductor tap connection rules (Sec. 300.3(B)(1)) impact high-capacity branch circuit design in dense electrical rooms?"
+    ],
+    "evidence": [
+      "Article 300 contains general requirements for wiring methods; all conductors of a circuit must be run in the same raceway, cable, trench, cord, or cable tray except as permitted by Sec. 300.3(B)(1) through (4)",
+      "Underground cables/raceways must have minimum cover per Table 300.5 [Sec. 300.5(A)]; cables in underground enclosures must be listed as suitable for wet location",
+      "Parallel phase and neutral conductors can be installed in individual underground nonmetallic raceways (Phase A in raceway 1, etc.) per Sec. 300.5(I) Exception No. 2 if complying with Sec. 300.20(B)"
+    ],
+    "extracted_at": "2026-03-28T09:49:07.016743"
+  },
+  {
+    "query_name": "Trade media: electrical press",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "NEC Art. 300 Wiring Methods: Power Quality Case Study at Engine Plant",
+    "link": "https://www.ecmweb.com/national-electrical-code/code-basics/article/20887618/art-300-wiring-methods",
+    "snippet": "After a small engine plant began experiencing severe power quality problems and the subsequent investigation showed the wireways weren't electrically ...",
+    "discovered_at": "2026-03-28T09:37:59.561455",
+    "artifact_type": "case-study",
+    "publish_date": "2004-03-01",
+    "description": "Small engine plant resolved severe power quality problems by ensuring wireway electrical continuity per NEC Art. 300 requirements for proper wiring methods.",
+    "source_name": "EC&M",
+    "source_date": "2004-03-01",
+    "confidence": "high",
+    "vertical": "building-electrification",
+    "persona": "facilities",
+    "topics": [
+      "code-standards",
+      "power-quality-surge",
+      "pathways-install"
+    ],
+    "players": [],
+    "so_what": "Art. 300 continuity requirements prevent inductive heating and reduce fault impedance\u2014addressing power quality failures via correct raceway installation.",
+    "summary": "A small engine plant experienced severe power quality problems traced to wireways that weren't electrically continuous. The facilities team resolved it by applying NEC Art. 300 requirements, which mandate conductor continuity, proper raceway installation, and circuit grouping to minimize inductive heating and fault impedance.",
+    "why_it_matters": "Facilities teams troubleshooting power quality issues must ensure metallic raceways maintain electrical continuity to prevent inductive heating and minimize ground fault impedance. Art. 300 requirements\u2014including keeping all circuit conductors in the same raceway and maintaining splice continuity\u2014directly affect install quality and long-term system performance, turning code compliance into operational reliability.",
+    "open_questions": [
+      "What specific symptoms indicated wireway discontinuity at the engine plant before the investigation?",
+      "How frequently do power quality issues trace to raceway continuity failures versus other distribution faults?"
+    ],
+    "evidence": [
+      "Small engine plant experienced severe power quality problems; investigation found wireways weren't electrically continuous",
+      "Art. 300.3 requires all conductors of a circuit in same raceway to minimize inductive heating and reduce impedance during ground faults",
+      "Conductors in raceways must be continuous between all points; splices only permitted under specific subsections (376.56, 378.56, etc.)"
+    ],
+    "extracted_at": "2026-03-28T09:49:17.613308"
+  },
+  {
+    "query_name": "Trade media: electrical press",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "NEC conductor and raceway installation rules for splices, boxes, and fittings",
+    "link": "https://www.ecmweb.com/national-electrical-code/code-basics/article/21257346/wiring-methods-part-2-of-2",
+    "snippet": "Following the conductor and raceway installation rules makes for a safer installation process and a better final product.",
+    "discovered_at": "2026-03-28T09:37:59.561456",
+    "artifact_type": "doc",
+    "publish_date": "2023-01-12",
+    "description": "Code Basics column covering NEC 300.13, 300.14, 300.15 requirements for conductor splices, box sizing, fitting compatibility, and raceway fill calculations.",
+    "source_name": "EC&M",
+    "source_date": "2023-01-12",
+    "confidence": "high",
+    "vertical": "building-electrification",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards",
+      "pathways-install",
+      "safety-model"
+    ],
+    "players": [],
+    "so_what": "NEC box/splice rules directly govern field labor, AHJ inspection outcomes, and rework risk on every branch circuit and feeder pull.",
+    "summary": "EC&M Code Basics column by Mike Holt covering NEC Article 300 installation requirements: multiwire branch circuit neutral continuity (300.13(B)), minimum 6-inch conductor length at boxes (300.14), splice enclosure rules (300.15), and fitting/connector compatibility requirements (110.3(B), 362.48).",
+    "why_it_matters": "Electrical contractors must follow these NEC 300-series rules on every job to pass inspection and avoid safety hazards like interrupted neutrals on multiwire circuits. The 6-inch conductor requirement, pigtail rules for neutrals, and fitting compatibility constraints directly affect labor time, material selection, and rework risk when devices are replaced or circuits are modified.",
+    "open_questions": [
+      "How often do neutral continuity violations on multiwire circuits cause callbacks or inspection failures?",
+      "What is the labor delta when pigtailing neutrals vs. direct device termination in retrofit scenarios?"
+    ],
+    "evidence": [
+      "Sec. 300.13(B): neutral continuity of multiwire branch circuit must not be interrupted by device removal; splice neutrals and run pigtail (except GFCI).",
+      "Sec. 300.14: minimum 6 in. of conductor from box entry point required for splices/terminations; boxes <8 in. need 3 in. outside the box.",
+      "Sec. 300.15: splices must be in enclosures, not raceways (except wireways per 376.56); fittings must match wiring method and be listed for use."
+    ],
+    "extracted_at": "2026-03-28T09:49:31.093080"
+  },
+  {
+    "query_name": "Trade media: electrical press",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "Wiring Methods for PV Systems and the NEC",
+    "link": "https://www.ecmweb.com/national-electrical-code/article/20897202/wiring-methods-for-pv-systems-and-the-nec",
+    "snippet": "Applying Code requirements correctly will help keep your photovoltaic (PV) installations safe and operating smoothly.",
+    "discovered_at": "2026-03-28T09:37:59.561458",
+    "artifact_type": "doc",
+    "publish_date": "2013-01-16",
+    "description": "NEC Article 690 requirements for PV system wiring, covering conductor types (USE-2, PV wire), single-conductor cable allowances, and wire management challenges.",
+    "source_name": "EC&M",
+    "source_date": "2013-01-16",
+    "confidence": "medium",
+    "vertical": "building-electrification",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards",
+      "pathways-install",
+      "safety-model"
+    ],
+    "players": [],
+    "so_what": "NEC Art. 690 permits exposed single-conductor cables in PV arrays, affecting field wiring methods, polarity identification, and long-term wire management planning.",
+    "summary": "Article explains NEC Article 690 Part IV wiring requirements for photovoltaic installations, focusing on conductor selection and installation methods. Covers allowances for USE-2 and PV wire single conductors with quick-connect plugs, polarity marking alternatives to color-coding per 200.6(A)(6), and wire management challenges for 25+ year system lifespans.",
+    "why_it_matters": "Electrical contractors installing PV systems must navigate NEC-specific allowances like exposed single-conductor cables and non-color-coded polarity marking that differ from standard wiring practices. These code provisions directly affect field installation methods, conductor procurement (12-10 AWG with quick-connects), and long-term reliability planning for harsh rooftop environments where wire management becomes critical over 25-year operational periods.",
+    "open_questions": [
+      "What are the most common wire management failures in residential rooftop PV installations that lead to premature conductor degradation?",
+      "How do AHJs interpret the distinctive marking allowance under 200.6(A)(6) versus traditional color-coding requirements?"
+    ],
+    "evidence": [
+      "690.31(A) allows exposed single-conductor cables (USE-2, PV wire) for circuits within PV arrays, typically 12 AWG or 10 AWG with quick-connect plugs",
+      "200.6(A)(6) permits non-color-coded conductors if polarity is marked at all terminations; black conductors preferred for UV resistance",
+      "Installations planned for 25+ year lifespan with minimal maintenance in harsh rooftop environments require upfront wire management strategy"
+    ],
+    "extracted_at": "2026-03-28T09:49:42.969263"
+  },
+  {
+    "query_name": "Trade media: electrical press",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "Testing and Troubleshooting Power Distribution Wiring Systems",
+    "link": "https://www.ecmweb.com/training/article/20897392/testing-and-troubleshooting-power-distribution-wiring-systems",
+    "snippet": "Online training helps provide essential safety requirements for working with energized power distribution systems.",
+    "discovered_at": "2026-03-28T09:37:59.561459",
+    "artifact_type": "doc",
+    "publish_date": "2013-03-18",
+    "description": "Online training covering safety requirements for testing energized power distribution systems, emphasizing OSHA/NFPA 70E compliance and systematic troubleshooting.",
+    "source_name": "EC&M",
+    "source_date": "2013-03-18",
+    "confidence": "high",
+    "vertical": "data-centers",
+    "persona": "electrical-contractor",
+    "topics": [
+      "safety-model",
+      "code-standards",
+      "commissioning",
+      "reliability-uptime",
+      "labor-productivity"
+    ],
+    "players": [],
+    "so_what": "Worker safety and NFPA 70E compliance drive training costs and safe work practices for maintaining energized distribution systems in commercial/industrial facilities.",
+    "summary": "EC&M training article addresses testing and troubleshooting power distribution wiring systems in commercial and industrial facilities. Emphasizes worker safety compliance with OSHA and NFPA 70E requirements, proper PPE use, and systematic approaches to maintenance and calibration. Discusses tradeoffs between repair vs. replacement, facility downtime costs, and the role of training in reducing productivity losses.",
+    "why_it_matters": "Electrical contractors and facility teams must balance safety compliance costs (OSHA, NFPA 70E, PPE) against downtime expenses when testing or repairing energized distribution systems. The article highlights systematic troubleshooting approaches that affect decisions around preventive maintenance schedules, equipment replacement vs. repair, and minimizing production losses during electrical work.",
+    "open_questions": [
+      "What specific NFPA 70E arc flash boundaries and PPE categories apply to common power distribution testing scenarios?",
+      "How do facilities quantify the cost differential between planned preventive testing vs. emergency troubleshooting after failure?"
+    ],
+    "evidence": [
+      "Worker safety compliance with OSHA and NFPA 70E explicitly mentioned as key consideration with cost implications",
+      "Commercial/industrial power loss leads to reduced productivity and revenue, driving urgency for quick, safe system restoration",
+      "Testing considerations include system reliability/condition, repair vs. replacement cost differential, and facility downtime impact on production"
+    ],
+    "extracted_at": "2026-03-28T09:49:54.216173"
+  },
+  {
+    "query_name": "Trade media: electrical press",
+    "query_vertical": "edge-power-ups",
+    "player": "other",
+    "title": "NEC Article 300 Wiring Methods: Raceway Support and Fill Requirements",
+    "link": "https://www.ecmweb.com/national-electrical-code/code-basics/article/20890971/wiring-methods-part-2-of-3",
+    "snippet": "NEC Article 300 provides wiring method requirements including information on sizing and securing raceways.",
+    "discovered_at": "2026-03-28T09:37:59.561460",
+    "artifact_type": "doc",
+    "publish_date": "2010-04-01",
+    "description": "NEC Article 300 requirements for securing raceways, mechanical continuity between boxes, and conductor fill percentages based on raceway length and type.",
+    "source_name": "EC&M",
+    "source_date": "2010-04-01",
+    "confidence": "high",
+    "vertical": "edge-power-ups",
+    "persona": "electrical-contractor",
+    "topics": [
+      "code-standards",
+      "pathways-install",
+      "safety-model"
+    ],
+    "players": [],
+    "so_what": "Raceway fill limits (60% for <24in runs vs. Table 1 percentages) and support rules constrain pathway capacity and labor in edge/data center installs.",
+    "summary": "EC&M article explains NEC Article 300 requirements for raceway installation, including rules that suspended ceiling wires cannot support raceways (independent support required), raceways must be mechanically continuous between boxes with specific exceptions, and conductor fill percentages vary by raceway length (60% for \u226424in, Chapter 9 Table 1 otherwise).",
+    "why_it_matters": "Electrical contractors and MEP designers must account for these NEC requirements when sizing pathways and planning support structures in data centers and edge facilities. The 60% fill rule for short raceway sections vs. standard percentages affects conductor capacity calculations, while the prohibition on using ceiling grid support wires drives additional labor and materials for independent supports in retrofit scenarios.",
+    "open_questions": [
+      "How do the raceway fill percentages in Chapter 9 Table 1 compare to the 60% allowance for short runs in terms of practical capacity?",
+      "What are the cost and schedule impacts of adding independent support wires versus relying on structural supports in ceiling plenum installations?"
+    ],
+    "evidence": [
+      "Raceways 24in or less can be filled to 60% of cross-sectional area; longer runs limited to Chapter 9 Table 1 percentages",
+      "Suspended ceiling support wires cannot support raceways; independent support wires secured at both ends required per 300.11(A)",
+      "Raceways must be mechanically continuous between boxes/cabinets per 300.12, with exceptions for support/protection sections and open-bottom equipment"
+    ],
+    "extracted_at": "2026-03-28T09:50:07.262189"
+  },
+  {
+    "query_name": "Trade media: data center press",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "Rack Density Keeps Rising at Enterprise Data Centers",
+    "link": "https://www.datacenterfrontier.com/cooling/article/11429037/rack-density-keeps-rising-at-enterprise-data-centers",
+    "snippet": "The amount of power used by each data center rack continues to rise for enterprise users, according to new research from AFCOM, the industry association for ...",
+    "discovered_at": "2026-03-28T09:38:01.819794",
+    "artifact_type": "press",
+    "publish_date": "2020-04-27",
+    "description": "AFCOM research shows average rack density jumped to 8.2 kW per rack in 2020, up from 7.3 kW in 2019, driven by AI workloads requiring 20-40 kW per rack or more.",
+    "source_name": "Data Center Frontier",
+    "source_date": "2020-04-27",
+    "confidence": "medium",
+    "vertical": "data-centers",
+    "persona": "facilities",
+    "topics": [
+      "power-quality-surge",
+      "reliability-uptime",
+      "ai-infrastructure"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Rising rack densities from 7.3 to 8.2 kW average (20-40 kW for AI) force power distribution and cooling infrastructure upgrades in enterprise facilities.",
+    "summary": "AFCOM's 2020 State of the Data Center report shows enterprise rack density jumped nearly 1 kW year-over-year to 8.2 kW per rack, with 68% reporting increases over three years. AI workloads are driving HPC/AI servers to 1 kW per rack unit, resulting in 20-40 kW per rack requirements that demand different cooling approaches at scale.",
+    "why_it_matters": "Enterprise facilities face power distribution constraint decisions as average rack density grows 14% year-over-year, with AI deployments pushing individual racks to 20-40 kW\u2014far beyond traditional 7-8 kW planning assumptions. Facilities managers must reassess electrical infrastructure capacity, circuit sizing, and cooling distribution to accommodate these higher loads without costly retrofits or service interruptions.",
+    "open_questions": [
+      "What percentage of enterprise facilities have electrical infrastructure sized for 20-40 kW racks versus the 7-8 kW legacy baseline?",
+      "How are facilities managers addressing circuit and panel capacity constraints when retrofitting for AI workload densities?"
+    ],
+    "evidence": [
+      "Average rack density increased from 7.3 kW (2019) to 8.2 kW (2020), with 68% reporting density increases over three years",
+      "AI/HPC servers trending to 1 kW per rack unit, leading to 20-40 kW per rack or more",
+      "451 Research notes such equipment 'requires different cooling at scale' beyond generic servers"
+    ],
+    "extracted_at": "2026-03-28T09:50:18.936787"
+  },
+  {
+    "query_name": "Trade media: data center press",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "Southland Industries Engineer Compares AC vs. FMP for 6 MW Data Center",
+    "link": "https://www.datacenterfrontier.com/energy/article/55040181/ict-engineering-experts-compare-new-class-4-fault-managed-power-vs-ac-power-infrastructure-for-data-centers",
+    "snippet": "Recent technical analysis investigates a use case of powering a 6 MW data center using traditional AC infrastructure versus new FMP infrastructure.",
+    "discovered_at": "2026-03-28T09:38:01.819802",
+    "artifact_type": "case-study",
+    "publish_date": "2024-05-15",
+    "description": "Technical analysis and parts-and-labor summary shows FMP infrastructure can save multiple millions of dollars versus traditional AC for a 6 MW data center.",
+    "source_name": "Data Center Frontier",
+    "source_date": "2024-05-15",
+    "confidence": "high",
+    "vertical": "data-centers",
+    "persona": "owner-operator",
+    "topics": [
+      "estimating",
+      "code-standards",
+      "pathways-install",
+      "dc-distribution"
+    ],
+    "players": [
+      "voltserver",
+      "other"
+    ],
+    "so_what": "Multi-million dollar CapEx savings claim for FMP vs. AC in 6 MW data center, backed by parts-and-labor analysis from independent MEP engineer.",
+    "summary": "Southland Industries principal electrical engineer Michael Starego presented a comparative analysis of powering a 6 MW data center using traditional AC infrastructure versus FMP infrastructure. The parts-and-labor summary concludes FMP can result in multiple millions of dollars in savings for operators. The analysis was delivered in a May 2024 webinar hosted by Cabling Installation & Maintenance.",
+    "why_it_matters": "Data center owner-operators evaluating greenfield or retrofit infrastructure decisions now have a specific cost benchmark: a multi-million dollar delta between AC and FMP for a 6 MW facility, analyzed by an independent MEP engineering firm. This directly impacts CapEx budgeting, design-build RFPs, and infrastructure strategy for power-constrained or cost-sensitive deployments.",
+    "open_questions": [
+      "What specific components or labor categories drove the majority of the multi-million dollar savings in the Southland analysis?",
+      "Does the FMP approach change commissioning timelines or AHJ approval cycles for data centers in practice?"
+    ],
+    "evidence": [
+      "Southland Industries' principal electrical engineer Michael Starego delivered an analysis of powering a 6-megawatt data center using traditional AC versus using FMP",
+      "Parts-and-labor summary concludes the use of FMP can result in multiple-millions of dollars in savings",
+      "Recognition of Class 4 power in the 2023 National Electrical Code raised FMP's profile"
+    ],
+    "extracted_at": "2026-03-28T09:50:29.990001"
+  },
+  {
+    "query_name": "Trade media: data center press",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "White Paper: Basics of Selecting Rack-Mount PDUs and Power Strips",
+    "link": "https://www.datacenterfrontier.com/colocation/whitepaper/11431960/chatsworth-products-the-basics-of-selecting-rack-mount-power-distribution-units-and-power-strips",
+    "snippet": "If you are unfamiliar with electrical power distribution systems or even the differences in industry jargon, selecting a PDU or power strip can be ...",
+    "discovered_at": "2026-03-28T09:38:01.819804",
+    "artifact_type": "doc",
+    "publish_date": "2019-02-23",
+    "description": "Chatsworth Products guide covering key questions about site, rack, and equipment to simplify PDU/power strip selection for ICT racks in data centers.",
+    "source_name": "Data Center Frontier",
+    "source_date": "2019-02-23",
+    "confidence": "low",
+    "vertical": "data-centers",
+    "persona": "it-network",
+    "topics": [
+      "pathways-install"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Introductory vendor guide for PDU selection; lacks concrete constraints, standards, or deployment details needed for practitioner decision-making.",
+    "summary": "Chatsworth Products white paper introducing PDU and power strip selection basics for data center equipment racks. Defines terminology (rack-mount, rack-level) and promises to cover key questions about site, rack, and equipment requirements to simplify selection.",
+    "why_it_matters": "The excerpt is primarily a promotional overview for an introductory white paper. While PDU selection is relevant to data center power distribution, the page provides no concrete constraints, standards references, sizing criteria, or deployment tradeoffs\u2014only definitions and general promises about the full document's content.",
+    "open_questions": [
+      "What specific sizing or electrical criteria does the full white paper provide for PDU selection?",
+      "Does the document address monitoring capabilities or circuit protection requirements?"
+    ],
+    "evidence": [],
+    "extracted_at": "2026-03-28T09:50:38.412191"
+  },
+  {
+    "query_name": "Trade media: data center press",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "AWS Designs In-Rack Micro UPS Units For a More Efficient Cloud",
+    "link": "https://www.datacenterfrontier.com/cloud/article/11428519/aws-designs-in-rack-micro-ups-units-for-a-more-efficient-cloud",
+    "snippet": "Amazon Web Services has begun designing its own rack-level Micro UPS units for its data centers, eliminating a centralized UPS in a move that will dramatically",
+    "discovered_at": "2026-03-28T09:38:01.819806",
+    "artifact_type": "press",
+    "publish_date": "2020-12-11",
+    "description": "AWS replaces centralized UPS with rack-level micro UPS units, reducing power conversion losses by 35% and eliminating maintenance windows via hot-swap batteries.",
+    "source_name": "Data Center Frontier",
+    "source_date": "2020-12-11",
+    "confidence": "high",
+    "vertical": "data-centers",
+    "persona": "owner-operator",
+    "topics": [
+      "ups-resilience",
+      "reliability-uptime",
+      "power-quality-surge",
+      "commissioning"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Distributed rack-level UPS eliminates centralized infrastructure, reduces conversion losses 35%, enables hot-swap maintenance, and limits blast radius to single rack.",
+    "summary": "AWS announced custom in-rack micro UPS units replacing centralized UPS systems across its data centers. The distributed architecture eliminates AC/DC conversion steps, reducing power chain energy loss by 35%, and enables hot-swappable battery replacement in seconds without downtime. Single failures now impact only one rack instead of entire data halls.",
+    "why_it_matters": "Moving UPS function from facility-level to rack-level fundamentally changes power distribution architecture, eliminating conversion losses and large battery banks. Owner-operators gain insight into tradeoffs between centralized vs distributed resilience models, including failure blast radius containment (single rack vs entire hall) and maintenance windows (seconds vs hours). Design decisions shift from facility-wide redundancy planning to per-rack power supply integration.",
+    "open_questions": [
+      "What voltage distribution strategy does AWS use to the rack level to enable this micro UPS approach?",
+      "How do cost and complexity of distributed battery monitoring/management compare to centralized UPS at scale?"
+    ],
+    "evidence": [
+      "35% reduction in energy conversion loss in data center power chain by eliminating centralized UPS AC/DC conversions",
+      "Batteries can be removed and replaced in seconds rather than hours without turning off the system, drastically reducing maintenance risk",
+      "Single failure impacts only servers in a single rack rather than an entire data hall or building"
+    ],
+    "extracted_at": "2026-03-28T09:50:49.539044"
+  },
+  {
+    "query_name": "Trade media: data center press",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "Guide to Intelligent Rack Power Distribution (Raritan)",
+    "link": "https://www.datacenterfrontier.com/home/whitepaper/11432099/raritan-a-guide-to-intelligent-rack-power-distribution",
+    "snippet": "Learn about the concepts, considerations and approaches in designing, selecting and deploying the appropriate rack PDU for typical data center applications.",
+    "discovered_at": "2026-03-28T09:38:01.819808",
+    "artifact_type": "doc",
+    "publish_date": "2017-08-23",
+    "description": "White paper covering design, selection and deployment considerations for rack PDUs in data center applications, including metered, switched and intelligent types.",
+    "source_name": "Data Center Frontier",
+    "source_date": "2017-08-23",
+    "confidence": "medium",
+    "vertical": "data-centers",
+    "persona": "facilities",
+    "topics": [
+      "pathways-install",
+      "monitoring-telemetry",
+      "reliability-uptime",
+      "power-quality-surge"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "PDU selection complexity driven by configuration parameters (phases, voltage, amps, circuits, outlets) and monitoring tiers affects rack deployment decisions.",
+    "summary": "Raritan white paper addressing rack PDU selection for data centers, covering configuration parameters like phases, voltage, total amps, branch circuits, outlets, and physical dimensions. Discusses basic, metered, switched and intelligent PDU categories, plus custom BTO/ETO options for specific requirements.",
+    "why_it_matters": "Facilities teams face multi-dimensional constraint space when specifying rack power\u2014voltage/phase/outlet combinations, rack unit consumption, and monitoring capability tiers all affect upfront cost, operational visibility, and retrofit flexibility. The guide promises best practices for reliability and efficiency decisions.",
+    "open_questions": [
+      "What specific tradeoffs exist between switched vs. intelligent PDU cost and the operational value of remote monitoring/control?",
+      "How do custom BTO/ETO PDU lead times and approval cycles impact deployment schedules compared to off-the-shelf units?"
+    ],
+    "evidence": [
+      "Configuration parameters include number of phases, voltage, total amps, branch circuits, number of outlets, socket type, plug type, rack units consumed, and physical dimensions",
+      "PDU categories: basic, metered, switched, and intelligent, with custom BTO/ETO options available",
+      "Addresses operational efficiency and reliability factors for rack power delivery"
+    ],
+    "extracted_at": "2026-03-28T09:51:04.356491"
+  },
+  {
+    "query_name": "Trade media: data center press",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "NFPA 855 Battery Standard Could Alter Data Center UPS Designs and Retrofits",
+    "link": "https://www.datacenterfrontier.com/energy/article/11429677/new-nfpa-battery-standard-could-impact-data-center-ups-designs",
+    "snippet": "A new NFPA standard could have a big impact on the use of batteries in UPS systems, according to a group of data center energy experts, who are seeking to ...",
+    "discovered_at": "2026-03-28T09:38:01.819809",
+    "artifact_type": "press",
+    "publish_date": "2019-04-01",
+    "description": "New NFPA 855 standard for stationary energy storage affects UPS batteries >70kW, with potential retroactive application to existing data center facilities.",
+    "source_name": "Data Center Frontier",
+    "source_date": "2019-04-01",
+    "confidence": "high",
+    "vertical": "data-centers",
+    "persona": "facilities",
+    "topics": [
+      "code-standards",
+      "ups-resilience",
+      "safety-model",
+      "commissioning"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "NFPA 855 introduces new design/testing protocols for lithium-ion UPS and could apply retroactively to existing VRLA installations >70kW, affecting AHJ approvals.",
+    "summary": "NFPA 855 standard for stationary energy storage systems impacts battery installations providing >70kW of power, including nearly all data center UPS systems. Data center energy experts warn the standard, already being implemented in LA and NYC, could disrupt construction and be applied retroactively to existing battery installations, prompting industry mobilization for revisions before the April 29 comment deadline.",
+    "why_it_matters": "The standard affects both new lithium-ion and existing VRLA UPS deployments in data centers, creating uncertainty for design and retrofit projects. Facilities operators and AHJs must now navigate new design and testing protocols for systems that previously followed established practices. Retroactive application could force modifications to existing battery rooms, impacting uptime and capital planning for operational facilities.",
+    "open_questions": [
+      "What specific design and testing protocol changes does NFPA 855 introduce that differ from prior VRLA battery installation practices?",
+      "How are AHJs in cities already implementing sections of NFPA 855 interpreting retroactive application requirements?"
+    ],
+    "evidence": [
+      "NFPA 855 impacts all battery installations providing more than 70 kilowatts (kW) of power, which includes nearly all data centers",
+      "Standard 'can be applied retroactively to existing battery installations' and sections are already being implemented in Los Angeles, New York and other cities",
+      "Includes new design and testing protocols for lithium-ion UPS systems but has been broadened to potentially alter current practices for other UPS types including VRLA"
+    ],
+    "extracted_at": "2026-03-28T09:51:16.550979"
+  },
+  {
+    "query_name": "Trade media: data center press",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "Liquid cooling adoption driven by rack densities rising to 40+ kW in GPU data centers",
+    "link": "https://www.datacenterfrontier.com/sponsored/article/55252826/breaking-barriers-in-rack-density-why-liquid-cooling-is-the-key-to-tomorrows-data-centers",
+    "snippet": "Phillip Marangella, Chief Marketing and Product Officer for EdgeConneX, explains why the adage \"everything old is new again\" only tells part of the story ...",
+    "discovered_at": "2026-03-28T09:38:01.819810",
+    "artifact_type": "other",
+    "publish_date": "2025-01-13",
+    "description": "EdgeConneX CMO on transition from air to liquid cooling as GPU rack densities exceed 40kW, pushing beyond air cooling limits of 25-40kW with containment systems.",
+    "source_name": "Data Center Frontier",
+    "source_date": "2025-01-13",
+    "confidence": "medium",
+    "vertical": "data-centers",
+    "persona": "facilities",
+    "topics": [
+      "power-quality-surge",
+      "reliability-uptime",
+      "ai-infrastructure"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "GPU rack densities >40kW force liquid cooling adoption, impacting electrical distribution design, cooling infrastructure sizing, and power delivery constraints.",
+    "summary": "EdgeConneX executive discusses the shift to liquid cooling in data centers driven by rapidly increasing rack densities. Average densities rose from 2.4kW (2011) to 8.4kW (2020), with 17% already exceeding 20kW. Air cooling with containment can reach 25-40kW but GPU racks requiring >40kW necessitate liquid cooling solutions.",
+    "why_it_matters": "Facilities managers and electrical designers must account for rack power densities jumping from historical 8.4kW averages to 40+kW for GPU workloads. This density leap constrains electrical distribution capacity planning, panel sizing, and branch circuit design. Air cooling infrastructure maxes out at 25-40kW with containment, forcing migration to liquid cooling with different power delivery and monitoring requirements.",
+    "open_questions": [
+      "How do electrical distribution systems need to be redesigned to support 40+ kW racks versus legacy 8-10 kW designs?",
+      "What are the UPS and backup power implications when transitioning from air-cooled to liquid-cooled high-density deployments?"
+    ],
+    "evidence": [
+      "Average rack density rose from 2.4kW (2011) to 8.4kW (2020), 3.5x increase; 17% of respondents reported >20kW per rack, 5% reported >40kW in 2020",
+      "Air cooling with containment (Hot/Cold Aisle) can reach 25-40kW; GPU racks require >40kW and need rear-door heat exchangers or liquid cooling",
+      "GPU racks 'even air-cooled current GPU racks need to be cooling using rear-door heat exchangers\u2014can require over 40kW'"
+    ],
+    "extracted_at": "2026-03-28T09:51:29.708367"
+  },
+  {
+    "query_name": "Trade media: data center press",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "Report: Data Center Rack Density Rising to 11kW+, Driving Cooling & Power Challenges",
+    "link": "https://www.datacenterfrontier.com/cooling/article/11429309/report-data-center-rack-density-is-rising-and-heading-higher",
+    "snippet": "Data center rack densities are rising, and large enterprises expect that trend to continue, according to a new report from 451 Research, which suggests a ...",
+    "discovered_at": "2026-03-28T09:38:01.819812",
+    "artifact_type": "press",
+    "publish_date": "2019-11-15",
+    "description": "451 Research reports 45% of enterprises expect average rack densities of 11kW or higher, up from 5kW baseline, driven by AI workloads and challenging cooling strategies.",
+    "source_name": "Data Center Frontier",
+    "source_date": "2019-11-15",
+    "confidence": "medium",
+    "vertical": "data-centers",
+    "persona": "facilities",
+    "topics": [
+      "power-quality-surge",
+      "reliability-uptime",
+      "ai-infrastructure"
+    ],
+    "players": [],
+    "so_what": "Rising rack density from 5kW to 11kW+ forces power distribution and cooling redesign, impacting panel sizing, circuit design, and UPS capacity planning.",
+    "summary": "451 Research survey of 750 enterprises finds 45% expect average rack densities of 11kW or higher within a year, versus 18% reporting >10kW in 2014. AI workloads and chips like Groq's 1 PetaOp/s TSP are driving higher power density per rack, challenging traditional data center cooling and power distribution practices.",
+    "why_it_matters": "The shift from 5kW to 11kW+ average rack density more than doubles electrical distribution requirements at the rack level, forcing facilities managers to reassess branch circuit capacity, panel upgrades, and UPS sizing. AI-driven density increases are moving enterprise data centers toward HPC-like power profiles (54% report HPC infrastructure), requiring redesign of power pathways originally spec'd for lower loads.",
+    "open_questions": [
+      "What branch circuit and panel upgrade strategies are enterprises using to handle the 5kW to 11kW density transition without facility-wide rewiring?",
+      "How are AI rack deployments impacting UPS runtime and battery infrastructure sizing in enterprise facilities?"
+    ],
+    "evidence": [
+      "45% of companies expect average density of 11kW per rack or higher over the next year, up from just 18% reporting densities beyond 10kW in 2014",
+      "Average rack density baseline was 5kW until recently, now perceived to be increasing due to AI workloads",
+      "54% of respondents reported having HPC infrastructure placing significant computational power in a small footprint"
+    ],
+    "extracted_at": "2026-03-28T09:51:41.707597"
+  },
+  {
+    "query_name": "Trade media: data center press",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "Top 10 things every data center manager should know about rack power distribution",
+    "link": "https://img.datacenterfrontier.com/files/base/ebm/datacenterfrontier/document/2022/09/1663627682743-top_10_things_datacenter_manager.pdf?dl=1663627682743-top_10_things_datacenter_manager.pdf",
+    "snippet": "This will accommodate 1.7 times greater power density within the rack versus single-phase power of a ... Some typical North American rack based power distribution ...",
+    "discovered_at": "2026-03-28T09:38:01.819813",
+    "artifact_type": "doc",
+    "publish_date": "2019-07-09",
+    "description": "Guide covering power density constraints in data center rack-based power distribution, including single-phase vs. three-phase trade-offs for North American deployments.",
+    "source_name": "Data Center Frontier",
+    "source_date": "2019-07-09",
+    "confidence": "low",
+    "vertical": "data-centers",
+    "persona": "facilities",
+    "topics": [
+      "power-quality-surge",
+      "pathways-install"
+    ],
+    "players": [],
+    "so_what": "PDF excerpt unreadable; only SERP snippet confirms three-phase accommodates 1.7x power density vs. single-phase in rack distribution.",
+    "summary": "Educational document intended for data center managers addressing rack-based power distribution decisions. SERP snippet references single-phase vs. three-phase power density trade-offs (1.7x multiplier) in North American contexts. Page excerpt is raw PDF metadata with no extractable content.",
+    "why_it_matters": "Power density constraints drive distribution architecture choices at the rack level, affecting facilities teams' design decisions for cooling, breaker sizing, and feeder capacity. The 1.7x density advantage of three-phase is a key planning parameter, but cannot verify additional details without readable content.",
+    "open_questions": [
+      "What are the other 9 topics covered, and do they address monitoring, commissioning, or specific failure modes?",
+      "Does the full document provide cost or labor trade-offs between single-phase and three-phase deployment?"
+    ],
+    "evidence": [
+      "SERP snippet states three-phase 'will accommodate 1.7 times greater power density within the rack versus single-phase power'",
+      "Document titled for data center managers and addresses 'North American rack based power distribution'"
+    ],
+    "extracted_at": "2026-03-28T09:51:54.975323"
+  },
+  {
+    "query_name": "Trade media: data center press",
+    "query_vertical": "data-centers",
+    "player": "other",
+    "title": "UPS Runtime Reduction Drives Battery Technology Shift in Data Centers",
+    "link": "https://www.datacenterfrontier.com/sponsored/article/55245958/zincfive-data-center-backup-power-unlocking-shorter-ups-runtimes",
+    "snippet": "Tod Higinbotham, COO of ZincFive, explores the race to reduce uninterruptible power supply (UPS) runtimes.",
+    "discovered_at": "2026-03-28T09:38:01.819814",
+    "artifact_type": "other",
+    "publish_date": "2024-12-09",
+    "description": "ZincFive COO explores how faster generator failover enables sub-5-minute UPS runtimes, challenging lead-acid and lithium-ion battery economics and footprint.",
+    "source_name": "Data Center Frontier",
+    "source_date": "2024-12-09",
+    "confidence": "high",
+    "vertical": "data-centers",
+    "persona": "facilities",
+    "topics": [
+      "ups-resilience",
+      "reliability-uptime",
+      "power-quality-surge"
+    ],
+    "players": [
+      "other"
+    ],
+    "so_what": "Runtime compression from 30min to 3min forces battery oversizing with lead-acid/lithium due to discharge rate and thermal runaway limits, consuming revenue floor space.",
+    "summary": "Tod Higinbotham of ZincFive examines the trend toward sub-5-minute and 3-minute UPS runtimes enabled by faster generator failover. Traditional lead-acid batteries lack power density for short bursts, while lithium-ion BMS safety shutdowns at high discharge rates cripple systems during outages, forcing costly battery bank oversizing.",
+    "why_it_matters": "Data center operators moving from 30-minute to 3-minute UPS runtimes face a constraint: lead-acid's low energy density requires more cabinets, and lithium-ion BMS shutdowns during high-discharge events create reliability gaps. This forces oversizing battery banks, consuming valuable floor space that could house revenue-generating servers and increasing upfront capital costs.",
+    "open_questions": [
+      "What specific discharge rate (C-rate) thresholds trigger lithium-ion BMS shutdowns in typical data center UPS configurations?",
+      "How do nickel-zinc batteries handle single-cell failures compared to lead-acid and lithium-ion string architectures?"
+    ],
+    "evidence": [
+      "Data centers moving from 30-minute runtimes to under 5 minutes, with many targeting 3-minute runtimes due to faster automatic failover.",
+      "Lithium-ion BMS triggers automatic shutdowns if discharge current exceeds preset thresholds, 'crippling the UPS system when it's needed most.'",
+      "Single failed cell in lead-acid/lithium creates open circuit bringing down entire battery string; oversizing consumes floor space for revenue-generating servers."
+    ],
+    "extracted_at": "2026-03-28T09:52:07.346354"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "date": "2026-03-28",
+  "insights": [
+    {
+      "insight_id": "2026-03-28-A01",
+      "working_title": "The Coupled Bottleneck: Why Heat Pump Panel Upgrade Financing Will Fail Without AHJ Process Standardization First",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-28-the-coupled-bottleneck-why-heat-pump-panel-upgrade.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-28-A02",
+      "working_title": "Cooling-First: The Design Sequence Inversion That AI Rack Density Demands\u2014and Why PDU and UPS Decisions Cannot Precede It",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-28-cooling-first-the-design-sequence-inversion-that-a.md",
+      "confidence": "",
+      "levers": []
+    },
+    {
+      "insight_id": "2026-03-28-A03",
+      "working_title": "Thermal Orphans: How Density-Exceeding Deployments in Edge and Data Centers Are Creating a Class of Installations Without Valid Inspection Precedent",
+      "status": "DRAFT",
+      "draft_path": "content/analysis/2026-03-28-thermal-orphans-how-density-exceeding-deployments-.md",
+      "confidence": "",
+      "levers": []
+    }
+  ]
+}
